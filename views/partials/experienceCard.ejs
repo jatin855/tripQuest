@@ -1,0 +1,63 @@
+<!-- views/partials/experienceCard.ejs -->
+<!-- Usage: <%- include('../partials/experienceCard', { exp: experience }) %> -->
+
+<a href="/experiences/<%= exp.slug %>"
+   class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col">
+
+  <!-- Image -->
+  <div class="relative overflow-hidden h-48">
+    <% if (exp.images && exp.images.length > 0) { %>
+      <img src="<%= exp.images[0] %>" alt="<%= exp.title %>"
+           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+    <% } else { %>
+      <div class="w-full h-full bg-gradient-to-br from-teal-400 to-emerald-600 flex items-center justify-center">
+        <svg class="w-12 h-12 text-white opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      </div>
+    <% } %>
+
+    <!-- Category Badge -->
+    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-teal-700 text-xs font-semibold px-3 py-1 rounded-full">
+      <%= exp.category %>
+    </span>
+
+    <!-- Price Badge -->
+    <span class="absolute top-3 right-3 <%= exp.isFree ? 'bg-green-500' : 'bg-teal-600' %> text-white text-xs font-bold px-3 py-1 rounded-full">
+      <%= exp.isFree ? 'FREE' : '₹' + exp.price %>
+    </span>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5 flex flex-col flex-1">
+    <h3 class="font-semibold text-gray-900 text-base mb-1 line-clamp-2 group-hover:text-teal-600 transition-colors">
+      <%= exp.title %>
+    </h3>
+
+    <!-- Location -->
+    <div class="flex items-center gap-1 text-gray-500 text-xs mb-3">
+      <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <%= exp.city %><% if (exp.state) { %>, <%= exp.state %><% } %>
+    </div>
+
+    <!-- Host -->
+    <div class="flex items-center gap-2 mt-auto pt-3 border-t border-gray-50">
+      <div class="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 text-xs font-bold">
+        <%= exp.hostName ? exp.hostName[0].toUpperCase() : 'H' %>
+      </div>
+      <span class="text-xs text-gray-500">by <span class="font-medium text-gray-700"><%= exp.hostName %></span></span>
+
+      <% if (exp.date) { %>
+        <span class="ml-auto text-xs text-gray-400">
+          <%= new Date(exp.date).toLocaleDateString('en-IN', { day:'numeric', month:'short' }) %>
+        </span>
+      <% } %>
+    </div>
+  </div>
+</a>

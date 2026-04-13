@@ -1,0 +1,42 @@
+<!-- views/partials/footer.ejs -->
+<footer class="bg-gray-900 text-gray-300 mt-20">
+  <div class="max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <div>
+      <h3 class="text-white font-bold text-lg mb-3">TripAdvisor</h3>
+      <p class="text-sm text-gray-400 leading-relaxed">
+        A cultural travel platform powered by local people. Discover authentic experiences across India and beyond.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-3">Explore</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/explore"     class="hover:text-teal-400 transition-colors">All Destinations</a></li>
+        <li><a href="/experiences" class="hover:text-teal-400 transition-colors">Local Experiences</a></li>
+        <li><a href="/reviews"     class="hover:text-teal-400 transition-colors">Traveler Reviews</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-3">For Hosts</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/host/register"          class="hover:text-teal-400 transition-colors">Become a Host</a></li>
+        <li><a href="/host/create-experience" class="hover:text-teal-400 transition-colors">List an Experience</a></li>
+        <li><a href="/host/dashboard"         class="hover:text-teal-400 transition-colors">Host Dashboard</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-3">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/about"   class="hover:text-teal-400 transition-colors">About Us</a></li>
+        <li><a href="/contact" class="hover:text-teal-400 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-800 py-4 text-center text-xs text-gray-500">
+    © <%= new Date().getFullYear() %> TripAdvisor. All rights reserved.
+  </div>
+</footer>

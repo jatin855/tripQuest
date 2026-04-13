@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile – TripAdvisor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+      min-height: 100vh;
+      color: #1a1a1a;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .green-text {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── PROFILE HEADER CARD ── */
+    .profile-header {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,170,108,0.25);
+    }
+    .profile-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    /* ── AVATAR ── */
+    .avatar-large {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #00AA6C;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border: 3px solid rgba(255,255,255,0.6);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+
+    /* ── INFO CARDS ── */
+    .info-card {
+      background: white;
+      border: 1.5px solid rgba(0,0,0,0.07);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+    .info-row {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row:hover { background: #fafafa; }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(52,224,161,0.15), rgba(0,170,108,0.1));
+      border: 1.5px solid rgba(0,170,108,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .info-value {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    /* ── STAT PILLS ── */
+    .stat-pill {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: white;
+      position: relative; z-index: 1;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-green {
+      background: #34E0A1;
+      color: #1a1a1a;
+      font-weight: 800;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: all 0.22s;
+      box-shadow: 0 4px 14px rgba(52,224,161,0.38);
+      display: inline-flex; align-items: center; gap: 7px;
+      text-decoration: none;
+    }
+    .btn-green:hover {
+      background: #28d494;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(52,224,161,0.48);
+    }
+    .btn-danger {
+      background: white;
+      color: #e05252;
+      font-weight: 800;
+      border-radius: 10px;
+      border: 1.5px solid #e05252;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: all 0.22s;
+      display: inline-flex; align-items: center; gap: 7px;
+      text-decoration: none;
+    }
+    .btn-danger:hover {
+      background: #fff2f2;
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    /* ── ACTIVITY EMPTY ── */
+    .empty-state {
+      background: white;
+      border: 1.5px dashed #d4d4d4;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #1a1a1a; color: white;
+      padding: 11px 22px; border-radius: 100px;
+      font-size: 0.84rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999; white-space: nowrap;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.success { background: #00AA6C; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar">
+  <nav style="max-width:1100px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between">
+    <a href="/home" style="display:flex;align-items:center;gap:9px;text-decoration:none">
+      <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">🦉</div>
+      <span style="font-size:1.15rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span style="color:#00AA6C">Advisor</span></span>
+    </a>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="/home" style="font-size:0.85rem;font-weight:700;color:#4a4a4a;text-decoration:none;padding:8px 16px;border-radius:8px;transition:0.2s;display:flex;align-items:center;gap:6px"
+         onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+        ← Back to Home
+      </a>
+      <a href="/logout" class="btn-danger" style="padding:8px 18px;font-size:0.84rem">
+        🚪 Logout
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ══════════ MAIN CONTENT ══════════ -->
+<main style="max-width:900px;margin:0 auto;padding:36px 24px 60px">
+
+  <!-- Profile Header Card -->
+  <div class="profile-header mb-6">
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative;z-index:1">
+
+      <!-- Avatar with initials -->
+      <div class="avatar-large">
+        <%= user.name.charAt(0).toUpperCase() %>
+      </div>
+
+      <div style="flex:1;min-width:200px">
+        <div style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px">Your Profile</div>
+        <h1 style="font-size:1.8rem;font-weight:900;color:white;letter-spacing:-0.02em;margin-bottom:4px">
+          <%= user.name %>
+        </h1>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);font-weight:500"><%= user.email %></p>
+      </div>
+
+      <!-- Stats pills -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <div class="stat-pill">✈️ 0 Trips</div>
+        <div class="stat-pill">⭐ 0 Reviews</div>
+        <div class="stat-pill">🗺️ 0 Saved</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="grid-cols">
+
+    <!-- ── Account Info ── -->
+    <div>
+      <div class="section-title">Account Information</div>
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-icon">👤</div>
+          <div>
+            <div class="info-label">Full Name</div>
+            <div class="info-value"><%= user.name %></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="info-label">Email Address</div>
+            <div class="info-value"><%= user.email %></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🔒</div>
+          <div>
+            <div class="info-label">Password</div>
+            <div class="info-value">••••••••••</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📅</div>
+          <div>
+            <div class="info-label">Member Since</div>
+            <div class="info-value">
+              <%= user.createdAt ? new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A' %>
+            </div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">✅</div>
+          <div>
+            <div class="info-label">Account Status</div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <div style="width:8px;height:8px;border-radius:50%;background:#34E0A1;box-shadow:0 0 6px rgba(52,224,161,0.6)"></div>
+              <span style="font-size:0.92rem;font-weight:700;color:#00AA6C">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── Quick Actions ── -->
+    <div>
+      <div class="section-title">Quick Actions</div>
+      <div class="info-card">
+        <div class="info-row" style="cursor:pointer" onclick="showToast('Edit profile coming soon!', false)">
+          <div class="info-icon">✏️</div>
+          <div style="flex:1">
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Edit Profile</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Update your name, photo &amp; details</div>
+          </div>
+          <span style="color:#d4d4d4;font-size:1rem">›</span>
+        </div>
+        <div class="info-row" style="cursor:pointer" onclick="showToast('Password change coming soon!', false)">
+          <div class="info-icon">🔑</div>
+          <div style="flex:1">
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Change Password</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Update your account password</div>
+          </div>
+          <span style="color:#d4d4d4;font-size:1rem">›</span>
+        </div>
+        <div class="info-row" style="cursor:pointer" onclick="showToast('Saved trips coming soon!', false)">
+          <div class="info-icon">🗺️</div>
+          <div style="flex:1">
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">My Saved Trips</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">View your saved destinations</div>
+          </div>
+          <span style="color:#d4d4d4;font-size:1rem">›</span>
+        </div>
+        <div class="info-row" style="cursor:pointer" onclick="showToast('Notifications coming soon!', false)">
+          <div class="info-icon">🔔</div>
+          <div style="flex:1">
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Notifications</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Manage your alerts &amp; updates</div>
+          </div>
+          <span style="color:#d4d4d4;font-size:1rem">›</span>
+        </div>
+        <div class="info-row" style="cursor:pointer" onclick="confirmDelete()">
+          <div class="info-icon" style="background:rgba(224,82,82,0.08);border-color:rgba(224,82,82,0.15)">🗑️</div>
+          <div style="flex:1">
+            <div style="font-size:0.9rem;font-weight:700;color:#e05252">Delete Account</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Permanently remove your account</div>
+          </div>
+          <span style="color:#d4d4d4;font-size:1rem">›</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+
+  <!-- ── Recent Activity ── -->
+  <div style="margin-top:24px">
+    <div class="section-title">Recent Activity</div>
+    <div class="empty-state">
+      <div style="font-size:2.5rem;margin-bottom:12px">🌍</div>
+      <div style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No trips yet</div>
+      <div style="font-size:0.85rem;color:#8a8a8a;font-weight:500;margin-bottom:20px">Start exploring destinations to build your travel history</div>
+      <a href="/home" class="btn-green" style="padding:10px 24px;font-size:0.88rem">
+        🔍 Explore Destinations
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ── Danger Zone ── -->
+  <div style="margin-top:24px;background:white;border:1.5px solid rgba(224,82,82,0.15);border-radius:16px;padding:20px 24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-size:0.78rem;font-weight:800;color:#e05252;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px">Danger Zone</div>
+        <div style="font-size:0.85rem;color:#8a8a8a;font-weight:500">Once you log out, you'll need to sign in again to access your account.</div>
+      </div>
+      <a href="/logout" class="btn-danger" style="padding:10px 22px;font-size:0.87rem">
+        🚪 Sign Out
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Responsive grid fix -->
+<style>
+  @media (max-width: 640px) {
+    .grid-cols { grid-template-columns: 1fr !important; }
+    .profile-header { padding: 28px 20px !important; }
+    .avatar-large { width: 70px !important; height: 70px !important; font-size: 1.7rem !important; }
+  }
+</style>
+
+<script>
+  let tt;
+  function showToast(msg, success = true) {
+    const t = document.getElementById('toast');
+    t.textContent = (success ? '✓  ' : 'ℹ  ') + msg;
+    t.className = 'toast show' + (success ? ' success' : '');
+    clearTimeout(tt);
+    tt = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  function confirmDelete() {
+    if (confirm('Are you sure you want to delete your account? This cannot be undone.')) {
+      showToast('Account deletion coming soon!', false);
+    }
+  }
+</script>
+</body>
+</html>

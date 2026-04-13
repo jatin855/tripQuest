@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varanasi — TripAdvisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f0e8;
+      --surface: #ede8dd;
+      --card: #ffffff;
+      --ink: #2a2118;
+      --muted: #7a6e60;
+      --accent: #00AA6C;
+      --accent2: #34E0A1;
+      --accent-warm: #c47c2a;
+      --border: rgba(0,0,0,0.09);
+      --green-grad: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Nunito', sans-serif; font-weight: 400; min-height: 100vh; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .navbar-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 6vw; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 36px; height: 36px; background: var(--accent2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 17px; box-shadow: 0 2px 8px rgba(52,224,161,0.35);
+    }
+    .nav-logo span { font-size: 1.2rem; font-weight: 900; color: var(--ink); letter-spacing: -0.02em; }
+    .nav-logo span b { color: var(--accent); font-weight: 900; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .greeting-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(52,224,161,0.12); border: 1.5px solid rgba(0,170,108,0.2);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 0.82rem; font-weight: 700; color: var(--accent);
+    }
+    .avatar {
+      width: 36px; height: 36px; background: var(--green-grad);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.9rem; color: white;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,170,108,0.35);
+    }
+    .avatar:hover { transform: scale(1.08); }
+    .btn-profile {
+      font-size: 0.82rem; font-weight: 800; color: var(--accent);
+      border: 1.5px solid rgba(0,170,108,0.35); border-radius: 10px;
+      padding: 7px 16px; text-decoration: none; background: white; transition: all 0.2s;
+    }
+    .btn-profile:hover { background: rgba(0,170,108,0.07); }
+    .btn-logout {
+      font-size: 0.82rem; font-weight: 700; color: var(--muted);
+      text-decoration: none; padding: 6px 14px;
+      border: 1.5px solid rgba(0,0,0,0.15); border-radius: 8px; transition: all 0.2s;
+    }
+    .btn-logout:hover { border-color: #e05252; color: #e05252; }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 700; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); }
+    .back-btn svg { width: 14px; height: 14px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 88vh; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .hero-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; filter: brightness(0.6) saturate(0.9);
+    }
+    .hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(42,33,24,0.95) 0%, rgba(42,33,24,0.2) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; padding: 0 8vw 4rem;
+      opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent2); font-weight: 700;
+      background: rgba(52,224,161,0.15); border: 1px solid rgba(52,224,161,0.3);
+      border-radius: 100px; padding: 4px 14px; margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300; line-height: 0.9; letter-spacing: -0.02em;
+      color: #f5f0e8; margin-bottom: 1.5rem;
+    }
+    .hero-meta { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .meta-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.5); font-weight: 600; }
+    .meta-value { font-size: 0.88rem; color: rgba(245,240,232,0.9); font-weight: 500; }
+
+    /* ── CONTENT ── */
+    .content { padding: 5rem 8vw; max-width: 1100px; margin: 0 auto; }
+
+    .intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border);
+    }
+    .intro-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 300; line-height: 1.55; color: var(--ink); font-style: italic;
+      border-left: 3px solid var(--accent); padding-left: 1.5rem;
+    }
+    .intro-body p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; font-weight: 500; }
+
+    /* ── SECTION HEADING ── */
+    .sec-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .sec-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── PHOTO GRID ── */
+    .photo-section { margin-bottom: 5rem; }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 260px 260px 260px;
+      gap: 8px;
+    }
+    .photo-grid .p1 { grid-column: 1 / 8; grid-row: 1; }
+    .photo-grid .p2 { grid-column: 8 / 13; grid-row: 1; }
+    .photo-grid .p3 { grid-column: 1 / 5; grid-row: 2; }
+    .photo-grid .p4 { grid-column: 5 / 9; grid-row: 2; }
+    .photo-grid .p5 { grid-column: 9 / 13; grid-row: 2; }
+    .photo-grid .p6 { grid-column: 1 / 6; grid-row: 3; }
+    .photo-grid .p7 { grid-column: 6 / 13; grid-row: 3; }
+
+    .photo-item { overflow: hidden; border-radius: 8px; position: relative; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .photo-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: brightness(0.9) saturate(0.95);
+    }
+    .photo-item:hover img { transform: scale(1.05); filter: brightness(1) saturate(1.1); }
+    .photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.6rem 0.9rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: white; font-weight: 600;
+      background: linear-gradient(to top, rgba(42,33,24,0.75) 0%, transparent 100%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-bottom: 5rem;
+    }
+    .highlight-item {
+      background: var(--card); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 2rem 1.8rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+    }
+    .highlight-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,170,108,0.1); border-color: rgba(0,170,108,0.25); }
+    .hi-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; line-height: 1; margin-bottom: 0.5rem;
+      background: var(--green-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hi-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700; }
+    .hi-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 500; }
+
+    /* ── TIPS ── */
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tip-item {
+      background: var(--card); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: all 0.25s;
+    }
+    .tip-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,170,108,0.08); }
+    .tip-title {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem; font-weight: 800;
+    }
+    .tip-text { font-size: 0.88rem; color: var(--muted); line-height: 1.8; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); background: var(--surface);
+      padding: 2.5rem 8vw; display: flex; justify-content: space-between;
+      align-items: center; font-size: 0.78rem; color: var(--muted); margin-top: 5rem;
+    }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); }
+    .footer-brand b { color: var(--accent); font-weight: 600; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .intro { grid-template-columns: 1fr; gap: 2rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 200px); }
+      .photo-grid .p1 { grid-column: 1 / 3; grid-row: 1; }
+      .photo-grid .p2 { grid-column: 1; grid-row: 2; }
+      .photo-grid .p3 { grid-column: 2; grid-row: 2; }
+      .photo-grid .p4 { grid-column: 1; grid-row: 3; }
+      .photo-grid .p5 { grid-column: 2; grid-row: 3; }
+      .photo-grid .p6 { grid-column: 1; grid-row: 4; }
+      .photo-grid .p7 { grid-column: 2; grid-row: 4; }
+      .highlights { grid-template-columns: 1fr; }
+      .tips-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="/home" class="nav-logo">
+        <div class="nav-logo-icon">🦉</div>
+        <span>Trip<b>Advisor</b></span>
+      </a>
+      <span style="color:var(--border);font-size:1rem">|</span>
+      <a href="/explore" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+        Explore India
+      </a>
+      <span style="color:var(--muted);font-size:0.75rem">/ Varanasi</span>
+    </div>
+    <div class="nav-right">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <span class="greeting-pill">👋 Hey, <%= user.name.split(' ')[0] %>!</span>
+        <a href="/profile" class="avatar" title="Profile"><%= user.name.charAt(0).toUpperCase() %></a>
+        <a href="/profile" class="btn-profile">👤 Profile</a>
+        <a href="/logout" class="btn-logout">Logout</a>
+      <% } else { %>
+        <a href="/login" style="font-size:0.85rem;font-weight:800;color:var(--accent);text-decoration:none;">Sign In</a>
+      <% } %>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <img class="hero-img"
+    src="https://imgs.search.brave.com/xeDu9-aoP9sFnIrA-syGZE-dWxzzg47cXadn-vKZTHg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYmxp/bWcubW10Y2RuLmNv/bS9jb250ZW50L2h1/YmJsZS9pbWcvZGVz/dHR2aW1nL21tdC9k/ZXN0aW5hdGlvbi9t/X3ZhcmFuYXNpX3R2/X2Rlc3RpbmF0aW9u/X2ltZ18xX2xfOTYw/XzE0MzAuanBn"
+    alt="Varanasi at dusk" />
+  <div class="hero-grad"></div>
+  <div class="hero-content">
+    <p class="hero-tag">🕌 Uttar Pradesh — India</p>
+    <h1 class="hero-title">Varanasi</h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Also Known As</span>
+        <span class="meta-value">Kashi, Banaras</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Best Time to Visit</span>
+        <span class="meta-value">October — March</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Known For</span>
+        <span class="meta-value">Ghats, Spirituality, Silk</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Nearest Airport</span>
+        <span class="meta-value">Lal Bahadur Shastri, Varanasi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="content">
+
+  <div class="intro">
+    <p class="intro-lead">"To come to Varanasi is to come face to face with the oldest continuous civilisation on Earth — and to understand that life, death, and the river are one."</p>
+    <div class="intro-body">
+      <p>Varanasi — also called Kashi or Banaras — is one of the world's oldest continuously inhabited cities, with a history stretching back over 3,000 years. Perched on the western bank of the sacred Ganges, it has long been Hinduism's spiritual heart, a city where pilgrims come to bathe, pray, and seek moksha.</p>
+      <p>The city is a living paradox: ancient and chaotic, tranquil and overwhelming. Its 88 ghats descend in long stone steps to the river, each with its own character and story. At dawn, boats drift past silhouettes of temples and burning pyres. By evening, the Ganga Aarti ceremony at Dashashwamedh Ghat transforms the riverfront into a theatre of fire and devotion.</p>
+      <p>Beyond the ghats, Varanasi's narrow labyrinthine lanes conceal centuries of architecture — crumbling havelis, Mughal-era mosques, thousands of temples, and tiny workshops where Banarasi silk sarees are still woven by hand on wooden looms.</p>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="photo-section">
+    <div class="sec-head">
+      <span class="sec-label">Gallery</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-item p1">
+        <img src="https://www.absolutearts.com/portfolio3/s/samkar/varanasi_at_night-1621528862m.jpg" alt="Varanasi at dusk" loading="lazy" />
+        <span class="photo-caption">Varanasi at Dusk</span>
+      </div>
+      <div class="photo-item p2">
+        <img src="https://www.connectingtraveller.com/images/localtip/1632587439images%20(91).jpeg" alt="Dashashwamedh Ghat" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=800&q=80'" />
+        <span class="photo-caption">Dashashwamedh Ghat</span>
+      </div>
+      <div class="photo-item p3">
+        <img src="https://airial.travel/_next/image?url=https%3A%2F%2Fcoinventmediastorage.blob.core.windows.net%2Fmedia-storage-container%2Fgphoto_ChIJpWsWkyEujjkRMFCY5N88YH0_0.jpg&w=3840&q=75" alt="Manikarnika Ghat" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80'" />
+        <span class="photo-caption">Manikarnika Ghat</span>
+      </div>
+      <div class="photo-item p4">
+        <img src="https://kashiyatra.in/wp-content/uploads/2023/03/evening-ganga-aarti-at-dashashwamedh-ghat.jpg" alt="Ganga Aarti ceremony" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1599030607490-0d1c3bc61a7e?w=800&q=80'" />
+        <span class="photo-caption">Ganga Aarti Ceremony</span>
+      </div>
+      <div class="photo-item p5">
+        <img src="https://kashi.gov.in/cmsadmin/getApiFile/CMS/68c3e3daadb281757668314~jpg" alt="Kashi Vishwanath Temple" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80'" />
+        <span class="photo-caption">Kashi Vishwanath Temple</span>
+      </div>
+      <div class="photo-item p6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Assi_Ghat_Varanasi.jpg/1280px-Assi_Ghat_Varanasi.jpg" alt="Assi Ghat" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=800&q=80'" />
+        <span class="photo-caption">Assi Ghat at Sunrise</span>
+      </div>
+      <div class="photo-item p7">
+        <img src="https://servdharm.com/cdn/shop/articles/Wallpaper_900x.jpg?v=1694405183" alt="The Ghats of Varanasi" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'" />
+        <span class="photo-caption">The Ghats of Varanasi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHTS -->
+  <div class="sec-head">
+    <span class="sec-label">Highlights</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="highlights">
+    <div class="highlight-item">
+      <div class="hi-num">88</div>
+      <div class="hi-label">Ghats on the Ganges</div>
+      <div class="hi-desc">Each ghat has its own character — from the sacred Dashashwamedh to the ancient cremation fires of Manikarnika, burning ceaselessly for thousands of years.</div>
+    </div>
+    <div class="highlight-item">
+      <div class="hi-num">3000+</div>
+      <div class="hi-label">Years of History</div>
+      <div class="hi-desc">Varanasi is among the world's oldest continuously inhabited cities, predating the Roman Empire and older than most civilisations currently alive today.</div>
+    </div>
+    <div class="highlight-item">
+      <div class="hi-num">23,000+</div>
+      <div class="hi-label">Temples in the City</div>
+      <div class="hi-desc">The Kashi Vishwanath temple complex alone draws millions of devotees annually. Temples crowd every lane, ghat, and rooftop of this ancient city.</div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="sec-head" style="margin-top:5rem">
+    <span class="sec-label">Travel Tips</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-item">
+      <p class="tip-title">Best Time to Visit</p>
+      <p class="tip-text">October to March offers cool, pleasant weather ideal for ghat walks and boat rides. Avoid May–June when temperatures cross 45°C. Dev Deepawali in November is spectacular — the entire riverfront lights up with lakhs of diyas.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">Getting Around</p>
+      <p class="tip-text">The old city is best explored on foot through its winding lanes. Hire a boat at dawn for a river view of the ghats — it costs around ₹200–400. Auto-rickshaws are available for longer distances.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">Don't Miss</p>
+      <p class="tip-text">Wake up before dawn for the sunrise boat ride. Attend the Ganga Aarti at Dashashwamedh Ghat at dusk. Try a cup of chai in a kulhad (earthen cup) and the famous Banarasi paan.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">Be Respectful</p>
+      <p class="tip-text">Varanasi is a deeply sacred city. Dress modestly when visiting temples and ghats. Photography near cremation sites should be done with great sensitivity and only if permitted by those present.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-brand">Explore <b>India</b></span>
+  <a href="/explore" style="color:var(--accent);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">← Back to All Destinations</a>
+</footer>
+
+</body>
+</html>

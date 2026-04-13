@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TripQuests</title>
+<script src="/static/app.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--forest:#1a2e1a;--moss:#3d5c2e;--sage:#7a9e68;--sand:#e8dcc8;--cream:#f5f0e8;--terra:#c4622d;--gold:#d4a847;--ink:#1c1c1c;--mist:#f0ece4;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden}
+.app{display:flex;flex-direction:column;height:100vh}
+nav{background:var(--forest);padding:0 18px;display:flex;align-items:center;border-bottom:2px solid var(--moss);flex-shrink:0;gap:3px}
+.brand{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);margin-right:auto;padding:14px 0}
+.brand span{color:var(--sage);font-style:italic}
+.tab{background:none;border:none;color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:15px 12px;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+.tab:hover{color:var(--sand)}.tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;font-size:.68rem;padding:5px 11px;border-radius:20px;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-a:hover{background:var(--gold);color:var(--forest);border-color:var(--gold)}
+.panel{display:none;flex:1;overflow:hidden}.panel.on{display:flex}
+#chat-panel{flex-direction:row}
+.sb{width:275px;background:var(--forest);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+.sb-in{display:flex;flex-direction:column;height:100%;overflow-y:auto;padding:11px 10px;gap:8px}
+.lbl{color:var(--gold);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;margin-bottom:4px}
+.lang-w{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:8px 10px;flex-shrink:0}
+.lang-sel{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:7px;padding:5px 8px;color:white;font-family:'DM Sans',sans-serif;font-size:.72rem;outline:none;cursor:pointer}
+.lang-sel option{background:#1a2e1a;color:white}
+.ww{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:8px 10px;flex-shrink:0}
+.ws{display:flex;gap:4px;margin-bottom:5px}
+.ws input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:5px 7px;color:white;font-family:'DM Sans',sans-serif;font-size:.7rem;outline:none}
+.ws input::placeholder{color:rgba(255,255,255,.3)}.ws input:focus{border-color:var(--gold)}
+.ws button{background:var(--gold);border:none;border-radius:6px;padding:5px 8px;cursor:pointer;font-size:.68rem;color:var(--forest);font-weight:700}
+.w-res{display:none}.w-main{display:flex;align-items:center;gap:6px}
+.w-icon{width:32px;height:32px}
+.w-temp{font-family:'Playfair Display',serif;font-size:1.25rem;color:white;line-height:1}
+.w-city{color:var(--gold);font-size:.7rem;font-weight:500}
+.w-cond{color:rgba(255,255,255,.5);font-size:.63rem;margin-top:1px}
+.w-dets{display:flex;gap:5px;margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,255,255,.08)}
+.w-det{color:rgba(255,255,255,.38);font-size:.58rem;text-align:center;flex:1}
+.w-det strong{display:block;color:rgba(255,255,255,.7);font-size:.64rem}
+.w-err{color:rgba(255,255,255,.38);font-size:.66rem;text-align:center;padding:2px;display:none}
+.dw{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:8px 10px;flex-shrink:0}
+.di{display:flex;flex-direction:column;gap:4px;margin-bottom:5px}
+.di input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:5px 7px;color:white;font-family:'DM Sans',sans-serif;font-size:.7rem;outline:none;width:100%}
+.di input::placeholder{color:rgba(255,255,255,.3)}.di input:focus{border-color:var(--gold)}
+.db{width:100%;background:var(--moss);border:none;border-radius:6px;padding:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.7rem;color:white;font-weight:500}
+.db:hover{background:#2a4020}
+.d-res{display:none;margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,255,255,.08)}
+.d-row{display:flex;justify-content:space-between;align-items:center}
+.d-km{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold)}
+.d-time{color:rgba(255,255,255,.55);font-size:.68rem}
+.d-route{color:rgba(255,255,255,.28);font-size:.6rem;margin-top:1px}
+.d-err{color:rgba(255,255,255,.38);font-size:.66rem;text-align:center;padding:2px;display:none}
+.rw{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:8px 10px;flex-shrink:0}
+.r-list{display:flex;flex-direction:column;gap:4px;margin-top:3px}
+.rc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:6px 8px;cursor:pointer;transition:all .2s}
+.rc:hover{background:rgba(212,168,71,.12);border-color:rgba(212,168,71,.4)}.rc.gc{border-left:2px solid var(--terra)}
+.r-nm{color:var(--sand);font-size:.76rem;font-weight:500}
+.r-cy{color:rgba(255,255,255,.32);font-size:.62rem}
+.r-rs{color:rgba(255,255,255,.22);font-size:.58rem;margin-top:1px;font-style:italic}
+.r-bd{display:inline-block;font-size:.54rem;padding:1px 4px;border-radius:9px;margin-top:1px;text-transform:uppercase;color:#fff}
+.r-bd.gem{background:var(--terra)}.r-bd.off{background:var(--moss)}
+.r-em{color:rgba(255,255,255,.2);font-size:.68rem;text-align:center;padding:7px 0;line-height:1.5}
+.r-ht{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.rht{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1px 6px;font-size:.58rem;color:rgba(255,255,255,.35)}
+.rc-btn{background:none;border:none;color:rgba(255,255,255,.2);font-size:.58rem;cursor:pointer;margin-top:3px;padding:0;font-family:'DM Sans',sans-serif;text-decoration:underline;display:none;width:100%;text-align:right}
+.s-ttl{font-family:'Playfair Display',serif;color:var(--gold);font-size:.84rem;margin-top:1px}
+.s-sub{color:rgba(255,255,255,.34);font-size:.63rem;line-height:1.5}
+.gl{display:flex;flex-direction:column;gap:5px}
+.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:6px 8px;cursor:pointer;transition:all .2s}
+.chip:hover{background:rgba(212,168,71,.15);border-color:var(--gold)}
+.cn{color:var(--sand);font-size:.76rem;font-weight:500}
+.cc{color:rgba(255,255,255,.3);font-size:.64rem;margin-top:1px}
+.cv{color:rgba(255,255,255,.17);font-size:.62rem;margin-top:1px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cb{color:var(--gold);font-size:.62rem;margin-top:1px}
+.cbadge{display:inline-block;font-size:.54px;padding:1px 4px;border-radius:9px;margin-top:2px;text-transform:uppercase;color:#fff;font-size:.54rem}
+.cbadge.gem{background:var(--terra)}.cbadge.off{background:var(--moss)}
+.ss{padding-top:8px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.st{display:flex;justify-content:space-between;color:rgba(255,255,255,.33);font-size:.64rem;padding:1px 0}
+.st span:last-child{color:var(--sage);font-weight:500}
+.chat-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.c-head{background:var(--white);padding:11px 18px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.c-av{width:34px;height:34px;background:var(--forest);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.c-meta h3{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--forest)}
+.c-meta p{font-size:.66rem;color:var(--sage)}
+.dot{width:7px;height:7px;background:#4caf50;border-radius:50%;margin-left:auto;box-shadow:0 0 5px rgba(76,175,80,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:11px;background:var(--mist)}
+.msg{display:flex;gap:8px;max-width:78%;animation:up .3s ease}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.u{margin-left:auto;flex-direction:row-reverse}
+.m-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+.msg.b .m-av{background:var(--forest);color:var(--gold)}.msg.u .m-av{background:var(--terra);color:#fff}
+.bub{background:#fff;padding:9px 13px;border-radius:14px;border-top-left-radius:3px;font-size:.84rem;line-height:1.65;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.msg.u .bub{background:var(--forest);color:var(--sand);border-top-left-radius:14px;border-top-right-radius:3px}
+.typing{display:flex;gap:3px;align-items:center;padding:3px 0}
+.td{width:5px;height:5px;background:var(--sage);border-radius:50%;animation:tb 1.2s infinite}
+.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+@keyframes tb{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.chips-row{display:flex;flex-wrap:wrap;gap:5px;padding:6px 16px;background:#fff;border-top:1px solid var(--sand)}
+.sc{background:var(--mist);border:1px solid var(--sand);border-radius:20px;padding:4px 10px;font-size:.7rem;cursor:pointer;transition:all .2s;color:var(--moss);font-family:'DM Sans',sans-serif}
+.sc:hover{background:var(--forest);color:var(--gold);border-color:var(--forest)}
+.inp-row{background:#fff;padding:11px 16px;border-top:1px solid rgba(0,0,0,.08);display:flex;gap:8px;align-items:flex-end;flex-shrink:0}
+#ci{flex:1;border:1.5px solid var(--sand);border-radius:11px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:.84rem;background:var(--mist);color:var(--ink);resize:none;outline:none;max-height:100px;transition:border-color .2s}
+#ci:focus{border-color:var(--moss);background:#fff}
+#sb{background:var(--forest);border:none;color:var(--gold);width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:1rem;transition:all .2s;flex-shrink:0}
+#sb:hover{background:var(--moss)}#sb:disabled{opacity:.5;cursor:not-allowed}
+#sub-panel{flex-direction:column;overflow-y:auto;background:var(--cream)}
+.hero{background:var(--forest);padding:38px 38px 30px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(122,158,104,.2) 0%,transparent 60%)}
+.hero h1{font-family:'Playfair Display',serif;font-size:1.85rem;color:var(--gold);position:relative}
+.hero h1 em{color:var(--sage);font-style:italic}
+.hero p{color:rgba(255,255,255,.46);font-size:.84rem;margin-top:8px;position:relative;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
+.fwrap{max-width:620px;margin:0 auto;padding:28px 20px;width:100%}
+.fsec{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.fsec h3{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--forest);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--sand)}
+.frow{display:flex;gap:12px}
+.fg{display:flex;flex-direction:column;gap:4px;flex:1;margin-bottom:12px}
+label{font-size:.7rem;font-weight:500;color:var(--moss);text-transform:uppercase;letter-spacing:.06em}
+input.fi,select.fi,textarea.fi{border:1.5px solid var(--sand);border-radius:8px;padding:8px 11px;font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);background:var(--mist);outline:none;transition:border-color .2s;width:100%}
+input.fi:focus,select.fi:focus,textarea.fi:focus{border-color:var(--moss);background:#fff}
+textarea.fi{resize:vertical;min-height:78px}
+.sbtn{width:100%;background:var(--terra);color:#fff;border:none;border-radius:10px;padding:13px;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:500;cursor:pointer;transition:all .2s}
+.sbtn:hover{background:var(--forest)}.sbtn:disabled{opacity:.6;cursor:not-allowed}
+.toast{display:none;padding:11px 15px;border-radius:9px;font-size:.8rem;margin-top:12px;text-align:center}
+.toast.ok{background:var(--moss);color:#fff}.toast.err{background:var(--terra);color:#fff}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:rgba(0,0,0,.12);border-radius:4px}
+@media(max-width:640px){.sb{display:none}.frow{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand" id="nav-brand">Trip<span>Quests</span></div>
+    <button class="tab on" onclick="switchTab('chat',this)">🗺️ Plan Trip</button>
+    <button class="tab"    onclick="switchTab('sub',this)">📍 Add Gem</button>
+    <a class="nav-a" href="/collab" target="_blank">👥 Group Plan</a>
+    <a class="nav-a" href="/expenses" target="_blank">💰 Split Expenses</a>
+  </nav>
+
+  <div id="chat-panel" class="panel on">
+    <aside class="sb">
+      <div class="sb-in">
+        <div class="lang-w">
+          <div class="lbl">🌐 Language / भाषा</div>
+          <select class="lang-sel" id="lang-sel" onchange="setLang(this.value)">
+            <option value="English">English</option>
+            <option value="Hindi">हिंदी (Hindi)</option>
+            <option value="Punjabi">ਪੰਜਾਬੀ (Punjabi)</option>
+            <option value="Bengali">বাংলা (Bengali)</option>
+            <option value="Tamil">தமிழ் (Tamil)</option>
+            <option value="Telugu">తెలుగు (Telugu)</option>
+            <option value="Marathi">मराठी (Marathi)</option>
+            <option value="Gujarati">ગુજરાતી (Gujarati)</option>
+            <option value="Kannada">ಕನ್ನಡ (Kannada)</option>
+            <option value="French">Français</option>
+            <option value="Spanish">Español</option>
+            <option value="German">Deutsch</option>
+            <option value="Arabic">العربية</option>
+            <option value="Japanese">日本語</option>
+          </select>
+        </div>
+        <div class="ww">
+          <div class="lbl">🌤️ Live Weather</div>
+          <div class="ws"><input id="w-city" placeholder="City name..." onkeydown="if(event.key==='Enter')fetchW()"/><button onclick="fetchW()">Go</button></div>
+          <div class="w-res" id="w-res">
+            <div class="w-main"><img class="w-icon" id="w-icon" src="" alt=""/><div><div class="w-temp" id="w-temp"></div></div><div><div class="w-city" id="w-name"></div><div class="w-cond" id="w-cond"></div></div></div>
+            <div class="w-dets"><div class="w-det"><strong id="w-hum"></strong>Humidity</div><div class="w-det"><strong id="w-wnd"></strong>Wind</div><div class="w-det"><strong id="w-fl"></strong>Feels</div></div>
+          </div>
+          <div class="w-err" id="w-err">City not found</div>
+        </div>
+        <div class="dw">
+          <div class="lbl">🚗 Distance</div>
+          <div class="di"><input id="d-from" placeholder="From city..." onkeydown="if(event.key==='Enter')fetchD()"/><input id="d-to" placeholder="To city..." onkeydown="if(event.key==='Enter')fetchD()"/></div>
+          <button class="db" onclick="fetchD()">Calculate Route</button>
+          <div class="d-res" id="d-res"><div class="d-row"><div class="d-km" id="d-km"></div><div class="d-time" id="d-time"></div></div><div class="d-route" id="d-route"></div></div>
+          <div class="d-err" id="d-err">Could not calculate</div>
+        </div>
+        <div class="rw">
+          <div class="lbl">✨ For You</div>
+          <div class="r-list" id="r-list"><div class="r-em">Browse places to get recommendations</div></div>
+          <div class="r-ht" id="r-ht"></div>
+          <button class="rc-btn" id="rc-btn" onclick="clearH()">Clear history</button>
+        </div>
+        <div><div class="s-ttl">All Locations</div><div class="s-sub">Click any place to explore.</div></div>
+        <div class="gl" id="gl"><div style="color:rgba(255,255,255,.28);font-size:.7rem;padding:6px 0">Loading...</div></div>
+        <div class="ss">
+          <div class="st"><span>Total</span><span id="s-t">-</span></div>
+          <div class="st"><span>Hidden gems</span><span id="s-g">-</span></div>
+          <div class="st"><span>Official</span><span id="s-o">-</span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="chat-main">
+      <div class="c-head">
+        <div class="c-av">🌿</div>
+        <div class="c-meta"><h3 id="chat-header-name">TripQuests AI</h3><p id="chat-header-sub">Groq Llama 3.3 · Multilingual · Weather · Distances · Personalised</p></div>
+        <div class="dot"></div>
+      </div>
+      <div class="msgs" id="msgs"></div>
+      <div class="chips-row">
+        <span class="sc" onclick="sug(this)">3-day trip to Punjab</span>
+        <span class="sc" onclick="sug(this)">Weekend from Delhi</span>
+        <span class="sc" onclick="sug(this)">Hidden cafes</span>
+        <span class="sc" onclick="sug(this)">Budget trip</span>
+        <span class="sc" onclick="sug(this)">Best in winter</span>
+        <span class="sc" onclick="sug(this)">How far is Chandigarh from Ropar?</span>
+      </div>
+      <div class="inp-row">
+        <textarea id="ci" rows="1" placeholder="Ask in any language — plan trips, find hidden gems..." onkeydown="onKey(event)" oninput="resize(this)"></textarea>
+        <button id="sb" onclick="send()">↑</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sub-panel" class="panel">
+    <div class="hero"><h1>Share a <em>Hidden Gem</em></h1><p>Know a secret spot tourists never find? Add it and help travelers discover the real local experience.</p></div>
+    <div class="fwrap">
+      <div class="fsec"><h3>📍 Basic Info</h3>
+        <div class="frow"><div class="fg"><label>Place Name *</label><input class="fi" id="f-name" placeholder="e.g. Chai Wali Gali"/></div><div class="fg"><label>City *</label><input class="fi" id="f-city" placeholder="e.g. Ropar"/></div></div>
+        <div class="frow"><div class="fg"><label>Category *</label><select class="fi" id="f-cat"><option value="">Select...</option><option>Cafe / Tea Stall</option><option>Street Food</option><option>Viewpoint</option><option>Heritage Site</option><option>Market / Bazaar</option><option>Nature Spot</option><option>Temple / Shrine</option><option>Art / Culture</option><option>Night Life</option><option>Other</option></select></div><div class="fg"><label>Budget</label><input class="fi" id="f-budget" placeholder="e.g. Free, Rs.50-100"/></div></div>
+      </div>
+      <div class="fsec"><h3>✍️ Details</h3>
+        <div class="fg"><label>Vibe</label><input class="fi" id="f-vibe" placeholder="e.g. Quiet, nostalgic, misty mornings..."/></div>
+        <div class="fg"><label>Description *</label><textarea class="fi" id="f-desc" placeholder="What makes this place special?"></textarea></div>
+        <div class="fg"><label>Best Time to Visit</label><textarea class="fi" id="f-timing" style="min-height:58px" placeholder="e.g. Winter (Oct-Feb)"></textarea></div>
+        <div class="fg"><label>Food to Try</label><input class="fi" id="f-food" placeholder="e.g. Kulhad chai with butter biscuits"/></div>
+      </div>
+      <div class="fsec"><h3>👤 Your Info</h3>
+        <div class="frow"><div class="fg"><label>Name</label><input class="fi" id="f-who" placeholder="Local guide, resident..."/></div><div class="fg"><label>Contact (optional)</label><input class="fi" id="f-contact" placeholder="Email or phone"/></div></div>
+      </div>
+      <button class="sbtn" id="sub-btn" onclick="submitGem()">📤 Submit Hidden Gem</button>
+      <div class="toast ok" id="t-ok">✅ Submitted! Pending admin review.</div>
+      <div class="toast err" id="t-err"></div>
+    </div>
+  </div>
+</div>
+<script>
+const A="";let lang="English";
+
+/* ── Apply branding from app.config.js ── */
+function applyConfig(){
+  const cfg = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG : {};
+  const name   = cfg.APP_NAME        || "TripQuests";
+  const suffix = cfg.APP_NAME_SUFFIX || "Quests";
+  const prefix = name.replace(suffix,"");
+  // navbar brand
+  const brand = document.getElementById('nav-brand');
+  if(brand) brand.innerHTML = prefix + '<span>' + suffix + '</span>';
+  // page title
+  if(cfg.PAGE_TITLE) document.title = cfg.PAGE_TITLE;
+  // chat header
+  const ch = document.getElementById('chat-header-name');
+  if(ch) ch.textContent = name + ' AI';
+  const cs = document.getElementById('chat-header-sub');
+  if(cs && cfg.CHAT_SUBTITLE) cs.textContent = cfg.CHAT_SUBTITLE;
+}
+
+function switchTab(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.getElementById(id+'-panel').classList.add('on');btn.classList.add('on');}
+function setLang(l){lang=l;const h={"Hindi":"हिंदी में पूछें...","Punjabi":"ਪੰਜਾਬੀ ਵਿੱਚ ਪੁੱਛੋ...","Bengali":"বাংলায় জিজ্ঞেস করুন...","Tamil":"தமிழில் கேளுங்கள்...","French":"En français...","Spanish":"En español...","English":"Ask in any language..."};document.getElementById('ci').placeholder=h[l]||h.English;}
+window.addEventListener('DOMContentLoaded',async()=>{
+  applyConfig();
+  await loadSB();await loadR();
+  const cfg = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG : {};
+  const welcome = cfg.WELCOME_MESSAGE || "Hey! What brings you to town? Want to hit any specific places or vibe\u2019s this trip?";
+  botMsg(welcome);
+});
+async function loadSB(){try{const d=await fetch(A+'/api/locations').then(r=>r.json());const l=document.getElementById('gl');l.innerHTML='';d.locations.forEach(loc=>{const nm=loc["Place Name"]||"",cy=loc["City"]||"",vi=loc["Vibe Description"]||"",bg=(loc["Budget"]||"").replace(/[?]/g,"Rs."),tp=(loc["type of location"]||"").toLowerCase(),ig=tp.includes("hidden")||tp.includes("local"),ch=document.createElement('div');ch.className='chip';ch.innerHTML='<div class="cn">'+nm+'</div><div class="cc">'+cy+'</div>'+(vi?'<div class="cv">'+vi+'</div>':'')+(bg?'<div class="cb">Rs. '+bg+'</div>':'')+'<span class="cbadge '+(ig?'gem':'off')+'">'+(ig?'Hidden Gem':'Official')+'</span>';ch.onclick=()=>vp(nm,cy);l.appendChild(ch);});document.getElementById('s-t').textContent=d.total;document.getElementById('s-g').textContent=d.hidden_gems;document.getElementById('s-o').textContent=d.official;}catch(e){document.getElementById('gl').innerHTML='<div style="color:rgba(255,255,255,.28);font-size:.7rem;padding:6px 0">Server not running?</div>';}}
+async function vp(nm,cy){try{await fetch(A+'/api/track-view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({place_name:nm})});await loadR();}catch(e){}document.getElementById('ci').value='Tell me about '+nm+' in '+cy;send();}
+async function loadR(){try{const d=await fetch(A+'/api/recommendations?n=4').then(r=>r.json());const rl=document.getElementById('r-list'),rh=document.getElementById('r-ht'),rb=document.getElementById('rc-btn');if(!d.recommendations||!d.recommendations.length){rl.innerHTML='<div class="r-em">Browse places to get recommendations</div>';return;}rl.innerHTML='';d.recommendations.forEach(rec=>{const tp=(rec["type of location"]||"").toLowerCase(),ig=tp.includes("hidden")||tp.includes("local"),c=document.createElement('div');c.className='rc'+(ig?' gc':'');c.innerHTML='<div class="r-nm">'+rec["Place Name"]+'</div><div class="r-cy">'+rec["City"]+' · '+rec["Category"]+'</div><div class="r-rs">'+rec["reason"]+'</div><span class="r-bd '+(ig?'gem':'off')+'">'+(ig?'Gem':'Official')+'</span>';c.onclick=()=>vp(rec["Place Name"],rec["City"]);rl.appendChild(c);});if(d.based_on&&d.based_on.length){rh.innerHTML=d.based_on.slice(0,3).map(h=>'<span class="rht">'+h+'</span>').join('');rb.style.display='block';}}catch(e){}}
+async function clearH(){try{await fetch(A+'/api/clear-history',{method:'POST'});}catch(e){}document.getElementById('r-list').innerHTML='<div class="r-em">History cleared</div>';document.getElementById('r-ht').innerHTML='';document.getElementById('rc-btn').style.display='none';}
+async function fetchW(){const cy=document.getElementById('w-city').value.trim();if(!cy)return;document.getElementById('w-res').style.display='none';document.getElementById('w-err').style.display='none';try{const r=await fetch(A+'/api/weather/'+encodeURIComponent(cy)),d=await r.json();if(!r.ok){document.getElementById('w-err').style.display='block';return;}document.getElementById('w-icon').src=d.icon;document.getElementById('w-temp').textContent=d.temp_c+'°C';document.getElementById('w-name').textContent=d.city;document.getElementById('w-cond').textContent=d.emoji+' '+d.condition;document.getElementById('w-hum').textContent=d.humidity+'%';document.getElementById('w-wnd').textContent=d.wind_kph+' kph';document.getElementById('w-fl').textContent=d.feels_like+'°C';document.getElementById('w-res').style.display='block';}catch(e){document.getElementById('w-err').style.display='block';}}
+async function fetchD(){const fr=document.getElementById('d-from').value.trim(),to=document.getElementById('d-to').value.trim();if(!fr||!to)return;document.getElementById('d-res').style.display='none';document.getElementById('d-err').style.display='none';try{const r=await fetch(A+'/api/distance?from='+encodeURIComponent(fr)+'&to='+encodeURIComponent(to)),d=await r.json();if(!r.ok){document.getElementById('d-err').style.display='block';return;}document.getElementById('d-km').textContent=d.distance_km+' km';document.getElementById('d-time').textContent=d.duration_text;document.getElementById('d-route').textContent=fr+' to '+to;document.getElementById('d-res').style.display='block';}catch(e){document.getElementById('d-err').style.display='block';}}
+/* ── Typewriter effect for bot messages ── */
+function typewriterHTML(container, html, speed) {
+  return new Promise(resolve => {
+    // Parse HTML into segments: [{text, isTag}]
+    const segments = [];
+    let i = 0;
+    while (i < html.length) {
+      if (html[i] === '<') {
+        const end = html.indexOf('>', i);
+        if (end !== -1) { segments.push({text: html.slice(i, end+1), isTag: true}); i = end+1; continue; }
+      }
+      // decode &amp; &lt; etc as single char
+      if (html[i] === '&') {
+        const end = html.indexOf(';', i);
+        if (end !== -1 && end - i <= 8) { segments.push({text: html.slice(i, end+1), isTag: false, entity: true}); i = end+1; continue; }
+      }
+      segments.push({text: html[i], isTag: false}); i++;
+    }
+    let idx = 0;
+    let rendered = '';
+    const cfg = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG : {};
+    const spd = cfg.TYPEWRITER_SPEED_MS !== undefined ? cfg.TYPEWRITER_SPEED_MS : speed;
+    function tick() {
+      if (idx >= segments.length) { resolve(); return; }
+      const seg = segments[idx++];
+      rendered += seg.text;
+      // flush pending tags (don't count them as chars)
+      while (idx < segments.length && segments[idx].isTag) { rendered += segments[idx++].text; }
+      container.innerHTML = rendered;
+      const c = document.getElementById('msgs');
+      if(c) c.scrollTop = c.scrollHeight;
+      setTimeout(tick, seg.isTag || seg.entity ? 0 : spd);
+    }
+    tick();
+  });
+}
+
+function botMsg(html){
+  const c=document.getElementById('msgs');
+  // Show typing indicator first
+  const t=document.createElement('div');
+  t.className='msg b';
+  t.innerHTML='<div class="m-av">🌿</div><div class="bub"><div class="typing"><div class="td"></div><div class="td"></div><div class="td"></div></div></div>';
+  c.appendChild(t);c.scrollTop=c.scrollHeight;
+  return new Promise(res=>setTimeout(async()=>{
+    t.remove();
+    const m=document.createElement('div');
+    m.className='msg b';
+    const bub=document.createElement('div');
+    bub.className='bub';
+    m.appendChild(document.createElement('div')).className='m-av';
+    m.querySelector('.m-av').textContent='🌿';
+    m.appendChild(bub);
+    c.appendChild(m);c.scrollTop=c.scrollHeight;
+    await typewriterHTML(bub, html, 18);
+    res();
+  },600+Math.random()*300));
+}
+function userMsg(t){const c=document.getElementById('msgs'),m=document.createElement('div');m.className='msg u';m.innerHTML='<div class="m-av">✈️</div><div class="bub">'+t+'</div>';c.appendChild(m);c.scrollTop=c.scrollHeight;}
+function onKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+function resize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+function sug(el){document.getElementById('ci').value=el.textContent;send();}
+async function send(){const ci=document.getElementById('ci'),tx=ci.value.trim();if(!tx)return;ci.value='';ci.style.height='auto';const sb=document.getElementById('sb');sb.disabled=true;userMsg(tx);const lw=tx.toLowerCase();if((lw.includes('weather')||lw.includes('temperature'))&&lw.includes('in')){const m=tx.match(/in\s+([A-Za-z\s]+?)(?:\?|$)/i);if(m){document.getElementById('w-city').value=m[1].trim();fetchW();}}if(lw.includes('far')||lw.includes('distance')||lw.includes('how long')){const fm=tx.match(/from\s+([A-Za-z\s]+?)\s+to\s+/i),tm=tx.match(/to\s+([A-Za-z\s]+?)(?:\?|$)/i);if(fm&&tm){document.getElementById('d-from').value=fm[1].trim();document.getElementById('d-to').value=tm[1].trim();fetchD();}}const am=tx.match(/(?:about|tell me about)\s+([A-Za-z\s]+?)(?:\s+in\s+|\?|$)/i);if(am&&am[1].trim().length>3){fetch(A+'/api/track-view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({place_name:am[1].trim()})}).then(()=>loadR()).catch(()=>{});}try{const d=await fetch(A+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:tx,language:lang})}).then(r=>r.json());const html=(d.reply||d.error||'Something went wrong.').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');await botMsg(html);}catch(e){await botMsg('Cannot reach the server. Make sure app.py is running.');}sb.disabled=false;ci.focus();}
+async function submitGem(){const nm=document.getElementById('f-name').value.trim(),cy=document.getElementById('f-city').value.trim(),ct=document.getElementById('f-cat').value,dc=document.getElementById('f-desc').value.trim();if(!nm||!cy||!ct||!dc){alert('Fill Name, City, Category and Description.');return;}const btn=document.getElementById('sub-btn');btn.disabled=true;btn.textContent='Submitting...';try{const r=await fetch(A+'/api/submit-gem',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:nm,city:cy,category:ct,vibe:document.getElementById('f-vibe').value.trim(),budget:document.getElementById('f-budget').value.trim(),description:dc,timing:document.getElementById('f-timing').value.trim(),food:document.getElementById('f-food').value.trim(),submitter:document.getElementById('f-who').value.trim(),contact:document.getElementById('f-contact').value.trim()})});const d=await r.json();if(r.ok){['f-name','f-city','f-vibe','f-budget','f-desc','f-timing','f-food','f-who','f-contact'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-cat').value='';const ok=document.getElementById('t-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',5000);}else{const er=document.getElementById('t-err');er.textContent='Error: '+(d.error||'failed');er.style.display='block';setTimeout(()=>er.style.display='none',5000);}}catch(e){document.getElementById('t-err').textContent='Cannot reach server.';document.getElementById('t-err').style.display='block';}btn.disabled=false;btn.textContent='Submit Hidden Gem';}
+</script>
+</body>
+</html>

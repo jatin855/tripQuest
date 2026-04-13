@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripAdvisor – Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #34E0A1;
+      --green-dark:  #00AA6C;
+      --green-deep:  #007a4f;
+      --charcoal:    #1a1a1a;
+      --grey-700:    #4a4a4a;
+      --grey-500:    #8a8a8a;
+      --grey-300:    #d4d4d4;
+      --grey-100:    #f7f7f7;
+      --grey-50:     #fafafa;
+      --white:       #ffffff;
+      --error:       #e05252;
+      --radius:      12px;
+      --shadow:      0 2px 8px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.10);
+      --transition:  0.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ── Card ─────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 44px 44px 36px;
+      width: 100%;
+      max-width: 440px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    @media (max-width: 500px) {
+      .card { padding: 32px 22px 26px; border-radius: 16px; }
+    }
+
+    .auth-card.hidden { display: none; }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(22px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-22px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .anim-right { animation: slideInRight 0.3s cubic-bezier(.4,0,.2,1) both; }
+    .anim-left  { animation: slideInLeft  0.3s cubic-bezier(.4,0,.2,1) both; }
+
+    /* ── Logo ─────────────────────────────────── */
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      text-decoration: none;
+    }
+    .logo__bubble {
+      width: 42px; height: 42px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 2px 10px rgba(52,224,161,0.35);
+    }
+    .logo__name {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+    }
+    .logo__name em { font-style: normal; color: var(--green-dark); }
+
+    /* ── Tabs ─────────────────────────────────── */
+    .tabs {
+      display: flex;
+      background: var(--grey-100);
+      border-radius: 100px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 26px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 9px 0;
+      border: none;
+      background: transparent;
+      border-radius: 100px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--grey-500);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .tab-btn.active {
+      background: var(--white);
+      color: var(--charcoal);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+    }
+
+    /* ── Server error banner ──────────────────── */
+    .server-error {
+      background: #fff2f2;
+      border: 1.5px solid #f5c6c6;
+      border-radius: var(--radius);
+      color: var(--error);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .server-error svg { flex-shrink: 0; }
+
+    /* ── Header ───────────────────────────────── */
+    .card-header { margin-bottom: 22px; }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .card-subtitle { font-size: 0.875rem; color: var(--grey-500); font-weight: 500; }
+
+    /* ── Fields ───────────────────────────────── */
+    .form-group { margin-bottom: 13px; }
+    .form-label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .input-wrap { position: relative; display: flex; align-items: center; }
+    .input-icon {
+      position: absolute; left: 13px;
+      color: var(--grey-300);
+      pointer-events: none; display: flex;
+      transition: color var(--transition);
+    }
+    .form-input {
+      width: 100%;
+      padding: 11px 13px 11px 38px;
+      border: 1.5px solid var(--grey-300);
+      border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      background: var(--grey-50);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+    .form-input::placeholder { color: var(--grey-300); font-weight: 500; }
+    .form-input:focus {
+      border-color: var(--green-dark);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(0,170,108,0.10);
+    }
+    .input-wrap:focus-within .input-icon { color: var(--green-dark); }
+    .form-input.has-error { border-color: var(--error); }
+    .form-input.has-error:focus { box-shadow: 0 0 0 3px rgba(224,82,82,0.10); }
+
+    .toggle-pw {
+      position: absolute; right: 11px;
+      background: none; border: none; cursor: pointer;
+      color: var(--grey-500);
+      display: flex; align-items: center;
+      padding: 4px; border-radius: 6px;
+      transition: color var(--transition);
+    }
+    .toggle-pw:hover { color: var(--charcoal); }
+    .toggle-pw:focus-visible { outline: 2px solid var(--green-dark); }
+
+    /* Client-side field errors */
+    .error-msg {
+      display: block;
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--error);
+      margin-top: 5px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.2s, opacity 0.2s;
+    }
+    .error-msg.show { max-height: 28px; opacity: 1; }
+
+    .forgot { text-align: right; margin: -3px 0 10px; }
+    .link { font-size: 0.8rem; font-weight: 700; color: var(--green-dark); text-decoration: none; }
+    .link:hover { text-decoration: underline; color: var(--green-deep); }
+
+    /* ── Buttons ──────────────────────────────── */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: none; cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 2px; }
+    .btn:active { transform: scale(0.985); }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--charcoal);
+      box-shadow: 0 4px 14px rgba(52,224,161,0.38);
+      margin-bottom: 13px;
+    }
+    .btn-primary:hover {
+      background: #28d494;
+      box-shadow: 0 6px 20px rgba(52,224,161,0.48);
+      transform: translateY(-1px);
+    }
+    .btn-primary:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    .spinner {
+      width: 17px; height: 17px;
+      border: 2.5px solid rgba(0,0,0,0.15);
+      border-top-color: var(--charcoal);
+      border-radius: 50%;
+      animation: spin 0.65s linear infinite;
+      display: none;
+    }
+    .loading .spinner { display: block; }
+    .loading .btn-label { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-social {
+      background: var(--white);
+      color: var(--grey-700);
+      border: 1.5px solid var(--grey-300);
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+    .btn-social:hover { border-color: #aaa; background: var(--grey-100); }
+
+    /* ── Divider ──────────────────────────────── */
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--grey-300);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin: 14px 0;
+    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--grey-300); }
+
+    /* ── Strength ─────────────────────────────── */
+    .strength-bar { display: flex; gap: 4px; margin-top: 7px; }
+    .seg { height: 3px; flex: 1; border-radius: 100px; background: var(--grey-300); transition: background 0.3s; }
+    .strength-lbl { font-size: 0.71rem; font-weight: 700; margin-top: 4px; color: var(--grey-500); transition: color 0.3s; }
+
+    /* ── Switch ───────────────────────────────── */
+    .switch-prompt {
+      text-align: center;
+      font-size: 0.84rem; font-weight: 600;
+      color: var(--grey-500);
+      margin-top: 18px;
+    }
+    .switch-prompt a { color: var(--green-dark); font-weight: 800; text-decoration: none; }
+    .switch-prompt a:hover { text-decoration: underline; }
+
+    /* ── Icons ────────────────────────────────── */
+    .icon-google {
+      width: 17px; height: 17px; flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23FFC107' d='M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34.5 6.5 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z'/%3E%3Cpath fill='%23FF3D00' d='M6.3 14.7l6.6 4.8C14.6 16 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34.5 6.5 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z'/%3E%3Cpath fill='%234CAF50' d='M24 44c5.4 0 10.2-2 13.8-5.3l-6.4-5.4C29.4 35.1 26.8 36 24 36c-5.3 0-9.7-3.3-11.3-8H6.1C9.4 35.6 16.1 44 24 44z'/%3E%3Cpath fill='%231976D2' d='M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.3 5.5l6.4 5.4C37.1 38.8 44 32 44 24c0-1.3-.1-2.6-.4-3.9z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .icon-apple {
+      width: 17px; height: 17px; flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 814 1000'%3E%3Cpath d='M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-43.4-150.3-109.2C74.3 727.1 44 651.7 44 577.9 44 443.7 131.1 375 216.7 375c65.1 0 120 43.4 162.1 43.4 38.8 0 101.9-46.2 174.2-46.2zm-234.4-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* ── Toast ────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 11px 22px;
+      border-radius: 100px;
+      font-size: 0.84rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999; white-space: nowrap;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.success { background: var(--green-dark); }
+
+    /* ── Footer ───────────────────────────────── */
+    .footer-note {
+      text-align: center;
+      font-size: 0.72rem; color: var(--grey-500);
+      margin-top: 16px; line-height: 1.6;
+    }
+    .footer-note a { color: var(--grey-500); text-decoration: underline; }
+    .footer-note a:hover { color: var(--charcoal); }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Logo -->
+  <a href="/" class="logo" aria-label="TripAdvisor Home">
+    <div class="logo__bubble" aria-hidden="true">🦉</div>
+    <span class="logo__name">Trip<em>Advisor</em></span>
+  </a>
+
+  <!-- Tab switcher -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn" id="tabLogin"  role="tab" aria-controls="loginCard">Sign In</button>
+    <button class="tab-btn" id="tabSignup" role="tab" aria-controls="signupCard">Sign Up</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  LOGIN PANEL                               -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="auth-card" id="loginCard" role="tabpanel">
+
+    <div class="card-header">
+      <h1 class="card-title">Welcome back!</h1>
+      <p class="card-subtitle">Sign in to continue your journey.</p>
+    </div>
+
+    <!-- Server-side error banner (only shown when Express sends one) -->
+    <% if (typeof error !== 'undefined' && error && activeTab === 'login') { %>
+      <div class="server-error" role="alert">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <%= error %>
+      </div>
+    <% } %>
+
+    <!-- LOGIN FORM — action posts to Express /login -->
+    <form id="loginForm" action="/login" method="POST" novalidate>
+
+      <div class="form-group">
+        <label for="loginEmail" class="form-label">Email</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <!-- name="email" is required so req.body.email works in Express -->
+          <input type="email" id="loginEmail" name="email" class="form-input"
+                 placeholder="you@email.com" autocomplete="email"
+                 aria-required="true" aria-describedby="le-err" />
+        </div>
+        <span class="error-msg" id="le-err" role="alert"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword" class="form-label">Password</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <!-- name="password" is required so req.body.password works in Express -->
+          <input type="password" id="loginPassword" name="password" class="form-input"
+                 placeholder="••••••••" autocomplete="current-password"
+                 aria-required="true" aria-describedby="lp-err" />
+          <button type="button" class="toggle-pw" aria-label="Show/hide password" data-target="loginPassword">
+            <svg class="eye-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-off" style="display:none" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9 6.1 6.1M9.9 4.2A9.8 9.8 0 0 1 12 4c6.4 0 10 8 10 8a18.4 18.4 0 0 1-2.3 3.5m-1.5 1.5A9.9 9.9 0 0 1 12 20C5.6 20 2 12 2 12a18.5 18.5 0 0 1 3.4-4.9"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          </button>
+        </div>
+        <span class="error-msg" id="lp-err" role="alert"></span>
+      </div>
+
+      <div class="forgot"><a href="#" class="link">Forgot password?</a></div>
+
+      <button type="submit" class="btn btn-primary" id="loginBtn">
+        <span class="btn-label">Sign In</span>
+        <div class="spinner" aria-hidden="true"></div>
+      </button>
+
+    </form>
+    <!-- END LOGIN FORM -->
+
+    <div class="divider">or</div>
+
+    <button type="button" class="btn btn-social" onclick="showToast('Google sign-in coming soon!', false)" aria-label="Continue with Google">
+      <span class="icon-google" aria-hidden="true"></span> Continue with Google
+    </button>
+    <button type="button" class="btn btn-social" onclick="showToast('Apple sign-in coming soon!', false)" aria-label="Continue with Apple">
+      <span class="icon-apple" aria-hidden="true"></span> Continue with Apple
+    </button>
+
+    <p class="switch-prompt">Don't have an account? <a href="#" id="toSignup">Sign up</a></p>
+  </div>
+  <!-- END LOGIN PANEL -->
+
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  SIGNUP PANEL                              -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="auth-card hidden" id="signupCard" role="tabpanel">
+
+    <div class="card-header">
+      <h1 class="card-title">Create account</h1>
+      <p class="card-subtitle">Join the world's largest travel community.</p>
+    </div>
+
+    <!-- Server-side error banner (only shown when Express sends one) -->
+    <% if (typeof error !== 'undefined' && error && activeTab === 'signup') { %>
+      <div class="server-error" role="alert">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <%= error %>
+      </div>
+    <% } %>
+
+    <!-- SIGNUP FORM — action posts to Express /register -->
+    <form id="signupForm" action="/register" method="POST" novalidate>
+
+      <div class="form-group">
+        <label for="sName" class="form-label">Full Name</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <input type="text" id="sName" name="name" class="form-input"
+                 placeholder="Jane Doe" autocomplete="name"
+                 aria-required="true" aria-describedby="sn-err" />
+        </div>
+        <span class="error-msg" id="sn-err" role="alert"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="sEmail" class="form-label">Email</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <input type="email" id="sEmail" name="email" class="form-input"
+                 placeholder="you@email.com" autocomplete="email"
+                 aria-required="true" aria-describedby="se-err" />
+        </div>
+        <span class="error-msg" id="se-err" role="alert"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="sPassword" class="form-label">Password</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <input type="password" id="sPassword" name="password" class="form-input"
+                 placeholder="Min 8 characters" autocomplete="new-password"
+                 aria-required="true" aria-describedby="sp-err"
+                 oninput="updateStrength(this.value)" />
+          <button type="button" class="toggle-pw" aria-label="Show/hide password" data-target="sPassword">
+            <svg class="eye-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-off" style="display:none" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9 6.1 6.1M9.9 4.2A9.8 9.8 0 0 1 12 4c6.4 0 10 8 10 8a18.4 18.4 0 0 1-2.3 3.5m-1.5 1.5A9.9 9.9 0 0 1 12 20C5.6 20 2 12 2 12a18.5 18.5 0 0 1 3.4-4.9"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          </button>
+        </div>
+        <span class="error-msg" id="sp-err" role="alert"></span>
+        <div class="strength-bar" id="strengthBar" aria-hidden="true">
+          <div class="seg" id="s1"></div><div class="seg" id="s2"></div>
+          <div class="seg" id="s3"></div><div class="seg" id="s4"></div>
+        </div>
+        <p class="strength-lbl" id="strengthLabel" aria-live="polite"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="sConfirm" class="form-label">Confirm Password</label>
+        <div class="input-wrap">
+          <span class="input-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <!-- name="confirmPassword" must match req.body.confirmPassword in app.js -->
+          <input type="password" id="sConfirm" name="confirmPassword" class="form-input"
+                 placeholder="Re-enter password" autocomplete="new-password"
+                 aria-required="true" aria-describedby="sc-err" />
+          <button type="button" class="toggle-pw" aria-label="Show/hide password" data-target="sConfirm">
+            <svg class="eye-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-off" style="display:none" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9 6.1 6.1M9.9 4.2A9.8 9.8 0 0 1 12 4c6.4 0 10 8 10 8a18.4 18.4 0 0 1-2.3 3.5m-1.5 1.5A9.9 9.9 0 0 1 12 20C5.6 20 2 12 2 12a18.5 18.5 0 0 1 3.4-4.9"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          </button>
+        </div>
+        <span class="error-msg" id="sc-err" role="alert"></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="signupBtn">
+        <span class="btn-label">Create Account</span>
+        <div class="spinner" aria-hidden="true"></div>
+      </button>
+
+    </form>
+    <!-- END SIGNUP FORM -->
+
+    <div class="divider">or</div>
+
+    <button type="button" class="btn btn-social" onclick="showToast('Google sign-in coming soon!', false)" aria-label="Continue with Google">
+      <span class="icon-google" aria-hidden="true"></span> Continue with Google
+    </button>
+    <button type="button" class="btn btn-social" onclick="showToast('Apple sign-in coming soon!', false)" aria-label="Continue with Apple">
+      <span class="icon-apple" aria-hidden="true"></span> Continue with Apple
+    </button>
+
+    <p class="switch-prompt">Already have an account? <a href="#" id="toLogin">Sign in</a></p>
+  </div>
+  <!-- END SIGNUP PANEL -->
+
+  <p class="footer-note">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  const $ = id => document.getElementById(id);
+
+  // ── Read activeTab from server (EJS injects this) ──────────────────────────
+  // activeTab is either 'login' or 'signup' — set by app.js on every render
+  const initialTab = '<%= typeof activeTab !== "undefined" ? activeTab : "login" %>';
+
+  // ── Tab switching ──────────────────────────────────────────────────────────
+  function activateTab(which) {
+    const isLogin = which === 'login';
+
+    $('tabLogin').classList.toggle('active', isLogin);
+    $('tabSignup').classList.toggle('active', !isLogin);
+    $('tabLogin').setAttribute('aria-selected', isLogin);
+    $('tabSignup').setAttribute('aria-selected', !isLogin);
+
+    const show = isLogin ? $('loginCard')  : $('signupCard');
+    const hide = isLogin ? $('signupCard') : $('loginCard');
+    const anim = isLogin ? 'anim-left'    : 'anim-right';
+
+    hide.classList.add('hidden');
+    show.classList.remove('hidden', 'anim-left', 'anim-right');
+    void show.offsetWidth;   // force reflow so animation retriggers
+    show.classList.add(anim);
+  }
+
+  // Set correct tab on page load (handles server redirect back with error)
+  activateTab(initialTab);
+
+  $('tabLogin').addEventListener('click',  () => activateTab('login'));
+  $('tabSignup').addEventListener('click', () => activateTab('signup'));
+  $('toSignup').addEventListener('click',  e => { e.preventDefault(); activateTab('signup'); });
+  $('toLogin').addEventListener('click',   e => { e.preventDefault(); activateTab('login'); });
+
+  // ── Client-side field error helpers ───────────────────────────────────────
+  function setError(id, msg) {
+    const el = $(id);
+    el.textContent = msg;
+    el.classList.toggle('show', !!msg);
+    const inp = el.closest('.form-group')?.querySelector('.form-input');
+    if (inp) inp.classList.toggle('has-error', !!msg);
+  }
+
+  // ── Password show/hide toggle ──────────────────────────────────────────────
+  document.querySelectorAll('.toggle-pw').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const inp = $(btn.dataset.target);
+      const isText = inp.type === 'text';
+      inp.type = isText ? 'password' : 'text';
+      btn.querySelector('.eye-on').style.display  = isText ? ''     : 'none';
+      btn.querySelector('.eye-off').style.display = isText ? 'none' : '';
+    });
+  });
+
+  // ── Password strength meter ────────────────────────────────────────────────
+  const SC = ['', '#e05252', '#f0a44f', '#34E0A1', '#00AA6C'];
+  const ST = ['', 'Weak',   'Fair',    'Good',    'Strong' ];
+
+  function getScore(pw) {
+    let s = 0;
+    if (pw.length >= 8)           s++;
+    if (/[A-Z]/.test(pw))         s++;
+    if (/[0-9]/.test(pw))         s++;
+    if (/[^A-Za-z0-9]/.test(pw))  s++;
+    return s;
+  }
+
+  function updateStrength(pw) {
+    const score = pw ? getScore(pw) : 0;
+    for (let i = 1; i <= 4; i++)
+      $('s' + i).style.background = i <= score ? SC[score] : '';
+    $('strengthLabel').textContent = pw ? ST[score] : '';
+    $('strengthLabel').style.color = SC[score];
+  }
+
+  // ── Email regex ────────────────────────────────────────────────────────────
+  const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+
+  // ── LOGIN form — validate then submit to Express ───────────────────────────
+  $('loginForm').addEventListener('submit', function(e) {
+    let ok = true;
+    const email = $('loginEmail').value.trim();
+    const pw    = $('loginPassword').value;
+
+    setError('le-err', '');
+    setError('lp-err', '');
+
+    if (!email)               { setError('le-err', 'Email is required.'); ok = false; }
+    else if (!isEmail(email)) { setError('le-err', 'Enter a valid email address.'); ok = false; }
+
+    if (!pw)                  { setError('lp-err', 'Password is required.'); ok = false; }
+    else if (pw.length < 6)   { setError('lp-err', 'Minimum 6 characters.'); ok = false; }
+
+    if (!ok) {
+      e.preventDefault();   // only block submission if client validation fails
+      return;
+    }
+
+    // Show loading spinner while form submits to server
+    const btn = $('loginBtn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+    // Form submits normally to POST /login — no e.preventDefault() here
+  });
+
+  // ── SIGNUP form — validate then submit to Express ──────────────────────────
+  $('signupForm').addEventListener('submit', function(e) {
+    let ok = true;
+    const name = $('sName').value.trim();
+    const email= $('sEmail').value.trim();
+    const pw   = $('sPassword').value;
+    const conf = $('sConfirm').value;
+
+    ['sn-err', 'se-err', 'sp-err', 'sc-err'].forEach(id => setError(id, ''));
+
+    if (!name || name.length < 2) { setError('sn-err', 'Enter your full name.'); ok = false; }
+
+    if (!email)               { setError('se-err', 'Email is required.'); ok = false; }
+    else if (!isEmail(email)) { setError('se-err', 'Enter a valid email address.'); ok = false; }
+
+    if (!pw)                  { setError('sp-err', 'Password is required.'); ok = false; }
+    else if (pw.length < 8)   { setError('sp-err', 'Minimum 8 characters.'); ok = false; }
+    else if (getScore(pw) < 2){ setError('sp-err', 'Password is too weak.'); ok = false; }
+
+    if (!conf)                { setError('sc-err', 'Please confirm your password.'); ok = false; }
+    else if (conf !== pw)     { setError('sc-err', 'Passwords do not match.'); ok = false; }
+
+    if (!ok) {
+      e.preventDefault();   // only block submission if client validation fails
+      return;
+    }
+
+    // Show loading spinner while form submits to server
+    const btn = $('signupBtn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+    // Form submits normally to POST /register — no e.preventDefault() here
+  });
+
+  // ── Clear field errors when user starts typing ─────────────────────────────
+  [
+    ['loginEmail',    'le-err'],
+    ['loginPassword', 'lp-err'],
+    ['sName',         'sn-err'],
+    ['sEmail',        'se-err'],
+    ['sPassword',     'sp-err'],
+    ['sConfirm',      'sc-err'],
+  ].forEach(([inp, err]) => $(inp)?.addEventListener('input', () => setError(err, '')));
+
+  // ── Toast (for social buttons only) ───────────────────────────────────────
+  let tt;
+  function showToast(msg, success = true) {
+    const t = $('toast');
+    t.textContent = (success ? '✓  ' : 'ℹ  ') + msg;
+    t.className = 'toast show' + (success ? ' success' : '');
+    clearTimeout(tt);
+    tt = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kedarkantha — TripAdvisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f0e8;
+      --surface: #ede8dd;
+      --card: #ffffff;
+      --ink: #2a2118;
+      --muted: #7a6e60;
+      --accent: #00AA6C;
+      --accent2: #34E0A1;
+      --border: rgba(0,0,0,0.09);
+      --green-grad: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Nunito', sans-serif; font-weight: 400; min-height: 100vh; }
+
+    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(245,240,232,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+    .navbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 6vw; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--accent2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 17px; box-shadow: 0 2px 8px rgba(52,224,161,0.35); }
+    .nav-logo span { font-size: 1.2rem; font-weight: 900; color: var(--ink); letter-spacing: -0.02em; }
+    .nav-logo span b { color: var(--accent); font-weight: 900; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .greeting-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(52,224,161,0.12); border: 1.5px solid rgba(0,170,108,0.2); border-radius: 100px; padding: 5px 14px; font-size: 0.82rem; font-weight: 700; color: var(--accent); }
+    .avatar { width: 36px; height: 36px; background: var(--green-grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; color: white; text-decoration: none; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,170,108,0.35); }
+    .avatar:hover { transform: scale(1.08); }
+    .btn-profile { font-size: 0.82rem; font-weight: 800; color: var(--accent); border: 1.5px solid rgba(0,170,108,0.35); border-radius: 10px; padding: 7px 16px; text-decoration: none; background: white; transition: all 0.2s; }
+    .btn-profile:hover { background: rgba(0,170,108,0.07); }
+    .btn-logout { font-size: 0.82rem; font-weight: 700; color: var(--muted); text-decoration: none; padding: 6px 14px; border: 1.5px solid rgba(0,0,0,0.15); border-radius: 8px; transition: all 0.2s; }
+    .btn-logout:hover { border-color: #e05252; color: #e05252; }
+    .back-btn { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-btn:hover { color: var(--accent); }
+    .back-btn svg { width: 14px; height: 14px; }
+
+    .hero { position: relative; height: 88vh; overflow: hidden; display: flex; align-items: flex-end; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) saturate(0.85); }
+    .hero-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,33,24,0.95) 0%, rgba(42,33,24,0.15) 55%, transparent 100%); }
+    .hero-content { position: relative; padding: 0 8vw 4rem; opacity: 0; animation: fadeUp 1s ease 0.3s forwards; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2); font-weight: 700; background: rgba(52,224,161,0.15); border: 1px solid rgba(52,224,161,0.3); border-radius: 100px; padding: 4px 14px; margin-bottom: 1rem; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 9vw, 7.5rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.02em; color: #f5f0e8; margin-bottom: 1.5rem; }
+    .hero-meta { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .meta-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.5); font-weight: 600; }
+    .meta-value { font-size: 0.88rem; color: rgba(245,240,232,0.9); font-weight: 500; }
+
+    .content { padding: 5rem 8vw; max-width: 1100px; margin: 0 auto; }
+    .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); }
+    .intro-lead { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.55; color: var(--ink); font-style: italic; border-left: 3px solid var(--accent); padding-left: 1.5rem; }
+    .intro-body p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; font-weight: 500; }
+
+    .sec-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .sec-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+
+    .photo-section { margin-bottom: 5rem; }
+    .photo-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 260px 260px; gap: 8px; }
+    .photo-grid .p1 { grid-column: 1 / 7; grid-row: 1; }
+    .photo-grid .p2 { grid-column: 7 / 13; grid-row: 1; }
+    .photo-grid .p3 { grid-column: 1 / 5; grid-row: 2; }
+    .photo-grid .p4 { grid-column: 5 / 9; grid-row: 2; }
+    .photo-grid .p5 { grid-column: 9 / 13; grid-row: 2; }
+
+    .photo-item { overflow: hidden; border-radius: 8px; position: relative; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter 0.5s ease; filter: brightness(0.9) saturate(0.95); }
+    .photo-item:hover img { transform: scale(1.05); filter: brightness(1) saturate(1.1); }
+    .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.6rem 0.9rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 600; background: linear-gradient(to top, rgba(42,33,24,0.75) 0%, transparent 100%); opacity: 0; transition: opacity 0.3s; }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 5rem; }
+    .highlight-item { background: var(--card); border: 1.5px solid var(--border); border-radius: 12px; padding: 2rem 1.8rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: all 0.25s; }
+    .highlight-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,170,108,0.1); border-color: rgba(0,170,108,0.25); }
+    .hi-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; line-height: 1; margin-bottom: 0.5rem; background: var(--green-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hi-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700; }
+    .hi-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 500; }
+
+    /* Trek difficulty badge */
+    .trek-info {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 5rem;
+    }
+    .trek-card {
+      background: var(--card); border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+    }
+    .trek-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,170,108,0.1); border-color: rgba(0,170,108,0.25); }
+    .trek-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .trek-val { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1; }
+    .trek-lbl { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 0.3rem; }
+
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tip-item { background: var(--card); border: 1.5px solid var(--border); border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: all 0.25s; }
+    .tip-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,170,108,0.08); }
+    .tip-title { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; font-weight: 800; }
+    .tip-text { font-size: 0.88rem; color: var(--muted); line-height: 1.8; font-weight: 500; }
+
+    footer { border-top: 1px solid var(--border); background: var(--surface); padding: 2.5rem 8vw; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--muted); margin-top: 5rem; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); }
+    .footer-brand b { color: var(--accent); font-weight: 600; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .intro { grid-template-columns: 1fr; gap: 2rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 200px); }
+      .photo-grid .p1 { grid-column: 1 / 3; grid-row: 1; }
+      .photo-grid .p2 { grid-column: 1; grid-row: 2; }
+      .photo-grid .p3 { grid-column: 2; grid-row: 2; }
+      .photo-grid .p4 { grid-column: 1; grid-row: 3; }
+      .photo-grid .p5 { grid-column: 2; grid-row: 3; }
+      .highlights { grid-template-columns: 1fr; }
+      .trek-info { grid-template-columns: 1fr 1fr; }
+      .tips-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="/home" class="nav-logo">
+        <div class="nav-logo-icon">🦉</div>
+        <span>Trip<b>Advisor</b></span>
+      </a>
+      <span style="color:var(--border);font-size:1rem">|</span>
+      <a href="/explore" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+        Explore India
+      </a>
+      <span style="color:var(--muted);font-size:0.75rem">/ Kedarkantha</span>
+    </div>
+    <div class="nav-right">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <span class="greeting-pill">👋 Hey, <%= user.name.split(' ')[0] %>!</span>
+        <a href="/profile" class="avatar" title="Profile"><%= user.name.charAt(0).toUpperCase() %></a>
+        <a href="/profile" class="btn-profile">👤 Profile</a>
+        <a href="/logout" class="btn-logout">Logout</a>
+      <% } else { %>
+        <a href="/login" style="font-size:0.85rem;font-weight:800;color:var(--accent);text-decoration:none;">Sign In</a>
+      <% } %>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kedarkantha_Peak.jpg/1280px-Kedarkantha_Peak.jpg"
+    alt="Kedarkantha Peak" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1280&q=80'" />
+  <div class="hero-grad"></div>
+  <div class="hero-content">
+    <p class="hero-tag">🏔️ Uttarakhand — India</p>
+    <h1 class="hero-title">Kedarkantha</h1>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">Altitude</span><span class="meta-value">3,810 metres</span></div>
+      <div class="meta-item"><span class="meta-label">Best Season</span><span class="meta-value">December — April</span></div>
+      <div class="meta-item"><span class="meta-label">Known For</span><span class="meta-value">Winter Trek, Snow, Himalayan Views</span></div>
+      <div class="meta-item"><span class="meta-label">Base Camp</span><span class="meta-value">Sankri, Uttarkashi</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <div class="intro">
+    <p class="intro-lead">"You climb through pine forests heavy with snow, the silence broken only by your own breath — and then the summit opens, and the entire Himalayan horizon is yours."</p>
+    <div class="intro-body">
+      <p>Kedarkantha is one of India's most celebrated winter treks, standing at 3,810 metres in the Govind Wildlife Sanctuary of Uttarkashi district. What makes it extraordinary is its accessibility — even first-time trekkers can summit, yet the experience rivals far more demanding Himalayan routes.</p>
+      <p>The trail begins at Sankri village and winds through dense forests of oak, rhododendron, and pine, all blanketed in snow from December onwards. Each camp reveals a new dimension of the landscape — frozen streams, meadows of unbroken white, and skies so clear the stars feel close enough to touch.</p>
+      <p>From the summit, on a clear winter morning, the panoramic view stretches across some of the Himalayas' most iconic peaks — Swargarohini, Bandarpoonch, Kala Nag, and the distant white mass of the Yamunotri range. It is the kind of view that makes the cold, the altitude, and every aching step feel like a bargain.</p>
+    </div>
+  </div>
+
+  <!-- TREK INFO CARDS -->
+  <div class="sec-head">
+    <span class="sec-label">Trek at a Glance</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="trek-info" style="margin-bottom:5rem;">
+    <div class="trek-card">
+      <div class="trek-icon">📏</div>
+      <div class="trek-val">20 km</div>
+      <div class="trek-lbl">Total Distance</div>
+    </div>
+    <div class="trek-card">
+      <div class="trek-icon">📅</div>
+      <div class="trek-val">4–6 Days</div>
+      <div class="trek-lbl">Duration</div>
+    </div>
+    <div class="trek-card">
+      <div class="trek-icon">⛰️</div>
+      <div class="trek-val">3,810 m</div>
+      <div class="trek-lbl">Summit Altitude</div>
+    </div>
+    <div class="trek-card">
+      <div class="trek-icon">🟢</div>
+      <div class="trek-val">Easy–Mod</div>
+      <div class="trek-lbl">Difficulty Level</div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="photo-section">
+    <div class="sec-head"><span class="sec-label">Gallery</span><div class="sec-line"></div></div>
+    <div class="photo-grid">
+      <div class="photo-item p1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kedarkantha_Peak.jpg/1280px-Kedarkantha_Peak.jpg" alt="Kedarkantha Summit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80'" />
+        <span class="photo-caption">Kedarkantha Summit</span>
+      </div>
+      <div class="photo-item p2">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Snow covered Himalayas" loading="lazy" />
+        <span class="photo-caption">Himalayan Horizon</span>
+      </div>
+      <div class="photo-item p3">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Pine Forest Trail" loading="lazy" />
+        <span class="photo-caption">Pine Forest Trail</span>
+      </div>
+      <div class="photo-item p4">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Trekkers in snow" loading="lazy" />
+        <span class="photo-caption">Trekking Through Snow</span>
+      </div>
+      <div class="photo-item p5">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80" alt="Starry night camp" loading="lazy" />
+        <span class="photo-caption">Starry Night at Camp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHTS -->
+  <div class="sec-head"><span class="sec-label">Highlights</span><div class="sec-line"></div></div>
+  <div class="highlights">
+    <div class="highlight-item">
+      <div class="hi-num">3,810m</div>
+      <div class="hi-label">Summit Altitude</div>
+      <div class="hi-desc">Standing atop Kedarkantha on a clear winter morning, you can see Swargarohini, Bandarpoonch, Kala Nag, and the Yamunotri range — a panorama that stretches across hundreds of kilometres of the high Himalayas.</div>
+    </div>
+    <div class="highlight-item">
+      <div class="hi-num">Dec–Apr</div>
+      <div class="hi-label">Best Snow Season</div>
+      <div class="hi-desc">Winter transforms the trail into a magical white corridor. Deep snow, frozen meadows, and clear blue skies make December to April the most sought-after window for this trek.</div>
+    </div>
+    <div class="highlight-item">
+      <div class="hi-num">1st Timer</div>
+      <div class="hi-label">Beginner Friendly</div>
+      <div class="hi-desc">Unlike most high-altitude Himalayan treks, Kedarkantha is considered easy to moderate — making it the perfect first winter Himalayan experience for those new to trekking at altitude.</div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="sec-head" style="margin-top:5rem;"><span class="sec-label">Travel Tips</span><div class="sec-line"></div></div>
+  <div class="tips-grid">
+    <div class="tip-item">
+      <p class="tip-title">Best Time to Trek</p>
+      <p class="tip-text">December to April for snow. January and February offer the deepest snow and clearest summit views. April is ideal for those who prefer slightly warmer conditions but still want snow underfoot on the upper trail.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">How to Reach Sankri</p>
+      <p class="tip-text">Fly or take a train to Dehradun, then take a shared taxi or bus to Sankri (190 km, ~8–9 hours). Most trekking groups depart from Dehradun early morning to arrive at Sankri by evening.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">What to Pack</p>
+      <p class="tip-text">Layered thermals, a good down jacket, waterproof trekking shoes, microspikes for icy sections, sunscreen (UV is intense at altitude), and a headlamp. Most organised treks provide tents, sleeping bags, and meals.</p>
+    </div>
+    <div class="tip-item">
+      <p class="tip-title">Altitude Precautions</p>
+      <p class="tip-text">Acclimatise at Sankri for a day before starting. Stay well hydrated, avoid alcohol, and ascend slowly. Symptoms of altitude sickness — headache, nausea, dizziness — should be taken seriously and descent is always the right call.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-brand">Explore <b>India</b></span>
+  <a href="/explore" style="color:var(--accent);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">← Back to All Destinations</a>
+</footer>
+
+</body>
+</html>
