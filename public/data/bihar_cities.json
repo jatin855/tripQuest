@@ -1,0 +1,846 @@
+{
+    "meta": {
+        "project": "India Explore - Bihar",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "patna",
+            "name": "Patna",
+            "tagline": "The Ancient City of Pataliputra",
+            "region": "Magadh",
+            "district": "Patna",
+            "type": "Capital City & Historical",
+            "altitude_m": 53,
+            "altitude_display": "53m",
+            "lat": 25.5941,
+            "lon": 85.1376,
+            "distance_kolkata_km": 580,
+            "distance_delhi_km": 1050,
+            "best_time": "October–March",
+            "avoid_time": "May–June (extreme heat)",
+            "temp_summer_c": "30–43°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1622306899723-5c7d81225337?w=1200&q=80",
+            "overview": "Patna, stretching along the southern banks of the holy Ganges River, is one of the oldest continuously inhabited places in the world. As the capital of Bihar, it acts as a bustling, rapidly developing metropolis that sits atop millennia of profound history, serving as the gateway to the Buddhist and Jain circuits of the state.",
+            "history": "Originally founded as Pataliputra by the king of Magadha, Ajatashatru, in the 5th century BCE. It served as the glorious capital for several of India's greatest empires, including the Maurya and Gupta dynasties. Scholars like Chanakya, Aryabhata, and Ashoka the Great walked its streets. It was also a pivotal center for the Sikh religion, being the birthplace of the 10th Sikh Guru, Guru Gobind Singh.",
+            "nearest_airport": {
+                "name": "Jay Prakash Narayan International Airport",
+                "code": "PAT",
+                "distance_km": 7
+            },
+            "nearest_railhead": {
+                "name": "Patna Junction",
+                "distance_km": 0,
+                "note": "Major railway hub of Eastern India"
+            },
+            "language": [
+                "Hindi",
+                "Magahi",
+                "Bhojpuri",
+                "English"
+            ],
+            "cuisine": [
+                "Litti Chokha",
+                "Sattu Paratha",
+                "Khaja",
+                "Malpua",
+                "Tilkut"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "history",
+                "sikh pilgrimage",
+                "museums",
+                "riverfront"
+            ],
+            "places": [
+                {
+                    "id": "pat-bihar-museum",
+                    "name": "Bihar Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.8,
+                    "entry_fee_inr": 100,
+                    "open_hours": "10:30 AM – 5:00 PM (Closed Mondays)",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "modern museum architecture India",
+                    "description": "A world-class, ultra-modern museum spread over 13 acres, designed by the renowned Japanese architectural firm Maki and Associates. It brilliantly curates the history of Bihar from ancient times to 1764. The highlight is the world-famous 2,300-year-old Didarganj Yakshi, a masterpiece of Mauryan polished stone sculpture.",
+                    "tips": "Allocate at least half a day as the museum is vast and interactive. The children's gallery is phenomenal if you are traveling with kids. There's a well-curated cafeteria serving authentic Bihari cuisine inside.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pat-takht-sri-patna-sahib",
+                    "name": "Takht Sri Harmandir Ji Patna Sahib",
+                    "category": "Temple",
+                    "subcategory": "Sikh Pilgrimage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Gurudwara Patna Sahib Sikh temple",
+                    "description": "One of the Five Takhts (Holy Seats of Authority) of Sikhism. Built by Maharaja Ranjit Singh to commemorate the birthplace of the tenth Sikh Guru, Guru Gobind Singh Ji, who was born here in 1666. The stunning white marble structure houses sacred relics, including the Guru's childhood cradle and weapons.",
+                    "tips": "Cover your head before entering (scarves are provided). Don't miss the Langar (community kitchen meal) which serves thousands daily. The narrow streets leading to it can be congested, so take a rickshaw.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pat-golghar",
+                    "name": "Golghar",
+                    "category": "Heritage",
+                    "subcategory": "Monument",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Golghar Patna massive dome architecture",
+                    "description": "A massive, beehive-shaped granary built by Captain John Garstin in 1786 following the terrible famine of 1770. It has a base diameter of 125 meters and walls that are 3.6 meters thick. Remarkably, it features no supporting pillars inside. The spiral staircase leads to the top, offering a sweeping view of the Ganges.",
+                    "tips": "Climbing the 145 steps to the top gives a great panoramic view of Patna city and the river, but avoid it during the midday summer heat. Due to structural conservation, inner access is sometimes restricted.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pat-kumhrar",
+                    "name": "Kumhrar Park (Ancient Pataliputra Ruins)",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.1,
+                    "entry_fee_inr": 15,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 7,
+                    "unsplash_query": "archaeological ruins ancient pillars India",
+                    "description": "The archaeological excavation site of ancient Pataliputra. The most significant finding here is the ruins of an 80-pillared massive hypostyle hall from the Mauryan Empire (3rd century BCE). Today, only one highly polished sandstone pillar stands intact, while the rest are indicated by their foundational spots.",
+                    "tips": "It requires a bit of historical imagination to appreciate the site, as mostly foundations remain. Hire a local guide or read up on Mauryan history beforehand to understand the sheer scale of Emperor Ashoka's capital.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pat-marine-drive",
+                    "name": "Ganga Marine Drive (Loknayak Ganga Path)",
+                    "category": "Landmark",
+                    "subcategory": "Riverfront",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "riverfront promenade lights evening",
+                    "description": "A modern, scenic 20-kilometer-long elevated expressway running along the banks of the Ganges. It has quickly become the city's favorite evening hangout spot. The promenade features walking tracks, street food stalls, and stunning views of the river and bridge lights at night.",
+                    "tips": "Visit in the evening for a cool river breeze and a vibrant street food scene serving fresh Litti Chokha, Momos, and Kulhad Chai. Great place for cycling or a sunset walk.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pat-patna-museum",
+                    "name": "Patna Museum (Jadu Ghar)",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.4,
+                    "entry_fee_inr": 15,
+                    "open_hours": "10:30 AM – 4:30 PM (Closed Mondays)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "colonial architecture museum building",
+                    "description": "Built by the British in 1917, this museum showcases excellent Rajput and Mughal architecture. While many premium artifacts were moved to the new Bihar Museum, it still houses the Holy Relic Casket containing the ashes of Lord Buddha, incredible Hindu and Buddhist stone sculptures, and a 200-million-year-old fossilized tree.",
+                    "tips": "The Buddha Relic casket is kept in a heavily guarded separate room. The colonial-era building itself is very photogenic. Combine this with a visit to the nearby Buddha Smriti Park.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "bodhgaya",
+            "name": "Bodh Gaya & Gaya",
+            "tagline": "The Land of Enlightenment",
+            "region": "Magadh",
+            "district": "Gaya",
+            "type": "Spiritual & UNESCO",
+            "altitude_m": 111,
+            "altitude_display": "111m",
+            "lat": 24.6959,
+            "lon": 84.9913,
+            "distance_patna_km": 115,
+            "distance_varanasi_km": 250,
+            "best_time": "October–March",
+            "avoid_time": "May–June (extreme heat)",
+            "temp_summer_c": "28–45°C",
+            "temp_winter_c": "8–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1625026938992-bc12239f1cde?w=1200&q=80",
+            "overview": "Bodh Gaya is arguably the most sacred pilgrimage site for Buddhists worldwide, as it is the exact location where Prince Siddhartha Gautama attained enlightenment beneath the Bodhi Tree to become the Buddha. Just 15 kilometers away lies Gaya, a profoundly important Hindu pilgrimage center where devotees perform the 'Pind Daan' ritual for their ancestors along the Falgu River.",
+            "history": "In 589 BCE, the Buddha meditated under a peepal tree here for 49 days until he attained ultimate knowledge. Emperor Ashoka visited the site in 260 BCE and built the original Mahabodhi Temple. Over the centuries, it became a pan-Asian pilgrimage hub. Gaya, on the other hand, finds mention in the epic Ramayana, where Lord Rama is said to have offered Pind Daan for his father, Dasharatha.",
+            "nearest_airport": {
+                "name": "Gaya International Airport",
+                "code": "GAY",
+                "distance_km": 12
+            },
+            "nearest_railhead": {
+                "name": "Gaya Junction",
+                "distance_km": 15,
+                "note": "Well connected to Delhi, Kolkata, and Varanasi"
+            },
+            "language": [
+                "Hindi",
+                "Magahi",
+                "English"
+            ],
+            "cuisine": [
+                "Tilkut (Sesame sweet)",
+                "Khaja",
+                "Anarsa",
+                "Sattu Sherbet"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 8000
+            },
+            "tags": [
+                "buddhism",
+                "UNESCO",
+                "enlightenment",
+                "hindu pilgrimage",
+                "international monasteries"
+            ],
+            "places": [
+                {
+                    "id": "bod-mahabodhi",
+                    "name": "Mahabodhi Temple Complex",
+                    "category": "Temple",
+                    "subcategory": "UNESCO Heritage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:00 AM – 9:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "Mahabodhi Temple Bodh Gaya stupa",
+                    "description": "A UNESCO World Heritage Site, this soaring 50-meter-high pyramidal temple is one of the oldest brick Buddhist temples in India, dating back to the 5th-6th century CE (built upon Ashoka's original 3rd-century BCE structure). The complex contains the Diamond Throne (Vajrasana) where Buddha sat, the sacred Bodhi Tree, and the Muchalinda Lake.",
+                    "tips": "Electronic devices and mobile phones are strictly prohibited and must be deposited at the free cloakroom outside. You can purchase a camera ticket. Visit at dawn to join monks in chanting—the spiritual energy is palpable. Pick up fallen Bodhi leaves as souvenirs; plucking them is a sin.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bod-great-buddha",
+                    "name": "The Great Buddha Statue",
+                    "category": "Landmark",
+                    "subcategory": "Monument",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 12:00 PM, 2:00 PM – 5:30 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1.5,
+                    "unsplash_query": "giant sitting Buddha statue stone",
+                    "description": "An awe-inspiring 80-foot (24 m) tall statue of the Buddha seated in a meditation pose (Dhyana Mudra) on a giant lotus. Made from a combination of red granite and sandstone blocks, it took 12,000 masons seven years to complete and was consecrated by the 14th Dalai Lama in 1989.",
+                    "tips": "The statue is flanked by smaller statues of Buddha's ten prominent disciples. It’s beautifully lit up in the evening. There is ample space around the base for meditation.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bod-vishnupad",
+                    "name": "Vishnupad Temple (Gaya)",
+                    "category": "Temple",
+                    "subcategory": "Hindu Pilgrimage",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:30 AM – 7:30 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Hindu temple river ghat Gaya India",
+                    "description": "Located in Gaya along the Falgu River, this ancient temple houses a 40-centimeter footprint etched in solid basalt rock, believed to be that of Lord Vishnu. The current octagonal shrine was built by Queen Ahilyabai Holkar in 1787. It is the epicenter for the 'Pind Daan' rituals honoring deceased ancestors.",
+                    "tips": "Non-Hindus are generally not permitted inside the inner sanctum. The surrounding ghats are intensely crowded, especially during the Pitru Paksha period (September/October). Dress conservatively.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bod-dungeshwari",
+                    "name": "Dungeshwari Cave Temples (Mahakala Caves)",
+                    "category": "Heritage",
+                    "subcategory": "Caves",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "rock caves hills ascetic",
+                    "description": "Located on the Sujata bypass, these rugged caves are where Prince Siddhartha practiced extreme, life-threatening asceticism and fasting for six years before realizing that the 'Middle Way' was the true path to enlightenment. Inside, there is a golden emaciated statue of the Buddha.",
+                    "tips": "It requires a short hike up the hill. The caves are small and dark but highly significant to Buddhist history. It is a very quiet, contemplative spot compared to the bustling Mahabodhi temple.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bod-international-monasteries",
+                    "name": "International Monasteries Circuit",
+                    "category": "Culture",
+                    "subcategory": "Monasteries",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Generally 8:00 AM – 12:00 PM, 2:00 PM – 5:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Thai temple curved roof Bodh Gaya",
+                    "description": "Bodh Gaya features an array of stunning monasteries built by foreign Buddhist nations, each reflecting their native architectural styles. Notable ones include the Royal Bhutan Monastery (intricate clay carvings), Thai Temple (sloping curved roofs and bronze Buddha), Japanese Indosan Nipponji (wooden architecture), and the Tibetan Karma Temple.",
+                    "tips": "Rent an e-rickshaw or bicycle to tour these monasteries as they are spread out. Remember that these are active places of worship and monastic living; maintain silence and observe visiting hours.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bod-sujata-stupa",
+                    "name": "Sujata Stupa & Sujata Garh",
+                    "category": "Heritage",
+                    "subcategory": "Ruins",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "ancient brick stupa mound India",
+                    "description": "A massive ancient brick stupa built across the Phalgu River from Bodh Gaya to commemorate Sujata, the village woman who offered a bowl of milk-rice (kheer) to an emaciated Siddhartha Gautama, ending his severe fasting and giving him the strength to attain enlightenment.",
+                    "tips": "Located in a very peaceful rural setting. It's a great spot to visit to understand the complete narrative arc of the Buddha's journey to enlightenment. A short walk away is the Sujata Kuti, the ruins of her house.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "rajgir",
+            "name": "Rajgir",
+            "tagline": "The First Capital of Magadha",
+            "region": "Magadh",
+            "district": "Nalanda",
+            "type": "Historical & Nature",
+            "altitude_m": 73,
+            "altitude_display": "73m",
+            "lat": 25.0232,
+            "lon": 85.4172,
+            "distance_patna_km": 100,
+            "distance_bodhgaya_km": 70,
+            "best_time": "October–March",
+            "avoid_time": "May–June (extremely hot)",
+            "temp_summer_c": "28–42°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1620603723326-0e10cc933e4f?w=1200&q=80",
+            "overview": "Nestled in a lush, green valley surrounded by five rocky hills, Rajgir (meaning 'City of Kings') is profoundly sacred to Buddhists, Jains, and Hindus. It was the first capital of the powerful Magadha Empire. The Buddha spent many rainy seasons here preaching, and Lord Mahavira delivered his first sermon in these hills.",
+            "history": "Rajgir is deeply ancient. It was the capital of the mighty Magadha kings Bimbisara and Ajatashatru. The Buddha delivered his famous Lotus Sutra at Vulture's Peak here. Following Buddha's parinirvana, the First Buddhist Council was held in the Saptaparni Cave of Rajgir. The city was protected by a massive 40-km long Cyclopean Wall, built of unhewn stones before the Mauryan period.",
+            "nearest_airport": {
+                "name": "Jay Prakash Narayan International Airport, Patna",
+                "code": "PAT",
+                "distance_km": 105
+            },
+            "nearest_railhead": {
+                "name": "Rajgir Railway Station",
+                "distance_km": 2,
+                "note": "Has direct trains from Delhi and Patna"
+            },
+            "language": [
+                "Hindi",
+                "Magahi",
+                "English"
+            ],
+            "cuisine": [
+                "Khaja (from nearby Silao)",
+                "Litti Chokha",
+                "Pedakiya",
+                "Fresh street-side Pakoras"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "buddhism",
+                "hills",
+                "hot springs",
+                "ancient ruins",
+                "nature safari"
+            ],
+            "places": [
+                {
+                    "id": "raj-vishwa-shanti",
+                    "name": "Vishwa Shanti Stupa (World Peace Pagoda)",
+                    "category": "Landmark",
+                    "subcategory": "Monument",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:30 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "Vishwa Shanti Stupa white dome Rajgir",
+                    "description": "A magnificent, gleaming white marble stupa sitting atop the 400-meter-high Ratnagiri Hill. Built in 1969 by Japanese Buddhists, it features four golden statues of the Buddha depicting his birth, enlightenment, teaching, and passing away. The stupa emits a profound aura of peace.",
+                    "tips": "Access the stupa via an exciting single-seater aerial ropeway (chairlift), which offers stunning views of the valley. Alternatively, you can trek up the paved path. The ropeway closes for lunch between 1 PM and 2 PM.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-griddhakuta",
+                    "name": "Griddhakuta (Vulture's Peak)",
+                    "category": "Heritage",
+                    "subcategory": "Spiritual",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 6,
+                    "unsplash_query": "rocky mountain peak prayer flags",
+                    "description": "One of the Buddha's favorite meditation retreats and the exact spot where he delivered some of his most profound discourses, including the Lotus Sutra and the Heart Sutra. It consists of a rocky outcropping resembling a vulture's beak. Devotees tie colorful prayer flags across the rocks.",
+                    "tips": "It requires a moderate uphill walk from the base of the ropeway or can be accessed by walking down a path from the Vishwa Shanti Stupa. Best visited in the early morning for meditation and fewer crowds.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-brahmakund",
+                    "name": "Rajgir Hot Springs (Brahmakund)",
+                    "category": "Nature",
+                    "subcategory": "Hot Spring",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "thermal hot spring temple bathing",
+                    "description": "At the foot of the Vaibhava Hill lie several hot water springs, of which Brahmakund is the hottest (around 45°C). The water comes through spouts carved as gargoyles and is rich in sulfur and minerals, believed to cure chronic skin diseases and joint pains.",
+                    "tips": "The bathing area is separated for men and women. It is a highly revered Hindu site, so it is often very crowded with pilgrims taking ritual baths, especially early in the morning.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-son-bhandar",
+                    "name": "Son Bhandar Caves",
+                    "category": "Heritage",
+                    "subcategory": "Caves",
+                    "rating": 4.3,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "ancient rock cut cave door",
+                    "description": "Two rock-cut caves dating back to the 3rd or 4th century CE. Legend states that the western cave holds the hidden treasury of King Bimbisara, guarded by an undeciphered inscription on the wall which holds the password to open the stone doorway. The caves were actually used by Jain ascetics.",
+                    "tips": "Look out for the wedge mark on the rock wall where the British allegedly tried (and failed) to blast open the 'treasure door' with a cannon. It's a quick, intriguing historical stop.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-glass-bridge",
+                    "name": "Nature Safari & Glass Cabin Bridge",
+                    "category": "Experience",
+                    "subcategory": "Adventure",
+                    "rating": 4.5,
+                    "entry_fee_inr": 200,
+                    "open_hours": "9:00 AM – 4:00 PM (Closed Mondays)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "glass bottom bridge gorge view",
+                    "description": "A newly developed eco-tourism park spanning 500 acres. The highlight is a 200-foot-high, transparent Glass Skywalk Bridge jutting out over a gorge, offering thrilling views. The safari also features zip-lining, archery, and a suspension bridge.",
+                    "tips": "Tickets for the Glass Bridge sell out extremely fast. Book them online days in advance. Only a limited number of people are allowed on the glass at one time, so expect waiting times.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-cyclopean-wall",
+                    "name": "Cyclopean Wall",
+                    "category": "Heritage",
+                    "subcategory": "Ruins",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "massive ancient stone wall ruins",
+                    "description": "One of the oldest examples of cyclopean masonry in the world. This massive, 40-kilometer-long defensive wall once encircled ancient Rajgir. It is built purely of massive, unhewn limestone boulders fitted together without any mortar, dating back prior to the 3rd century BCE.",
+                    "tips": "You can see remnants of the wall clearly along the roadside as you enter Rajgir. It is completely exposed to the elements, making it an easy, quick stop for history enthusiasts.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "nalanda",
+            "name": "Nalanda",
+            "tagline": "The Seat of Ancient Learning",
+            "region": "Magadh",
+            "district": "Nalanda",
+            "type": "Heritage & UNESCO",
+            "altitude_m": 67,
+            "altitude_display": "67m",
+            "lat": 25.1352,
+            "lon": 85.4435,
+            "distance_patna_km": 90,
+            "distance_rajgir_km": 15,
+            "best_time": "October–March",
+            "avoid_time": "May–June (unshaded ruins get extremely hot)",
+            "temp_summer_c": "28–42°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1627962137946-b60517596a24?w=1200&q=80",
+            "overview": "Nalanda is synonymous with the quest for knowledge. It is home to the ruins of the ancient Nalanda Mahavihara, recognized as one of the world's first great residential universities. For over 800 years, it was an unparalleled center of learning, attracting scholars from Tibet, China, Korea, and Central Asia.",
+            "history": "Founded in the 5th century CE under the Gupta Empire, Nalanda University flourished under the patronage of Emperor Harsha and the Pala kings. At its peak, it housed 10,000 students and 2,000 teachers. The curriculum covered Buddhism, logic, grammar, medicine, and mathematics. Tragically, it was brutally sacked and burnt down in 1193 by the invading armies of Bakhtiyar Khalji, wiping out an estimated 9 million manuscripts.",
+            "nearest_airport": {
+                "name": "Jay Prakash Narayan International Airport, Patna",
+                "code": "PAT",
+                "distance_km": 95
+            },
+            "nearest_railhead": {
+                "name": "Rajgir Railway Station",
+                "distance_km": 15,
+                "note": "Most tourists stay in Rajgir and take a day trip to Nalanda"
+            },
+            "language": [
+                "Hindi",
+                "Magahi",
+                "English"
+            ],
+            "cuisine": [
+                "Silao Khaja (GI Tagged sweet from nearby Silao)",
+                "Puri Sabzi",
+                "Jalebi"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "UNESCO",
+                "ancient university",
+                "archaeology",
+                "history"
+            ],
+            "places": [
+                {
+                    "id": "nal-university-ruins",
+                    "name": "Ruins of Nalanda University",
+                    "category": "Heritage",
+                    "subcategory": "UNESCO Heritage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 40,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "Nalanda university ruins brick stupa",
+                    "description": "A UNESCO World Heritage Site. The excavated red-brick ruins cover an area of 14 hectares, revealing a highly organized architectural grid. The site features multiple monasteries (Viharas) lined up opposite majestic temples (Chaityas). The iconic Stupa No. 3 (Sariputta Stupa), with its multiple flights of stairs and stucco figures, is the visual centerpiece of the complex.",
+                    "tips": "Hiring a registered ASI guide is highly recommended to understand the intricacies of the student dormitories, the drainage system, the meditation cells, and the massive ovens used to cook for 10,000 people. Carry an umbrella as the site is completely open.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nal-asi-museum",
+                    "name": "Nalanda Archaeological Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.5,
+                    "entry_fee_inr": 5,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Fridays)",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 0.5,
+                    "unsplash_query": "bronze statues ancient artifacts museum",
+                    "description": "Located opposite the ruins, this museum houses the exquisite antiquities unearthed during the excavations of Nalanda and nearby Rajgir. It features a spectacular collection of bronze and stone sculptures of Buddha and Hindu deities from the Pala and Gupta periods, ancient coins, official terracotta seals of the university, and charred rice from the 12th-century destruction.",
+                    "tips": "Do not skip this. The bronze sculptures here represent the absolute zenith of Pala art. Photography is strictly prohibited inside the museum.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nal-xuanzang",
+                    "name": "Xuanzang Memorial Hall",
+                    "category": "Culture",
+                    "subcategory": "Memorial",
+                    "rating": 4.4,
+                    "entry_fee_inr": 50,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Chinese architecture memorial hall red pillars",
+                    "description": "A beautiful memorial built collaboratively by the Indian and Chinese governments to honor Xuanzang (Hiuen Tsang), the famous 7th-century Chinese monk, scholar, and traveler who studied and taught at Nalanda for 5 years. His detailed travelogues provided the blueprint for excavating Nalanda centuries later.",
+                    "tips": "The architecture is distinctly Chinese, with a sloping roof and vibrant red pillars. Inside, there is a relic of Xuanzang and beautiful murals depicting his arduous 10,000-mile journey from China to India.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nal-black-buddha",
+                    "name": "Black Buddha Temple (Telhara)",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 1.5,
+                    "unsplash_query": "black stone Buddha statue India",
+                    "description": "A small, unassuming temple located near the ruins that houses a magnificent, massive black stone statue of the Buddha in the Bhumisparsha Mudra (earth-touching posture). It dates back to the Pala period and survived the destruction of the university.",
+                    "tips": "A very quick stop near the main ruins. The intricate carvings surrounding the main Buddha figure are incredibly detailed.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nal-kundalpur",
+                    "name": "Kundalpur Digambar Jain Temple",
+                    "category": "Temple",
+                    "subcategory": "Jain Pilgrimage",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "Jain temple white marble India",
+                    "description": "According to the Digambara sect of Jainism, Kundalpur is the sacred birthplace of Lord Mahavira, the 24th and last Tirthankara. The complex features a massive, pristine white marble temple dedicated to him, along with several smaller shrines and a large lotus pond.",
+                    "tips": "It is an incredibly serene and clean complex. Ensure you are dressed conservatively. Leather items (belts, wallets, shoes) are not allowed inside the main temple premises.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "vaishali",
+            "name": "Vaishali",
+            "tagline": "The World's First Republic",
+            "region": "Tirhut",
+            "district": "Vaishali",
+            "type": "Historical & Pilgrimage",
+            "altitude_m": 52,
+            "altitude_display": "52m",
+            "lat": 25.9866,
+            "lon": 85.1278,
+            "distance_patna_km": 55,
+            "distance_muzaffarpur_km": 35,
+            "best_time": "October–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "28–42°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1596700813955-f2ebce311a22?w=1200&q=80",
+            "overview": "Vaishali is a small village with a colossal historical footprint. Revered equally by Jains and Buddhists, it holds the distinction of being the first republic in the world (the Licchavi Republic). Lord Mahavira was born here, and Lord Buddha delivered his last sermon here before his Parinirvana.",
+            "history": "In the 6th century BCE, Vaishali was the capital of the Vajjian Confederacy, pioneering an early form of democratic republic where representatives assembled to discuss state affairs. The Buddha visited frequently, and the Second Buddhist Council was held here 100 years after his death. It is also the birthplace of Lord Mahavira (born in 599 BCE in nearby Kundagrama), making it a supreme pilgrimage site for Jains.",
+            "nearest_airport": {
+                "name": "Jay Prakash Narayan International Airport, Patna",
+                "code": "PAT",
+                "distance_km": 65
+            },
+            "nearest_railhead": {
+                "name": "Hajipur Junction",
+                "distance_km": 35,
+                "note": "A major railway hub connecting North Bihar"
+            },
+            "language": [
+                "Bajjika",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Litti Chokha",
+                "Sattu",
+                "Chura Dahi",
+                "Malpua"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "buddhism",
+                "jainism",
+                "ancient republic",
+                "ashokan pillar"
+            ],
+            "places": [
+                {
+                    "id": "vai-ashokan-pillar",
+                    "name": "Ashokan Pillar & Kolhua",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Ashokan pillar lion capital ancient brick stupa",
+                    "description": "The site where Buddha delivered his last sermon. To commemorate this, Emperor Ashoka erected a monolithic, highly polished sandstone pillar topped with a life-size lion facing north (the direction Buddha took on his final journey). Adjacent to it sits the massive brick Ananda Stupa and a sacred monkey tank.",
+                    "tips": "Unlike the fragmented Ashokan pillars elsewhere, the pillar here is completely intact and standing in its original location. It's a fantastic site for history enthusiasts and photographers.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vai-relic-stupa",
+                    "name": "Relic Stupa of Buddha",
+                    "category": "Heritage",
+                    "subcategory": "Ruins",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "ancient stupa foundation tin roof",
+                    "description": "After Buddha's cremation, his ashes were divided into eight parts. The Licchavis of Vaishali received one share and built this mud stupa (later encased in brick) over it. During excavations in 1958, a stone casket containing the holy relics was found, which is now safely housed in the Patna Museum.",
+                    "tips": "Today, only the base of the stupa remains, protected by a tin shed. While visually unassuming, it is one of the most spiritually and historically significant pieces of ground in the Buddhist world.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vai-vishwa-shanti",
+                    "name": "Vishwa Shanti Stupa",
+                    "category": "Landmark",
+                    "subcategory": "Monument",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "white peace pagoda park",
+                    "description": "Similar to the one in Rajgir, this towering, 38-meter-tall white peace pagoda was built by the Nipponzan Myohoji Buddhist sect of Japan. Surrounded by well-manicured gardens and a small boating lake, it is a beacon of serenity.",
+                    "tips": "It's a very peaceful place to relax after exploring the ancient ruins. You can hear the rhythmic, meditative drumming of the resident Japanese monks in the adjoining temple.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vai-abhishek-pushkarini",
+                    "name": "Abhishek Pushkarini (Coronation Tank)",
+                    "category": "Heritage",
+                    "subcategory": "Historical Tank",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "historical water tank stepwell India",
+                    "description": "A sacred ancient water tank. In the days of the Licchavi Republic, all newly elected representatives (Raja) were anointed with the holy water from this tank before taking the oath of office, symbolizing democratic purity and duty.",
+                    "tips": "The Vaishali Archaeological Museum is located right next to the tank, making it convenient to visit both together. The museum houses some excellent terracotta figures.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vai-bawan-pokhar",
+                    "name": "Bawan Pokhar Temple",
+                    "category": "Temple",
+                    "subcategory": "Hindu",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 7:00 PM",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 1.5,
+                    "unsplash_query": "ancient Hindu temple stone carvings",
+                    "description": "Built during the Pala period, this old Hindu temple is situated on the northern bank of Bawan Pokhar (a large tank). It houses several beautiful black basalt statues of Hindu deities dating back to the Gupta and Pala eras.",
+                    "tips": "It showcases the religious diversity of ancient Vaishali. A quick stop to admire the beautifully carved black stone idols.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "bhagalpur",
+            "name": "Bhagalpur",
+            "tagline": "The Silk City of India",
+            "region": "Anga",
+            "district": "Bhagalpur",
+            "type": "Industrial & Heritage",
+            "altitude_m": 43,
+            "altitude_display": "43m",
+            "lat": 25.2425,
+            "lon": 86.9842,
+            "distance_patna_km": 250,
+            "distance_kolkata_km": 410,
+            "best_time": "October–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "28–40°C",
+            "temp_winter_c": "10–24°C",
+            "hero_image": "https://images.unsplash.com/photo-1620603723326-0e10cc933e4f?w=1200&q=80",
+            "overview": "Located on the southern banks of the Ganges, Bhagalpur is globally renowned for its unique 'Tussar Silk' (Bhagalpuri Silk). Beyond its booming handloom industry, it is a city of profound ancient heritage, serving as the site of Vikramshila University, a peer to Nalanda, and hosting the only sanctuary in India for the endangered Gangetic Dolphin.",
+            "history": "Bhagalpur was the capital of the ancient Anga Kingdom, ruled by Karna from the Mahabharata. In the 8th century CE, the Pala Emperor Dharmapala established the Vikramshila Mahavihara here, which became one of the most vital centers of Buddhist learning in India, particularly for Vajrayana Buddhism, until its destruction in the 12th century.",
+            "nearest_airport": {
+                "name": "Jay Prakash Narayan International Airport, Patna",
+                "code": "PAT",
+                "distance_km": 260,
+                "note": "Deoghar Airport (Jharkhand) is closer at ~120 km."
+            },
+            "nearest_railhead": {
+                "name": "Bhagalpur Junction",
+                "distance_km": 0,
+                "note": "A major and busy railway station"
+            },
+            "language": [
+                "Angika",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Zardalu Mango (GI Tagged)",
+                "Katararni Rice (GI Tagged)",
+                "Thekua",
+                "Sattu"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2200,
+                "luxury": 4500
+            },
+            "tags": [
+                "silk",
+                "ancient university",
+                "dolphins",
+                "river ganges"
+            ],
+            "places": [
+                {
+                    "id": "bha-vikramshila",
+                    "name": "Vikramshila University Ruins",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 40,
+                    "unsplash_query": "ancient brick stupa monastery ruins",
+                    "description": "The ruins of the glorious Vikramshila Mahavihara, established in the 8th century CE. It was a massive complex featuring 108 monasteries and a central magnificent stupa. It produced eminent scholars like Atisha Dipankara, who traveled to Tibet to spread Buddhism. The site features beautiful terracotta plaques decorating the central stupa.",
+                    "tips": "Located in Antichak village, a scenic drive from Bhagalpur. It is less crowded than Nalanda, offering a peaceful exploration of the ruins. A local museum on-site houses excavated statues and coins.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bha-dolphin-sanctuary",
+                    "name": "Vikramshila Gangetic Dolphin Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Best visited early morning",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "river dolphin Ganges boat ride",
+                    "description": "This is India's only sanctuary created for the conservation of the endangered Gangetic River Dolphin (the National Aquatic Animal of India). It spans a 50-kilometer stretch of the Ganges River from Sultanganj to Kahalgaon.",
+                    "tips": "Hire a local boat at Sultanganj or Kahalgaon early in the morning. Spotting the blind dolphins as they briefly surface to breathe requires patience and silence. Winter is the best time for spotting them alongside migratory birds.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bha-mandar-hill",
+                    "name": "Mandar Hill (Mandar Parvat)",
+                    "category": "Heritage",
+                    "subcategory": "Mythological",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "granite hill rock carvings temple",
+                    "description": "A 700-foot-high granite hill rich in Hindu mythology. It is believed to be the mountain used by gods and demons to churn the cosmic ocean (Samudra Manthan) to obtain the nectar of immortality. You can still see the supposed coil marks of the serpent Vasuki around the hill. It also has a 12th-century Jain temple at the summit.",
+                    "tips": "There is an aerial ropeway for those who cannot trek up the hill. The Paapharni Pond at the base features a beautiful lotus temple dedicated to Lord Vishnu. A great half-day excursion.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bha-silk-market",
+                    "name": "Nathnagar Silk Village",
+                    "category": "Culture",
+                    "subcategory": "Shopping/Handicraft",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 7:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "silk weaving handloom yarn",
+                    "description": "Nathnagar is the bustling heart of Bhagalpur's renowned silk weaving industry. Almost every household here operates a handloom or power loom. You can witness the mesmerizing process of Tussar silk being spun and woven into exquisite sarees, kurtas, and scarves.",
+                    "tips": "This is the best place to buy authentic Bhagalpuri silk directly from the weavers at wholesale prices. The locals are usually very welcoming and will let you watch the weaving process.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bha-colganj",
+                    "name": "Colganj Rock Cut Temples",
+                    "category": "Heritage",
+                    "subcategory": "Rock-cut",
+                    "rating": 4.0,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 32,
+                    "unsplash_query": "ancient rock cut carvings India",
+                    "description": "Located in Kahalgaon, these date back to the 5th-7th century CE during the Gupta period. They feature impressive rock-cut carvings and statues of Hindu deities like Shiva, Parvati, and Ganesha carved directly into a rocky outcrop on an island in the Ganges.",
+                    "tips": "Requires a short boat ride to reach the island. It is a rugged, off-the-beaten-path site, perfect for history enthusiasts willing to explore beyond the manicured tourist spots.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

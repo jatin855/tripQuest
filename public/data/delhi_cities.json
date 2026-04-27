@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "project": "Delhi Explore",
+    "version": "1.0",
+    "total_cities": 3,
+    "last_updated": "2026-04-25",
+    "author": "Explore Team"
+  },
+  "cities": [
+    {
+      "id": "new-delhi",
+      "name": "New Delhi",
+      "tagline": "The heart of India — monuments, power, and culture",
+      "hero_image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=80",
+      "best_time": "October to March",
+      "type": "Metro",
+      "region": "North India",
+      "tags": ["heritage", "metro", "popular", "family", "culture", "history", "shopping"],
+      "overview": "New Delhi, India's capital, is a massive metropolitan area in the country's north. It is the seat of India's parliament and government. The city is known for its colonial-era architecture, bustling bazaars, and vibrant street food culture.",
+      "history": "New Delhi was built as the capital of British India in 1911 by Edwin Lutyens. The area around Delhi has been inhabited since the 6th century BC and has served as a capital for multiple kingdoms and empires.",
+      "cuisine": ["Chole Bhature", "Paranthas", "Butter Chicken", "Kebabs", "Chaat", "Biryani", "Jalebi"],
+      "nearest_airport": { "name": "Indira Gandhi International Airport", "code": "DEL", "distance_km": 16 },
+      "nearest_railhead": { "name": "New Delhi Railway Station", "distance_km": 0, "note": "Major junction" },
+      "distance_delhi_km": 0,
+      "distance_chandigarh_km": 250,
+      "budget_per_day_inr": { "budget": 1500, "mid": 4000, "luxury": 12000 },
+      "seasons": {
+        "summer": { "months": "Apr–Jun", "temp_range": "32–45°C", "crowd_level": "Low", "description": "Extremely hot. Avoid outdoor sightseeing during midday." },
+        "monsoon": { "months": "Jul–Sep", "temp_range": "26–35°C", "crowd_level": "Medium", "description": "Humid with heavy rainfall. Green landscapes but challenging travel." },
+        "winter": { "months": "Oct–Mar", "temp_range": "5–25°C", "crowd_level": "High", "description": "Perfect weather for sightseeing and outdoor activities." },
+        "autumn": { "months": "Oct–Nov", "temp_range": "15–30°C", "crowd_level": "High", "description": "Cool and pleasant. Festival season with Diwali celebrations." }
+      },
+      "places": [
+        {
+          "name": "India Gate",
+          "category": "Heritage",
+          "subcategory": "War Memorial",
+          "rating": 4.7,
+          "description": "A 42-metre tall war memorial arch, one of India's most iconic landmarks, dedicated to soldiers who died in World War I.",
+          "image": "https://images.unsplash.com/photo-1597040663342-45b6af3d7489?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "24 hours",
+          "duration_hrs": 1,
+          "distance_from_center_km": 2,
+          "tips": "Visit at sunset for the best views. The surrounding lawns are perfect for an evening stroll."
+        },
+        {
+          "name": "Red Fort",
+          "category": "Heritage",
+          "subcategory": "Mughal Architecture",
+          "rating": 4.6,
+          "description": "A UNESCO World Heritage Site and massive red sandstone fort that served as the Mughal emperor's residence for nearly 200 years.",
+          "image": "https://images.unsplash.com/photo-1585506942812-e72b29cef752?w=600&q=80",
+          "entry_fee_inr": 35,
+          "open_hours": "9:30 AM – 4:30 PM (Closed Mondays)",
+          "duration_hrs": 2,
+          "distance_from_center_km": 5,
+          "tips": "Attend the evening Sound & Light show for a memorable experience."
+        },
+        {
+          "name": "Qutub Minar",
+          "category": "Heritage",
+          "subcategory": "UNESCO Site",
+          "rating": 4.5,
+          "description": "A UNESCO World Heritage Site, this 73-metre tall minaret is the tallest brick minaret in the world, built in 1193.",
+          "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+          "entry_fee_inr": 35,
+          "open_hours": "7:00 AM – 5:00 PM",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 15,
+          "tips": "Visit early morning to avoid crowds. The surrounding archaeological park has many lesser-known monuments."
+        },
+        {
+          "name": "Humayun's Tomb",
+          "category": "Heritage",
+          "subcategory": "Mughal Architecture",
+          "rating": 4.6,
+          "description": "A precursor to the Taj Mahal, this UNESCO World Heritage Site features stunning Mughal garden-tomb architecture.",
+          "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80",
+          "entry_fee_inr": 35,
+          "open_hours": "6:00 AM – 6:00 PM",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 6,
+          "tips": "The gardens are beautiful during sunset. Combine with nearby Nizamuddin Dargah."
+        },
+        {
+          "name": "Chandni Chowk",
+          "category": "Culture",
+          "subcategory": "Market",
+          "rating": 4.4,
+          "description": "One of the oldest and busiest markets in India, famous for street food, spices, and traditional shopping.",
+          "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e13?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "9:00 AM – 9:00 PM",
+          "duration_hrs": 3,
+          "distance_from_center_km": 5,
+          "tips": "Try parantha at Paranthe Wali Gali and jalebi at Old Famous Jalebi Wala."
+        },
+        {
+          "name": "Lotus Temple",
+          "category": "Spiritual",
+          "subcategory": "Temple",
+          "rating": 4.5,
+          "description": "A Bahai House of Worship shaped like a lotus flower, renowned for its stunning architecture and serene atmosphere.",
+          "image": "https://images.unsplash.com/photo-1597040663342-45b6af3d7489?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "9:00 AM – 5:30 PM (Closed Mondays)",
+          "duration_hrs": 1,
+          "distance_from_center_km": 12,
+          "tips": "Photography is allowed in the gardens but not inside the temple."
+        }
+      ]
+    },
+    {
+      "id": "old-delhi",
+      "name": "Old Delhi",
+      "tagline": "Mughal grandeur, narrow lanes, and timeless street food",
+      "hero_image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e13?w=1200&q=80",
+      "best_time": "October to March",
+      "type": "Heritage",
+      "region": "North India",
+      "tags": ["heritage", "food", "culture", "history", "shopping"],
+      "overview": "Old Delhi, the walled city, is a maze of narrow lanes filled with centuries of history, incredible street food, and Mughal-era architecture.",
+      "history": "Founded as Shahjahanabad in 1639 by Emperor Shah Jahan, Old Delhi served as the capital of the Mughal Empire.",
+      "cuisine": ["Nihari", "Kebabs", "Jalebi", "Kulfi", "Biryani"],
+      "nearest_airport": { "name": "Indira Gandhi International Airport", "code": "DEL", "distance_km": 22 },
+      "nearest_railhead": { "name": "Old Delhi Railway Station", "distance_km": 0, "note": "Major junction" },
+      "distance_delhi_km": 5,
+      "distance_chandigarh_km": 255,
+      "budget_per_day_inr": { "budget": 800, "mid": 2500, "luxury": 8000 },
+      "seasons": {
+        "summer": { "months": "Apr–Jun", "temp_range": "32–45°C", "crowd_level": "Low", "description": "Hot and dusty." },
+        "monsoon": { "months": "Jul–Sep", "temp_range": "26–35°C", "crowd_level": "Medium", "description": "Humid with occasional flooding." },
+        "winter": { "months": "Oct–Mar", "temp_range": "5–25°C", "crowd_level": "High", "description": "Best time for food walks and heritage tours." },
+        "autumn": { "months": "Oct–Nov", "temp_range": "15–30°C", "crowd_level": "High", "description": "Pleasant weather." }
+      },
+      "places": [
+        {
+          "name": "Jama Masjid",
+          "category": "Spiritual",
+          "subcategory": "Mosque",
+          "rating": 4.5,
+          "description": "One of the largest mosques in India, built by Shah Jahan in 1656 with stunning Mughal architecture.",
+          "image": "https://images.unsplash.com/photo-1585506942812-e72b29cef752?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "7:00 AM – 12:00 PM, 1:30 PM – 6:30 PM",
+          "duration_hrs": 1,
+          "distance_from_center_km": 0,
+          "tips": "Climb the minaret for panoramic views of Old Delhi. Dress modestly."
+        },
+        {
+          "name": "Paranthe Wali Gali",
+          "category": "Culture",
+          "subcategory": "Street Food",
+          "rating": 4.3,
+          "description": "Famous street in Chandni Chowk known for its legendary parantha shops serving 50+ varieties since the 1870s.",
+          "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e13?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "8:00 AM – 10:00 PM",
+          "duration_hrs": 1,
+          "distance_from_center_km": 0.5,
+          "tips": "Try the rabri parantha and the mixed-stuffed varieties."
+        }
+      ]
+    }
+  ]
+}

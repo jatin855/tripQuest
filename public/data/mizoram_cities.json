@@ -1,0 +1,649 @@
+{
+    "meta": {
+        "project": "Mizoram Explore",
+        "version": "1.0",
+        "total_cities": 8,
+        "last_updated": "2026-04-05",
+        "author": "Mizoram Explore Team"
+    },
+    "cities": [
+        {
+            "id": "aizawl",
+            "name": "Aizawl",
+            "tagline": "Home of the Cardamom Field",
+            "region": "Northern Mizoram",
+            "district": "Aizawl",
+            "type": "Capital City",
+            "altitude_m": 1132,
+            "altitude_display": "1,132m",
+            "lat": 23.7271,
+            "lon": 92.7176,
+            "distance_guwahati_km": 470,
+            "distance_silchar_km": 180,
+            "best_time": "October–March",
+            "avoid_time": "June–September (heavy monsoon)",
+            "temp_summer_c": "20–30°C",
+            "temp_winter_c": "11–21°C",
+            "hero_image": "https://images.unsplash.com/photo-1570114051065-27632616f9f3?w=1200&q=80",
+            "overview": "Aizawl, the capital of Mizoram, is a stunning hill city set on steep ridges overlooking the Tlawng and Tuirial river valleys. Known for its vertical architecture and vibrant culture, it serves as the political and religious heart of the state. The city is characterized by its peaceful atmosphere, strictly followed traffic rules, and deep-rooted Mizo traditions.",
+            "history": "Aizawl's name originates from the 19th-century Mizo chiefs Lalsavunga and Thanruma. In 1890, the British established a military outpost called 'Fort Aijal,' which eventually grew into the modern capital.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 32
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 115,
+                "note": "Most travelers use the airport or road from Silchar"
+            },
+            "language": [
+                "Mizo",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Bai",
+                "Sawhchiar",
+                "Vawksa Rep",
+                "Chhum Han",
+                "Mizo Filter Coffee"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 8500
+            },
+            "tags": [
+                "culture",
+                "spiritual",
+                "shopping",
+                "cityscape",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "aizawl-solomons-temple",
+                    "name": "Solomon's Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 10,
+                    "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?w=600&q=80",
+                    "description": "A grand white marble structure built by the religious group Kohhran Thianghlim, resembling the biblical Temple of Solomon. It is one of the most recognizable landmarks in the city.",
+                    "tips": "Respect the silence of the temple. The gardens are particularly beautiful on Sunday afternoons.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "aizawl-state-museum",
+                    "name": "Mizoram State Museum",
+                    "category": "Heritage",
+                    "subcategory": "Museum",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 4:00 PM (Closed Sun)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 0.5,
+                    "image": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=600&q=80",
+                    "description": "Located on McDonald Hill, this museum showcases tribal equipment, traditional costumes, and historical artifacts that highlight the rich Mizo cultural legacy.",
+                    "tips": "Ideal first stop to understand Mizo history before exploring further.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "aizawl-durtlang-hills",
+                    "name": "Durtlang Hills",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=600&q=80",
+                    "description": "Offers the best panoramic views of Aizawl city and the surrounding mountain ranges.",
+                    "tips": "Visit at night to see the city lights twinkling across the ridges.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "lunglei",
+            "name": "Lunglei",
+            "tagline": "The Bridge of Stone",
+            "region": "Southern Mizoram",
+            "district": "Lunglei",
+            "type": "Cultural & Transit Hub",
+            "altitude_m": 1222,
+            "altitude_display": "1,222m",
+            "lat": 22.8800,
+            "lon": 92.7300,
+            "distance_aizawl_km": 235,
+            "distance_silchar_km": 360,
+            "best_time": "October–April",
+            "avoid_time": "June–August",
+            "temp_summer_c": "18–28°C",
+            "temp_winter_c": "10–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1544070078-a212eda27b49?w=1200&q=80",
+            "overview": "Lunglei is the second-largest town in Mizoram and was an important commercial center during the British era due to its proximity to Chittagong. Its name literally means 'Bridge of Stone,' inspired by a natural rock formation in the area.",
+            "history": "Lunglei served as the capital of British South Lushai Hills from 1889 to 1898 before it was amalgamated with the North.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 200
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 250
+            },
+            "language": [
+                "Mizo",
+                "English"
+            ],
+            "cuisine": [
+                "Mizo Dham",
+                "Local Bamboo Shoot Curry",
+                "Smoked Pork"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 3000,
+                "luxury": 7000
+            },
+            "tags": [
+                "offbeat",
+                "nature",
+                "history",
+                "tranquility"
+            ],
+            "places": [
+                {
+                    "id": "lunglei-rock-bridge",
+                    "name": "The Stone Bridge",
+                    "category": "Nature",
+                    "subcategory": "Geological",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 4,
+                    "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80",
+                    "description": "A natural rock bridge found in the riverbed of Nghasih, giving the town its name.",
+                    "tips": "Best visited during the winter months when the water level is low.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "lunglei-saikuti-hall",
+                    "name": "Saikuti Hall",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.3,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 0,
+                    "image": "https://images.unsplash.com/photo-1572913191133-719b5c5035b7?w=600&q=80",
+                    "description": "A multi-purpose hall that houses a museum displaying Mizo cultural artifacts and local art.",
+                    "tips": "Check for local cultural performances often held here.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "champhai",
+            "name": "Champhai",
+            "tagline": "The Rice Bowl of Mizoram",
+            "region": "Eastern Mizoram",
+            "district": "Champhai",
+            "type": "Border Town",
+            "altitude_m": 1678,
+            "altitude_display": "1,678m",
+            "lat": 23.4566,
+            "lon": 93.3282,
+            "distance_aizawl_km": 192,
+            "distance_delhi_km": 2500,
+            "best_time": "September–March",
+            "avoid_time": "July–August",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "5–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1596422846543-75c6fc18a593?w=1200&q=80",
+            "overview": "Champhai is a bustling commercial town located on the Indo-Myanmar border. It is famous for its vast rice fields, vineyards, and as a gateway to the legendary Rih Dil lake in Myanmar.",
+            "history": "Historically a point of migration for Mizo tribes, Champhai remains the heart of Mizo-Myanmar trade.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 210
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 280
+            },
+            "language": [
+                "Mizo",
+                "Burmese",
+                "English"
+            ],
+            "cuisine": [
+                "Champhai Grape Wine",
+                "Rice Beer",
+                "Mizo Stew"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1100,
+                "mid": 3200,
+                "luxury": 7500
+            },
+            "tags": [
+                "vineyards",
+                "nature",
+                "border-crossing",
+                "agriculture"
+            ],
+            "places": [
+                {
+                    "id": "champhai-rih-dil",
+                    "name": "Rih Dil Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "4–5",
+                    "distance_from_center_km": 22,
+                    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80",
+                    "description": "A heart-shaped lake technically in Myanmar but culturally central to Mizo folklore.",
+                    "tips": "Carry valid ID for the border crossing check. Accessible via a short drive from Champhai.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "champhai-vangchhia",
+                    "name": "Vangchhia Monoliths",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 4:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 50,
+                    "image": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80",
+                    "description": "A cluster of hundreds of ancient monoliths and carvings, often referred to as the 'Lost City'.",
+                    "tips": "Hire a local guide to explain the intricate carvings and legends.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "thenzawl",
+            "name": "Thenzawl",
+            "tagline": "The Handloom Capital",
+            "region": "Central Mizoram",
+            "district": "Serchhip",
+            "type": "Scenic Town",
+            "altitude_m": 783,
+            "altitude_display": "783m",
+            "lat": 23.2794,
+            "lon": 92.7533,
+            "distance_aizawl_km": 90,
+            "distance_chandigarh_km": 0,
+            "best_time": "October–March",
+            "avoid_time": "July–September",
+            "temp_summer_c": "18–30°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1533632359083-0185df1be85d?w=1200&q=80",
+            "overview": "Thenzawl is a picturesque town known for its extensive handloom industry and proximity to the state's most magnificent waterfalls. It offers a flat, grassy landscape rare in the hilly state.",
+            "history": "Once a dense forest, it was settled as a prominent village for handloom weavers and later became a major tourist transit point.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 120
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 160
+            },
+            "language": [
+                "Mizo",
+                "English"
+            ],
+            "cuisine": [
+                "Hand-woven Puan (textiles - non-edible)",
+                "Traditional Mizo Meals"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "waterfalls",
+                "textiles",
+                "nature",
+                "golf"
+            ],
+            "places": [
+                {
+                    "id": "thenzawl-vantawng-falls",
+                    "name": "Vantawng Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfall",
+                    "rating": 4.8,
+                    "entry_fee_inr": 20,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+                    "description": "Mizoram's tallest waterfall, a two-tiered cascade falling from 750 feet amid dense bamboo forests.",
+                    "tips": "Post-monsoon (October) is the best time for full flow. There is a dedicated viewing platform.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "thenzawl-golf-resort",
+                    "name": "Thenzawl Golf Resort",
+                    "category": "Leisure",
+                    "subcategory": "Sports",
+                    "rating": 4.5,
+                    "entry_fee_inr": 100,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 2,
+                    "image": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80",
+                    "description": "An international-standard 18-hole eco-friendly golf course and resort, offering luxury stays in log huts.",
+                    "tips": "Even if you don't play golf, the resort is a great spot for sunset views and photography.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "serchhip",
+            "name": "Serchhip",
+            "tagline": "The Citrus Peak",
+            "region": "Central Mizoram",
+            "district": "Serchhip",
+            "type": "Township",
+            "altitude_m": 1241,
+            "altitude_display": "1,241m",
+            "lat": 23.3417,
+            "lon": 92.8500,
+            "distance_aizawl_km": 112,
+            "distance_chandigarh_km": 0,
+            "best_time": "October–March",
+            "avoid_time": "July–August",
+            "temp_summer_c": "20–30°C",
+            "temp_winter_c": "10–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1542332213-31f87348057f?w=1200&q=80",
+            "overview": "Serchhip is the district with the highest literacy rate in India (98.76%). It is known for its agrarian economy, producing oranges and other citrus fruits.",
+            "history": "It is named after the 'Ser' (citrus) and 'Chhip' (top), referring to the citrus trees that once covered the hilltop.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 140
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 200
+            },
+            "language": [
+                "Mizo",
+                "English"
+            ],
+            "cuisine": [
+                "Hatkora (Wild Citrus) recipes",
+                "Fresh Orange Juice"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 5000
+            },
+            "tags": [
+                "offbeat",
+                "education",
+                "agriculture",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "serchhip-tuirihauh",
+                    "name": "Tuirihauh Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfall",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 12,
+                    "image": "https://images.unsplash.com/photo-1500382017468-9049fee74a62?w=600&q=80",
+                    "description": "A unique waterfall located near Thenzawl where you can walk behind the falling water curtain.",
+                    "tips": "Wear shoes with good grip as the rocks behind the falls are slippery.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "siaha",
+            "name": "Siaha",
+            "tagline": "The Elephant Tooth",
+            "region": "Southern Mizoram",
+            "district": "Siaha",
+            "type": "Cultural Center",
+            "altitude_m": 729,
+            "altitude_display": "729m",
+            "lat": 22.4897,
+            "lon": 92.9793,
+            "distance_aizawl_km": 378,
+            "distance_chandigarh_km": 0,
+            "best_time": "November–March",
+            "avoid_time": "June–September",
+            "temp_summer_c": "22–32°C",
+            "temp_winter_c": "12–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
+            "overview": "Siaha is the headquarters of the Mara Autonomous District Council and is the fastest-growing town in the southern region. It is the base for visiting the legendary Pala Tipa lake.",
+            "history": "Named 'Siaha' after the find of an elephant's tooth (Sia-ha) during its founding.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 400
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 480
+            },
+            "language": [
+                "Mara",
+                "Mizo",
+                "English"
+            ],
+            "cuisine": [
+                "Mara Traditional Stew",
+                "Forest Honey",
+                "Fish from Pala Tipa"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2200,
+                "luxury": 5500
+            },
+            "tags": [
+                "offbeat",
+                "tribal-culture",
+                "adventure",
+                "angling"
+            ],
+            "places": [
+                {
+                    "id": "siaha-pala-tipa",
+                    "name": "Pala Tipa (Palak Dil)",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "Full Day",
+                    "distance_from_center_km": 76,
+                    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&q=80",
+                    "description": "The largest natural lake in Mizoram, surrounded by tropical forests and rich in biodiversity. It is a major site for migratory birds and home to many legends.",
+                    "tips": "It takes a significant journey from Siaha; plan for an overnight stay in a local guesthouse near the lake.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "siaha-castle-beino",
+                    "name": "Castle Beino",
+                    "category": "Nature",
+                    "subcategory": "Rock Formation",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 15,
+                    "image": "https://images.unsplash.com/photo-1516655855035-d5215bc56042?w=600&q=80",
+                    "description": "Spectacular high rock cliffs that rise from the Kolodyne River.",
+                    "tips": "Best explored via a boat ride on the river for the most dramatic views.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kolasib",
+            "name": "Kolasib",
+            "tagline": "Gateway to Mizoram",
+            "region": "Northern Mizoram",
+            "district": "Kolasib",
+            "type": "Transit Town",
+            "altitude_m": 888,
+            "altitude_display": "888m",
+            "lat": 24.2248,
+            "lon": 92.6713,
+            "distance_aizawl_km": 83,
+            "distance_silchar_km": 100,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "22–33°C",
+            "temp_winter_c": "12–23°C",
+            "hero_image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80",
+            "overview": "Kolasib is the first major town encountered when entering Mizoram from Assam by road. It sits on the banks of the Tlawng river and is surrounded by lush forest and the Tamdil lake.",
+            "history": "Historically the main entry point for British expeditions into the Lushai Hills.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 70
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 43
+            },
+            "language": [
+                "Mizo",
+                "Bengali",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Fresh River Fish",
+                "Mizo Thali"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 5000
+            },
+            "tags": [
+                "transit",
+                "nature",
+                "fishing"
+            ],
+            "places": [
+                {
+                    "id": "kolasib-tamdil-lake",
+                    "name": "Tamdil Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.7,
+                    "entry_fee_inr": 10,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 64,
+                    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80",
+                    "description": "A man-made lake that has become a major picnic spot and reservoir for fish.",
+                    "tips": "Boating is available. 2026 update: New eco-resorts have enhanced the lakeside stay experience.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "mamit",
+            "name": "Mamit",
+            "tagline": "The Wilderness Frontier",
+            "region": "Western Mizoram",
+            "district": "Mamit",
+            "type": "Adventure & Nature",
+            "altitude_m": 718,
+            "altitude_display": "718m",
+            "lat": 23.9300,
+            "lon": 92.4833,
+            "distance_aizawl_km": 95,
+            "distance_chandigarh_km": 0,
+            "best_time": "October–April",
+            "avoid_time": "July–September",
+            "temp_summer_c": "22–32°C",
+            "temp_winter_c": "12–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80",
+            "overview": "Mamit is a district characterized by its deep forests and is home to the Dampa Tiger Reserve. It is the least populated but most biologically diverse part of Mizoram.",
+            "history": "Long a frontier region, it borders Bangladesh and Tripura, making it a melting pot of tribal cultures including the Chakmas and Reangs.",
+            "nearest_airport": {
+                "name": "Lengpui Airport",
+                "code": "AJL",
+                "distance_km": 60
+            },
+            "nearest_railhead": {
+                "name": "Bairabi",
+                "distance_km": 90
+            },
+            "language": [
+                "Mizo",
+                "Chakma",
+                "English"
+            ],
+            "cuisine": [
+                "Bamboo Shoot Curry",
+                "Local Forest Vegetables"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 700,
+                "mid": 1800,
+                "luxury": 4500
+            },
+            "tags": [
+                "wildlife",
+                "adventure",
+                "nature",
+                "offbeat"
+            ],
+            "places": [
+                {
+                    "id": "mamit-dampa-tiger-reserve",
+                    "name": "Dampa Tiger Reserve",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:00 AM – 4:00 PM",
+                    "duration_hrs": "Full Day",
+                    "distance_from_center_km": 30,
+                    "image": "https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&q=80",
+                    "description": "Mizoram's largest wildlife sanctuary, home to leopards, elephants, and tigers across its rugged hills.",
+                    "tips": "Sightings are rare due to dense foliage; visit for the trekking and birdwatching experience. Permit required from the Forest Department.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

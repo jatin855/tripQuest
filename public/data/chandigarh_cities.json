@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "project": "Chandigarh Explore",
+    "version": "1.0",
+    "total_cities": 2,
+    "last_updated": "2026-04-25",
+    "author": "Explore Team"
+  },
+  "cities": [
+    {
+      "id": "chandigarh",
+      "name": "Chandigarh",
+      "tagline": "The City Beautiful — India's best-planned city",
+      "hero_image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+      "best_time": "October to March",
+      "type": "Metro",
+      "region": "North India",
+      "tags": ["modern", "popular", "family", "culture", "gardens"],
+      "overview": "Chandigarh, the joint capital of Punjab and Haryana, is India's first planned city designed by Swiss-French architect Le Corbusier. Known for its clean streets, beautiful gardens, and high standard of living.",
+      "history": "Built in the 1950s by Le Corbusier, Chandigarh replaced Lahore as the capital of Punjab after Partition. It is a masterpiece of modernist urban planning.",
+      "cuisine": ["Chole Bhature", "Amritsari Kulcha", "Butter Chicken", "Lassi", "Tandoori"],
+      "nearest_airport": { "name": "Chandigarh International Airport", "code": "IXC", "distance_km": 12 },
+      "nearest_railhead": { "name": "Chandigarh Junction", "distance_km": 0, "note": "Well connected" },
+      "distance_delhi_km": 250,
+      "distance_chandigarh_km": 0,
+      "budget_per_day_inr": { "budget": 1200, "mid": 3500, "luxury": 10000 },
+      "seasons": {
+        "summer": { "months": "Apr–Jun", "temp_range": "28–42°C", "crowd_level": "Low", "description": "Hot summers. Visit early morning or evening." },
+        "monsoon": { "months": "Jul–Sep", "temp_range": "24–35°C", "crowd_level": "Medium", "description": "Green and lush but humid." },
+        "winter": { "months": "Oct–Mar", "temp_range": "5–22°C", "crowd_level": "High", "description": "Perfect weather for sightseeing and walks." },
+        "autumn": { "months": "Oct–Nov", "temp_range": "12–28°C", "crowd_level": "High", "description": "Pleasant and ideal for outdoor activities." }
+      },
+      "places": [
+        {
+          "name": "Rock Garden",
+          "category": "Culture",
+          "subcategory": "Art Installation",
+          "rating": 4.5,
+          "description": "A 40-acre sculpture garden created by Nek Chand using recycled waste materials. Features over 5,000 sculptures.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "entry_fee_inr": 30,
+          "open_hours": "9:00 AM – 6:00 PM",
+          "duration_hrs": 2,
+          "distance_from_center_km": 3,
+          "tips": "Wear comfortable shoes — the garden has uneven paths and many sections to explore."
+        },
+        {
+          "name": "Sukhna Lake",
+          "category": "Nature",
+          "subcategory": "Lake",
+          "rating": 4.4,
+          "description": "A beautiful man-made reservoir at the foothills of the Shivalik Hills, perfect for boating and sunset walks.",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "5:00 AM – 9:00 PM",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 5,
+          "tips": "Visit at sunrise for bird watching or at sunset for stunning views."
+        },
+        {
+          "name": "Rose Garden",
+          "category": "Nature",
+          "subcategory": "Garden",
+          "rating": 4.3,
+          "description": "Asia's largest rose garden spread over 30 acres, featuring 1,600+ varieties of roses and beautiful landscaping.",
+          "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80",
+          "entry_fee_inr": 50,
+          "open_hours": "6:00 AM – 10:00 PM",
+          "duration_hrs": 1,
+          "distance_from_center_km": 2,
+          "tips": "Best visited during the Rose Festival in February-March when the garden is in full bloom."
+        },
+        {
+          "name": "Capitol Complex",
+          "category": "Heritage",
+          "subcategory": "Architecture",
+          "rating": 4.2,
+          "description": "A UNESCO World Heritage Site designed by Le Corbusier, housing the High Court, Secretariat, and Legislative Assembly.",
+          "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "10:00 AM – 5:00 PM (Guided tours)",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 6,
+          "tips": "Guided tours are mandatory. Book in advance through the Chandigarh Tourism website."
+        }
+      ]
+    }
+  ]
+}

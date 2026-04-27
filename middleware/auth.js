@@ -54,4 +54,17 @@ const isExperienceOwner = async (req, res, next) => {
   }
 };
 
-module.exports = { isLoggedIn, isHost, isAdmin, isExperienceOwner };
+// ── 5. Must be an approved shop owner (or admin) ─────────────────────────────
+const isApprovedShopOwner = (req, res, next) => {
+  if (
+    req.session &&
+    req.session.userId &&
+    (req.session.shopOwnerStatus === 'approved' || req.session.userRole === 'admin')
+  ) {
+    return next();
+  }
+  req.flash("error", "You must be an approved shop owner to access this page.");
+  res.redirect("/marketplace/apply");
+};
+
+module.exports = { isLoggedIn, isHost, isAdmin, isExperienceOwner, isApprovedShopOwner };

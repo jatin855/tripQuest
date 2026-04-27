@@ -13,10 +13,12 @@ const experienceModel = require('./models/Experience');
 const experienceRoutes = require('./routes/experienceRoutes');
 const hostRoutes       = require('./routes/hostRoutes');
 const adminRoutes      = require('./routes/adminRoutes');
+const marketplaceRoutes     = require('./routes/marketplaceRoutes');
+const marketplaceAdminRoutes = require('./routes/marketplaceAdminRoutes');
 
 
 // ================== DATABASE CONNECTION ==================
-mongoose.connect("mongodb://127.0.0.1:27017/tripadvisor")
+mongoose.connect("mongodb://127.0.0.1:27017/TripQuest")
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 
@@ -25,11 +27,11 @@ mongoose.connect("mongodb://127.0.0.1:27017/tripadvisor")
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));  // serves public/data/*.json at /data/*.json
 app.use(methodOverride("_method"));
 
 app.use(session({
-    secret: 'tripadvisor_secret_key',
+    secret: 'TripQuest_secret_key',
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
@@ -39,10 +41,11 @@ app.use(flash());
 
 // ✅ Global locals — available in every EJS view automatically
 app.use((req, res, next) => {
-    res.locals.currentUser = req.session.userId   || null;
-    res.locals.userRole    = req.session.userRole || null;
-    res.locals.success     = req.flash('success');
-    res.locals.error       = req.flash('error');
+    res.locals.currentUser      = req.session.userId          || null;
+    res.locals.userRole         = req.session.userRole        || null;
+    res.locals.shopOwnerStatus  = req.session.shopOwnerStatus || null;
+    res.locals.success          = req.flash('success');
+    res.locals.error            = req.flash('error');
     next();
 });
 
@@ -67,7 +70,6 @@ app.get('/', function (req, res) {
 });
 
 // Home Page (protected)
-// FIX 1: Pass currentUser and userRole explicitly so navbar.ejs works correctly
 app.get('/home', isLoggedIn, async function (req, res) {
     try {
         const user = await userModel.findById(req.session.userId);
@@ -76,11 +78,48 @@ app.get('/home', isLoggedIn, async function (req, res) {
             .sort({ createdAt: -1 })
             .limit(3);
 
+        // ── Dynamic reviews for homepage ──
+        const reviewModel = require('./models/Review');
+        const latestReviews = await reviewModel.find({})
+            .sort({ createdAt: -1 })
+            .limit(12)
+            .lean();
+
+        // Aggregate review stats
+        const allReviews = await reviewModel.find({}).lean();
+        const totalReviews = allReviews.length;
+        let avgRating = '0.0';
+        if (totalReviews > 0) {
+            const sum = allReviews.reduce((s, r) => s + r.rating, 0);
+            avgRating = (sum / totalReviews).toFixed(1);
+        }
+
+        // User + experience counts
+        const totalUsers = await userModel.countDocuments();
+        const totalExperiences = await experienceModel.countDocuments({ status: 'approved' });
+
+        const reviewStats = {
+            totalReviews,
+            avgRating,
+            totalUsers,
+            totalExperiences,
+        };
+
+        // ── Featured destinations from dataset ──
+        const featuredDestinations = exploreData.getFeaturedDestinations();
+
+        // ── Total destinations count from dataset ──
+        const totalDestinations = exploreData.STATE_REGISTRY.length;
+
         res.render("home", {
             user,
             featuredExperiences,
-            currentUser: req.session.userId,      // ✅ for navbar
-            userRole:    req.session.userRole      // ✅ for navbar host/admin links
+            latestReviews,
+            reviewStats,
+            featuredDestinations,
+            totalDestinations,
+            currentUser: req.session.userId,
+            userRole:    req.session.userRole
         });
     } catch (err) {
         console.error(err);
@@ -145,12 +184,11 @@ app.post('/register', async function (req, res) {
             name,
             email,
             password: hashedPassword
-            // role defaults to 'traveler' as defined in updated User model
         });
 
-        // Auto-login after registration
-        req.session.userId   = newUser._id;
-        req.session.userRole = newUser.role; // ✅ save role in session
+        req.session.userId          = newUser._id;
+        req.session.userRole        = newUser.role;
+        req.session.shopOwnerStatus = newUser.shopApplicationStatus || null;
         res.redirect('/home');
 
     } catch (err) {
@@ -191,9 +229,9 @@ app.post('/login', async function (req, res) {
             });
         }
 
-        // ✅ Save both userId AND role in session
-        req.session.userId   = user._id;
-        req.session.userRole = user.role;
+        req.session.userId          = user._id;
+        req.session.userRole        = user.role;
+        req.session.shopOwnerStatus = user.shopApplicationStatus || null;
         res.redirect('/home');
 
     } catch (err) {
@@ -206,15 +244,52 @@ app.post('/login', async function (req, res) {
 });
 
 
-// ================== PROFILE ==================
-// FIX 2: Pass currentUser + userRole so navbar works on profile page
-app.get('/profile', isLoggedIn, async function (req, res) {
+// ================== PROFILE (DYNAMIC) ==================
+const profileController = require('./controllers/profileController');
+app.get('/profile', isLoggedIn, profileController.renderProfile);
+
+// ── Profile API endpoints ──
+app.post('/api/save-place',   profileController.savePlace);
+app.get('/api/saved-places',  profileController.getSavedPlaces);
+app.get('/api/profile-stats', profileController.getProfileStats);
+
+
+// ================== ABOUT PAGE ==================
+app.get('/about', async function (req, res) {
     try {
-        const user = await userModel.findById(req.session.userId);
-        res.render("profile", {
+        const Review     = require('./models/Review');
+        const user       = req.session.userId ? await userModel.findById(req.session.userId) : null;
+        const totalUsers       = await userModel.countDocuments();
+        const totalReviews     = await Review.countDocuments();
+        const totalExperiences = await experienceModel.countDocuments();
+
+        res.render('about', {
             user,
             currentUser: req.session.userId,
-            userRole:    req.session.userRole
+            userRole:    req.session.userRole,
+            stats: { totalUsers, totalReviews, totalExperiences }
+        });
+    } catch (err) {
+        console.error('About page error:', err);
+        res.render('about', { user: null, currentUser: null, userRole: null, stats: { totalUsers: 0, totalReviews: 0, totalExperiences: 0 } });
+    }
+});
+
+// ================== EXPLORE DATA UTILITY ==================
+const exploreData = require('./utils/exploreData');
+
+// ================== EXPLORE PAGE — All States ==================
+app.get('/explore', isLoggedIn, async function (req, res) {
+    try {
+        const user = await userModel.findById(req.session.userId);
+        res.render("explore", {
+            user,
+            currentUser: req.session.userId,
+            userRole:    req.session.userRole,
+            states:           exploreData.STATES,
+            unionTerritories: exploreData.UNION_TERRITORIES,
+            categories:       exploreData.CATEGORIES,
+            trending:         exploreData.TRENDING_SEARCHES,
         });
     } catch (err) {
         console.error(err);
@@ -222,18 +297,114 @@ app.get('/profile', isLoggedIn, async function (req, res) {
     }
 });
 
-// FIX 3: Pass currentUser + userRole so navbar works on explore page
-app.get('/explore', isLoggedIn, async function (req, res) {
+// ================== EXPLORE STATE — State Detail ==================
+app.get('/explore/category/:type', isLoggedIn, async function (req, res) {
     try {
         const user = await userModel.findById(req.session.userId);
-        res.render("explore", {
+        const { category, results } = exploreData.getCategoryResults(req.params.type);
+
+        if (!category) return res.redirect('/explore');
+
+        res.render("category", {
+            user,
+            currentUser: req.session.userId,
+            userRole:    req.session.userRole,
+            category,
+            results,
+        });
+    } catch (err) {
+        console.error(err);
+        res.redirect('/explore');
+    }
+});
+
+app.get('/explore/:stateId', isLoggedIn, async function (req, res) {
+    try {
+        const user = await userModel.findById(req.session.userId);
+        const stateMeta = exploreData.getStateMeta(req.params.stateId);
+
+        if (!stateMeta) return res.redirect('/explore');
+
+        const data = exploreData.getStateData(req.params.stateId);
+        if (!data || !data.cities) return res.redirect('/explore');
+
+        const { popular, hiddenGems } = exploreData.classifyCities(data.cities);
+
+        // Mark each city with its classification
+        const allCities = data.cities.map(city => {
+            const isHidden = hiddenGems.some(h => h.id === city.id);
+            return { ...city, _isHiddenGem: isHidden };
+        });
+
+        // Hero image: use first city's image or state fallback
+        const heroImage = (data.cities[0] && data.cities[0].hero_image) || stateMeta.image;
+
+        const totalPlaces = data.cities.reduce((sum, c) => sum + (c.places ? c.places.length : 0), 0);
+
+        res.render("state", {
+            user,
+            currentUser: req.session.userId,
+            userRole:    req.session.userRole,
+            stateMeta,
+            cities:           allCities,
+            totalCities:      data.cities.length,
+            totalPlaces,
+            popularCount:     popular.length,
+            hiddenGemsCount:  hiddenGems.length,
+            heroImage,
+        });
+    } catch (err) {
+        console.error(err);
+        res.redirect('/explore');
+    }
+});
+
+// ================== SEARCH PAGE ==================
+app.get('/search', isLoggedIn, async function (req, res) {
+    try {
+        const user = await userModel.findById(req.session.userId);
+        const query = (req.query.q || '').trim();
+        const results = query ? exploreData.searchAllStates(query) : [];
+
+        res.render("search", {
+            user,
+            currentUser: req.session.userId,
+            userRole:    req.session.userRole,
+            query,
+            results,
+            trending: exploreData.TRENDING_SEARCHES,
+        });
+    } catch (err) {
+        console.error(err);
+        res.redirect('/explore');
+    }
+});
+
+// ================== LIVE SEARCH API ==================
+app.get('/api/search', function (req, res) {
+    const query = (req.query.q || '').trim();
+    if (!query || query.length < 2) return res.json({ results: [] });
+    const results = exploreData.searchAllStates(query);
+    res.json({ results: results.slice(0, 15) });
+});
+
+
+
+// ================== CITY DETAIL PAGE ==================
+// ✅ NEW — Renders city.ejs (individual city page).
+// Query params ?state=punjab&id=amritsar are read client-side in city.ejs,
+// Express just needs to serve the view.
+app.get('/city', isLoggedIn, async function (req, res) {
+    try {
+        const user = await userModel.findById(req.session.userId);
+        res.render("city", {
             user,
             currentUser: req.session.userId,
             userRole:    req.session.userRole
         });
     } catch (err) {
         console.error(err);
-        res.redirect('/home');
+        res.redirect('/explore');
     }
 });
 
@@ -281,8 +452,6 @@ app.post('/create', isLoggedIn, async function (req, res) {
 
 
 // ================== PLACE PAGES ==================
-// FIX 3 (continued): All place pages also need currentUser + userRole for navbar
-
 app.get('/varanasi', isLoggedIn, async function (req, res) {
     try {
         const user = await userModel.findById(req.session.userId);
@@ -309,12 +478,10 @@ app.get('/jaisalmer', isLoggedIn, async function (req, res) {
     }
 });
 
-// FIX 4: Your route was '/kedarkantha' but your EJS file is 'kedarkanth.ejs'
-// Keeping route as kedarkantha (with 'a') — just make sure your EJS filename matches
 app.get('/kedarkantha', isLoggedIn, async function (req, res) {
     try {
         const user = await userModel.findById(req.session.userId);
-        res.render("kedarkanth", {      // ← matches your actual filename kedarkanth.ejs
+        res.render("kedarkanth", {
             user,
             currentUser: req.session.userId,
             userRole:    req.session.userRole
@@ -326,53 +493,45 @@ app.get('/kedarkantha', isLoggedIn, async function (req, res) {
 
 
 // ================== EXPERIENCE / HOST / ADMIN ROUTES ==================
-// ✅ These come AFTER all session + flash + locals middleware above
 app.use('/experiences',       experienceRoutes);
 app.use('/host',              hostRoutes);
 app.use('/admin/experiences', adminRoutes);
 
-// ⚠️ TEMPORARY — delete after use
+// ================== MARKETPLACE ROUTES ==================
+app.use('/marketplace',       marketplaceRoutes);
+app.use('/admin/marketplace', marketplaceAdminRoutes);
+
+
+// ================== TEMP / DEBUG ROUTES ==================
+// ⚠️  Delete these before going to production
+
 app.get('/make-admin-temp', isLoggedIn, async function(req, res) {
     await userModel.findByIdAndUpdate(req.session.userId, { role: 'admin' });
     req.session.userRole = 'admin';
     res.send('You are now admin! <a href="/admin/experiences">Go to admin panel</a>');
 });
 
-// ============================================================
-// ADD THESE DEBUG ROUTES TO app.js TEMPORARILY
-// Visit each URL and check what you see
-// DELETE them after fixing
-// ============================================================
-
-
-// ── DEBUG 1: Check session ────────────────────────────────────
-// Visit: http://localhost:3000/debug/session
-// Should show your userId, userRole etc.
 app.get('/debug/session', (req, res) => {
     res.json({
-        session:     req.session,
-        userId:      req.session.userId   || 'NOT SET ❌',
-        userRole:    req.session.userRole || 'NOT SET ❌',
-        isLoggedIn:  !!req.session.userId,
+        session:    req.session,
+        userId:     req.session.userId   || 'NOT SET ❌',
+        userRole:   req.session.userRole || 'NOT SET ❌',
+        isLoggedIn: !!req.session.userId,
     });
 });
 
-
-// ── DEBUG 2: Check if Experience model works ─────────────────
-// Visit: http://localhost:3000/debug/experiences
-// Shows ALL experiences in DB regardless of status
 app.get('/debug/experiences', async (req, res) => {
     try {
         const all = await experienceModel.find({});
         res.json({
             totalInDB:   all.length,
             experiences: all.map(e => ({
-                id:       e._id,
-                title:    e.title,
-                status:   e.status,
-                hostId:   e.hostId,
-                hostName: e.hostName,
-                city:     e.city,
+                id:        e._id,
+                title:     e.title,
+                status:    e.status,
+                hostId:    e.hostId,
+                hostName:  e.hostName,
+                city:      e.city,
                 createdAt: e.createdAt,
             }))
         });
@@ -381,10 +540,6 @@ app.get('/debug/experiences', async (req, res) => {
     }
 });
 
-
-// ── DEBUG 3: Check host status of logged-in user ─────────────
-// Visit: http://localhost:3000/debug/me
-// Shows your full user record from DB
 app.get('/debug/me', async (req, res) => {
     if (!req.session.userId) {
         return res.json({ error: 'Not logged in ❌ — go to /login first' });
@@ -392,14 +547,13 @@ app.get('/debug/me', async (req, res) => {
     try {
         const user = await userModel.findById(req.session.userId);
         res.json({
-            id:                   user._id,
-            name:                 user.name || user.username,
-            email:                user.email,
-            role:                 user.role,
+            id:                    user._id,
+            name:                  user.name || user.username,
+            email:                 user.email,
+            role:                  user.role,
             hostApplicationStatus: user.hostApplicationStatus,
-            isHostVerified:       user.isHostVerified,
-            sessionRole:          req.session.userRole,
-            // ── Problem checker ──
+            isHostVerified:        user.isHostVerified,
+            sessionRole:           req.session.userRole,
             checks: {
                 roleIsHost:     user.role === 'host',
                 roleIsAdmin:    user.role === 'admin',
@@ -412,11 +566,6 @@ app.get('/debug/me', async (req, res) => {
     }
 });
 
-
-// ── DEBUG 4: Manually create a test experience ────────────────
-// Visit: http://localhost:3000/debug/create-test-experience
-// Creates a real experience in DB directly, bypassing the form
-// This tells us if the model itself works
 app.get('/debug/create-test-experience', async (req, res) => {
     if (!req.session.userId) {
         return res.json({ error: 'Not logged in ❌' });
@@ -439,21 +588,96 @@ app.get('/debug/create-test-experience', async (req, res) => {
             status:      'pending',
         });
         res.json({
-            message:    '✅ Test experience CREATED successfully!',
-            id:         exp._id,
-            title:      exp.title,
-            status:     exp.status,
-            // Now visit /debug/experiences to see it
-            next:       'Visit /debug/experiences to confirm it saved',
+            message: '✅ Test experience CREATED successfully!',
+            id:      exp._id,
+            title:   exp.title,
+            status:  exp.status,
+            next:    'Visit /debug/experiences to confirm it saved',
         });
     } catch (err) {
         res.json({
             message: '❌ Experience creation FAILED',
             error:   err.message,
-            // This will tell you exactly which field is wrong
         });
     }
 });
+// ── node-fetch for proxying to external APIs ──
+const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
+
+// ── Weather API proxy → live temperature for any city ──
+app.get('/api/weather', async function(req, res) {
+    const city = (req.query.city || '').trim();
+    if (!city) return res.status(400).json({ error: 'city query param required' });
+
+    const WEATHER_API_KEY = 'eb3d00df280e4f9da2173317262204';
+    const url = `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${encodeURIComponent(city + ', India')}&aqi=no`;
+
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 6000);
+
+        const resp = await fetch(url, {
+            headers: { 'User-Agent': 'ExploreIndia/1.0' },
+            signal: controller.signal
+        });
+        clearTimeout(timeout);
+
+        if (!resp.ok) {
+            return res.status(resp.status).json({ error: 'Weather API error' });
+        }
+
+        const data = await resp.json();
+        const c = data.current;
+        return res.json({
+            city:       data.location.name,
+            region:     data.location.region,
+            temp_c:     c.temp_c,
+            feels_like: c.feelslike_c,
+            condition:  c.condition.text,
+            icon:       'https:' + c.condition.icon,
+            humidity:   c.humidity,
+            wind_kph:   c.wind_kph,
+            is_day:     c.is_day
+        });
+    } catch (err) {
+        console.error('[Weather API Error]', err.message);
+        return res.status(500).json({ error: 'Weather data unavailable' });
+    }
+});
+
+
+// ── AI Chat proxy → forwards to Flask on :5000 ──
+
+app.post('/api/chat', isLoggedIn, async function(req, res) {
+    try {
+        const { message, history } = req.body;
+        if (!message || !message.trim()) {
+            return res.status(400).json({ error: 'message required' });
+        }
+
+        const flaskRes = await fetch('http://127.0.0.1:5000/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message, history: history || [] }),
+            timeout: 15000
+        });
+
+        if (!flaskRes.ok) {
+            const errText = await flaskRes.text();
+            return res.status(flaskRes.status).json({ error: errText });
+        }
+
+        const data = await flaskRes.json();
+        return res.json(data);
+
+    } catch (err) {
+        console.error('[Chat Proxy Error]', err.message);
+        return res.status(500).json({ error: 'AI server unreachable. Is Flask running on port 5000?' });
+    }
+});
+const reviewRoutes = require("./routes/reviewRoutes");
+app.use("/reviews", reviewRoutes);
+
 
 // ================== SERVER ==================
 app.listen(3000, () => {

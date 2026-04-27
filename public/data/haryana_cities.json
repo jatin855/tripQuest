@@ -1,0 +1,803 @@
+{
+    "meta": {
+        "project": "India Explore - Haryana",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "gurugram",
+            "name": "Gurugram (Gurgaon)",
+            "tagline": "The Millennium City",
+            "region": "National Capital Region (NCR)",
+            "district": "Gurugram",
+            "type": "Metropolitan & Corporate Hub",
+            "altitude_m": 220,
+            "altitude_display": "220m",
+            "lat": 28.4595,
+            "lon": 77.0266,
+            "distance_delhi_km": 30,
+            "distance_chandigarh_km": 290,
+            "best_time": "October–March",
+            "avoid_time": "May–July (extreme heat and monsoon waterlogging)",
+            "temp_summer_c": "32–45°C",
+            "temp_winter_c": "6–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1595964871929-1faee6a97801?w=1200&q=80",
+            "overview": "Gurugram is a fascinating study in rapid urbanization. Once a sleepy agricultural village on the outskirts of New Delhi, it has exploded over the last three decades into a glittering metropolis of glass skyscrapers, Fortune 500 headquarters, and luxury condominiums. Beneath its corporate veneer, however, lie surprisingly rich nature reserves, world-class museums, and an eclectic, globalized culinary scene.",
+            "history": "According to the Hindu epic Mahabharata, Gurugram translates to 'Village of the Guru'. It was purportedly gifted by the Pandavas and Kauravas to their martial arts teacher, Guru Dronacharya. For centuries, it remained a modest agrarian settlement under various empires (Maurya, Mughal, British). Its modern transformation began in the late 1990s when multinational corporations set up massive outsourcing and IT hubs here, leveraging its proximity to the Delhi International Airport.",
+            "nearest_airport": {
+                "name": "Indira Gandhi International Airport, New Delhi",
+                "code": "DEL",
+                "distance_km": 18
+            },
+            "nearest_railhead": {
+                "name": "Gurgaon Railway Station",
+                "distance_km": 0,
+                "note": "Connected to local networks, but most use the Delhi Metro (Yellow Line/Rapid Metro)"
+            },
+            "language": [
+                "Hindi",
+                "English",
+                "Haryanvi",
+                "Punjabi"
+            ],
+            "cuisine": [
+                "Global Fusion",
+                "North Indian Tandoori",
+                "Street Chaat",
+                "Microbrewery Craft Beers"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 2000,
+                "mid": 5000,
+                "luxury": 15000
+            },
+            "tags": [
+                "corporate",
+                "nightlife",
+                "museums",
+                "shopping",
+                "bird watching"
+            ],
+            "places": [
+                {
+                    "id": "gur-cyber-hub",
+                    "name": "DLF CyberHub",
+                    "category": "Experience",
+                    "subcategory": "Entertainment & Dining",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 1:00 AM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "modern corporate plaza night lights restaurants",
+                    "description": "A massive, open-air, upscale dining and entertainment destination integrated into a colossal corporate park. It features a sweeping promenade flanked by dozens of world-class restaurants, microbreweries, cafes, and luxury retail stores. It serves as the social epicenter of corporate Gurugram.",
+                    "tips": "Extremely crowded on Friday nights and weekends. Utilize the Rapid Metro (Cyber City station) to avoid notorious local traffic and parking hassles. Great for evening walks and global cuisine.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gur-sultanpur",
+                    "name": "Sultanpur National Park",
+                    "category": "Nature",
+                    "subcategory": "Bird Sanctuary",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "7:00 AM – 4:30 PM (Closed Tuesdays)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "flamingos wetland birds sanctuary",
+                    "description": "A stark, beautiful contrast to the city's concrete jungle. This wetland reserve acts as a critical wintering ground for over 250 species of migratory birds flying in via the Central Asian Flyway from Siberia, Europe, and Afghanistan. Expect to see flamingos, Siberian cranes, and painted storks.",
+                    "tips": "Winter (December to February) is the absolute best time to visit. Bring binoculars and a telephoto lens. The park features well-maintained walking trails and four watchtowers for unobtrusive observation.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gur-museo-camera",
+                    "name": "Museo Camera, Centre for the Photographic Arts",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.8,
+                    "entry_fee_inr": 300,
+                    "open_hours": "11:00 AM – 7:00 PM (Closed Mondays)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 6,
+                    "unsplash_query": "vintage cameras photography museum",
+                    "description": "The largest photography museum in Southeast Asia, curated by photographer Aditya Arya. It houses a staggering collection of over 2,500 antique cameras, dating back to the 1850s. The exhibition brilliantly traces the evolution of photography, featuring rare daguerreotypes, early Kodak models, and spy cameras.",
+                    "tips": "An absolute hidden gem for history and photography buffs. The museum is highly interactive. Don't miss the on-site cafe (Fig at Museo) which serves excellent coffee and healthy food in a beautiful setting.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gur-heritage-transport",
+                    "name": "Heritage Transport Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.7,
+                    "entry_fee_inr": 400,
+                    "open_hours": "10:00 AM – 7:00 PM (Closed Mondays)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 35,
+                    "unsplash_query": "vintage cars classic train museum",
+                    "description": "Located slightly outside the city in Tauru, this massive, multi-level museum is India’s first comprehensive transport museum. It features beautifully restored vintage Indian cars, a restored 1930s railway saloon car, early aircraft, traditional palanquins, and fascinating exhibits on the history of Indian transportation.",
+                    "tips": "It requires a bit of a drive towards the outskirts, but it is impeccably maintained and world-class. It is incredibly engaging for children and adults alike.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gur-leisure-valley",
+                    "name": "Leisure Valley Park",
+                    "category": "Nature",
+                    "subcategory": "City Park",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:00 AM – 10:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "city park green lawns walking track",
+                    "description": "A sprawling 25-acre green lung situated right in the heart of Sector 29. It features a musical fountain, a beautifully manicured rose garden, jogging tracks, and wide open lawns used by locals for picnics, yoga, and evening strolls.",
+                    "tips": "Sector 29 is heavily populated with famous microbreweries. The park serves as a great, quiet retreat before or after dining in the area. The musical fountain shows run in the evenings.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kurukshetra",
+            "name": "Kurukshetra",
+            "tagline": "The Epicenter of the Mahabharata",
+            "region": "Northern Haryana",
+            "district": "Kurukshetra",
+            "type": "Spiritual & Historical",
+            "altitude_m": 250,
+            "altitude_display": "250m",
+            "lat": 29.9695,
+            "lon": 76.8227,
+            "distance_delhi_km": 160,
+            "distance_chandigarh_km": 95,
+            "best_time": "September–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "6–21°C",
+            "hero_image": "https://images.unsplash.com/photo-1621213032549-0d32155d376f?w=1200&q=80",
+            "overview": "Kurukshetra is a city saturated with mythology and ancient history. It is revered across India as 'Dharmakshetra' (The Field of Righteousness), the legendary battlefield where the epic Mahabharata war was fought and where Lord Krishna delivered the profound philosophical discourse of the Bhagavad Gita to the warrior Arjuna.",
+            "history": "Dating back thousands of years, Kurukshetra is named after King Kuru, the ancestor of the Kauravas and Pandavas. Beyond its epic fame, it was an immensely important center of learning and culture during the Vedic period. Emperor Ashoka later built a stupa here, and it remained a crucial socio-religious hub under the Gupta Empire and Emperor Harsha (whose capital, Thanesar, is adjacent to the modern city).",
+            "nearest_airport": {
+                "name": "Chandigarh International Airport",
+                "code": "IXC",
+                "distance_km": 90
+            },
+            "nearest_railhead": {
+                "name": "Kurukshetra Junction",
+                "distance_km": 0,
+                "note": "A major stop on the Delhi-Ambala route"
+            },
+            "language": [
+                "Hindi",
+                "Punjabi",
+                "Haryanvi",
+                "English"
+            ],
+            "cuisine": [
+                "Pure Vegetarian North Indian",
+                "Kadhi Pakora",
+                "Bajra Roti",
+                "Ghee-laden Sweets"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "mahabharata",
+                "spirituality",
+                "museums",
+                "pilgrimage",
+                "history"
+            ],
+            "places": [
+                {
+                    "id": "kur-brahma-sarovar",
+                    "name": "Brahma Sarovar",
+                    "category": "Temple",
+                    "subcategory": "Sacred Water Body",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "holy lake sunset ghats India",
+                    "description": "A magnificent, gigantic rectangular water tank measuring over 1,000 meters in length, dedicated to Lord Brahma (the creator of the universe). According to mythology, Brahma created the universe from this very spot. The sarovar is surrounded by red sandstone ghats, temples, and ashrams.",
+                    "tips": "It is mesmerizing during sunset when the evening Aarti is performed, accompanied by chanting. Millions gather here to bathe during Solar Eclipses, believing it washes away all sins. The Gita Mahotsav in December is spectacularly vibrant here.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-jyotisar",
+                    "name": "Jyotisar Birthplace of Bhagavad Gita",
+                    "category": "Heritage",
+                    "subcategory": "Spiritual",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "banyan tree sacred temple chariot",
+                    "description": "Considered one of the holiest sites in Hinduism. 'Jyoti' means light and 'Sar' means core meaning. This is the exact spot where Lord Krishna delivered the Bhagavad Gita to a conflicted Arjuna on the eve of the great war. A massively old, sacred Banyan tree here is believed to be the offshoot of the original tree that witnessed the discourse.",
+                    "tips": "There is a beautiful marble chariot depicting Krishna and Arjuna. A highly engaging light and sound show runs in the evenings, brilliantly narrating the story of the Mahabharata.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-krishna-museum",
+                    "name": "Sri Krishna Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.6,
+                    "entry_fee_inr": 30,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Mondays)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Indian art artifacts museum sculptures",
+                    "description": "A vast, excellent museum solely dedicated to the life, legends, and teachings of Lord Krishna. It houses exquisite stone sculptures, bronze castings, intricate leaf paintings, ancient manuscripts, and massive dioramas sourced from all over India, reflecting the pan-Indian impact of Krishna.",
+                    "tips": "Located adjacent to the Kurukshetra Panorama & Science Centre. It is arguably one of the best thematic museums in North India. Allow ample time to read the well-curated plaques.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-sheikh-chilli",
+                    "name": "Sheikh Chilli's Tomb",
+                    "category": "Heritage",
+                    "subcategory": "Mughal Architecture",
+                    "rating": 4.4,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "Mughal tomb architecture dome sandstone",
+                    "description": "A stunning, pearlescent complex featuring Persian-style Mughal architecture. It houses the remains of the Sufi saint Abd-ur-Rahim (popularly known as Sheikh Chilli), who was the spiritual master of the Mughal Prince Dara Shikoh. The complex includes a beautifully proportioned tomb, a madrasa, and Mughal gardens.",
+                    "tips": "Often overlooked by pilgrims focused solely on Hindu sites, this is an architectural gem of Haryana. The ASI maintains a small archaeological museum inside the madrasa complex featuring artifacts from nearby Harappan excavations.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-bhishma-kund",
+                    "name": "Bhishma Kund (Narkatari)",
+                    "category": "Heritage",
+                    "subcategory": "Mythological",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "ancient water tank temple India",
+                    "description": "According to the Mahabharata, the great patriarch Bhishma Pitamah lay on a bed of arrows here. Thirsty, he asked for water. Arjuna shot an arrow deep into the earth (creating this very kund), and a spring of cool water—personified as the River Goddess Ganga (Bhishma's mother)—burst forth to quench his thirst.",
+                    "tips": "A very quiet, deeply revered spot with a large water tank surrounded by a modern temple. It provides a tangible connection to one of the epic's most famous episodes.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-panorama",
+                    "name": "Kurukshetra Panorama and Science Centre",
+                    "category": "Culture",
+                    "subcategory": "Science/History",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "museum panorama battle exhibition",
+                    "description": "A unique cylindrical building that houses a massive, continuous, 360-degree panoramic painting on its upper floor. The diorama spectacularly depicts the blood-soaked battlefield of the Mahabharata, complete with 3D models and an immersive audio track. The lower floors contain interactive science exhibits.",
+                    "tips": "The 3D panorama is a massive hit with children and offers a great way to visualize the scale of the epic battle. Best combined with the Sri Krishna Museum right next door.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "panchkula",
+            "name": "Panchkula & Morni Hills",
+            "tagline": "Haryana's Himalayan Gateway",
+            "region": "Northern Haryana",
+            "district": "Panchkula",
+            "type": "Hills & Heritage",
+            "altitude_m": 365,
+            "altitude_display": "365m - 1220m (Morni)",
+            "lat": 30.6942,
+            "lon": 76.8606,
+            "distance_chandigarh_km": 10,
+            "distance_delhi_km": 250,
+            "best_time": "September–April",
+            "avoid_time": "July–August (heavy monsoon rains in the hills)",
+            "temp_summer_c": "25–38°C",
+            "temp_winter_c": "4–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1544834243-7a96a308ea7c?w=1200&q=80",
+            "overview": "Panchkula forms the beautiful, easternmost 'tricity' along with Chandigarh and Mohali. Nestled right at the foot of the Shivalik range of the Himalayas, it is uniquely blessed with dense forests, Haryana's only hill station (Morni Hills), a massive cactus sanctuary, and extraordinary Mughal gardens.",
+            "history": "The name Panchkula literally translates to 'Five Canals', referring to five ancient irrigation canals that drew water from the Ghaggar River. Historically, the region was dotted with ancient Hindu temples (like the 8th-century Bhima Devi). In the 17th century, the region's beauty led Mughal architects to construct the spectacular Pinjore Gardens here.",
+            "nearest_airport": {
+                "name": "Chandigarh International Airport",
+                "code": "IXC",
+                "distance_km": 15
+            },
+            "nearest_railhead": {
+                "name": "Chandigarh Junction",
+                "distance_km": 8,
+                "note": "Kalka Railway Station (for the Shimla Toy Train) is also within the district."
+            },
+            "language": [
+                "Hindi",
+                "Punjabi",
+                "English"
+            ],
+            "cuisine": [
+                "Punjabi North Indian",
+                "Street Chaat",
+                "Kadha Prasad (at Gurudwaras)"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 3500,
+                "luxury": 8000
+            },
+            "tags": [
+                "hill station",
+                "gardens",
+                "nature",
+                "temples",
+                "trekking"
+            ],
+            "places": [
+                {
+                    "id": "pnk-pinjore-gardens",
+                    "name": "Pinjore Gardens (Yadavindra Gardens)",
+                    "category": "Heritage",
+                    "subcategory": "Mughal Garden",
+                    "rating": 4.6,
+                    "entry_fee_inr": 25,
+                    "open_hours": "7:00 AM – 10:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Mughal garden fountains terraces",
+                    "description": "An exquisite 17th-century garden created by architect Nawab Fidai Khan, the foster brother of Mughal Emperor Aurangzeb. Built over seven distinct terraces dropping down into a valley, it features a central water channel with sparkling fountains, stunning pavilions (Shish Mahal, Rang Mahal), and perfectly manicured lawns.",
+                    "tips": "It looks spectacular when illuminated at night. Try to visit during the famous Mango Mela (early July) when hundreds of mango varieties from across India are displayed and sold.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnk-morni-hills",
+                    "name": "Morni Hills & Tikkar Taal",
+                    "category": "Nature",
+                    "subcategory": "Hill Station",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "4–6",
+                    "distance_from_center_km": 35,
+                    "unsplash_query": "pine forest mountain lake mist",
+                    "description": "Haryana's only hill station, perched at an altitude of 1,220 meters in the Shivalik foothills. It is an incredibly peaceful retreat of pine forests, crisp air, and rich flora. The main attraction is Tikkar Taal, a beautiful spot featuring two interconnected lakes divided by a small hillock.",
+                    "tips": "The winding drive up to Morni from Panchkula is highly scenic but requires careful driving. Haryana Tourism runs a resort at Tikkar Taal offering boating, camping, and adventure sports facilities.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnk-nada-sahib",
+                    "name": "Nada Sahib Gurudwara",
+                    "category": "Temple",
+                    "subcategory": "Sikh Pilgrimage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "white Sikh Gurudwara river bank",
+                    "description": "A deeply revered Sikh Gurudwara situated on the tranquil banks of the Ghaggar River. It commemorates the exact spot where Guru Gobind Singh, the tenth Sikh Guru, halted in 1688 while traveling from Paonta Sahib to Anandpur Sahib after the Battle of Bhangani.",
+                    "tips": "The setting against the Shivalik hills and the river is extremely calming. Cover your head and wash your feet before entering. Do partake in the Langar (community meal) served with immense devotion.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnk-bhima-devi",
+                    "name": "Bhima Devi Temple Complex",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.3,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "ancient stone temple ruins carvings",
+                    "description": "Located adjacent to the Pinjore Gardens, this archaeological site is often dubbed the 'Khajuraho of North India'. Dating back to the 8th-11th century CE (Gurjara-Pratihara period), the ruins feature spectacular, intricately carved stone sculptures depicting Shiva, Parvati, and various celestial nymphs.",
+                    "tips": "The ruins are beautifully landscaped into an open-air museum. It provides a stark, ancient Hindu architectural contrast to the neighboring Islamic-style Pinjore Gardens.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnk-cactus-garden",
+                    "name": "National Cactus and Succulent Botanical Garden",
+                    "category": "Nature",
+                    "subcategory": "Botanical",
+                    "rating": 4.4,
+                    "entry_fee_inr": 10,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "cactus succulents botanical greenhouse",
+                    "description": "Established in 1987, this is the largest outdoor landscaped cactus garden in Asia. Covering 7 acres, it boasts an incredibly rare and massive collection of over 3,500 species of cacti and succulents brought in from around the world, including Mexico and Arizona.",
+                    "tips": "A must-visit for botany enthusiasts and unique photography. March is usually the best time to see many of these rare succulents in full, spectacular bloom.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "panipat",
+            "name": "Panipat",
+            "tagline": "The City of Weavers and Battles",
+            "region": "Eastern Haryana",
+            "district": "Panipat",
+            "type": "Historical & Industrial",
+            "altitude_m": 219,
+            "altitude_display": "219m",
+            "lat": 29.3909,
+            "lon": 76.9708,
+            "distance_delhi_km": 90,
+            "distance_chandigarh_km": 160,
+            "best_time": "October–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "6–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1627962137946-b60517596a24?w=1200&q=80",
+            "overview": "Located on the strategic old Grand Trunk Road, Panipat has been the geographic anvil upon which the fate of India was hammered out. Known globally for the three epochal battles fought on its plains, today it is a booming industrial powerhouse, affectionately known as the 'City of Weavers' for its massive handloom, textile, and carpet industries.",
+            "history": "Panipat is one of the five cities (Prasthas) founded by the Pandava brothers in the Mahabharata. Its modern fame rests on three massive battles: The First Battle (1526) where Babur defeated Ibrahim Lodhi, establishing the Mughal Empire; The Second Battle (1556) where Akbar defeated the Hindu king Hemu; and The Third Battle (1761) where the invading Afghan Ahmad Shah Abdali crushed the Maratha Empire, altering the course of Indian history.",
+            "nearest_airport": {
+                "name": "Indira Gandhi International Airport, New Delhi",
+                "code": "DEL",
+                "distance_km": 105
+            },
+            "nearest_railhead": {
+                "name": "Panipat Junction",
+                "distance_km": 0,
+                "note": "A highly connected, major railway station"
+            },
+            "language": [
+                "Hindi",
+                "Haryanvi",
+                "Punjabi",
+                "Urdu"
+            ],
+            "cuisine": [
+                "Panipat Pachranga Achar (Famous Pickles)",
+                "Dhaba Style Parathas",
+                "North Indian Veg/Non-Veg"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "history",
+                "battles",
+                "textiles",
+                "monuments",
+                "mughal"
+            ],
+            "places": [
+                {
+                    "id": "pnp-kala-amb",
+                    "name": "Kala Amb Battlefield Memorial",
+                    "category": "Heritage",
+                    "subcategory": "Memorial",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "monument memorial park battle",
+                    "description": "The exact site where the devastating Third Battle of Panipat (1761) was fought between the Marathas and the Afghans. It is said that a massive Mango tree (Kala Amb or 'Black Mango') stood here, and its leaves turned black from the immense bloodshed. A brick pillar now marks the spot of the Maratha commander Sadashiv Rao Bhau.",
+                    "tips": "It is a somber, quiet park managed by a local trust. There isn't much architectural grandeur, but the historical weight of standing on this specific piece of earth is immense.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnp-ibrahim-lodhi",
+                    "name": "Tomb of Ibrahim Lodhi",
+                    "category": "Heritage",
+                    "subcategory": "Monument",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "ancient tomb brick steps monument",
+                    "description": "The modest, rectangular burial site of Ibrahim Lodhi, the last Sultan of the Delhi Sultanate. He was killed on the battlefield here in 1526 by Babur's forces during the First Battle of Panipat. Babur, respecting his fallen foe's bravery, ordered him buried exactly where he fell.",
+                    "tips": "Situated within a bustling neighborhood park. It is a very simple, open-air brick platform, devoid of the grand domes usually associated with Sultanate tombs, reflecting his death in active combat.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnp-kabuli-bagh",
+                    "name": "Kabuli Bagh Mosque",
+                    "category": "Heritage",
+                    "subcategory": "Mughal Architecture",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "ancient red sandstone mosque dome",
+                    "description": "Built in 1527 by Emperor Babur to commemorate his victory over Ibrahim Lodhi, making it the very first Mughal monument built in India. He named the mosque and the surrounding garden after his beloved wife, Kabuli Begum. Humayun later added a masonry platform to it.",
+                    "tips": "A superb piece of early Mughal architecture transitioning from Central Asian styles. The ASI has done significant restoration work here. Highly recommended for architecture lovers.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnp-panipat-museum",
+                    "name": "Panipat Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.3,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Mondays)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "museum swords armor history",
+                    "description": "A state-run museum dedicated entirely to the three monumental battles of Panipat. It houses an impressive collection of antique weapons, chainmail armor, historical firmans (royal decrees), and miniature paintings detailing the battle formations and the immense scale of the conflicts.",
+                    "tips": "The absolute best place to understand the tactical movements and the weapons (like Babur's use of early artillery) that shaped these battles. The museum explains the history much better than the actual empty battle sites.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pnp-salarganj-gate",
+                    "name": "Salar Ganj Gate",
+                    "category": "Landmark",
+                    "subcategory": "Historical Market",
+                    "rating": 4.0,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7 (Market hours 10 AM - 8 PM)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Indian bazaar historic gate street",
+                    "description": "An imposing historical gateway built in the memory of Nawab Salar Jung, the Prime Minister of Hyderabad State. Today, the gate acts as the dramatic entrance to Panipat's most chaotic, vibrant, and sprawling wholesale market.",
+                    "tips": "If you want to buy world-class handloom carpets, curtains, and textiles directly from the source at wholesale prices, the markets surrounding this gate are the place to go. Prepare for extreme crowds.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "faridabad",
+            "name": "Faridabad",
+            "tagline": "The Industrial City with an Ancient Heart",
+            "region": "National Capital Region (NCR)",
+            "district": "Faridabad",
+            "type": "Industrial & Cultural",
+            "altitude_m": 198,
+            "altitude_display": "198m",
+            "lat": 28.4089,
+            "lon": 77.3178,
+            "distance_delhi_km": 25,
+            "distance_gurugram_km": 35,
+            "best_time": "October–March (Specifically February for Surajkund)",
+            "avoid_time": "May–July",
+            "temp_summer_c": "32–44°C",
+            "temp_winter_c": "6–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&q=80",
+            "overview": "Faridabad is Haryana's most populous city and a massive industrial engine for the NCR. While primarily known for its manufacturing plants and proximity to Delhi, it boasts a deeply ancient heritage, beautiful Aravalli lake beds, and hosts the world-renowned Surajkund International Crafts Mela.",
+            "history": "The city was founded in 1607 CE by Sheikh Farid, the treasurer of the Mughal Emperor Jahangir, to protect the Grand Trunk Road passing through the area. Much older than its Mughal founding, the area features the 10th-century Surajkund lake built by the Tomar Rajput kings, pointing to a long history of pre-Islamic habitation in the Aravalli foothills.",
+            "nearest_airport": {
+                "name": "Indira Gandhi International Airport, New Delhi",
+                "code": "DEL",
+                "distance_km": 35
+            },
+            "nearest_railhead": {
+                "name": "Faridabad Railway Station",
+                "distance_km": 0,
+                "note": "Extremely well connected via Delhi Metro (Violet Line)"
+            },
+            "language": [
+                "Hindi",
+                "Braj Bhasha",
+                "English"
+            ],
+            "cuisine": [
+                "Street Food",
+                "North Indian Cuisine",
+                "Mughlai"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 7000
+            },
+            "tags": [
+                "crafts festival",
+                "aravalli hills",
+                "historical",
+                "industrial"
+            ],
+            "places": [
+                {
+                    "id": "fbd-surajkund",
+                    "name": "Surajkund (Lake & Mela Grounds)",
+                    "category": "Experience",
+                    "subcategory": "Culture & Heritage",
+                    "rating": 4.7,
+                    "entry_fee_inr": 150,
+                    "open_hours": "10:30 AM – 8:30 PM (During Mela)",
+                    "duration_hrs": "4–6",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "handicrafts festival colorful folk dance India",
+                    "description": "Surajkund (Lake of the Sun) is an ancient, 10th-century reservoir built in an amphitheater shape by King Surajpal of the Tomar dynasty. Today, it is globally famous for the massive Surajkund International Crafts Mela held annually in February, transforming the area into an explosion of rural Indian culture, folk dances, and master-crafted artisanal goods from around the world.",
+                    "tips": "If visiting in February, the Mela is an absolute must-do. It is the largest crafts fair in the world. Outside of February, the ancient amphitheater and the rocky Aravalli terrain offer a quiet historical hike.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "fbd-raja-nahar-singh",
+                    "name": "Raja Nahar Singh Palace (Ballabgarh Fort)",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 8:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "heritage palace arches courtyard India",
+                    "description": "Located in Ballabgarh, this stunning 18th-century palace belonged to Raja Nahar Singh, a hero of the 1857 Indian Mutiny who was executed by the British. The palace features intricate cupolas, beautifully carved arches, and vast courtyards. It has been meticulously restored by Haryana Tourism.",
+                    "tips": "The palace now functions as a heritage hotel and a premium restaurant. It's an excellent place to experience royal Rajput-style architecture and enjoy a luxurious dinner in a historical setting.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "fbd-camp-dhauj",
+                    "name": "Camp Dhauj (Aravalli Hills)",
+                    "category": "Experience",
+                    "subcategory": "Adventure",
+                    "rating": 4.4,
+                    "entry_fee_inr": 1000,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "5–6",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "rock climbing camp Aravalli hills",
+                    "description": "Nestled amidst the rugged, ancient rocks of the Aravalli range, Dhauj is the premier rock-climbing and adventure sports destination near Delhi/NCR. The camp offers rock climbing, rappelling, obstacle courses, and eco-tents set against a stunning, unpolluted natural backdrop.",
+                    "tips": "Perfect for thrill-seekers, corporate team-building, or a rugged day out. Pre-booking via adventure tour operators is highly recommended. Wear highly comfortable athletic clothing and good grip shoes.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "fbd-baba-farid",
+                    "name": "Tomb of Baba Farid",
+                    "category": "Temple",
+                    "subcategory": "Sufi Shrine",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Sufi shrine marble courtyard devotion",
+                    "description": "The city of Faridabad gets its name from Baba Farid, a revered 12th-century Sufi saint whose teachings are also included in the holy Guru Granth Sahib of the Sikhs. His incredibly peaceful tomb is a major pilgrimage site for people of all faiths in the region.",
+                    "tips": "The shrine exudes a profound sense of peace. Try to visit on a Thursday evening to witness the Qawwali (Sufi devotional music) sessions performed in the courtyard.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "hisar",
+            "name": "Hisar",
+            "tagline": "The Steel City and Harappan Heritage",
+            "region": "Western Haryana",
+            "district": "Hisar",
+            "type": "Historical & Archaeological",
+            "altitude_m": 215,
+            "altitude_display": "215m",
+            "lat": 29.1492,
+            "lon": 75.7217,
+            "distance_delhi_km": 170,
+            "distance_chandigarh_km": 230,
+            "best_time": "October–March",
+            "avoid_time": "May–July (extremely harsh, dry heat)",
+            "temp_summer_c": "32–46°C",
+            "temp_winter_c": "4–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1622306899723-5c7d81225337?w=1200&q=80",
+            "overview": "Located on the edge of the Thar Desert, Hisar is a major agricultural and industrial hub (known as the Steel City of India due to its massive galvanized iron industries). Historically, it is a treasure trove, boasting a colossal 14th-century fort complex and acting as the basecamp for visiting Rakhigarhi, one of the largest and oldest Indus Valley Civilization sites in the world.",
+            "history": "Hisar has phenomenal historical depth. Nearby Rakhigarhi dates back to 5000 BCE. The modern city was founded in 1354 CE by Firuz Shah Tughlaq, the Sultan of Delhi. He named it 'Hisar-e-Firoza' (The Fort of Firuz) and built a massive palace complex utilizing materials from older Hindu and Jain temples. The city was a crucial stronghold during the Mughal era and played a significant role in the 1857 Mutiny.",
+            "nearest_airport": {
+                "name": "Indira Gandhi International Airport, New Delhi",
+                "code": "DEL",
+                "distance_km": 175,
+                "note": "Maharaja Agrasen International Airport in Hisar is currently under development."
+            },
+            "nearest_railhead": {
+                "name": "Hisar Junction",
+                "distance_km": 0,
+                "note": "Well connected to Delhi, Punjab, and Rajasthan"
+            },
+            "language": [
+                "Haryanvi",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Authentic Haryanvi Thali",
+                "Kachri Ki Sabzi",
+                "Bajra Khichdi",
+                "Lassi"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2000,
+                "luxury": 4500
+            },
+            "tags": [
+                "archaeology",
+                "indus valley",
+                "sultanate architecture",
+                "forts",
+                "rural"
+            ],
+            "places": [
+                {
+                    "id": "hsr-firoz-shah",
+                    "name": "Firoz Shah Palace Complex",
+                    "category": "Heritage",
+                    "subcategory": "Fort & Palace",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "ancient fort stone pillars arches",
+                    "description": "Built in 1354 by Sultan Firuz Shah Tughlaq, this massive, imposing rubble-masonry complex features an intricate network of underground apartments, a royal residence, and an enormous arched gateway. The architecture is a fascinating, brutalist mix of Islamic arches supported by vividly carved Hindu and Jain temple pillars repurposed by the Sultan.",
+                    "tips": "It requires a fair bit of walking. The underground structures (Tehkhana) stay remarkably cool even in the brutal Hisar summer. Hire a local guide to understand the amalgamation of architectural styles.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hsr-lat-ki-masjid",
+                    "name": "Lat ki Masjid",
+                    "category": "Heritage",
+                    "subcategory": "Monument",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "ancient sandstone pillar mosque India",
+                    "description": "Located right next to the Firoz Shah Palace, this unique 'L-shaped' mosque is famous for its 'Lat' (Pillar). The 20-foot high sandstone pillar is believed to be the lower half of an original Mauryan Ashokan pillar that the Sultan brought here and incorporated into the mosque's courtyard.",
+                    "tips": "Observe the Brahmi script faintly visible on the sandstone pillar. The red sandstone construction offers a stark contrast to the rough dark rubble of the adjacent palace.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hsr-rakhigarhi",
+                    "name": "Rakhigarhi Archaeological Site",
+                    "category": "Heritage",
+                    "subcategory": "Indus Valley Civilization",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 60,
+                    "unsplash_query": "archaeological excavation site ancient bricks",
+                    "description": "A must-visit for history purists. Spread over 350 hectares, Rakhigarhi is officially the largest known city of the ancient Indus Valley (Harappan) Civilization, larger even than Mohenjo-Daro. Excavations have revealed planned streets, drainage systems, terracotta toys, copper tools, and massive burial sites dating back thousands of years.",
+                    "tips": "A massive state-of-the-art museum is currently being constructed on-site. Until it fully opens, you are essentially viewing active excavation mounds. Best to visit with a knowledgeable guide or read up heavily before going.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hsr-agroha-dham",
+                    "name": "Agroha Dham",
+                    "category": "Temple",
+                    "subcategory": "Spiritual Complex",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 22,
+                    "unsplash_query": "grand Hindu temple complex India",
+                    "description": "A colossal and beautifully maintained temple complex dedicated to Goddess Mahalaxmi and Maharaja Agrasen (the legendary founder of the Agrawal community). The complex features sprawling gardens, a massive artificial cave depicting the Vaishno Devi shrine, and extremely clean accommodations.",
+                    "tips": "Located on the highway towards Sirsa. It is highly photogenic and offers excellent, clean vegetarian meals at its vast Langar (canteen).",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hsr-blue-bird",
+                    "name": "Blue Bird Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake & Park",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 7:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "lake boating sunset trees",
+                    "description": "A large, tranquil artificial lake maintained by Haryana Tourism. Spanning 20 acres, it features boating facilities, floating pontoon bridges, beautifully landscaped gardens, and attracts various migratory birds during the winter season.",
+                    "tips": "A great, relaxing spot for an evening picnic. The complex has a decent restaurant. Avoid boating during the peak afternoon heat in summer.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

@@ -3,682 +3,867 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore India — TripAdvisor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <title>Explore India — Discover Every State & Territory</title>
+  <meta name="description" content="Your complete travel guide to India. Explore destinations across every state and union territory — adventure, culture, nature, food, and hidden gems." />
+  <meta name="keywords" content="India travel, explore India, Indian states, travel guide, destinations, tourism" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #f7f8fa;
-      --surface: #ffffff;
-      --ink: #1a1a1a;
-      --muted: #8a8a8a;
-      --accent: #00AA6C;
-      --accent2: #34E0A1;
-      --border: rgba(0,0,0,0.08);
-      --green-grad: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      --ink:        #0a0806;
+      --ink-2:      #1a1714;
+      --ink-3:      #6b6258;
+      --fog:        #f7f3ed;
+      --fog-2:      #ede8df;
+      --fog-3:      #dbd4c8;
+      --gold:       #c49a3c;
+      --gold-light: #ddb95a;
+      --gold-pale:  #f5ecd6;
+      --gold-glow:  rgba(196,154,60,.18);
+      --ut-accent:  #4a7d9c;
+      --ut-light:   #89b8cf;
+      --ut-pale:    #dceef6;
+      --white:      #fefbf6;
+      --cream:      #faf6ef;
+      --serif:      'Playfair Display', Georgia, serif;
+      --display:    'DM Serif Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --ease:       cubic-bezier(.4,0,.2,1);
+      --spring:     cubic-bezier(.34,1.56,.64,1);
+      --shadow:     0 2px 24px rgba(10,8,6,.07);
+      --shadow-lg:  0 16px 64px rgba(10,8,6,.18);
+      --shadow-card:0 4px 32px rgba(10,8,6,.12);
+      --r:          18px;
+      --nav-h:      72px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
+      font-family: var(--sans);
+      background: var(--white);
       color: var(--ink);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 400;
-      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ── DOT BG ── */
-    .dot-bg {
-      position: fixed; inset: 0; z-index: -1;
-      background-color: #f0f2f5;
-      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
-      background-size: 24px 24px;
+    /* ═══ LOADER ═══ */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+      transition: opacity .6s var(--ease), visibility .6s;
     }
+    #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-chakra {
+      width: 40px; height: 40px;
+      border: 1.5px solid rgba(196,154,60,.25);
+      border-top-color: var(--gold-light);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-text {
+      font-family: var(--serif); font-size: 24px; color: var(--white); letter-spacing: 3px;
+    }
+    .loader-text span { color: var(--gold-light); }
+    .loader-bar { width: 160px; height: 1px; background: rgba(255,255,255,.08); overflow: hidden; border-radius: 1px; }
+    .loader-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-light)); animation: fill 1.5s var(--ease) forwards; }
+    @keyframes fill { to { width: 100%; } }
 
-    /* ── NAVBAR ── */
-    .navbar {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
-    }
-    .navbar-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 6vw; height: 64px;
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: var(--nav-h); padding: 0 56px;
       display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s var(--ease), box-shadow .4s var(--ease);
     }
-    .nav-logo {
-      display: flex; align-items: center; gap: 8px;
-      text-decoration: none;
+    nav.scrolled {
+      background: rgba(254,251,246,.97);
+      backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(10,8,6,.08);
     }
-    .nav-logo-icon {
-      width: 36px; height: 36px; background: var(--accent2);
-      border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-size: 17px;
-      box-shadow: 0 2px 8px rgba(52,224,161,0.35);
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-brand {
+      font-family: var(--serif); font-size: 20px; font-weight: 600;
+      color: var(--white); text-decoration: none; transition: color .3s;
+      display: flex; align-items: center; gap: 10px;
     }
-    .nav-logo span {
-      font-size: 1.2rem; font-weight: 900; color: var(--ink); letter-spacing: -0.02em;
+    .nav-brand-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center; font-size: 15px;
     }
-    .nav-logo span b { color: var(--accent); font-weight: 900; }
-    .nav-links {
-      display: flex; gap: 28px; list-style: none;
-    }
-    .nav-links li {
-      font-size: 0.88rem; font-weight: 700; color: #4a4a4a;
-      cursor: pointer; transition: color 0.2s;
-    }
-    .nav-links li:hover, .nav-links li.active { color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .greeting-pill {
+    nav.scrolled .nav-brand { color: var(--ink); }
+    .nav-brand em { font-style: normal; color: var(--gold-light); }
+    nav.scrolled .nav-brand em { color: var(--gold); }
+    .nav-back {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(52,224,161,0.1);
-      border: 1.5px solid rgba(0,170,108,0.2);
-      border-radius: 100px; padding: 5px 14px;
-      font-size: 0.82rem; font-weight: 700; color: var(--accent);
+      padding: 7px 18px; border-radius: 40px;
+      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.7); font-size: 13px; text-decoration: none;
+      transition: all .3s var(--ease); backdrop-filter: blur(8px);
     }
-    .avatar {
-      width: 36px; height: 36px;
-      background: var(--green-grad);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 0.9rem; color: white;
-      text-decoration: none; transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,170,108,0.35);
+    .nav-back:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(196,154,60,.1); transform: translateX(-3px); }
+    .nav-back svg { width: 14px; height: 14px; transition: transform .3s var(--ease); }
+    .nav-back:hover svg { transform: translateX(-3px); }
+    nav.scrolled .nav-back { border-color: var(--fog-3); color: var(--ink-3); background: transparent; }
+    nav.scrolled .nav-back:hover { border-color: var(--gold); color: var(--gold); }
+
+    .nav-center { display: flex; align-items: center; gap: 6px; }
+    .nav-link {
+      font-size: 13px; color: rgba(255,255,255,.5); text-decoration: none;
+      padding: 6px 14px; border-radius: 20px; transition: all .25s;
     }
-    .avatar:hover { transform: scale(1.08); }
-    .btn-profile {
-      font-size: 0.82rem; font-weight: 800; color: var(--accent);
-      border: 1.5px solid rgba(0,170,108,0.35); border-radius: 10px;
-      padding: 7px 16px; text-decoration: none; background: white;
-      transition: all 0.2s; font-family: 'Nunito', sans-serif;
+    nav.scrolled .nav-link { color: var(--ink-3); }
+    .nav-link:hover { color: var(--gold-light); background: rgba(196,154,60,.08); }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta {
+      padding: 9px 24px; border-radius: 40px; background: var(--gold); color: var(--white);
+      font-size: 13px; font-weight: 500; border: none; text-decoration: none;
+      font-family: var(--sans); transition: all .3s var(--spring);
+      box-shadow: 0 4px 16px rgba(196,154,60,.3);
     }
-    .btn-profile:hover { background: rgba(0,170,108,0.07); }
-    .btn-logout {
-      font-size: 0.82rem; font-weight: 700; color: #8a8a8a;
-      text-decoration: none; padding: 6px 14px;
-      border: 1.5px solid #d4d4d4; border-radius: 8px;
-      transition: all 0.2s; font-family: 'Nunito', sans-serif;
-    }
-    .btn-logout:hover { border-color: #e05252; color: #e05252; }
-    .btn-signin {
-      font-size: 0.85rem; font-weight: 800; color: var(--accent); text-decoration: none;
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-center { display: none; }
     }
 
-    /* ── HERO ── */
+    /* ═══ HERO ═══ */
     .hero {
-      position: relative;
-      padding: 6rem 6vw 5rem;
-      overflow: hidden;
-      background: linear-gradient(160deg, #ffffff 0%, #f0fdf8 55%, #e6fdf5 100%);
-      border-bottom: 1px solid rgba(52,224,161,0.15);
+      position: relative; min-height: 80vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      overflow: hidden; text-align: center; padding: calc(var(--nav-h) + 40px) 24px 60px;
     }
-    .hero-bg-circle {
-      position: absolute; top: -80px; right: -80px;
-      width: 420px; height: 420px;
-      background: radial-gradient(circle, rgba(52,224,161,0.12) 0%, transparent 70%);
-      border-radius: 50%; pointer-events: none;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=80') center/cover no-repeat;
+      transform: scale(1.05); transition: transform 12s ease;
     }
-    .hero-bg-circle2 {
-      position: absolute; bottom: -60px; left: -60px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(0,170,108,0.07) 0%, transparent 70%);
-      border-radius: 50%; pointer-events: none;
+    .hero.loaded .hero-bg { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,8,6,.85) 0%, rgba(10,8,6,.6) 50%, rgba(10,8,6,.9) 100%);
     }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent); font-weight: 700;
-      background: rgba(52,224,161,0.1);
-      border: 1.5px solid rgba(0,170,108,0.2);
-      border-radius: 100px; padding: 5px 16px;
-      margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+    .hero-content { position: relative; z-index: 5; max-width: 780px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 24px;
+      opacity: 0; transform: translateY(20px); animation: fadeUp .8s var(--ease) .3s forwards;
     }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 9vw, 7.5rem);
-      font-weight: 300; line-height: 0.95;
-      letter-spacing: -0.02em; color: var(--ink);
-      opacity: 0; animation: fadeUp 0.9s ease 0.35s forwards;
+    .hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+    .hero-h1 {
+      font-family: var(--serif); font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400; line-height: .92; color: var(--white); margin-bottom: 20px;
+      opacity: 0; transform: translateY(24px); animation: fadeUp .9s var(--ease) .5s forwards;
     }
-    .hero-title em {
-      font-style: italic;
-      background: var(--green-grad);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1rem; color: var(--muted); margin-top: 1.8rem;
-      max-width: 500px; line-height: 1.8; font-weight: 500;
-      opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards;
+    .hero-h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-desc {
+      font-size: 16px; font-weight: 300; line-height: 1.8;
+      color: rgba(255,255,255,.45); max-width: 520px; margin: 0 auto 36px;
+      opacity: 0; transform: translateY(16px); animation: fadeUp .8s var(--ease) .7s forwards;
     }
     .hero-stats {
-      display: flex; gap: 2.5rem; margin-top: 2.5rem;
-      opacity: 0; animation: fadeUp 0.9s ease 0.65s forwards;
+      display: flex; justify-content: center; gap: 48px;
+      opacity: 0; transform: translateY(16px); animation: fadeUp .8s var(--ease) .9s forwards;
     }
-    .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 300; color: var(--accent);
-      line-height: 1;
+    .hero-stat { position: relative; }
+    .hero-stat + .hero-stat::before {
+      content: ''; position: absolute; left: -24px; top: 50%; transform: translateY(-50%);
+      width: 1px; height: 28px; background: rgba(255,255,255,.12);
     }
-    .hero-stat-label {
-      font-size: 0.72rem; color: var(--muted); font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 2rem; right: 6vw;
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); font-weight: 600;
-      opacity: 0; animation: fadeIn 1s ease 1s forwards;
-    }
-    .hero-scroll-line { width: 36px; height: 1px; background: var(--accent2); }
+    .hero-stat strong { display: block; font-family: var(--serif); font-size: 32px; color: var(--white); font-weight: 400; }
+    .hero-stat span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 4px; display: block; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ── SECTION HEADER ── */
+    /* ═══ SEARCH SECTION ═══ */
+    .search-section {
+      position: relative; z-index: 10; margin-top: -44px;
+      padding: 0 56px;
+    }
+    .search-container {
+      max-width: 720px; margin: 0 auto;
+      background: var(--white);
+      border-radius: 60px; padding: 6px;
+      box-shadow: 0 20px 60px rgba(10,8,6,.18), 0 0 0 1px rgba(10,8,6,.04);
+      display: flex; align-items: center;
+      position: relative;
+    }
+    .search-icon { font-size: 18px; padding: 0 16px 0 22px; color: var(--ink-3); flex-shrink: 0; }
+    #searchInput {
+      flex: 1; border: none; outline: none; background: transparent;
+      font-family: var(--sans); font-size: 15px; color: var(--ink);
+      padding: 16px 0;
+    }
+    #searchInput::placeholder { color: var(--fog-3); }
+    .search-btn {
+      padding: 12px 28px; border-radius: 50px;
+      background: var(--gold); color: var(--white);
+      font-family: var(--sans); font-size: 14px; font-weight: 500;
+      border: none; cursor: pointer; flex-shrink: 0;
+      transition: all .3s var(--spring);
+    }
+    .search-btn:hover { background: var(--gold-light); transform: scale(1.03); }
+
+    /* Live search dropdown */
+    .search-dropdown {
+      position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+      background: var(--white); border-radius: 20px;
+      box-shadow: var(--shadow-lg); border: 1px solid var(--fog-2);
+      max-height: 420px; overflow-y: auto; display: none; z-index: 100;
+    }
+    .search-dropdown.open { display: block; }
+    .search-dropdown::-webkit-scrollbar { width: 6px; }
+    .search-dropdown::-webkit-scrollbar-thumb { background: var(--fog-3); border-radius: 3px; }
+    .sd-group-label {
+      padding: 14px 24px 6px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--ink-3); font-weight: 600;
+    }
+    .sd-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 24px; cursor: pointer; transition: background .15s;
+      text-decoration: none; color: var(--ink);
+    }
+    .sd-item:hover { background: var(--fog); }
+    .sd-item-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--fog); display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0; overflow: hidden;
+    }
+    .sd-item-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .sd-item-info { flex: 1; min-width: 0; }
+    .sd-item-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .sd-item-meta { font-size: 11px; color: var(--ink-3); }
+    .sd-item-type {
+      font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 10px; font-weight: 600; flex-shrink: 0;
+    }
+    .sd-item-type.state { background: var(--gold-pale); color: var(--gold); }
+    .sd-item-type.city { background: #e8f4ec; color: #2d8a56; }
+    .sd-item-type.place { background: #e8ecf4; color: #4a5d9c; }
+    .sd-no-results { padding: 32px 24px; text-align: center; color: var(--ink-3); font-size: 14px; }
+
+    /* ═══ TRENDING ═══ */
+    .trending-section {
+      max-width: 720px; margin: 20px auto 0; padding: 0 56px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center;
+    }
+    .trending-label {
+      font-size: 11px; letter-spacing: 1px; color: var(--ink-3); font-weight: 500;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .trending-dot { width: 6px; height: 6px; border-radius: 50%; background: #f59e0b; animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+    .trending-chip {
+      padding: 6px 16px; border-radius: 30px;
+      border: 1px solid var(--fog-3); background: var(--white);
+      font-size: 12px; color: var(--ink-2); text-decoration: none;
+      transition: all .25s var(--ease); cursor: pointer;
+    }
+    .trending-chip:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); transform: translateY(-2px); }
+
+    /* ═══ CATEGORY CHIPS ═══ */
+    .category-section {
+      padding: 56px 56px 0; text-align: center;
+    }
+    .category-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 50px;
+      border: 1.5px solid var(--fog-3); background: var(--white);
+      font-family: var(--sans); font-size: 14px; font-weight: 400;
+      color: var(--ink-2); cursor: pointer; text-decoration: none;
+      transition: all .3s var(--ease);
+    }
+    .cat-pill:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(196,154,60,.15); }
+    .cat-pill-emoji { font-size: 18px; }
+
+    /* ═══ STATES GRID ═══ */
+    .states-section {
+      padding: 72px 56px 40px;
+    }
     .section-header {
-      padding: 4rem 6vw 2rem;
-      display: flex; align-items: center; gap: 1.5rem;
-      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
     }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); font-weight: 700; white-space: nowrap;
+    .section-eyebrow {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
     }
-    .section-line { flex: 1; height: 1px; background: var(--border); }
+    .section-eyebrow-line { width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+    .section-title {
+      font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400; color: var(--ink); line-height: 1.1;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-count {
+      font-size: 13px; color: var(--ink-3); padding: 6px 16px;
+      border: 1px solid var(--fog-3); border-radius: 30px;
+    }
 
-    /* ── PLACES ── */
-    .places {
-      padding: 0 6vw 6rem;
-      max-width: 1200px; margin: 0 auto;
-      display: flex; flex-direction: column;
-    }
-
-    .place {
+    .states-grid {
       display: grid;
-      grid-template-columns: 2.5rem 1fr 1fr;
-      gap: 0 3rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .place.visible { opacity: 1; transform: translateY(0); }
-
-    .place-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem; font-weight: 300;
-      color: var(--accent); padding-top: 0.4rem; letter-spacing: 0.05em;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .place-info {
-      display: flex; flex-direction: column; gap: 1rem; padding-right: 1rem;
+    .state-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 4/3; cursor: pointer; text-decoration: none; display: block;
+      box-shadow: var(--shadow);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
     }
+    .state-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--shadow-lg); }
 
-    .place-state {
-      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--accent); font-weight: 700;
+    .state-card-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; transition: transform .8s var(--ease);
+      filter: brightness(.65) saturate(1.1);
     }
+    .state-card:hover .state-card-img { transform: scale(1.08); filter: brightness(.55) saturate(1.2); }
 
-    .place-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 400; letter-spacing: -0.01em; line-height: 1;
-      color: var(--ink);
-    }
-
-    .place-divider {
-      width: 1.5rem; height: 2px;
-      background: var(--green-grad);
-      border-radius: 2px; margin: 0.2rem 0;
-    }
-
-    .place-desc {
-      font-size: 0.88rem; color: #6a6a6a;
-      line-height: 1.85; max-width: 380px; font-weight: 500;
-    }
-
-    .place-tags {
-      display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem;
-    }
-
-    .tag {
-      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); border: 1.5px solid rgba(0,170,108,0.25);
-      padding: 0.25rem 0.75rem; border-radius: 100px; font-weight: 700;
-      background: rgba(52,224,161,0.06);
-      transition: all 0.2s;
-    }
-    .tag:hover { background: rgba(52,224,161,0.15); border-color: var(--accent); }
-
-    /* ── IMAGE ── */
-    .place-img-wrap {
-      position: relative; overflow: hidden;
-      border-radius: 12px; aspect-ratio: 4/3;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border: 1.5px solid var(--border);
-    }
-    .place-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: block; transition: transform 0.6s ease;
-      filter: brightness(0.96) saturate(1.05);
-    }
-    .place:hover .place-img-wrap img { transform: scale(1.05); filter: brightness(1) saturate(1.1); }
-    .img-overlay {
+    .state-card-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 55%);
-      pointer-events: none;
+      background: linear-gradient(to top, rgba(10,8,6,.9) 0%, rgba(10,8,6,.3) 50%, rgba(10,8,6,.1) 100%);
     }
-    .img-badge {
-      position: absolute; bottom: 0.75rem; left: 0.75rem;
-      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: white; font-weight: 700;
-      background: rgba(0,170,108,0.75);
-      backdrop-filter: blur(4px);
-      padding: 0.3rem 0.75rem; border-radius: 100px;
+    .state-card-shimmer {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,154,60,0) 30%, rgba(196,154,60,.08) 50%, rgba(196,154,60,0) 70%);
+      opacity: 0; transition: opacity .5s;
+    }
+    .state-card:hover .state-card-shimmer { opacity: 1; }
+
+    .state-card-badge {
+      position: absolute; top: 16px; left: 16px;
+      padding: 4px 12px; border-radius: 20px;
+      background: rgba(10,8,6,.5); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+    .state-card-badge.ut { background: rgba(74,125,156,.3); border-color: rgba(74,125,156,.4); color: var(--ut-light); }
+
+    .state-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 24px 22px 20px;
+    }
+    .state-card-emoji { font-size: 28px; margin-bottom: 6px; display: block; }
+    .state-card-region {
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 4px;
+    }
+    .state-card-name {
+      font-family: var(--serif); font-size: 22px; font-weight: 500;
+      color: var(--white); line-height: 1.15; margin-bottom: 6px;
+    }
+    .state-card-tagline {
+      font-size: 12px; font-weight: 300; color: rgba(255,255,255,.45);
+      line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .state-card-arrow {
+      position: absolute; bottom: 20px; right: 20px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(196,154,60,.15); border: 1px solid rgba(196,154,60,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light); font-size: 14px;
+      opacity: 0; transform: translateX(-8px); transition: all .4s var(--ease);
+    }
+    .state-card:hover .state-card-arrow { opacity: 1; transform: translateX(0); }
+    .state-card.ut-card .state-card-arrow { background: rgba(74,125,156,.15); border-color: rgba(74,125,156,.3); color: var(--ut-light); }
+
+    /* Card entrance animation */
+    .state-card { opacity: 0; transform: translateY(24px); }
+    .state-card.visible { opacity: 1; transform: translateY(0); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+
+    /* ═══ UT SECTION ═══ */
+    .ut-section {
+      padding: 0 56px 80px;
+    }
+    .ut-divider {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+    }
+    .ut-divider-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 18px; border-radius: 30px;
+      background: var(--ut-pale); color: var(--ut-accent);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      border: 1px solid rgba(74,125,156,.2);
+    }
+    .ut-divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--fog-3), transparent); }
+    .ut-divider-count { font-size: 12px; color: var(--ink-3); }
+
+    /* ═══ FOOTER ═══ */
+    footer { background: #060402; padding: 72px 56px 40px; }
+    .footer-top { display: flex; gap: 64px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.05); flex-wrap: wrap; }
+    .footer-brand { flex: 0 0 260px; }
+    .footer-logo { font-family: var(--serif); font-size: 24px; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.2); line-height: 1.8; }
+    .footer-links-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .footer-col-title { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.18); margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.35); text-decoration: none; transition: color .25s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.12); }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      .search-section, .trending-section, .category-section,
+      .states-section, .ut-section, footer { padding-left: 20px; padding-right: 20px; }
+      .states-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .hero { min-height: 70vh; }
+      .footer-top { flex-direction: column; gap: 28px; }
+      .footer-brand { flex: 0 0 auto; }
+      .footer-links-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .states-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .search-container { border-radius: 20px; flex-direction: column; padding: 8px; }
+      .search-btn { width: 100%; border-radius: 16px; }
+      .search-icon { display: none; }
+      .category-pills { gap: 8px; }
+      .cat-pill { padding: 10px 18px; font-size: 13px; }
+      .footer-links-grid { grid-template-columns: 1fr; }
     }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      background: white;
-      padding: 2.5rem 6vw;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.78rem; color: var(--muted);
-    }
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 400; color: var(--ink);
-    }
-    .footer-brand b {
-      background: var(--green-grad);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; font-weight: 600;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .place { grid-template-columns: 2rem 1fr; }
-      .place-img-wrap {
-        grid-column: 1 / -1; margin-top: 1.5rem; aspect-ratio: 16/9;
-      }
-      .place-info { padding-right: 0; }
-      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .places { padding: 0 5vw 4rem; }
-      .section-header { padding: 3rem 5vw 1.5rem; }
-      .hero { padding: 4rem 5vw 3rem; }
-    }
+    /* ═══ SCROLL ANIMATIONS ═══ */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-<!-- DOT BACKGROUND -->
-<div class="dot-bg"></div>
-
-<!-- ══════════ NAVBAR ══════════ -->
-<header class="navbar">
-  <div class="navbar-inner">
-    <a href="/home" class="nav-logo">
-      <div class="nav-logo-icon">🦉</div>
-      <span>Trip<b>Advisor</b></span>
-    </a>
-
-    <ul class="nav-links">
-      <li onclick="window.location.href='/home'">Home</li>
-      <li class="active">Explore</li>
-      <li>Reviews</li>
-      <li>About</li>
-    </ul>
-
-    <div class="nav-right">
-      <% if (typeof user !== 'undefined' && user) { %>
-        <span class="greeting-pill hidden-sm">👋 Hey, <%= user.name.split(' ')[0] %>!</span>
-        <a href="/profile" class="avatar" title="Profile"><%= user.name.charAt(0).toUpperCase() %></a>
-        <a href="/profile" class="btn-profile">👤 Profile</a>
-        <a href="/logout" class="btn-logout">Logout</a>
-      <% } else { %>
-        <a href="/login" class="btn-signin">Sign In</a>
-      <% } %>
-    </div>
-  </div>
-</header>
-
-<!-- ══════════ HERO ══════════ -->
-<section class="hero">
-  <div class="hero-bg-circle"></div>
-  <div class="hero-bg-circle2"></div>
-
-  <p class="hero-tag">🌍 Explore — India</p>
-  <h1 class="hero-title">The<br /><em>Sub&shy;continent</em><br />Awaits</h1>
-  <p class="hero-sub">Eleven destinations across the length and breadth of India — from Himalayan valleys to desert forts, colonial waterfronts to ancient ruins.</p>
-
-  <div class="hero-stats">
-    <div>
-      <div class="hero-stat-num">11</div>
-      <div class="hero-stat-label">Destinations</div>
-    </div>
-    <div>
-      <div class="hero-stat-num">8</div>
-      <div class="hero-stat-label">States</div>
-    </div>
-    <div>
-      <div class="hero-stat-num">∞</div>
-      <div class="hero-stat-label">Memories</div>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span class="hero-scroll-line"></span>
-    Scroll to explore
-  </div>
-</section>
-
-<!-- SECTION HEADER -->
-<div class="section-header">
-  <span class="section-label">11 Destinations</span>
-  <div class="section-line"></div>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-chakra"></div>
+  <div class="loader-text">Explore <span>India</span></div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
 </div>
 
-<!-- ══════════ PLACES ══════════ -->
-<section class="places">
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <a href="/explore" class="nav-brand">
+      <div class="nav-brand-icon">☸</div>
+      Explore <em>India</em>
+    </a>
+    <a href="/home" class="nav-back" title="Back to Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Home
+    </a>
+  </div>
+  <div class="nav-center">
+    <a href="#states" class="nav-link">States</a>
+    <a href="#uts" class="nav-link">Territories</a>
+  </div>
+  <div class="nav-right">
+    <a href="/home" class="nav-cta">Dashboard</a>
+  </div>
+</nav>
 
-  <!-- 01 -->
-  <div class="place">
-    <span class="place-num">01</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Uttar Pradesh</p>
-        <h2 class="place-name"><a href="/varanasi" style="color:inherit;text-decoration:none;border-bottom:2px solid rgba(0,170,108,0.25);transition:border-color 0.2s;" onmouseover="this.style.borderColor='#00AA6C'" onmouseout="this.style.borderColor='rgba(0,170,108,0.25)'">Varanasi</a></h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">One of the oldest inhabited cities on Earth, Varanasi lines the sacred Ganges with ancient ghats. At dawn, pilgrims descend into golden light and rising incense smoke — a ritual unchanged for millennia. To witness it is to feel time bend.</p>
-      <div class="place-tags">
-        <span class="tag">Spiritual</span>
-        <span class="tag">Ghats</span>
-        <span class="tag">Ancient</span>
-      </div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      Your Travel Guide
     </div>
-    <div class="place-img-wrap">
-      <img src="https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496" alt="Varanasi ghats at dusk" loading="lazy" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Varanasi, UP</span>
+    <h1 class="hero-h1">Discover<br><em>Incredible India</em></h1>
+    <p class="hero-desc">From Himalayan peaks to tropical shores — explore every state, every culture, every hidden gem across the world's most diverse country.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>28</strong><span>States</span></div>
+      <div class="hero-stat"><strong>8</strong><span>Territories</span></div>
+      <div class="hero-stat"><strong>500+</strong><span>Destinations</span></div>
     </div>
   </div>
-
-  <!-- 02 -->
-  <div class="place">
-    <span class="place-num">02</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Rajasthan</p>
-        <h2 class="place-name"><a href="/jaisalmer" style="color:inherit;text-decoration:none;border-bottom:2px solid rgba(0,170,108,0.25);transition:border-color 0.2s;" onmouseover="this.style.borderColor='#00AA6C'" onmouseout="this.style.borderColor='rgba(0,170,108,0.25)'">Jaisalmer</a></h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">The Golden City rises from the Thar Desert like a mirage, built almost entirely of honey-yellow sandstone. Its towering fort still houses a living community, and beyond the city gates lie endless dunes where the silence is absolute.</p>
-      <div class="place-tags">
-        <span class="tag">Desert</span>
-        <span class="tag">Fort</span>
-        <span class="tag">Architecture</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://www.historyhit.com/app/uploads/bis-images/5153617/Jaisalmer-Fort-1-788x537.jpg?x15201" alt="Jaisalmer Fort" loading="lazy" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Jaisalmer, RJ</span>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="place">
-    <span class="place-num">03</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Karnataka</p>
-        <h2 class="place-name">Hampi</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">A UNESCO World Heritage Site scattered across a surreal boulder landscape, Hampi was once the capital of the Vijayanagara Empire. Temples, chariot streets, and ruins stretch across miles of rust-red rock under an open sky.</p>
-      <div class="place-tags">
-        <span class="tag">UNESCO</span>
-        <span class="tag">Ruins</span>
-        <span class="tag">Temples</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://thefederal.com/file/2022/09/Hampi.jpg" alt="Hampi Virupaksha Temple" loading="lazy" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Hampi, KA</span>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="place">
-    <span class="place-num">04</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Himachal Pradesh</p>
-        <h2 class="place-name">Spiti Valley</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">A cold desert mountain valley perched above 4,000 metres, Spiti is austere and breathtaking. Ancient Buddhist monasteries cling to cliff faces, the air is thin and crystalline, and the night sky is unlike anything else in India.</p>
-      <div class="place-tags">
-        <span class="tag">Mountains</span>
-        <span class="tag">Buddhism</span>
-        <span class="tag">Offbeat</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://bloominghimalaya.com/wp-content/uploads/2025/01/spiti.jpeg" alt="Kee Monastery Spiti Valley" loading="lazy" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Spiti, HP</span>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="place">
-    <span class="place-num">05</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Kerala</p>
-        <h2 class="place-name">Kochi</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">Shaped by centuries of Arab, Chinese, Portuguese, Dutch, and British presence, Kochi carries its layered history lightly. Chinese fishing nets line the waterfront, spice markets perfume the air, and Fort Kochi's lanes feel like a quiet world apart.</p>
-      <div class="place-tags">
-        <span class="tag">Heritage</span>
-        <span class="tag">Seafood</span>
-        <span class="tag">Backwaters</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/de/f0/eb/backwater-tourism.jpg?w=700&h=-1&s=1" alt="Chinese Fishing Nets Kochi" loading="lazy" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Kochi, KL</span>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="place">
-    <span class="place-num">06</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Arunachal Pradesh</p>
-        <h2 class="place-name">Ziro Valley</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">Hidden in the eastern Himalayas, Ziro is a lush plateau home to the Apatani tribe and their remarkable terraced rice fields. One of India's most undervisited places, it rewards the journey with misty hills and living traditions.</p>
-      <div class="place-tags">
-        <span class="tag">Tribal Culture</span>
-        <span class="tag">Nature</span>
-        <span class="tag">Offbeat</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://www.naturetravelagency.com/uploads/1730551339Ziro%20Valley%20resort.jpg" alt="Ziro Valley rice terraces" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Ziro, AR</span>
-    </div>
-  </div>
-
-  <!-- 07 -->
-  <div class="place">
-    <span class="place-num">07</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Puducherry</p>
-        <h2 class="place-name">Pondicherry</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">A former French colony where bougainvillea spills over mustard-yellow walls, Pondicherry is unlike any other Indian city. The White Town grid of wide colonial avenues meets Tamil quarters in a collision of cultures that somehow feels utterly serene.</p>
-      <div class="place-tags">
-        <span class="tag">Colonial</span>
-        <span class="tag">French Quarter</span>
-        <span class="tag">Beaches</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Pondicherry_streets.jpg/1280px-Pondicherry_streets.jpg" alt="Pondicherry French Quarter streets" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Pondicherry, PY</span>
-    </div>
-  </div>
-
-  <!-- 08 -->
-  <div class="place">
-    <span class="place-num">08</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Gujarat</p>
-        <h2 class="place-name">Rann of Kutch</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">The world's largest salt desert stretches across the horizon in blinding white. During the full moon, the Rann becomes otherworldly — an endless flat mirror reflecting moonlight in every direction. The annual Rann Utsav brings it vibrantly alive.</p>
-      <div class="place-tags">
-        <span class="tag">Salt Desert</span>
-        <span class="tag">Festival</span>
-        <span class="tag">Landscape</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU-uZbE2j5OMJUbgX1Liw0vQeaqocKBCiCuA&s" alt="Rann of Kutch white salt desert" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1578991624414-276ef23a534f?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Kutch, GJ</span>
-    </div>
-  </div>
-
-  <!-- 09 -->
-  <div class="place">
-    <span class="place-num">09</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Meghalaya</p>
-        <h2 class="place-name">Cherrapunji</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">One of the wettest places on Earth, Cherrapunji is draped in perpetual mist and thundering waterfalls. Deep in the forest, the Khasi people have grown living root bridges over centuries — naturally engineered wonders that grow stronger every year.</p>
-      <div class="place-tags">
-        <span class="tag">Waterfalls</span>
-        <span class="tag">Root Bridges</span>
-        <span class="tag">Forests</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://s7ap1.scene7.com/is/image/incredibleindia/double-decker-living-root-bridge-cherrapunjee-meghalaya-city-ff?qlt=82&ts=1742165333655" alt="Meghalaya Living Root Bridge" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1591018533116-4d4e77c6ef80?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Cherrapunji, ML</span>
-    </div>
-  </div>
-
-  <!-- 10 -->
-  <div class="place">
-    <span class="place-num">10</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Karnataka</p>
-        <h2 class="place-name">Mysuru</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">The City of Palaces earns its name. Mysore Palace — illuminated by nearly 100,000 bulbs every Sunday — is a vision of Indo-Saracenic grandeur. Beyond the palace gates, fragrant sandalwood markets, silk weavers, and the Dasara festival make it unforgettable.</p>
-      <div class="place-tags">
-        <span class="tag">Palace</span>
-        <span class="tag">Festivals</span>
-        <span class="tag">Heritage</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqvw9_-H9M4WkeLpPphquU0sQmh1X_1YGDdg&s" alt="Mysore Palace" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1599030607490-0d1c3bc61a7e?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Mysuru, KA</span>
-    </div>
-  </div>
-
-  <!-- 11 — FIXED: now correctly inside <section class="places"> -->
-  <div class="place">
-    <span class="place-num">11</span>
-    <div class="place-info">
-      <div>
-        <p class="place-state">Uttarakhand</p>
-        <h2 class="place-name">Kedarkantha</h2>
-      </div>
-      <div class="place-divider"></div>
-      <p class="place-desc">Standing at 3,810 metres in the Govind Wildlife Sanctuary, Kedarkantha is one of India's most beloved winter treks. Snow-laden pine forests give way to an open summit with panoramic views of Swargarohini, Bandarpoonch, and the vast Himalayan horizon stretching in every direction.</p>
-      <div class="place-tags">
-        <span class="tag">Trekking</span>
-        <span class="tag">Snow</span>
-        <span class="tag">Himalayas</span>
-      </div>
-    </div>
-    <div class="place-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kedarkantha_Peak.jpg/1280px-Kedarkantha_Peak.jpg" alt="Kedarkantha Peak snow" loading="lazy"
-        onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80'" />
-      <div class="img-overlay"></div>
-      <span class="img-badge">Kedarkantha, UK</span>
-    </div>
-  </div>
-
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-container" id="searchContainer">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search cities, states, places, experiences..." autocomplete="off" />
+    <button class="search-btn" id="searchBtn" onclick="doSearch()">Search</button>
+    <div class="search-dropdown" id="searchDropdown"></div>
+  </div>
+</div>
+
+<!-- TRENDING -->
+<div class="trending-section">
+  <span class="trending-label"><span class="trending-dot"></span> Trending</span>
+  <% if (typeof trending !== 'undefined') { %>
+    <% trending.forEach(t => { %>
+      <a class="trending-chip" href="/search?q=<%= encodeURIComponent(t.text) %>"><%= t.text %></a>
+    <% }); %>
+  <% } %>
+</div>
+
+<!-- CATEGORY CHIPS -->
+<div class="category-section fade-in">
+  <div class="category-pills">
+    <% if (typeof categories !== 'undefined') { %>
+      <% categories.forEach(cat => { %>
+        <a class="cat-pill" href="/explore/category/<%= cat.id %>">
+          <span class="cat-pill-emoji"><%= cat.emoji %></span>
+          <%= cat.label %>
+        </a>
+      <% }); %>
+    <% } %>
+  </div>
+</div>
+
+<!-- STATES SECTION -->
+<section class="states-section" id="states">
+  <div class="section-header fade-in">
+    <div>
+      <div class="section-eyebrow"><div class="section-eyebrow-line"></div> States of India</div>
+      <h2 class="section-title">Explore Every <em>State</em></h2>
+    </div>
+    <div class="section-count">28 states</div>
+  </div>
+  <div class="states-grid" id="statesGrid">
+    <% if (typeof states !== 'undefined') { %>
+      <% states.forEach(s => { %>
+        <a href="/explore/<%= s.id %>" class="state-card" data-region="<%= s.region %>">
+          <img class="state-card-img pexels-img" data-query="<%= s.name %> tourism India" src="<%= s.image %>" alt="<%= s.name %>" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80'" />
+          <div class="state-card-overlay"></div>
+          <div class="state-card-shimmer"></div>
+          <span class="state-card-badge"><%= s.region %></span>
+          <div class="state-card-body">
+            <span class="state-card-emoji"><%= s.emoji %></span>
+            <div class="state-card-region"><%= s.region %></div>
+            <div class="state-card-name"><%= s.name %></div>
+            <div class="state-card-tagline"><%= s.tagline %></div>
+          </div>
+          <div class="state-card-arrow">→</div>
+        </a>
+      <% }); %>
+    <% } %>
+  </div>
+</section>
+
+<!-- UNION TERRITORIES -->
+<section class="ut-section" id="uts">
+  <div class="ut-divider fade-in">
+    <span class="ut-divider-badge">🏝 Union Territories</span>
+    <div class="ut-divider-line"></div>
+    <span class="ut-divider-count"><%= typeof unionTerritories !== 'undefined' ? unionTerritories.length : 0 %> territories</span>
+  </div>
+  <div class="states-grid" id="utsGrid">
+    <% if (typeof unionTerritories !== 'undefined') { %>
+      <% unionTerritories.forEach(s => { %>
+        <a href="/explore/<%= s.id %>" class="state-card ut-card" data-region="<%= s.region %>">
+          <img class="state-card-img pexels-img" data-query="<%= s.name %> tourism India" src="<%= s.image %>" alt="<%= s.name %>" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80'" />
+          <div class="state-card-overlay"></div>
+          <div class="state-card-shimmer"></div>
+          <span class="state-card-badge ut">Union Territory</span>
+          <div class="state-card-body">
+            <span class="state-card-emoji"><%= s.emoji %></span>
+            <div class="state-card-region"><%= s.region %></div>
+            <div class="state-card-name"><%= s.name %></div>
+            <div class="state-card-tagline"><%= s.tagline %></div>
+          </div>
+          <div class="state-card-arrow">→</div>
+        </a>
+      <% }); %>
+    <% } %>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <span class="footer-brand">Explore <b>India</b></span>
-  <span>&copy; 2026 TripAdvisor — Made with 💚 for cultural explorers</span>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Explore <span>India</span></div>
+      <p class="footer-tagline">Your complete travel guide to India — every state, every culture, real destinations powered by local knowledge.</p>
+    </div>
+    <div class="footer-links-grid">
+      <div>
+        <div class="footer-col-title">Popular States</div>
+        <ul class="footer-links">
+          <li><a href="/explore/rajasthan">Rajasthan</a></li>
+          <li><a href="/explore/kerala">Kerala</a></li>
+          <li><a href="/explore/goa">Goa</a></li>
+          <li><a href="/explore/himachal-pradesh">Himachal Pradesh</a></li>
+          <li><a href="/explore/uttarakhand">Uttarakhand</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Categories</div>
+        <ul class="footer-links">
+          <% if (typeof categories !== 'undefined') { %>
+            <% categories.forEach(cat => { %>
+              <li><a href="/explore/category/<%= cat.id %>"><%= cat.emoji %> <%= cat.label %></a></li>
+            <% }); %>
+          <% } %>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/explore">All Destinations</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Explore India · All rights reserved</span>
+    <span class="footer-copy">Built with ♥ for India lovers</span>
+  </div>
 </footer>
 
-<!-- SCROLL REVEAL -->
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+// ═══ NAV SCROLL ═══
+const mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  mainNav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-  document.querySelectorAll('.place').forEach(el => observer.observe(el));
+// ═══ LOADER ═══
+window.addEventListener('load', () => {
+  document.querySelector('.hero').classList.add('loaded');
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('out');
+    setTimeout(() => loader.remove(), 700);
+  }, 1200);
+
+  // Initialize Pexels images after load
+  fetchPexelsImages();
+});
+
+// ═══ PEXELS API INTEGRATION ═══
+const PEXELS_API_KEY = 'dOTA616IsHmn57iQunpoUOxq450tRjm2U6NrNa5Ok0iayBXqLb7AOlbs';
+const PEXELS_CACHE_VER = 'v2';
+
+// Clear old cache if version changed
+if(localStorage.getItem('px_ver') !== PEXELS_CACHE_VER) {
+  Object.keys(localStorage).forEach(k => { if(k.startsWith('px_')) localStorage.removeItem(k); });
+  localStorage.setItem('px_ver', PEXELS_CACHE_VER);
+}
+
+async function fetchPexelsImages() {
+  const imgs = document.querySelectorAll('.pexels-img');
+  for(let img of imgs) {
+    if(img.dataset.loaded) continue;
+    const query = img.getAttribute('data-query');
+    if(!query) continue;
+    
+    const cacheKey = 'px_' + PEXELS_CACHE_VER + '_' + query.replace(/\s+/g, '_');
+    const cached = localStorage.getItem(cacheKey);
+    if(cached) {
+      img.src = cached;
+      img.dataset.loaded = 'true';
+      continue;
+    }
+
+    try {
+      await new Promise(r => setTimeout(r, 300)); 
+      
+      // Use landscape orientation and fetch 5 candidates for better matching
+      const res = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=5&orientation=landscape`, {
+        headers: { Authorization: PEXELS_API_KEY }
+      });
+      const data = await res.json();
+      if(data.photos && data.photos.length > 0) {
+        // Pick the best photo by checking alt text relevance
+        const queryWords = query.toLowerCase().split(/\s+/);
+        let bestPhoto = data.photos[0];
+        for(const photo of data.photos) {
+          const alt = (photo.alt || '').toLowerCase();
+          const matches = queryWords.filter(w => w.length > 3 && alt.includes(w)).length;
+          if(matches >= 2) { bestPhoto = photo; break; }
+        }
+        const url = bestPhoto.src.landscape || bestPhoto.src.large; 
+        img.src = url;
+        img.dataset.loaded = 'true';
+        localStorage.setItem(cacheKey, url);
+      }
+    } catch(err) {
+      console.error('Pexels API error:', err);
+    }
+  }
+}
+
+// ═══ CARD ENTRANCE ANIMATION ═══
+const cardObserver = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      cardObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.state-card').forEach(c => cardObserver.observe(c));
+
+// Fade-in sections
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+}, { threshold: .15 });
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+// ═══ LIVE SEARCH ═══
+const searchInput = document.getElementById('searchInput');
+const searchDropdown = document.getElementById('searchDropdown');
+let searchTimeout = null;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const q = this.value.trim();
+  if (q.length < 2) { searchDropdown.classList.remove('open'); return; }
+
+  searchTimeout = setTimeout(async () => {
+    try {
+      const res = await fetch('/api/search?q=' + encodeURIComponent(q));
+      const data = await res.json();
+      renderSearchDropdown(data.results || []);
+    } catch(e) { console.error(e); }
+  }, 250);
+});
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  if (!document.getElementById('searchContainer').contains(e.target)) {
+    searchDropdown.classList.remove('open');
+  }
+});
+
+function renderSearchDropdown(results) {
+  if (!results.length) {
+    searchDropdown.innerHTML = '<div class="sd-no-results">No results found. Try different keywords.</div>';
+    searchDropdown.classList.add('open');
+    return;
+  }
+
+  const states = results.filter(r => r.type === 'state');
+  const cities = results.filter(r => r.type === 'city');
+  const places = results.filter(r => r.type === 'place');
+
+  let html = '';
+
+  if (states.length) {
+    html += '<div class="sd-group-label">States & Territories</div>';
+    states.slice(0, 4).forEach(r => {
+      html += `<a class="sd-item" href="/explore/${r.stateId}">
+        <div class="sd-item-icon">${r.emoji}</div>
+        <div class="sd-item-info">
+          <div class="sd-item-name">${r.name}</div>
+          <div class="sd-item-meta">${r.region}</div>
+        </div>
+        <span class="sd-item-type state">State</span>
+      </a>`;
+    });
+  }
+
+  if (cities.length) {
+    html += '<div class="sd-group-label">Cities & Destinations</div>';
+    cities.slice(0, 6).forEach(r => {
+      html += `<a class="sd-item" href="/city?state=${r.stateId}&id=${r.cityId}">
+        <div class="sd-item-icon"><img src="${r.image}" alt="${r.name}" onerror="this.parentElement.textContent='🏙️'" /></div>
+        <div class="sd-item-info">
+          <div class="sd-item-name">${r.name}</div>
+          <div class="sd-item-meta">${r.cityType} · ${r.stateName}</div>
+        </div>
+        <span class="sd-item-type city">City</span>
+      </a>`;
+    });
+  }
+
+  if (places.length) {
+    html += '<div class="sd-group-label">Places & Attractions</div>';
+    places.slice(0, 5).forEach(r => {
+      html += `<a class="sd-item" href="/city?state=${r.stateId}&id=${r.cityId}">
+        <div class="sd-item-icon"><img src="${r.image}" alt="${r.name}" onerror="this.parentElement.textContent='🏛️'" /></div>
+        <div class="sd-item-info">
+          <div class="sd-item-name">${r.name}</div>
+          <div class="sd-item-meta">${r.category} · ${r.cityName}, ${r.stateName}</div>
+        </div>
+        <span class="sd-item-type place">Place</span>
+      </a>`;
+    });
+  }
+
+  searchDropdown.innerHTML = html;
+  searchDropdown.classList.add('open');
+}
+
+function doSearch() {
+  const q = searchInput.value.trim();
+  if (q) window.location.href = '/search?q=' + encodeURIComponent(q);
+}
 </script>
 
+<!-- ── Minimal Professional Cursor ── -->
+<style>
+  *, *::before, *::after { cursor: none !important; }
+  #cur-dot {
+    position: fixed; pointer-events: none; z-index: 99999;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #1a1a1a;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, background 0.2s;
+  }
+  #cur-ring {
+    position: fixed; pointer-events: none; z-index: 99998;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid rgba(26,26,26,0.45);
+    transform: translate(-50%, -50%);
+    transition: width 0.25s, height 0.25s, border-color 0.25s, transform 0.1s;
+  }
+  body:has(a:hover) #cur-ring,
+  body:has(button:hover) #cur-ring,
+  body:has(.state-card:hover) #cur-ring,
+  body:has(.cat-pill:hover) #cur-ring {
+    width: 44px; height: 44px;
+    border-color: rgba(196,154,60,0.6);
+  }
+</style>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+<script>
+(function () {
+  const dot  = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+
+  (function animate() {
+    /* dot snaps instantly via mousemove */
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    /* ring lags behind */
+    rx += (mx - rx) * 0.10;
+    ry += (my - ry) * 0.10;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animate);
+  })();
+})();
+</script>
+</script>
 </body>
 </html>

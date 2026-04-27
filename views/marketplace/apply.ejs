@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sell Your Items – Apply | TripQuest Marketplace</title>
+  <meta name="description" content="Apply to become a verified seller on TripQuest Marketplace. List and sell your products to travelers across India."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Nunito', sans-serif; background: #f7f8fa; color: #1a1a1a; overflow-x: hidden; }
+
+    .dot-bg {
+      position: fixed; inset: 0; z-index: -1;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07); box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .green-text {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .nav-link { color: #4a4a4a; cursor: pointer; transition: color 0.2s; position: relative; }
+    .nav-link:hover { color: #00AA6C; }
+    .nav-link.active { color: #00AA6C; }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #00AA6C, #34E0A1); border-radius: 2px;
+    }
+
+    .avatar {
+      width: 38px; height: 38px; background: linear-gradient(135deg, #34E0A1, #00AA6C);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.95rem; color: white; cursor: pointer; text-decoration: none;
+      transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,170,108,0.35); flex-shrink: 0;
+    }
+    .avatar:hover { transform: scale(1.08); }
+
+    .greeting-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(52,224,161,0.1); border: 1.5px solid rgba(0,170,108,0.2);
+      border-radius: 100px; padding: 5px 14px; font-size: 0.83rem; font-weight: 700; color: #00AA6C;
+    }
+
+    .btn-green {
+      background: #34E0A1; color: #1a1a1a; font-weight: 800; font-family: 'Nunito', sans-serif;
+      border-radius: 10px; transition: all 0.22s; box-shadow: 0 4px 14px rgba(52,224,161,0.38);
+      border: none; cursor: pointer;
+    }
+    .btn-green:hover { background: #28d494; transform: translateY(-1px); }
+
+    .btn-logout {
+      font-size: 0.82rem; font-weight: 700; color: #8a8a8a; text-decoration: none;
+      padding: 6px 14px; border: 1.5px solid #d4d4d4; border-radius: 8px;
+      transition: all 0.2s; font-family: 'Nunito', sans-serif; background: transparent; cursor: pointer;
+    }
+    .btn-logout:hover { border-color: #e05252; color: #e05252; }
+
+    /* ── APPLY FORM ── */
+    .apply-hero {
+      background: linear-gradient(160deg, #f0fdf8 0%, #e0f7ef 50%, #d0f0e4 100%);
+      border-bottom: 1px solid rgba(52,224,161,0.15);
+    }
+
+    .form-card {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 40px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; font-size: 0.78rem; font-weight: 800; color: #4a4a4a;
+      letter-spacing: 0.04em; margin-bottom: 8px; text-transform: uppercase;
+    }
+    .form-input {
+      width: 100%; background: #f7f8fa; border: 1.5px solid #e0e0e0; border-radius: 12px;
+      padding: 13px 16px; font-family: 'Nunito', sans-serif; font-weight: 600;
+      font-size: 0.9rem; color: #1a1a1a; outline: none; transition: all 0.2s;
+    }
+    .form-input:focus { border-color: #00AA6C; box-shadow: 0 0 0 3px rgba(0,170,108,0.08); }
+
+    .form-select {
+      width: 100%; background: #f7f8fa; border: 1.5px solid #e0e0e0; border-radius: 12px;
+      padding: 13px 16px; font-family: 'Nunito', sans-serif; font-weight: 600;
+      font-size: 0.9rem; color: #1a1a1a; outline: none; transition: all 0.2s;
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a8a8a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+    }
+    .form-select:focus { border-color: #00AA6C; box-shadow: 0 0 0 3px rgba(0,170,108,0.08); }
+
+    .form-textarea {
+      width: 100%; background: #f7f8fa; border: 1.5px solid #e0e0e0; border-radius: 12px;
+      padding: 13px 16px; font-family: 'Nunito', sans-serif; font-weight: 600;
+      font-size: 0.9rem; color: #1a1a1a; outline: none; transition: all 0.2s;
+      resize: vertical; min-height: 120px;
+    }
+    .form-textarea:focus { border-color: #00AA6C; box-shadow: 0 0 0 3px rgba(0,170,108,0.08); }
+
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 20px; border-radius: 100px; font-size: 0.82rem; font-weight: 800;
+    }
+    .status-pending { background: rgba(245,166,35,0.12); color: #d97706; border: 1.5px solid rgba(217,119,6,0.2); }
+    .status-approved { background: rgba(52,224,161,0.12); color: #00AA6C; border: 1.5px solid rgba(0,170,108,0.2); }
+    .status-rejected { background: rgba(224,82,82,0.12); color: #dc2626; border: 1.5px solid rgba(220,38,38,0.2); }
+
+    .benefit-card {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 14px;
+      padding: 20px; transition: all 0.25s;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,170,108,0.1); }
+
+    .flash-msg {
+      padding: 14px 20px; border-radius: 12px; margin-bottom: 20px;
+      font-size: 0.88rem; font-weight: 700;
+    }
+    .flash-success { background: rgba(52,224,161,0.12); color: #00AA6C; border: 1.5px solid rgba(0,170,108,0.2); }
+    .flash-error { background: rgba(224,82,82,0.12); color: #dc2626; border: 1.5px solid rgba(220,38,38,0.2); }
+
+    footer { background: #1a1a1a; color: #9a9a9a; }
+  </style>
+</head>
+<body>
+
+<div class="dot-bg"></div>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/home" class="flex items-center gap-2 no-underline">
+      <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">🦉</div>
+      <span style="font-size:1.2rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span style="color:#00AA6C">Advisor</span></span>
+    </a>
+    <ul class="hidden md:flex gap-7 text-sm list-none" style="font-weight:700">
+      <li class="nav-link" onclick="window.location.href='/home'">Home</li>
+      <li class="nav-link" onclick="window.location.href='/explore'">Explore</li>
+      <li class="nav-link" onclick="window.location.href='/experiences'">Experiences</li>
+      <li class="nav-link active" onclick="window.location.href='/marketplace'">Marketplace</li>
+      <li class="nav-link" onclick="window.location.href='/reviews'">Reviews</li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <span class="greeting-pill hidden md:inline-flex">👋 Hey, <%= user.name.split(' ')[0] %>!</span>
+        <a href="/profile" class="avatar" title="Go to Profile"><%= user.name.charAt(0).toUpperCase() %></a>
+        <a href="/logout" class="btn-logout">Logout</a>
+      <% } else { %>
+        <a href="/login" style="font-size:0.85rem;font-weight:800;color:#00AA6C;text-decoration:none">Sign In</a>
+        <a href="/register"><button class="btn-green px-5 py-2 text-sm">Get Started</button></a>
+      <% } %>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ══════════ HERO ══════════ -->
+<section class="apply-hero py-16 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(52,224,161,0.12);border:1.5px solid rgba(0,170,108,0.2);border-radius:100px;padding:5px 16px;font-size:0.78rem;font-weight:800;color:#00AA6C;margin-bottom:16px;letter-spacing:0.04em">
+      🏪 BECOME A SELLER
+    </div>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.2;letter-spacing:-0.03em;color:#1a1a1a;margin-bottom:14px">
+      Sell Your <span class="green-text">Products</span> to<br/>Travelers Across India
+    </h1>
+    <p style="font-size:0.95rem;color:#8a8a8a;max-width:500px;margin:0 auto;line-height:1.7;font-weight:500">
+      Join our marketplace as a verified seller. List your handcrafted goods, local specialties, and unique items.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════ BENEFITS ══════════ -->
+<section class="py-8 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="benefit-card text-center">
+        <div style="font-size:2rem;margin-bottom:8px">🌍</div>
+        <h3 style="font-size:0.9rem;font-weight:800;color:#1a1a1a;margin-bottom:4px">Reach Travelers</h3>
+        <p style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Connect with thousands of travelers looking for authentic local products.</p>
+      </div>
+      <div class="benefit-card text-center">
+        <div style="font-size:2rem;margin-bottom:8px">✅</div>
+        <h3 style="font-size:0.9rem;font-weight:800;color:#1a1a1a;margin-bottom:4px">Verified Badge</h3>
+        <p style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Get a verified seller badge to build trust with buyers.</p>
+      </div>
+      <div class="benefit-card text-center">
+        <div style="font-size:2rem;margin-bottom:8px">📦</div>
+        <h3 style="font-size:0.9rem;font-weight:800;color:#1a1a1a;margin-bottom:4px">Easy Listing</h3>
+        <p style="font-size:0.78rem;color:#8a8a8a;font-weight:500">List products with images, pricing, and location in minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ APPLICATION FORM / STATUS ══════════ -->
+<section class="py-8 px-6 pb-20">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Flash Messages -->
+    <% if (typeof success !== 'undefined' && success && success.length > 0) { %>
+      <div class="flash-msg flash-success"><%= success %></div>
+    <% } %>
+    <% if (typeof error !== 'undefined' && error && error.length > 0) { %>
+      <div class="flash-msg flash-error"><%= error %></div>
+    <% } %>
+
+    <% if (existingApplication && (existingApplication.status === 'pending' || existingApplication.status === 'approved')) { %>
+      <!-- ── APPLICATION STATUS ── -->
+      <div class="form-card text-center">
+        <div style="font-size:3rem;margin-bottom:16px">
+          <% if (existingApplication.status === 'pending') { %>⏳<% } else { %>🎉<% } %>
+        </div>
+        <h2 style="font-size:1.4rem;font-weight:900;color:#1a1a1a;margin-bottom:12px">
+          <% if (existingApplication.status === 'pending') { %>
+            Application Under Review
+          <% } else { %>
+            You're Approved!
+          <% } %>
+        </h2>
+        <p style="font-size:0.88rem;color:#8a8a8a;font-weight:500;margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto">
+          <% if (existingApplication.status === 'pending') { %>
+            Your application for "<%= existingApplication.shopName %>" is being reviewed by our team. You'll be able to list products once approved.
+          <% } else { %>
+            Your shop "<%= existingApplication.shopName %>" is now live on the marketplace! Start listing your products.
+          <% } %>
+        </p>
+
+        <div style="margin-bottom:20px">
+          <span class="status-badge status-<%= existingApplication.status %>">
+            <% if (existingApplication.status === 'pending') { %>🕐 Pending Review<% } %>
+            <% if (existingApplication.status === 'approved') { %>✅ Approved<% } %>
+          </span>
+        </div>
+
+        <!-- Application Details -->
+        <div style="background:#f7f8fa;border-radius:12px;padding:20px;text-align:left;margin-bottom:24px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.82rem">
+            <div><span style="color:#8a8a8a;font-weight:600">Shop:</span> <span style="font-weight:800;color:#1a1a1a"><%= existingApplication.shopName %></span></div>
+            <div><span style="color:#8a8a8a;font-weight:600">Name:</span> <span style="font-weight:800;color:#1a1a1a"><%= existingApplication.fullName %></span></div>
+            <div><span style="color:#8a8a8a;font-weight:600">Location:</span> <span style="font-weight:800;color:#1a1a1a"><%= existingApplication.city %>, <%= existingApplication.state %></span></div>
+            <div><span style="color:#8a8a8a;font-weight:600">Applied:</span> <span style="font-weight:800;color:#1a1a1a"><%= new Date(existingApplication.createdAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) %></span></div>
+          </div>
+        </div>
+
+        <% if (existingApplication.status === 'approved') { %>
+          <a href="/marketplace/add-product" style="text-decoration:none">
+            <button class="btn-green px-10 py-3 text-sm">➕ Add Your First Product</button>
+          </a>
+        <% } %>
+      </div>
+
+    <% } else { %>
+      <!-- ── APPLICATION FORM ── -->
+      <div class="form-card">
+        <div style="text-align:center;margin-bottom:32px">
+          <h2 style="font-size:1.4rem;font-weight:900;color:#1a1a1a;margin-bottom:6px">Shop Owner Application</h2>
+          <p style="font-size:0.85rem;color:#8a8a8a;font-weight:500">Fill in your details to start selling on our marketplace</p>
+        </div>
+
+        <% if (existingApplication && existingApplication.status === 'rejected') { %>
+          <div style="background:rgba(224,82,82,0.08);border:1.5px solid rgba(220,38,38,0.15);border-radius:12px;padding:14px;margin-bottom:24px;text-align:center">
+            <p style="font-size:0.85rem;font-weight:700;color:#dc2626">Your previous application was rejected. You may reapply below.</p>
+          </div>
+        <% } %>
+
+        <form action="/marketplace/apply" method="POST" id="shop-apply-form">
+          <div class="form-group">
+            <label class="form-label" for="apply-fullname">Full Name *</label>
+            <input type="text" name="fullName" class="form-input" placeholder="Enter your full name" required id="apply-fullname" value="<%= user ? user.name : '' %>"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apply-shopname">Shop Name *</label>
+            <input type="text" name="shopName" class="form-input" placeholder="Enter your shop name" required id="apply-shopname"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apply-mobile">Mobile Number *</label>
+            <input type="tel" name="mobile" class="form-input" placeholder="e.g. 9876543210" required pattern="[0-9]{10}" id="apply-mobile"/>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label class="form-label" for="apply-state">State *</label>
+              <select name="state" class="form-select" required id="apply-state">
+                <option value="">Select State</option>
+                <% indianStates.forEach(function(s) { %>
+                  <option value="<%= s %>"><%= s %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apply-city">City *</label>
+              <input type="text" name="city" class="form-input" placeholder="Enter your city" required id="apply-city"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apply-description">About Your Shop *</label>
+            <textarea name="description" class="form-textarea" placeholder="Describe what you sell, your specialties, and why travelers should buy from you..." required maxlength="1000" id="apply-description"></textarea>
+            <p style="font-size:0.72rem;color:#b0b0b0;font-weight:500;margin-top:6px;text-align:right">Max 1000 characters</p>
+          </div>
+
+          <button type="submit" class="btn-green w-full py-4 text-sm" style="width:100%;font-size:0.95rem" id="apply-submit-btn">
+            🚀 Submit Application
+          </button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="background:#1a1a1a;color:#9a9a9a;padding:48px 24px 28px">
+  <div class="max-w-6xl mx-auto text-center">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px">
+      <div style="width:32px;height:32px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">🦉</div>
+      <span style="font-size:1rem;font-weight:900;color:white">Trip<span style="color:#34E0A1">Advisor</span></span>
+    </div>
+    <p style="font-size:0.72rem;color:#666">© 2026 TripQuest. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

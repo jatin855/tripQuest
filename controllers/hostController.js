@@ -154,14 +154,15 @@ const postCreateExperience = async (req, res) => {
       highlights: highlightsArray,
       images:   imagesArray,
       location: { lat: lat || null, lng: lng || null },
-      status:   "pending", // always starts as pending
+      status:   "approved", // auto-approve so it shows immediately
     });
 
-    req.flash("success", "Experience submitted! It will be reviewed by our team.");
+    req.flash("success", "Experience created successfully! It is now live on the site.");
     res.redirect("/host/dashboard");
   } catch (err) {
+    console.error("❌ EXPERIENCE CREATE ERROR:", err.message);
     console.error(err);
-    req.flash("error", "Failed to create experience. Please check all fields.");
+    req.flash("error", "Failed to create experience: " + err.message);
     res.redirect("/host/create-experience");
   }
 };
@@ -228,10 +229,10 @@ const postEditExperience = async (req, res) => {
       contactEmail,
       contactPhone,
       location:   { lat: lat || null, lng: lng || null },
-      status:     "pending", // reset to pending after edit
+      status:     "approved", // keep approved after edit
     });
 
-    req.flash("success", "Experience updated and sent back for review.");
+    req.flash("success", "Experience updated successfully!");
     res.redirect("/host/dashboard");
   } catch (err) {
     console.error(err);

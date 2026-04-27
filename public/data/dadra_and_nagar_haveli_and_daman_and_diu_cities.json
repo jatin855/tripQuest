@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "project": "Dadra & Nagar Haveli and Daman & Diu Explore",
+    "version": "1.0",
+    "total_cities": 2,
+    "last_updated": "2026-04-25",
+    "author": "Explore Team"
+  },
+  "cities": [
+    {
+      "id": "daman",
+      "name": "Daman",
+      "tagline": "Coastal charm with Portuguese heritage",
+      "hero_image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1200&q=80",
+      "best_time": "October to March",
+      "type": "Coastal",
+      "region": "West India",
+      "tags": ["beach", "heritage", "coastal", "peaceful"],
+      "overview": "Daman is a charming coastal town known for its Portuguese-era churches, forts, and pristine beaches. A perfect weekend getaway from Mumbai and Gujarat.",
+      "history": "Daman was a Portuguese colony for over 400 years until it was liberated in 1961. The Portuguese influence is still visible in its architecture and culture.",
+      "cuisine": ["Seafood", "Fish Curry", "Bebinca", "Prawn Balchao"],
+      "nearest_airport": { "name": "Surat Airport", "code": "STV", "distance_km": 120 },
+      "nearest_railhead": { "name": "Vapi Junction", "distance_km": 12, "note": "On Western Railway line" },
+      "distance_delhi_km": 1200,
+      "distance_chandigarh_km": 1450,
+      "budget_per_day_inr": { "budget": 1000, "mid": 2500, "luxury": 6000 },
+      "seasons": {
+        "summer": { "months": "Apr–Jun", "temp_range": "28–36°C", "crowd_level": "Low", "description": "Hot and humid." },
+        "monsoon": { "months": "Jul–Sep", "temp_range": "24–32°C", "crowd_level": "Low", "description": "Heavy rains, lush green." },
+        "winter": { "months": "Oct–Mar", "temp_range": "18–30°C", "crowd_level": "High", "description": "Pleasant weather, perfect for beach visits." },
+        "autumn": { "months": "Oct–Nov", "temp_range": "22–32°C", "crowd_level": "Medium", "description": "Cool breezes and clear skies." }
+      },
+      "places": [
+        {
+          "name": "Devka Beach",
+          "category": "Nature",
+          "subcategory": "Beach",
+          "rating": 4.2,
+          "description": "A popular black sand beach with an amusement park, perfect for family outings and sunset views.",
+          "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "Open 24 hours",
+          "duration_hrs": 2,
+          "distance_from_center_km": 3,
+          "tips": "Visit during sunset for stunning views. The nearby food stalls serve excellent seafood."
+        },
+        {
+          "name": "Fort of Moti Daman",
+          "category": "Heritage",
+          "subcategory": "Fort",
+          "rating": 4.0,
+          "description": "A well-preserved Portuguese fort with massive walls, a lighthouse, and colonial-era churches inside.",
+          "image": "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&q=80",
+          "entry_fee_inr": 0,
+          "open_hours": "8:00 AM – 6:00 PM",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 1,
+          "tips": "Explore the Church of Bom Jesus inside the fort walls."
+        }
+      ]
+    },
+    {
+      "id": "silvassa",
+      "name": "Silvassa",
+      "tagline": "Nature's retreat with tribal culture",
+      "hero_image": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1200&q=80",
+      "best_time": "October to March",
+      "type": "Nature",
+      "region": "West India",
+      "tags": ["nature", "tribal", "peaceful", "garden"],
+      "overview": "Silvassa, the capital of Dadra & Nagar Haveli, is a nature lover's paradise with lush gardens, tribal museums, and serene lakes.",
+      "history": "Silvassa was under Portuguese rule until 1954 when it was liberated. It became the capital of the union territory.",
+      "cuisine": ["Tribal Food", "Handvo", "Seafood", "Gujarati Thali"],
+      "nearest_airport": { "name": "Surat Airport", "code": "STV", "distance_km": 140 },
+      "nearest_railhead": { "name": "Vapi Junction", "distance_km": 18, "note": "On Western Railway line" },
+      "distance_delhi_km": 1230,
+      "distance_chandigarh_km": 1480,
+      "budget_per_day_inr": { "budget": 800, "mid": 2000, "luxury": 5000 },
+      "seasons": {
+        "summer": { "months": "Apr–Jun", "temp_range": "28–38°C", "crowd_level": "Low", "description": "Hot and humid." },
+        "monsoon": { "months": "Jul–Sep", "temp_range": "24–33°C", "crowd_level": "Low", "description": "Monsoon brings waterfalls and greenery." },
+        "winter": { "months": "Oct–Mar", "temp_range": "16–30°C", "crowd_level": "Medium", "description": "Best time for outdoor activities." },
+        "autumn": { "months": "Oct–Nov", "temp_range": "20–32°C", "crowd_level": "Medium", "description": "Pleasant weather." }
+      },
+      "places": [
+        {
+          "name": "Vanganga Lake Garden",
+          "category": "Nature",
+          "subcategory": "Garden",
+          "rating": 4.1,
+          "description": "A beautiful lake garden with boating facilities, musical fountain, and well-maintained green spaces.",
+          "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80",
+          "entry_fee_inr": 25,
+          "open_hours": "9:00 AM – 6:00 PM",
+          "duration_hrs": 1.5,
+          "distance_from_center_km": 2,
+          "tips": "Visit in the evening for the musical fountain show."
+        },
+        {
+          "name": "Tribal Museum",
+          "category": "Culture",
+          "subcategory": "Museum",
+          "rating": 3.9,
+          "description": "Showcases the lifestyle, art, and culture of the Warli and Kokna tribes native to this region.",
+          "image": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&q=80",
+          "entry_fee_inr": 10,
+          "open_hours": "10:00 AM – 5:00 PM (Closed Mondays)",
+          "duration_hrs": 1,
+          "distance_from_center_km": 1,
+          "tips": "Look for the beautiful Warli art murals."
+        }
+      ]
+    }
+  ]
+}

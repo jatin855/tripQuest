@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= stateMeta.name %> — Explore India</title>
+  <meta name="description" content="Explore <%= stateMeta.name %> — <%= stateMeta.tagline %>. Discover popular cities, hidden gems, and unforgettable experiences." />
+  <meta name="keywords" content="<%= stateMeta.name %>, India travel, <%= stateMeta.region %>, destinations, tourism" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink:        #0a0806;
+      --ink-2:      #1a1714;
+      --ink-3:      #6b6258;
+      --fog:        #f7f3ed;
+      --fog-2:      #ede8df;
+      --fog-3:      #dbd4c8;
+      --gold:       #c49a3c;
+      --gold-light: #ddb95a;
+      --gold-pale:  #f5ecd6;
+      --gold-glow:  rgba(196,154,60,.18);
+      --ut-accent:  #4a7d9c;
+      --ut-light:   #89b8cf;
+      --ut-pale:    #dceef6;
+      --white:      #fefbf6;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --ease:       cubic-bezier(.4,0,.2,1);
+      --spring:     cubic-bezier(.34,1.56,.64,1);
+      --shadow:     0 2px 24px rgba(10,8,6,.07);
+      --shadow-lg:  0 16px 64px rgba(10,8,6,.18);
+      --r:          18px;
+      --nav-h:      72px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* ═══ SKELETON LOADER ═══ */
+    #pageLoader {
+      position: fixed; inset: 0; z-index: 9999; background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
+      transition: opacity .5s var(--ease), visibility .5s;
+    }
+    #pageLoader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+    .pl-spinner { width: 36px; height: 36px; border: 1.5px solid rgba(196,154,60,.2); border-top-color: var(--gold-light); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .pl-text { font-family: var(--serif); font-size: 20px; color: var(--white); letter-spacing: 2px; }
+    .pl-text span { color: var(--gold-light); font-style: italic; }
+    .pl-sub { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.2); }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: var(--nav-h); padding: 0 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s var(--ease), box-shadow .4s;
+    }
+    nav.scrolled { background: rgba(254,251,246,.97); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(10,8,6,.08); }
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-brand {
+      font-family: var(--serif); font-size: 20px; font-weight: 600;
+      color: var(--white); text-decoration: none; transition: color .3s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-brand-icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    nav.scrolled .nav-brand { color: var(--ink); }
+    .nav-brand em { font-style: normal; color: var(--gold-light); }
+    nav.scrolled .nav-brand em { color: var(--gold); }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 18px; border-radius: 40px;
+      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.7); font-size: 13px; text-decoration: none;
+      transition: all .3s var(--ease); backdrop-filter: blur(8px);
+    }
+    .nav-back:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(196,154,60,.1); transform: translateX(-3px); }
+    .nav-back svg { width: 14px; height: 14px; }
+    nav.scrolled .nav-back { border-color: var(--fog-3); color: var(--ink-3); background: transparent; }
+    nav.scrolled .nav-back:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta {
+      padding: 9px 24px; border-radius: 40px; background: var(--gold); color: var(--white);
+      font-size: 13px; font-weight: 500; text-decoration: none; font-family: var(--sans);
+      transition: all .3s var(--spring); box-shadow: 0 4px 16px rgba(196,154,60,.3); border: none;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    @media (max-width: 768px) { nav { padding: 0 20px; } }
+
+    /* ═══ BREADCRUMB ═══ */
+    .breadcrumb {
+      position: relative; z-index: 10;
+      padding: 14px 56px; margin-top: var(--nav-h);
+      background: rgba(10,8,6,.6); backdrop-filter: blur(8px);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: rgba(255,255,255,.35); letter-spacing: .5px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb .sep { color: rgba(255,255,255,.15); }
+    .breadcrumb .current { color: var(--gold-light); font-weight: 500; }
+    @media (max-width: 768px) { .breadcrumb { padding: 14px 20px; } }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      position: relative; min-height: 60vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      overflow: hidden; padding: 0 56px 56px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; top: calc(-1 * var(--nav-h));
+      background-size: cover; background-position: center 30%;
+      filter: brightness(.6) saturate(1.1);
+      transform: scale(1.05); transition: transform 10s ease;
+    }
+    .hero.loaded .hero-bg { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0; top: calc(-1 * var(--nav-h));
+      background: linear-gradient(to top, rgba(10,8,6,.95) 0%, rgba(10,8,6,.4) 55%, rgba(10,8,6,.3) 100%);
+    }
+    .hero-content { position: relative; z-index: 5; max-width: 700px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 30px; margin-bottom: 16px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      opacity: 0; transform: translateY(12px); animation: fadeUp .7s var(--ease) .2s forwards;
+    }
+    .hero-badge.state { background: var(--gold-glow); border: 1px solid rgba(196,154,60,.3); color: var(--gold-light); }
+    .hero-badge.ut { background: rgba(74,125,156,.2); border: 1px solid rgba(74,125,156,.35); color: var(--ut-light); }
+    .hero-title {
+      font-family: var(--serif); font-size: clamp(40px, 7vw, 80px);
+      font-weight: 400; line-height: .92; color: var(--white); margin-bottom: 14px;
+      opacity: 0; transform: translateY(20px); animation: fadeUp .8s var(--ease) .4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); display: block; margin-top: 4px; }
+    .hero-tagline {
+      font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,.45); margin-bottom: 32px;
+      opacity: 0; transform: translateY(14px); animation: fadeUp .7s var(--ease) .6s forwards;
+    }
+    .hero-stats {
+      display: flex; gap: 0;
+      opacity: 0; transform: translateY(14px); animation: fadeUp .7s var(--ease) .8s forwards;
+    }
+    .hero-stat { padding: 16px 24px; border-left: 1px solid rgba(255,255,255,.1); }
+    .hero-stat:first-child { padding-left: 0; border-left: none; }
+    .hero-stat strong { display: block; font-family: var(--serif); font-size: 28px; color: var(--white); font-weight: 400; line-height: 1; margin-bottom: 4px; }
+    .hero-stat span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.3); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) { .hero { padding: 0 20px 40px; min-height: 50vh; } .hero-stats { flex-wrap: wrap; gap: 0; } }
+
+    /* ═══ TOGGLE BAR ═══ */
+    .toggle-bar {
+      padding: 0 56px; background: var(--cream); border-bottom: 1px solid var(--fog-2);
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px; position: sticky; top: var(--nav-h); z-index: 100;
+    }
+    .toggle-group { display: flex; gap: 4px; background: var(--fog); border-radius: 12px; padding: 4px; }
+    .toggle-btn {
+      padding: 8px 24px; border-radius: 10px; border: none;
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      color: var(--ink-3); cursor: pointer; background: transparent;
+      transition: all .25s var(--ease);
+    }
+    .toggle-btn.active { background: var(--ink); color: var(--white); box-shadow: 0 2px 8px rgba(10,8,6,.15); }
+    .toggle-btn:hover:not(.active) { color: var(--ink); }
+    .toggle-count {
+      font-size: 12px; color: var(--ink-3);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toggle-count strong { color: var(--ink); font-family: var(--serif); font-size: 18px; }
+    @media (max-width: 768px) { .toggle-bar { padding: 0 20px; } }
+
+    /* ═══ CITY GRID ═══ */
+    .cities-section { padding: 48px 56px 80px; }
+    .city-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .city-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      background: var(--ink); text-decoration: none; display: block;
+      box-shadow: 0 4px 24px rgba(10,8,6,.12);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+      opacity: 0; transform: translateY(20px);
+    }
+    .city-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+    .city-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--shadow-lg); }
+    .city-card.featured { grid-column: span 2; }
+
+    .city-card-img-wrap { overflow: hidden; position: relative; }
+    .city-card-img {
+      width: 100%; height: 240px; object-fit: cover; display: block;
+      filter: brightness(.7) saturate(1.1);
+      transition: transform .7s var(--ease), filter .5s;
+    }
+    .city-card.featured .city-card-img { height: 320px; }
+    .city-card:hover .city-card-img { transform: scale(1.07); filter: brightness(.6) saturate(1.2); }
+    .city-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,6,.95) 0%, rgba(10,8,6,.35) 50%, transparent 100%);
+    }
+    .city-card-shimmer {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,154,60,0) 30%, rgba(196,154,60,.06) 50%, rgba(196,154,60,0) 70%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .city-card:hover .city-card-shimmer { opacity: 1; }
+
+    .city-card-type {
+      position: absolute; top: 14px; left: 14px;
+      padding: 4px 12px; border-radius: 20px;
+      background: rgba(10,8,6,.5); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+    }
+    .city-card-gem-badge {
+      position: absolute; top: 14px; right: 14px;
+      padding: 4px 12px; border-radius: 20px;
+      background: rgba(196,154,60,.2); border: 1px solid rgba(196,154,60,.35);
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--gold-light); font-weight: 600;
+      display: none;
+    }
+    .city-card.hidden-gem .city-card-gem-badge { display: block; }
+
+    .city-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 20px 18px;
+    }
+    .city-card-region {
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 4px;
+    }
+    .city-card-name {
+      font-family: var(--serif); font-size: 22px; font-weight: 500;
+      color: var(--white); line-height: 1.15; margin-bottom: 4px;
+    }
+    .city-card.featured .city-card-name { font-size: 28px; }
+    .city-card-tagline { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+    .city-card-tags {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;
+      opacity: 0; max-height: 0; transition: all .3s var(--ease); overflow: hidden;
+    }
+    .city-card:hover .city-card-tags { opacity: 1; max-height: 40px; }
+    .city-card-tag { font-size: 10px; padding: 2px 9px; border-radius: 12px; background: rgba(255,255,255,.08); color: rgba(255,255,255,.45); }
+    .city-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 12px; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .city-card-meta { display: flex; gap: 12px; }
+    .city-card-meta-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: rgba(255,255,255,.3); }
+    .city-card-explore {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      background: rgba(196,154,60,.12); border: 1px solid rgba(196,154,60,.22);
+      color: var(--gold-light); font-size: 11px; font-weight: 500;
+      transition: all .35s var(--ease); white-space: nowrap;
+    }
+    .city-card:hover .city-card-explore { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    .no-results {
+      grid-column: 1 / -1; text-align: center; padding: 80px 24px;
+    }
+    .no-results-icon { font-size: 48px; display: block; margin-bottom: 16px; opacity: .5; }
+    .no-results h3 { font-family: var(--serif); font-size: 24px; color: var(--ink-2); margin-bottom: 8px; }
+    .no-results p { font-size: 14px; color: var(--ink-3); }
+
+    @media (max-width: 1100px) { .city-grid { grid-template-columns: repeat(2, 1fr); } .city-card.featured { grid-column: span 2; } }
+    @media (max-width: 768px) {
+      .cities-section { padding: 36px 20px 60px; }
+      .city-grid { grid-template-columns: 1fr; }
+      .city-card.featured { grid-column: span 1; }
+    }
+
+    /* ═══ FOOTER ═══ */
+    footer { background: #060402; padding: 56px 56px 32px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-family: var(--serif); font-size: 20px; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.15); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    @media (max-width: 768px) { footer { padding: 40px 20px 24px; } .footer-links { gap: 12px; } }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- SKELETON LOADER -->
+<div id="pageLoader">
+  <div class="pl-spinner"></div>
+  <div class="pl-text">Loading <span><%= stateMeta.name %></span></div>
+  <div class="pl-sub">Preparing destinations</div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <a href="/explore" class="nav-brand"><div class="nav-brand-icon">☸</div> Explore <em>India</em></a>
+    <a href="/explore" class="nav-back" title="Back to Explore">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      All States
+    </a>
+  </div>
+  <div class="nav-right">
+    <a href="/home" class="nav-cta">Home</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/home">Home</a> <span class="sep">›</span>
+  <a href="/explore">Explore</a> <span class="sep">›</span>
+  <span class="current"><%= stateMeta.emoji %> <%= stateMeta.name %></span>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" style="background-image: url('<%= heroImage %>')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge <%= stateMeta.type === 'ut' ? 'ut' : 'state' %>">
+      <%= stateMeta.emoji %> <%= stateMeta.type === 'ut' ? 'Union Territory' : 'State' %> · <%= stateMeta.region %>
+    </div>
+    <h1 class="hero-title">Explore<em><%= stateMeta.name %></em></h1>
+    <p class="hero-tagline"><%= stateMeta.tagline %></p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong><%= totalCities %></strong><span>Destinations</span></div>
+      <div class="hero-stat"><strong><%= totalPlaces %>+</strong><span>Places</span></div>
+      <div class="hero-stat"><strong><%= popularCount %></strong><span>Popular</span></div>
+      <div class="hero-stat"><strong><%= hiddenGemsCount %></strong><span>Hidden Gems</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOGGLE BAR -->
+<div class="toggle-bar">
+  <div class="toggle-group">
+    <button class="toggle-btn active" id="btnPopular" onclick="showTab('popular')">⭐ Popular</button>
+    <button class="toggle-btn" id="btnHidden" onclick="showTab('hidden')">💎 Hidden Gems</button>
+    <button class="toggle-btn" id="btnAll" onclick="showTab('all')">All</button>
+  </div>
+  <div class="toggle-count">
+    Showing <strong id="showingCount"><%= totalCities %></strong> destinations
+  </div>
+</div>
+
+<!-- CITIES -->
+<section class="cities-section">
+  <div class="city-grid" id="cityGrid">
+    <% cities.forEach(function(city, idx) { %>
+      <a href="/city?state=<%= stateMeta.id %>&id=<%= city.id %>"
+         class="city-card <%= idx === 0 ? 'featured' : '' %> <%= city._isHiddenGem ? 'hidden-gem' : 'popular-city' %>"
+         data-type="<%= city._isHiddenGem ? 'hidden' : 'popular' %>">
+        <div class="city-card-img-wrap">
+          <img class="city-card-img" src="<%= city.hero_image %>" alt="<%= city.name %>" loading="<%= idx < 4 ? 'eager' : 'lazy' %>"
+               onerror="this.src='https://images.unsplash.com/photo-1626621331169-5f34be280ed9?w=800&q=80'" />
+          <div class="city-card-img-overlay"></div>
+          <div class="city-card-shimmer"></div>
+          <span class="city-card-type"><%= city.type || 'Destination' %></span>
+          <span class="city-card-gem-badge">💎 Hidden Gem</span>
+        </div>
+        <div class="city-card-body">
+          <div class="city-card-region"><%= city.region || '' %><%= city.district ? ' · ' + city.district : '' %></div>
+          <div class="city-card-name"><%= city.name %></div>
+          <p class="city-card-tagline"><%= city.tagline || '' %></p>
+          <% if (city.tags && city.tags.length) { %>
+            <div class="city-card-tags">
+              <% city.tags.slice(0, 3).forEach(function(tag) { %>
+                <span class="city-card-tag"><%= tag %></span>
+              <% }); %>
+            </div>
+          <% } %>
+          <div class="city-card-footer">
+            <div class="city-card-meta">
+              <% if (city.best_time) { %><span class="city-card-meta-item">🗓 <%= city.best_time.split(',')[0] %></span><% } %>
+              <% if (city.places) { %><span class="city-card-meta-item">🏛 <%= city.places.length %> places</span><% } %>
+            </div>
+            <span class="city-card-explore">Explore →</span>
+          </div>
+        </div>
+      </a>
+    <% }); %>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Explore <span>India</span></div>
+    <ul class="footer-links">
+      <li><a href="/home">Home</a></li>
+      <li><a href="/explore">All States</a></li>
+      <li><a href="/profile">Profile</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Explore India</span>
+  </div>
+</footer>
+
+<script>
+// ═══ Loader
+window.addEventListener('load', () => {
+  document.querySelector('.hero').classList.add('loaded');
+  const loader = document.getElementById('pageLoader');
+  setTimeout(() => { loader.classList.add('out'); setTimeout(() => loader.remove(), 600); }, 800);
+});
+
+// ═══ Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ═══ Card entrance animation
+const cardObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      cardObs.unobserve(e.target);
+    }
+  });
+}, { threshold: .08 });
+document.querySelectorAll('.city-card').forEach(c => cardObs.observe(c));
+
+// ═══ Popular / Hidden Gems toggle
+function showTab(tab) {
+  const cards = document.querySelectorAll('.city-card');
+  let count = 0;
+
+  cards.forEach(card => {
+    const type = card.dataset.type;
+    if (tab === 'all' || type === tab) {
+      card.style.display = '';
+      count++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.getElementById('showingCount').textContent = count;
+
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  if (tab === 'popular') document.getElementById('btnPopular').classList.add('active');
+  else if (tab === 'hidden') document.getElementById('btnHidden').classList.add('active');
+  else document.getElementById('btnAll').classList.add('active');
+
+  // Re-trigger card animations
+  const grid = document.getElementById('cityGrid');
+  const visibleCards = grid.querySelectorAll('.city-card:not([style*="display: none"])');
+  visibleCards.forEach((c, i) => {
+    c.classList.remove('visible');
+    setTimeout(() => c.classList.add('visible'), i * 60);
+    // Reset featured class
+    c.classList.toggle('featured', i === 0 && visibleCards.length > 2);
+  });
+}
+
+// Fade-in observer
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+}, { threshold: .15 });
+document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= category.label %> Destinations in India — Explore India</title>
+  <meta name="description" content="<%= category.description %>. Discover the best <%= category.label.toLowerCase() %> destinations across India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink:#0a0806; --ink-2:#1a1714; --ink-3:#6b6258; --fog:#f7f3ed; --fog-2:#ede8df; --fog-3:#dbd4c8;
+      --gold:#c49a3c; --gold-light:#ddb95a; --gold-pale:#f5ecd6; --gold-glow:rgba(196,154,60,.18);
+      --white:#fefbf6; --serif:'Playfair Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --ease:cubic-bezier(.4,0,.2,1); --shadow:0 2px 24px rgba(10,8,6,.07); --shadow-lg:0 16px 64px rgba(10,8,6,.18);
+      --nav-h:72px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: var(--nav-h); padding: 0 56px; display: flex; align-items: center; justify-content: space-between; background: var(--white); box-shadow: 0 1px 0 rgba(10,8,6,.06); }
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-brand { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .nav-brand-icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .nav-brand em { font-style: normal; color: var(--gold); }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; padding: 7px 18px; border-radius: 40px; border: 1px solid var(--fog-3); color: var(--ink-3); font-size: 13px; text-decoration: none; transition: all .3s var(--ease); }
+    .nav-back:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-back svg { width: 14px; height: 14px; }
+    .nav-cta { padding: 9px 24px; border-radius: 40px; background: var(--gold); color: var(--white); font-size: 13px; font-weight: 500; text-decoration: none; font-family: var(--sans); transition: all .3s; border: none; box-shadow: 0 4px 16px rgba(196,154,60,.3); }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .breadcrumb { padding: 14px 56px; margin-top: var(--nav-h); background: var(--fog); display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-3); border-bottom: 1px solid var(--fog-2); }
+    .breadcrumb a { color: var(--ink-3); text-decoration: none; } .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb .sep { color: var(--fog-3); } .breadcrumb .current { color: var(--gold); font-weight: 500; }
+
+    .page-header { padding: 56px 56px 40px; text-align: center; }
+    .page-header-emoji { font-size: 52px; display: block; margin-bottom: 16px; }
+    .page-header h1 { font-family: var(--serif); font-size: clamp(32px, 5vw, 52px); font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+    .page-header h1 em { font-style: italic; color: var(--gold); }
+    .page-header p { font-size: 16px; font-weight: 300; color: var(--ink-3); max-width: 520px; margin: 0 auto 20px; line-height: 1.7; }
+    .result-count { display: inline-flex; align-items: center; gap: 6px; padding: 6px 18px; border-radius: 30px; background: var(--gold-pale); color: var(--gold); font-size: 13px; font-weight: 500; }
+
+    .results-section { padding: 0 56px 80px; }
+    .city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .city-card { position: relative; border-radius: 20px; overflow: hidden; background: var(--ink); text-decoration: none; display: block; box-shadow: var(--shadow); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+    .city-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .city-card-img { width: 100%; height: 220px; object-fit: cover; display: block; filter: brightness(.65); transition: transform .7s var(--ease); }
+    .city-card:hover .city-card-img { transform: scale(1.07); }
+    .city-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,.92) 0%, rgba(10,8,6,.3) 55%, transparent 100%); }
+    .city-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; }
+    .city-card-state { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px; }
+    .city-card-name { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 4px; }
+    .city-card-tagline { font-size: 12px; color: rgba(255,255,255,.4); margin-bottom: 12px; }
+    .city-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.08); }
+    .city-card-meta { font-size: 11px; color: rgba(255,255,255,.3); display: flex; gap: 10px; }
+    .city-card-btn { padding: 5px 14px; border-radius: 20px; background: rgba(196,154,60,.12); border: 1px solid rgba(196,154,60,.22); color: var(--gold-light); font-size: 11px; transition: all .3s; }
+    .city-card:hover .city-card-btn { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    .no-results { text-align: center; padding: 80px 24px; }
+    .no-results h3 { font-family: var(--serif); font-size: 24px; color: var(--ink-2); margin-bottom: 8px; }
+    .no-results p { font-size: 14px; color: var(--ink-3); }
+
+    footer { background: #060402; padding: 40px 56px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-logo { font-family: var(--serif); font-size: 18px; color: var(--white); } .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.12); }
+
+    @media (max-width: 1100px) { .city-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { nav, .breadcrumb, .page-header, .results-section, footer { padding-left: 20px; padding-right: 20px; } .city-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="/explore" class="nav-brand"><div class="nav-brand-icon">☸</div> Explore <em>India</em></a>
+    <a href="/explore" class="nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Back</a>
+  </div>
+  <div><a href="/home" class="nav-cta">Home</a></div>
+</nav>
+<div class="breadcrumb">
+  <a href="/home">Home</a> <span class="sep">›</span>
+  <a href="/explore">Explore</a> <span class="sep">›</span>
+  <span class="current"><%= category.emoji %> <%= category.label %></span>
+</div>
+<div class="page-header">
+  <span class="page-header-emoji"><%= category.emoji %></span>
+  <h1><em><%= category.label %></em> Destinations</h1>
+  <p><%= category.description %></p>
+  <span class="result-count">📍 <%= results.length %> destinations found</span>
+</div>
+<section class="results-section">
+  <% if (results.length) { %>
+    <div class="city-grid">
+      <% results.forEach(function(r) { %>
+        <a href="/city?state=<%= r.stateId %>&id=<%= r.cityId %>" class="city-card">
+          <img class="city-card-img" src="<%= r.image %>" alt="<%= r.name %>" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1626621331169-5f34be280ed9?w=800&q=80'" />
+          <div class="city-card-overlay"></div>
+          <div class="city-card-body">
+            <div class="city-card-state"><%= r.emoji %> <%= r.stateName %></div>
+            <div class="city-card-name"><%= r.name %></div>
+            <div class="city-card-tagline"><%= r.tagline %></div>
+            <div class="city-card-footer">
+              <div class="city-card-meta">
+                <% if (r.best_time) { %><span>🗓 <%= r.best_time.split(',')[0] %></span><% } %>
+                <span>🏛 <%= r.placesCount %> places</span>
+              </div>
+              <span class="city-card-btn">Explore →</span>
+            </div>
+          </div>
+        </a>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <div class="no-results">
+      <h3>No destinations found</h3>
+      <p>Try a different category or <a href="/explore" style="color:var(--gold)">explore all states</a>.</p>
+    </div>
+  <% } %>
+</section>
+<footer>
+  <div class="footer-logo">Explore <span>India</span></div>
+  <span class="footer-copy">© 2026 Explore India</span>
+</footer>
+</body>
+</html>

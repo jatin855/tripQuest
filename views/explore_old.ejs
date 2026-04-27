@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore India — Discover Every State & Territory</title>
+  <meta name="description" content="Your complete travel guide to India. Explore destinations across every state and union territory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink:          #0a0806;
+      --ink-2:        #2a2520;
+      --ink-3:        #6b6258;
+      --fog:          #f7f3ed;
+      --fog-2:        #ede8df;
+      --fog-3:        #dbd4c8;
+      --gold:         #c49a3c;
+      --gold-light:   #ddb95a;
+      --gold-pale:    #f5ecd6;
+      --gold-glow:    rgba(196,154,60,.18);
+      --ut-accent:    #4a7d9c;
+      --ut-light:     #89b8cf;
+      --ut-pale:      #dceef6;
+      --ut-glow:      rgba(74,125,156,.15);
+      --white:        #fefbf6;
+      --cream:        #faf6ef;
+      --serif:        'Playfair Display', Georgia, serif;
+      --display:      'DM Serif Display', Georgia, serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+      --ease:         cubic-bezier(.4,0,.2,1);
+      --ease-spring:  cubic-bezier(.34,1.56,.64,1);
+      --shadow:       0 2px 24px rgba(10,8,6,.07);
+      --shadow-lg:    0 16px 64px rgba(10,8,6,.18);
+      --shadow-card:  0 4px 32px rgba(10,8,6,.12);
+      --r:            18px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ══ CUSTOM CURSOR ══ */
+    #cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform .1s var(--ease), background .3s, width .3s var(--ease-spring), height .3s var(--ease-spring);
+      will-change: transform;
+    }
+    #cursor-ring {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(196,154,60,.5);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: top .15s var(--ease), left .15s var(--ease), width .3s var(--ease-spring), height .3s var(--ease-spring), border-color .3s, opacity .3s;
+      will-change: top, left;
+    }
+    body:has(a:hover) #cursor-dot,
+    body:has(button:hover) #cursor-dot { width: 12px; height: 12px; background: var(--gold-light); }
+    body:has(a:hover) #cursor-ring,
+    body:has(button:hover) #cursor-ring { width: 52px; height: 52px; border-color: rgba(196,154,60,.8); }
+
+    /* ══ LOADER ══ */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      transition: opacity .7s var(--ease), visibility .7s;
+    }
+    #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .loader-chakra {
+      width: 44px; height: 44px;
+      border: 1.5px solid rgba(196,154,60,.3);
+      border-top-color: var(--gold-light);
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-wordmark {
+      font-family: var(--serif);
+      font-size: 28px; font-weight: 300; letter-spacing: 5px;
+      color: var(--white);
+    }
+    .loader-wordmark span { color: var(--gold-light); }
+    .loader-track { width: 180px; height: 1px; background: rgba(255,255,255,.08); overflow: hidden; border-radius: 1px; }
+    .loader-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-light)); animation: loaderFill 2s var(--ease) forwards; }
+    @keyframes loaderFill { to { width: 100%; } }
+    .loader-sub { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(255,255,255,.2); }
+
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: 76px; padding: 0 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    nav.scrolled {
+      background: rgba(254,251,246,.97);
+      backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(10,8,6,.08);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 600; letter-spacing: .5px;
+      color: var(--white); text-decoration: none;
+      transition: color .3s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-brand-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(196,154,60,.4);
+      transition: box-shadow .4s;
+    }
+    nav.scrolled .nav-brand-icon { box-shadow: 0 0 0 3px rgba(196,154,60,.15); }
+    nav.scrolled .nav-brand { color: var(--ink); }
+    .nav-brand em { font-style: normal; color: var(--gold-light); }
+    nav.scrolled .nav-brand em { color: var(--gold); }
+    .nav-center {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-link {
+      font-size: 13px; font-weight: 400; color: rgba(255,255,255,.55);
+      text-decoration: none; padding: 6px 14px; border-radius: 20px;
+      transition: all .25s;
+    }
+    nav.scrolled .nav-link { color: var(--ink-3); }
+    .nav-link:hover { color: var(--gold-light); background: rgba(196,154,60,.08); }
+    nav.scrolled .nav-link:hover { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-search-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; transition: all .25s; color: rgba(255,255,255,.7);
+    }
+    nav.scrolled .nav-search-btn { border-color: var(--fog-3); color: var(--ink-3); }
+    .nav-search-btn:hover { background: rgba(196,154,60,.12); border-color: var(--gold); color: var(--gold); }
+    .nav-cta {
+      padding: 10px 26px; border-radius: 40px;
+      background: var(--gold); color: var(--white);
+      font-size: 13px; font-weight: 500; border: none; cursor: pointer;
+      font-family: var(--sans); text-decoration: none;
+      transition: all .3s var(--ease-spring);
+      box-shadow: 0 4px 16px rgba(196,154,60,.3);
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,154,60,.4); }
+
+    /* ══ BACK BUTTON ══ */
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px; border-radius: 40px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.7);
+      font-family: var(--sans); font-size: 13px; font-weight: 400;
+      text-decoration: none; cursor: pointer;
+      transition: all .3s var(--ease);
+      backdrop-filter: blur(8px);
+    }
+    .nav-back:hover {
+      border-color: var(--gold); color: var(--gold-light);
+      background: rgba(196,154,60,.1);
+      transform: translateX(-3px);
+    }
+    .nav-back svg {
+      width: 16px; height: 16px;
+      transition: transform .3s var(--ease);
+    }
+    .nav-back:hover svg { transform: translateX(-3px); }
+    nav.scrolled .nav-back { border-color: var(--fog-3); color: var(--ink-3); background: transparent; }
+    nav.scrolled .nav-back:hover { border-color: var(--gold); color: var(--gold); background: rgba(196,154,60,.06); }
+
+    @media (max-width: 900px) { .nav-center { display: none; } }
+
+    /* ══ HERO ══ */
+    .hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+      overflow: hidden;
+    }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 2s var(--ease);
+      transform: scale(1.04);
+      transition: opacity 2s var(--ease), transform 8s ease;
+    }
+    .hero-slide.active { opacity: 1; transform: scale(1); }
+    .hero-overlay-l {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(105deg, rgba(10,8,6,.92) 0%, rgba(10,8,6,.55) 50%, rgba(10,8,6,.15) 100%);
+    }
+    .hero-overlay-b {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%; z-index: 2;
+      background: linear-gradient(to top, rgba(10,8,6,.6) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 5; padding: 0 96px; max-width: 900px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 32px;
+      opacity: 0; transform: translateY(24px);
+      animation: fadeUp .9s var(--ease) .5s forwards;
+    }
+    .hero-eyebrow-line { width: 40px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(56px, 9vw, 120px);
+      font-weight: 400; line-height: .88; color: var(--white);
+      margin-bottom: 32px;
+      opacity: 0; transform: translateY(32px);
+      animation: fadeUp 1s var(--ease) .7s forwards;
+    }
+    .hero-h1 em {
+      font-style: italic; color: var(--gold-light);
+      display: block; margin-top: 8px;
+    }
+    .hero-desc {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: rgba(255,255,255,.48); max-width: 440px;
+      margin-bottom: 52px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s var(--ease) .9s forwards;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 56px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s var(--ease) 1.1s forwards;
+    }
+    .hero-btn-primary {
+      padding: 14px 36px; border-radius: 50px;
+      background: var(--gold); color: var(--white);
+      font-family: var(--sans); font-size: 14px; font-weight: 500;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all .3s var(--ease-spring);
+      box-shadow: 0 8px 32px rgba(196,154,60,.45);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .hero-btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(196,154,60,.55); }
+    .hero-btn-ghost {
+      padding: 14px 32px; border-radius: 50px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.75);
+      font-family: var(--sans); font-size: 14px; font-weight: 400;
+      cursor: pointer; text-decoration: none;
+      transition: all .3s; backdrop-filter: blur(8px);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .hero-btn-ghost:hover { border-color: rgba(255,255,255,.45); color: var(--white); background: rgba(255,255,255,.1); }
+    .hero-stats-row {
+      display: flex; gap: 40px;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp .8s var(--ease) 1.3s forwards;
+    }
+    .hero-stat { position: relative; }
+    .hero-stat + .hero-stat::before {
+      content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%);
+      width: 1px; height: 28px; background: rgba(255,255,255,.12);
+    }
+    .hero-stat strong {
+      display: block; font-family: var(--serif);
+      font-size: 30px; font-weight: 300; color: var(--white); line-height: 1;
+    }
+    .hero-stat span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 6px; display: block; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    .slide-indicators {
+      position: absolute; bottom: 40px; left: 96px; z-index: 5; display: flex; gap: 8px; align-items: center;
+    }
+    .slide-dot {
+      width: 20px; height: 2px; border-radius: 2px;
+      background: rgba(255,255,255,.2); cursor: pointer;
+      transition: all .4s var(--ease);
+    }
+    .slide-dot.active { background: var(--gold); width: 44px; }
+
+    .scroll-hint {
+      position: absolute; bottom: 40px; right: 96px; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      opacity: 0; animation: fadeUp .8s var(--ease) 1.8s forwards;
+    }
+    .scroll-hint span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.25); writing-mode: vertical-rl; }
+    .scroll-hint-line {
+      width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+    /* ══ STICKY CONTROL BAR ══ */
+    .control-bar {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(10,8,6,.97);
+      backdrop-filter: blur(24px) saturate(120%);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: top .3s var(--ease);
+    }
+    .control-bar.nav-visible { top: 76px; }
+    .control-bar-inner {
+      display: flex; align-items: center; gap: 0; height: 60px; padding: 0 64px;
+    }
+    .cb-label {
+      font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.25); flex-shrink: 0; margin-right: 14px;
+    }
+    #stateSelect {
+      background: transparent; border: none; outline: none;
+      font-family: var(--sans); font-size: 14px; font-weight: 500;
+      color: var(--white); cursor: pointer; padding: 8px 10px; border-radius: 8px;
+      transition: background .2s; max-width: 260px;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,.25)'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 28px;
+    }
+    #stateSelect:hover { background-color: rgba(255,255,255,.05); }
+    #stateSelect option { background: #1a1512; color: var(--white); }
+    .cb-divider { width: 1px; height: 24px; background: rgba(255,255,255,.08); margin: 0 20px; flex-shrink: 0; }
+    .search-wrap { flex: 1; display: flex; align-items: center; gap: 10px; position: relative; }
+    .search-icon-inner { font-size: 14px; color: rgba(255,255,255,.25); flex-shrink: 0; }
+    #searchInput {
+      flex: 1; background: transparent; border: none; outline: none;
+      font-family: var(--sans); font-size: 14px; color: var(--white); font-weight: 300;
+    }
+    #searchInput::placeholder { color: rgba(255,255,255,.18); }
+    .cb-results {
+      font-size: 11px; color: rgba(255,255,255,.22);
+      white-space: nowrap; letter-spacing: .5px; margin-left: 12px;
+      flex-shrink: 0;
+    }
+    .cb-clear-btn {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      background: transparent; cursor: pointer; color: rgba(255,255,255,.4);
+      font-size: 12px; display: none; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all .2s;
+    }
+    .cb-clear-btn.visible { display: flex; }
+    .cb-clear-btn:hover { border-color: rgba(255,255,255,.3); color: var(--white); }
+
+    /* ══ GLOBAL SEARCH BANNER ══ */
+    .global-search-banner {
+      display: none;
+      background: linear-gradient(90deg, rgba(196,154,60,.1), rgba(196,154,60,.05));
+      border-bottom: 1px solid rgba(196,154,60,.15);
+      padding: 10px 64px; font-size: 12px; color: var(--gold-light);
+      align-items: center; gap: 12px;
+    }
+    .global-search-banner.visible { display: flex; }
+    .gsb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+    .gsb-text { flex: 1; }
+    .gsb-clear {
+      cursor: pointer; font-size: 11px; letter-spacing: .5px;
+      opacity: .6; transition: opacity .2s;
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: 20px;
+      border: 1px solid rgba(196,154,60,.25);
+    }
+    .gsb-clear:hover { opacity: 1; background: rgba(196,154,60,.08); }
+
+    /* ══ FILTER STRIP ══ */
+    .filter-strip {
+      background: var(--cream); border-bottom: 1px solid var(--fog-2);
+      padding: 0 64px; position: sticky; top: 60px; z-index: 199;
+    }
+    .filter-strip-inner {
+      display: flex; gap: 0; height: 52px; align-items: center;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .filter-strip-inner::-webkit-scrollbar { display: none; }
+    .filt {
+      flex-shrink: 0; padding: 5px 18px; margin-right: 3px;
+      border-radius: 40px; border: 1px solid transparent;
+      background: transparent; font-family: var(--sans);
+      font-size: 13px; font-weight: 400; color: var(--ink-3);
+      cursor: pointer; transition: all .25s var(--ease); white-space: nowrap;
+    }
+    .filt:hover { border-color: var(--fog-3); color: var(--ink); background: var(--fog); }
+    .filt.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .filter-sep { width: 1px; height: 18px; background: var(--fog-3); margin: 0 12px; flex-shrink: 0; }
+    .sort-wrap { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .sort-label { font-size: 12px; color: var(--ink-3); }
+    .sort-select {
+      border: 1px solid var(--fog-3); border-radius: 8px;
+      padding: 5px 10px; font-family: var(--sans); font-size: 12px;
+      color: var(--ink-2); background: var(--white); cursor: pointer; outline: none;
+      transition: border-color .2s;
+    }
+    .sort-select:hover { border-color: var(--gold); }
+
+    /* ══ TAG CATEGORY PILLS ══ */
+    .cat-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+    }
+    .cat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 20px; border-radius: 50px;
+      border: 1.5px solid var(--fog-3); background: var(--white);
+      font-size: 13px; font-weight: 400; color: var(--ink-2);
+      cursor: pointer; transition: all .3s var(--ease);
+    }
+    .cat-pill:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(196,154,60,.15); }
+    .cat-pill.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .cat-pill-emoji { font-size: 15px; }
+
+    /* ══ MAIN CONTENT ══ */
+    .main { padding: 72px 64px 100px; }
+
+    /* ══ SECTION DIVIDER ══ */
+    .section-divider {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 36px;
+    }
+    .section-divider:not(:first-child) { margin-top: 80px; }
+    .sd-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 20px; border-radius: 40px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    }
+    .sd-badge.states { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(196,154,60,.3); }
+    .sd-badge.uts { background: var(--ut-pale); color: var(--ut-accent); border: 1px solid rgba(74,125,156,.25); }
+    .sd-badge.explore { background: var(--ink); color: var(--gold-light); border: 1px solid rgba(196,154,60,.2); }
+    .sd-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--fog-3), transparent); }
+    .sd-count { font-size: 12px; color: var(--ink-3); }
+
+    /* ══ STATE HEADER CARD ══ */
+    .state-header-card {
+      background: linear-gradient(135deg, var(--ink) 0%, #281c0e 60%, #1a1208 100%);
+      border-radius: 24px; padding: 40px 52px;
+      margin-bottom: 44px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 28px; flex-wrap: wrap;
+      border: 1px solid rgba(196,154,60,.15);
+      position: relative; overflow: hidden;
+    }
+    .state-header-card::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,154,60,.08) 0%, transparent 70%);
+    }
+    .shc-eyebrow { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .shc-title { font-family: var(--display); font-size: 42px; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: 10px; }
+    .shc-title em { font-style: italic; color: var(--gold-light); }
+    .shc-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.36); max-width: 440px; line-height: 1.7; }
+    .shc-stats { display: flex; gap: 40px; flex-shrink: 0; }
+    .shc-stat strong { display: block; font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--white); line-height: 1; }
+    .shc-stat span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.25); margin-top: 6px; display: block; }
+
+    /* ══ CITY GRID ══ */
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .city-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--ink); position: relative;
+      cursor: pointer; text-decoration: none; display: block;
+      box-shadow: var(--shadow-card);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+      animation: cardIn .55s var(--ease) both;
+    }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .city-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: var(--shadow-lg); }
+    .city-card.featured { grid-column: span 2; }
+
+    .card-img-wrap { overflow: hidden; position: relative; }
+    .card-img {
+      width: 100%; display: block; height: 240px;
+      object-fit: cover;
+      transition: transform .8s var(--ease), filter .5s;
+      filter: brightness(.72) saturate(1.08);
+    }
+    .city-card.featured .card-img { height: 360px; }
+    .city-card:hover .card-img { transform: scale(1.08); filter: brightness(.82) saturate(1.15); }
+    .card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,6,.95) 0%, rgba(10,8,6,.4) 45%, transparent 100%);
+    }
+    .card-shimmer {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,154,60,.0) 0%, rgba(196,154,60,.05) 50%, rgba(196,154,60,.0) 100%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .city-card:hover .card-shimmer { opacity: 1; }
+
+    .card-badges-top {
+      position: absolute; top: 16px; left: 16px; right: 16px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .card-type-pill {
+      background: rgba(10,8,6,.55); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+      padding: 4px 13px; font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,.75);
+    }
+    .card-altitude-pill {
+      background: var(--gold-glow); border: 1px solid rgba(196,154,60,.35);
+      border-radius: 20px; padding: 4px 13px; font-size: 11px;
+      color: var(--gold-light); font-weight: 500;
+      backdrop-filter: blur(10px);
+    }
+    .card-altitude-pill.ut {
+      background: var(--ut-glow); border-color: rgba(74,125,156,.35); color: var(--ut-light);
+    }
+
+    .card-body-over { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 22px 22px; }
+    .card-state-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 4px;
+    }
+    .card-region { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.38); margin-bottom: 7px; }
+    .card-name { font-family: var(--display); font-size: 24px; font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 5px; }
+    .city-card.featured .card-name { font-size: 36px; }
+    .card-tagline { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.38); margin-bottom: 16px; line-height: 1.6; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
+    .card-meta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .card-meta-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,.32); }
+    .card-explore-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(196,154,60,.12); border: 1px solid rgba(196,154,60,.22);
+      color: var(--gold-light); font-size: 11px; font-weight: 500;
+      transition: all .35s var(--ease); white-space: nowrap; flex-shrink: 0;
+    }
+    .city-card:hover .card-explore-btn { background: var(--gold); border-color: var(--gold); color: var(--white); }
+    .city-card.ut-card .card-explore-btn { background: var(--ut-glow); border-color: rgba(74,125,156,.25); color: var(--ut-light); }
+    .city-card.ut-card:hover .card-explore-btn { background: var(--ut-accent); border-color: var(--ut-accent); color: var(--white); }
+
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; opacity: 0; max-height: 0; transition: all .4s var(--ease); overflow: hidden; }
+    .city-card:hover .card-tags { opacity: 1; max-height: 40px; }
+    .card-tag { font-size: 10px; padding: 2px 9px; border-radius: 12px; background: rgba(255,255,255,.08); color: rgba(255,255,255,.45); }
+
+    .no-results {
+      grid-column: 1 / -1; text-align: center; padding: 100px 40px;
+    }
+    .no-results-icon { font-size: 52px; margin-bottom: 20px; display: block; opacity: .6; }
+    .no-results h3 { font-family: var(--display); font-size: 30px; font-weight: 400; color: var(--ink-2); margin-bottom: 10px; }
+    .no-results p { font-size: 14px; color: var(--ink-3); line-height: 1.7; }
+
+    /* ══ EXPLORE INDIA SECTION ══ */
+    .explore-india-section {
+      padding: 80px 64px 88px;
+      background: var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .explore-india-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(196,154,60,.07) 0%, transparent 55%),
+                  radial-gradient(ellipse at 80% 50%, rgba(74,125,156,.05) 0%, transparent 55%);
+    }
+    .explore-india-section::after {
+      content: 'भारत';
+      position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+      font-family: serif; font-size: 240px; font-weight: 700; line-height: 1;
+      color: rgba(255,255,255,.015); pointer-events: none; user-select: none;
+    }
+    .explore-section-inner { position: relative; z-index: 2; }
+    .explore-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+    .explore-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .explore-title { font-family: var(--display); font-size: clamp(36px, 4.5vw, 58px); font-weight: 400; color: var(--white); line-height: 1; }
+    .explore-title em { font-style: italic; color: var(--gold-light); display: block; margin-top: 4px; }
+    .explore-sub { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.32); max-width: 380px; line-height: 1.75; }
+    .explore-search-wrap {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50px; padding: 0 20px; height: 48px;
+      display: flex; align-items: center; gap: 10px;
+      width: 320px; transition: border-color .25s;
+    }
+    .explore-search-wrap:focus-within { border-color: rgba(196,154,60,.35); }
+    .explore-search-wrap input {
+      flex: 1; background: none; border: none; outline: none;
+      font-family: var(--sans); font-size: 13px; color: var(--white);
+    }
+    .explore-search-wrap input::placeholder { color: rgba(255,255,255,.2); }
+    .explore-search-icon { font-size: 14px; color: rgba(255,255,255,.25); }
+
+    /* ══ ALL STATES BROWSER ══ */
+    .all-section {
+      padding: 88px 64px 96px;
+      background: var(--fog);
+      border-top: 1px solid var(--fog-2);
+    }
+    .all-section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
+    .all-section-title { font-family: var(--display); font-size: 44px; font-weight: 400; color: var(--ink); line-height: 1; }
+    .all-section-title em { font-style: italic; color: var(--gold); }
+    .all-section-sub { font-size: 14px; color: var(--ink-3); margin-top: 8px; }
+    .all-section-stats { display: flex; gap: 28px; }
+    .ast { text-align: right; }
+    .ast strong { display: block; font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--ink); }
+    .ast span { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-3); }
+
+    .browse-section-head {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+    }
+    .browse-section-head:not(:first-child) { margin-top: 56px; }
+    .bsh-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; }
+    .bsh-label.states { color: var(--gold); }
+    .bsh-label.uts { color: var(--ut-accent); }
+    .bsh-count { font-size: 12px; color: var(--ink-3); }
+    .bsh-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--fog-3), transparent); }
+
+    .states-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+    .ut-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+
+    .state-card {
+      background: var(--white); border-radius: 16px; border: 1.5px solid var(--fog-2);
+      padding: 20px 18px; cursor: pointer;
+      transition: all .35s var(--ease);
+      display: flex; flex-direction: column; gap: 6px;
+      position: relative; overflow: hidden;
+    }
+    .state-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,154,60,.04) 0%, transparent 60%);
+      opacity: 0; transition: opacity .35s;
+    }
+    .state-card:hover::before { opacity: 1; }
+    .state-card:hover { border-color: rgba(196,154,60,.5); box-shadow: 0 8px 32px rgba(196,154,60,.12); transform: translateY(-4px); }
+    .state-card.active-state { border-color: var(--gold); background: var(--gold-pale); }
+    .state-card.ut-type { border-color: rgba(74,125,156,.15); }
+    .state-card.ut-type::before { background: linear-gradient(135deg, rgba(74,125,156,.04) 0%, transparent 60%); }
+    .state-card.ut-type:hover { border-color: rgba(74,125,156,.5); box-shadow: 0 8px 32px rgba(74,125,156,.1); }
+    .state-card.ut-type.active-state { border-color: var(--ut-accent); background: var(--ut-pale); }
+    .sc-emoji { font-size: 26px; line-height: 1; margin-bottom: 2px; }
+    .sc-name { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.25; }
+    .sc-region { font-size: 10px; letter-spacing: 1px; color: var(--gold); font-weight: 500; }
+    .state-card.ut-type .sc-region { color: var(--ut-accent); }
+    .sc-badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+    .sc-badge.ut { background: var(--ut-pale); color: var(--ut-accent); }
+
+    /* ══ FOOTER ══ */
+    footer { background: #060402; padding: 72px 64px 44px; }
+    .footer-top { display: flex; gap: 64px; margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.05); flex-wrap: wrap; }
+    .footer-brand { flex: 0 0 280px; }
+    .footer-logo { font-family: var(--display); font-size: 28px; font-weight: 400; color: var(--white); margin-bottom: 14px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 13px; line-height: 1.9; font-weight: 300; color: rgba(255,255,255,.22); margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.1); background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; text-decoration: none; color: rgba(255,255,255,.4);
+      transition: all .25s;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-links-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .footer-col-title { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.18); margin-bottom: 20px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.38); text-decoration: none; transition: color .25s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.15); }
+    .footer-made { font-size: 11px; color: rgba(255,255,255,.12); }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1200px) {
+      .city-grid { grid-template-columns: repeat(2, 1fr); }
+      .city-card.featured { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      nav, .control-bar-inner, .filter-strip, .main, .all-section, .explore-india-section, footer {
+        padding-left: 24px; padding-right: 24px;
+      }
+      .hero-content { padding: 0 28px; }
+      .slide-indicators, .scroll-hint { left: 28px; }
+      .scroll-hint { right: 28px; }
+      .global-search-banner { padding: 10px 24px; }
+      .city-grid { grid-template-columns: 1fr; }
+      .city-card.featured { grid-column: span 1; }
+      .states-grid { grid-template-columns: repeat(2, 1fr); }
+      .ut-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { padding: 52px 24px 36px; }
+      .footer-top { flex-direction: column; gap: 36px; }
+      .footer-brand { flex: 0 0 auto; }
+      .footer-links-grid { grid-template-columns: repeat(2, 1fr); }
+      .shc-stats { gap: 20px; }
+      .state-header-card { flex-direction: column; align-items: flex-start; padding: 28px 28px; }
+      .explore-header { flex-direction: column; align-items: flex-start; }
+      .explore-search-wrap { width: 100%; }
+      #cursor-dot, #cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+    @media (max-width: 600px) {
+      .hero-h1 { font-size: clamp(44px, 12vw, 72px); }
+      .hero-stats-row { gap: 20px; flex-wrap: wrap; }
+      .states-grid { grid-template-columns: repeat(2, 1fr); }
+      .ut-grid { grid-template-columns: 1fr 1fr; }
+      .footer-links-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      nav { padding: 0 20px; }
+    }
+
+    .fade-in-up { opacity: 0; transform: translateY(32px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-up.visible:nth-child(2) { transition-delay: .1s; }
+    .fade-in-up.visible:nth-child(3) { transition-delay: .2s; }
+    .fade-in-up.visible:nth-child(4) { transition-delay: .3s; }
+  </style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">
+    <div class="loader-chakra"></div>
+  </div>
+  <div class="loader-wordmark">Explore <span>India</span></div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+  <div class="loader-sub" id="loaderSub">Loading destinations</div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <!-- ✅ FIX 3: href="/explore" (Express route, not a file path) -->
+  <a href="/explore" class="nav-brand">
+    <div class="nav-brand-icon">☸</div>
+    Explore <em>India</em>
+  </a>
+  <a href="/home" class="nav-back" title="Back to Home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    Home
+  </a>
+  <div class="nav-center">
+    <a href="#destinations" class="nav-link">Destinations</a>
+    <a href="#explore-india" class="nav-link">Explore All</a>
+    <a href="#allStates" class="nav-link">States & UTs</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-search-btn" onclick="focusSearch()" title="Search">🔍</button>
+    <a href="#" class="nav-cta">Plan Trip</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-overlay-l"></div>
+  <div class="hero-overlay-b"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      India's Greatest Destinations
+    </div>
+    <h1 class="hero-h1">Discover<br><em id="heroStateName">India</em></h1>
+    <p class="hero-desc" id="heroDesc">From the Himalayas to the tropics — every state, every culture, every story.</p>
+    <div class="hero-actions">
+      <a href="#destinations" class="hero-btn-primary">Explore Destinations ↓</a>
+      <a href="#explore-india" class="hero-btn-ghost">🌏 All of India</a>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hero-stat"><strong>28</strong><span>States</span></div>
+      <div class="hero-stat"><strong>8</strong><span>Union Territories</span></div>
+      <div class="hero-stat"><strong id="heroTotalPlaces">—</strong><span>Places to Visit</span></div>
+    </div>
+  </div>
+  <div class="slide-indicators" id="slideIndicators"></div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- CONTROL BAR -->
+<div class="control-bar nav-visible" id="destinations">
+  <div class="control-bar-inner">
+    <span class="cb-label">Browse</span>
+    <select id="stateSelect" onchange="switchState(this.value)"></select>
+    <div class="cb-divider"></div>
+    <div class="search-wrap">
+      <span class="search-icon-inner">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search cities, treks, beaches, temples, heritage…" autocomplete="off" oninput="handleSearch()" />
+      <button class="cb-clear-btn" id="cbClearBtn" onclick="clearSearch()" title="Clear">✕</button>
+      <span class="cb-results" id="resultsCount">— destinations</span>
+    </div>
+  </div>
+</div>
+
+<!-- GLOBAL SEARCH BANNER -->
+<div class="global-search-banner" id="globalSearchBanner">
+  <div class="gsb-dot"></div>
+  <span class="gsb-text">Showing results across <strong id="gsbStateCount">all</strong> loaded states & territories</span>
+  <span class="gsb-clear" onclick="clearSearch()">✕ Clear search</span>
+</div>
+
+<!-- FILTER STRIP -->
+<div class="filter-strip">
+  <div class="filter-strip-inner" id="filterStrip"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+  <div class="state-header-card" id="stateHeaderCard" style="display:none">
+    <div>
+      <div class="shc-eyebrow" id="shcEyebrow">Explore</div>
+      <h2 class="shc-title" id="shcTitle">Loading <em>State</em></h2>
+      <p class="shc-desc" id="shcDesc">Loading...</p>
+    </div>
+    <div class="shc-stats" id="shcStats"></div>
+  </div>
+
+  <div id="statesCitySection">
+    <div class="section-divider" id="statesDivider" style="display:none">
+      <span class="sd-badge states">🏛 States</span>
+      <div class="sd-line"></div>
+      <span class="sd-count" id="statesResultCount"></span>
+    </div>
+    <div class="city-grid" id="statesCityGrid"></div>
+  </div>
+
+  <div id="utsCitySection">
+    <div class="section-divider" id="utsDivider" style="display:none">
+      <span class="sd-badge uts">🏝 Union Territories</span>
+      <div class="sd-line"></div>
+      <span class="sd-count" id="utsResultCount"></span>
+    </div>
+    <div class="city-grid" id="utsCityGrid"></div>
+  </div>
+
+  <div id="singleStateSection">
+    <div class="city-grid" id="cityGrid"></div>
+  </div>
+</main>
+
+<!-- EXPLORE INDIA SECTION -->
+<section class="explore-india-section" id="explore-india">
+  <div class="explore-section-inner">
+    <div class="explore-header">
+      <div class="explore-title-group">
+        <div class="explore-eyebrow">National Discovery</div>
+        <h2 class="explore-title">Explore<em>All of India</em></h2>
+        <p class="explore-sub">Browse destinations across every state and union territory. Filter by category or search anything.</p>
+      </div>
+      <div>
+        <div class="explore-search-wrap">
+          <span class="explore-search-icon">🔍</span>
+          <input type="text" id="exploreSearch" placeholder="Search anywhere in India…" oninput="handleExploreSearch(this.value)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-pills" id="catPills"></div>
+
+    <div id="exploreStatesSection">
+      <div class="section-divider" id="exploreStatesDivider" style="margin-top:0">
+        <span class="sd-badge states">🏛 States</span>
+        <div class="sd-line"></div>
+        <span class="sd-count" id="exploreStatesCount"></span>
+      </div>
+      <div class="city-grid" id="exploreStatesGrid"></div>
+    </div>
+
+    <div id="exploreUtsSection" style="margin-top: 60px">
+      <div class="section-divider" id="exploreUtsDivider">
+        <span class="sd-badge uts">🏝 Union Territories</span>
+        <div class="sd-line"></div>
+        <span class="sd-count" id="exploreUtsCount"></span>
+      </div>
+      <div class="city-grid" id="exploreUtsGrid"></div>
+    </div>
+
+    <div id="exploreNoResults" style="display:none" class="no-results">
+      <span class="no-results-icon">🗺</span>
+      <h3>No places found</h3>
+      <p>Try a different category or search term.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BROWSE ALL STATES & UTs -->
+<section class="all-section" id="allStates">
+  <div class="all-section-header">
+    <div>
+      <h2 class="all-section-title">Browse by <em>State & Territory</em></h2>
+      <p class="all-section-sub">Select any state or union territory to explore its destinations</p>
+    </div>
+    <div class="all-section-stats">
+      <div class="ast"><strong>28</strong><span>States</span></div>
+      <div class="ast"><strong>8</strong><span>Union Territories</span></div>
+    </div>
+  </div>
+
+  <div class="browse-section-head">
+    <span class="bsh-label states">States of India</span>
+    <span class="bsh-count">28 states</span>
+    <div class="bsh-line"></div>
+  </div>
+  <div class="states-grid" id="statesGrid"></div>
+
+  <div class="browse-section-head">
+    <span class="bsh-label uts">Union Territories</span>
+    <span class="bsh-count">8 territories</span>
+    <div class="bsh-line"></div>
+  </div>
+  <div class="ut-grid" id="utsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Explore <span>India</span></div>
+      <p class="footer-tagline">Your complete travel guide to India — every state, every culture, real destinations powered by local knowledge.</p>
+      <div class="footer-social">
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="footer-links-grid">
+      <div>
+        <div class="footer-col-title">Popular States</div>
+        <ul class="footer-links" id="footerStateLinks"></ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="#">Trekking Routes</a></li>
+          <li><a href="#">Heritage Sites</a></li>
+          <li><a href="#">Wildlife</a></li>
+          <li><a href="#">Local Cuisine</a></li>
+          <li><a href="#">Adventure Sports</a></li>
+          <li><a href="#">Spiritual Journeys</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Plan & Visit</div>
+        <ul class="footer-links">
+          <li><a href="#">Best Time Guide</a></li>
+          <li><a href="#">Budget Calculator</a></li>
+          <li><a href="#">Travel Tips</a></li>
+          <li><a href="#">Permit Guide</a></li>
+          <li><a href="#">Visa Info</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Explore India · All rights reserved</div>
+    <div class="footer-made">Built with ♥ for India lovers</div>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════
+// CURSOR
+// ══════════════════════════════════════════════════
+const cursorDot  = document.getElementById('cursor-dot');
+const cursorRing = document.getElementById('cursor-ring');
+
+document.addEventListener('mousemove', e => {
+  cursorDot.style.left  = e.clientX + 'px';
+  cursorDot.style.top   = e.clientY + 'px';
+  cursorRing.style.left = e.clientX + 'px';
+  cursorRing.style.top  = e.clientY + 'px';
+});
+
+// ══════════════════════════════════════════════════
+// STATE REGISTRY
+// ✅ FIX 1: All file paths prefixed with /data/
+// ══════════════════════════════════════════════════
+const STATES = [
+  { id:'andhra-pradesh',      file:'/data/andhra_pradesh_cities.json',      name:'Andhra Pradesh',      tagline:'Temples, beaches, and rich Telugu culture',              emoji:'🏖️', region:'South India' },
+  { id:'arunachal-pradesh',   file:'/data/arunachal_pradesh_cities.json',   name:'Arunachal Pradesh',   tagline:'Land of dawn-lit mountains and monasteries',             emoji:'🏔️', region:'North-East India' },
+  { id:'assam',               file:'/data/assam_cities.json',               name:'Assam',               tagline:'Tea gardens, rivers, and wild beauty',                   emoji:'🍃', region:'North-East India' },
+  { id:'bihar',               file:'/data/bihar_cities.json',               name:'Bihar',               tagline:'Ancient heritage and spiritual significance',            emoji:'🛕', region:'East India' },
+  { id:'chhattisgarh',        file:'/data/chhattisgarh_cities.json',        name:'Chhattisgarh',        tagline:'Forests, waterfalls, and tribal traditions',             emoji:'🌿', region:'Central India' },
+  { id:'goa',                 file:'/data/goa_cities.json',                 name:'Goa',                 tagline:'Beaches, nightlife, and Portuguese charm',               emoji:'🌊', region:'West India' },
+  { id:'gujarat',             file:'/data/gujarat_cities.json',             name:'Gujarat',             tagline:'White deserts, lions, and vibrant traditions',           emoji:'🦁', region:'West India' },
+  { id:'haryana',             file:'/data/haryana_cities.json',             name:'Haryana',             tagline:'Fields, forts, and modern growth',                       emoji:'🌾', region:'North India' },
+  { id:'himachal-pradesh',    file:'/data/himachal_pradesh_cities.json',    name:'Himachal Pradesh',    tagline:'Snowy peaks, valleys, and hill stations',                emoji:'🏔️', region:'North India' },
+  { id:'jharkhand',           file:'/data/jharkhand_cities.json',           name:'Jharkhand',           tagline:'Waterfalls, forests, and tribal heritage',               emoji:'🌲', region:'East India' },
+  { id:'karnataka',           file:'/data/karnataka_cities.json',           name:'Karnataka',           tagline:'Palaces, coffee hills, and tech cities',                 emoji:'☕', region:'South India' },
+  { id:'kerala',              file:'/data/kerala_cities.json',              name:'Kerala',              tagline:'Backwaters, greenery, and coastal serenity',             emoji:'🌴', region:'South India' },
+  { id:'madhya-pradesh',      file:'/data/madhya_pradesh_cities.json',      name:'Madhya Pradesh',      tagline:'Heart of India with forts and wildlife',                 emoji:'🐅', region:'Central India' },
+  { id:'maharashtra',         file:'/data/maharashtra_cities.json',         name:'Maharashtra',         tagline:'Caves, coastlines, and bustling cities',                 emoji:'🏙️', region:'West India' },
+  { id:'manipur',             file:'/data/manipur_cities.json',             name:'Manipur',             tagline:'Lakes, hills, and rich cultural heritage',               emoji:'🌺', region:'North-East India' },
+  { id:'meghalaya',           file:'/data/meghalaya_cities.json',           name:'Meghalaya',           tagline:'Clouds, caves, and living root bridges',                 emoji:'☁️', region:'North-East India' },
+  { id:'mizoram',             file:'/data/mizoram_cities.json',             name:'Mizoram',             tagline:'Rolling hills and peaceful landscapes',                  emoji:'🌄', region:'North-East India' },
+  { id:'nagaland',            file:'/data/nagaland_cities.json',            name:'Nagaland',            tagline:'Festivals, hills, and warrior traditions',               emoji:'🎉', region:'North-East India' },
+  { id:'odisha',              file:'/data/odisha_cities.json',              name:'Odisha',              tagline:'Temples, beaches, and classical heritage',               emoji:'🛕', region:'East India' },
+  { id:'punjab',              file:'/data/punjab_cities.json',              name:'Punjab',              tagline:'Fields, forts, and vibrant Punjabi spirit',             emoji:'🌾', region:'North India' },
+  { id:'rajasthan',           file:'/data/rajasthan_cities.json',           name:'Rajasthan',           tagline:'Land of kings, deserts, and vibrant culture',            emoji:'🏰', region:'North-West India' },
+  { id:'sikkim',              file:'/data/sikkim_cities.json',              name:'Sikkim',              tagline:'Mountains, monasteries, and alpine beauty',              emoji:'🏔️', region:'North-East India' },
+  { id:'tamil-nadu',          file:'/data/tamil_nadu_cities.json',          name:'Tamil Nadu',          tagline:'Temples, tradition, and coastal charm',                  emoji:'🛕', region:'South India' },
+  { id:'telangana',           file:'/data/telangana_cities.json',           name:'Telangana',           tagline:'Heritage, innovation, and Deccan culture',               emoji:'🏛️', region:'South India' },
+  { id:'tripura',             file:'/data/tripura_cities.json',             name:'Tripura',             tagline:'Palaces, forests, and cultural richness',                emoji:'🌳', region:'North-East India' },
+  { id:'uttar-pradesh',       file:'/data/uttar_pradesh_cities.json',       name:'Uttar Pradesh',       tagline:'Sacred cities, history, and timeless culture',           emoji:'🕌', region:'North India' },
+  { id:'uttarakhand',         file:'/data/uttarakhand_cities.json',         name:'Uttarakhand',         tagline:'Mountains, rivers, and spiritual retreats',              emoji:'⛰️', region:'North India' },
+  { id:'west-bengal',         file:'/data/west_bengal_cities.json',         name:'West Bengal',         tagline:'Culture, cuisine, and colonial charm',                   emoji:'🎭', region:'East India' },
+];
+
+const UNION_TERRITORIES = [
+  { id:'andaman-and-nicobar-islands',                     file:'/data/andaman_and_nicobar_islands_cities.json',               name:'Andaman & Nicobar Islands',     tagline:'Islands, coral reefs, and tropical paradise',       emoji:'🏝️', region:'Island Territories' },
+  { id:'chandigarh',                                      file:'/data/chandigarh_cities.json',                                name:'Chandigarh',                    tagline:'Planned city with gardens and urban charm',          emoji:'🏙️', region:'North India' },
+  { id:'dadra-and-nagar-haveli-and-daman-and-diu',        file:'/data/dadra_and_nagar_haveli_and_daman_and_diu_cities.json',  name:'Dadra & NH and Daman & Diu',    tagline:'Beaches, forts, and Portuguese-era beauty',          emoji:'🌊', region:'West India' },
+  { id:'delhi',                                           file:'/data/delhi_cities.json',                                     name:'Delhi',                         tagline:'Capital city of monuments and modern life',          emoji:'🏛️', region:'North India' },
+  { id:'jammu-and-kashmir',                               file:'/data/jammu_and_kashmir_cities.json',                         name:'Jammu & Kashmir',               tagline:'Valleys, lakes, and breathtaking landscapes',       emoji:'🏞️', region:'North India' },
+  { id:'ladakh',                                          file:'/data/ladakh_cities.json',                                    name:'Ladakh',                        tagline:'High-altitude deserts and Himalayan beauty',        emoji:'🏔️', region:'North India' },
+  { id:'lakshadweep',                                     file:'/data/lakshadweep_cities.json',                               name:'Lakshadweep',                   tagline:'Turquoise lagoons and island serenity',             emoji:'🐚', region:'Island Territories' },
+  { id:'puducherry',                                      file:'/data/puducherry_cities.json',                                name:'Puducherry',                    tagline:'French vibes, beaches, and coastal calm',           emoji:'🌅', region:'South India' },
+];
+
+const STATE_REGISTRY = [...STATES, ...UNION_TERRITORIES];
+const UT_IDS = new Set(UNION_TERRITORIES.map(u => u.id));
+
+const EXPLORE_CATEGORIES = [
+  { label: 'All',          emoji: '🌏' },
+  { label: 'Heritage',     emoji: '🏛️' },
+  { label: 'Spiritual',    emoji: '🛕' },
+  { label: 'Trekking',     emoji: '🥾' },
+  { label: 'Beaches',      emoji: '🏖️' },
+  { label: 'Wildlife',     emoji: '🐅' },
+  { label: 'Adventure',    emoji: '⛷️' },
+  { label: 'Hill Station', emoji: '⛰️' },
+  { label: 'City',         emoji: '🏙️' },
+  { label: 'Lakes',        emoji: '🌊' },
+  { label: 'Pilgrimage',   emoji: '🙏' },
+  { label: 'Waterfalls',   emoji: '💧' },
+  { label: 'Desert',       emoji: '🏜️' },
+  { label: 'Islands',      emoji: '🏝️' },
+];
+
+// ══════════════════════════════════════════════════
+// APP STATE
+// ══════════════════════════════════════════════════
+let allCities      = [];
+let currentState   = null;
+let activeFilter   = 'All';
+let searchQuery    = '';
+let sortMode       = 'default';
+let isGlobalSearch = false;
+let globalResults  = [];
+
+let exploreFilter    = 'All';
+let exploreQuery     = '';
+let exploreAllCities = [];
+
+const stateDataCache = {};
+
+// ══════════════════════════════════════════════════
+// MAIN
+// ══════════════════════════════════════════════════
+async function main() {
+  const params  = new URLSearchParams(window.location.search);
+  const stateId = params.get('state') || STATE_REGISTRY[0].id;
+
+  buildStateDropdown(stateId);
+  buildStatesBrowser(stateId);
+  buildFooterLinks();
+  buildCatPills();
+  initNav();
+  initScrollFadeIn();
+
+  await loadState(stateId);
+  initHero();
+
+  prefetchPopularStates();
+
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('out');
+    setTimeout(() => { const l = document.getElementById('loader'); if(l) l.remove(); }, 800);
+  }, 2000);
+}
+
+async function prefetchPopularStates() {
+  const popular = ['rajasthan','kerala','goa','himachal-pradesh','delhi','uttarakhand'];
+  for (const id of popular) {
+    if (!stateDataCache[id]) {
+      const meta = STATE_REGISTRY.find(s => s.id === id);
+      if (!meta) continue;
+      try {
+        const res = await fetch(meta.file);
+        if (res.ok) { stateDataCache[id] = (await res.json()).cities; }
+      } catch(e) {}
+    }
+  }
+  rebuildExploreAll();
+}
+
+function rebuildExploreAll() {
+  exploreAllCities = [];
+  for (const [stateId, cities] of Object.entries(stateDataCache)) {
+    const meta = STATE_REGISTRY.find(s => s.id === stateId);
+    if (!meta) continue;
+    cities.forEach(c => exploreAllCities.push({ ...c, _stateId: stateId, _stateMeta: meta }));
+  }
+  renderExploreSection();
+}
+
+// ══════════════════════════════════════════════════
+// LOAD STATE
+// ══════════════════════════════════════════════════
+async function loadState(stateId) {
+  const stateMeta = STATE_REGISTRY.find(s => s.id === stateId);
+  if (!stateMeta) { console.error('State not found:', stateId); return; }
+
+  currentState   = stateMeta;
+  isGlobalSearch = false;
+
+  const loaderSub = document.getElementById('loaderSub');
+  if (loaderSub) loaderSub.textContent = `Loading ${stateMeta.name}`;
+
+  if (stateDataCache[stateId]) {
+    allCities = stateDataCache[stateId];
+  } else {
+    try {
+      const res  = await fetch(stateMeta.file);
+      if (!res.ok) throw new Error(`Could not load ${stateMeta.file}`);
+      const data = await res.json();
+      allCities  = data.cities;
+      stateDataCache[stateId] = allCities;
+    } catch (err) {
+      document.getElementById('cityGrid').innerHTML = `
+        <div class="no-results">
+          <span class="no-results-icon">⚠️</span>
+          <h3>Could not load data</h3>
+          <p>Make sure <strong>${stateMeta.file}</strong> exists.</p>
+        </div>`;
+      return;
+    }
+  }
+
+  activeFilter = 'All';
+  sortMode     = 'default';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('cbClearBtn').classList.remove('visible');
+  searchQuery  = '';
+
+  const url = new URL(window.location);
+  url.searchParams.set('state', stateId);
+  window.history.replaceState({}, '', url);
+
+  updateHeroForState(stateMeta);
+  updateStateHeader(stateMeta);
+  buildFilters(allCities);
+  showSingleStateMode();
+  renderSingleState();
+
+  document.querySelectorAll('.state-card').forEach(c => {
+    c.classList.toggle('active-state', c.dataset.stateId === stateId);
+  });
+  document.getElementById('stateSelect').value = stateId;
+  document.getElementById('globalSearchBanner').classList.remove('visible');
+
+  rebuildExploreAll();
+}
+
+function switchState(stateId) { loadState(stateId); }
+
+// ══════════════════════════════════════════════════
+// RENDER MODES
+// ══════════════════════════════════════════════════
+function showSingleStateMode() {
+  document.getElementById('singleStateSection').style.display = '';
+  document.getElementById('statesCitySection').style.display  = 'none';
+  document.getElementById('utsCitySection').style.display     = 'none';
+  document.getElementById('stateHeaderCard').style.display    = 'flex';
+}
+
+function showGlobalSearchMode() {
+  document.getElementById('singleStateSection').style.display = 'none';
+  document.getElementById('statesCitySection').style.display  = '';
+  document.getElementById('utsCitySection').style.display     = '';
+  document.getElementById('stateHeaderCard').style.display    = 'none';
+}
+
+// ══════════════════════════════════════════════════
+// SINGLE-STATE RENDER
+// ══════════════════════════════════════════════════
+function renderSingleState() {
+  const filtered = getFilteredSingle();
+  const grid     = document.getElementById('cityGrid');
+
+  document.getElementById('resultsCount').textContent =
+    `${filtered.length} destination${filtered.length !== 1 ? 's' : ''}`;
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results"><span class="no-results-icon">🗺</span><h3>No destinations found</h3><p>Try a different search or filter.</p></div>`;
+    return;
+  }
+
+  const isUT = UT_IDS.has(currentState.id);
+  grid.innerHTML = filtered.map((city, idx) => renderCityCard(city, idx, filtered.length, currentState, isUT)).join('');
+}
+
+function getFilteredSingle() {
+  let cities = [...allCities];
+  if (searchQuery) cities = cities.filter(c => matchesQuery(c, searchQuery));
+  if (activeFilter !== 'All') cities = cities.filter(c => matchesCityFilter(c, activeFilter));
+  return applySortMode(cities);
+}
+
+// ══════════════════════════════════════════════════
+// GLOBAL SEARCH
+// ══════════════════════════════════════════════════
+async function performGlobalSearch(query) {
+  globalResults = [];
+  const statesHit = new Set();
+
+  for (const [stateId, cities] of Object.entries(stateDataCache)) {
+    const meta = STATE_REGISTRY.find(s => s.id === stateId);
+    if (!meta) continue;
+    const hits = cities.filter(c => matchesQuery(c, query));
+    hits.forEach(c => {
+      globalResults.push({ ...c, _stateId: stateId, _stateMeta: meta });
+      statesHit.add(stateId);
+    });
+  }
+
+  renderGlobalResults(query, statesHit.size);
+}
+
+function renderGlobalResults(query, stateCount) {
+  showGlobalSearchMode();
+
+  const banner = document.getElementById('globalSearchBanner');
+  banner.classList.add('visible');
+  document.getElementById('gsbStateCount').textContent = `${stateCount} loaded`;
+
+  const stateResults = globalResults.filter(c => !UT_IDS.has(c._stateId));
+  const utResults    = globalResults.filter(c =>  UT_IDS.has(c._stateId));
+
+  document.getElementById('resultsCount').textContent =
+    `${globalResults.length} result${globalResults.length !== 1 ? 's' : ''}`;
+
+  const statesDivider = document.getElementById('statesDivider');
+  const statesGrid    = document.getElementById('statesCityGrid');
+  if (stateResults.length) {
+    statesDivider.style.display = 'flex';
+    document.getElementById('statesResultCount').textContent = `${stateResults.length} results`;
+    statesGrid.innerHTML = stateResults.map((c, i) =>
+      renderCityCard(c, i, stateResults.length, c._stateMeta, false, true)
+    ).join('');
+  } else {
+    statesDivider.style.display = 'none';
+    statesGrid.innerHTML = '';
+  }
+
+  const utsDivider = document.getElementById('utsDivider');
+  const utsGrid    = document.getElementById('utsCityGrid');
+  if (utResults.length) {
+    utsDivider.style.display = 'flex';
+    document.getElementById('utsResultCount').textContent = `${utResults.length} results`;
+    utsGrid.innerHTML = utResults.map((c, i) =>
+      renderCityCard(c, i, utResults.length, c._stateMeta, true, true)
+    ).join('');
+  } else {
+    utsDivider.style.display = 'none';
+    utsGrid.innerHTML = '';
+  }
+
+  if (!stateResults.length && !utResults.length) {
+    statesDivider.style.display = 'none';
+    utsDivider.style.display    = 'none';
+    statesGrid.innerHTML = `
+      <div class="no-results">
+        <span class="no-results-icon">🔍</span>
+        <h3>No results for "${query}"</h3>
+        <p>Try different keywords. Results only include currently loaded states.</p>
+      </div>`;
+  }
+}
+
+function clearSearch() {
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('cbClearBtn').classList.remove('visible');
+  document.getElementById('globalSearchBanner').classList.remove('visible');
+  isGlobalSearch = false;
+  showSingleStateMode();
+  buildFilters(allCities);
+  renderSingleState();
+}
+
+// ══════════════════════════════════════════════════
+// EXPLORE INDIA SECTION
+// ══════════════════════════════════════════════════
+function buildCatPills() {
+  const wrap = document.getElementById('catPills');
+  wrap.innerHTML = EXPLORE_CATEGORIES.map((cat, i) =>
+    `<button class="cat-pill ${i === 0 ? 'active' : ''}" data-cat="${cat.label}" onclick="setExploreFilter('${cat.label}', this)">
+       <span class="cat-pill-emoji">${cat.emoji}</span>${cat.label}
+     </button>`
+  ).join('');
+}
+
+function setExploreFilter(cat, btn) {
+  exploreFilter = cat;
+  document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderExploreSection();
+}
+
+function handleExploreSearch(val) {
+  exploreQuery = val.trim();
+  renderExploreSection();
+}
+
+function renderExploreSection() {
+  let items = [...exploreAllCities];
+
+  if (exploreQuery) items = items.filter(c => matchesQuery(c, exploreQuery));
+  if (exploreFilter !== 'All') items = items.filter(c => matchesCityFilter(c, exploreFilter));
+
+  const stateItems = items.filter(c => !UT_IDS.has(c._stateId));
+  const utItems    = items.filter(c =>  UT_IDS.has(c._stateId));
+
+  const statesSec = document.getElementById('exploreStatesSection');
+  const utsSec    = document.getElementById('exploreUtsSection');
+  const noRes     = document.getElementById('exploreNoResults');
+
+  if (!items.length) {
+    statesSec.style.display = 'none';
+    utsSec.style.display    = 'none';
+    noRes.style.display     = '';
+    return;
+  }
+
+  noRes.style.display = 'none';
+
+  if (stateItems.length) {
+    statesSec.style.display = '';
+    document.getElementById('exploreStatesCount').textContent = `${stateItems.length} destinations`;
+    document.getElementById('exploreStatesGrid').innerHTML = stateItems.map((c, i) =>
+      renderCityCard(c, i, stateItems.length, c._stateMeta, false, true)
+    ).join('');
+  } else {
+    statesSec.style.display = 'none';
+  }
+
+  if (utItems.length) {
+    utsSec.style.display = '';
+    document.getElementById('exploreUtsCount').textContent = `${utItems.length} destinations`;
+    document.getElementById('exploreUtsGrid').innerHTML = utItems.map((c, i) =>
+      renderCityCard(c, i, utItems.length, c._stateMeta, true, true)
+    ).join('');
+  } else {
+    utsSec.style.display = 'none';
+  }
+}
+
+// ══════════════════════════════════════════════════
+// CARD RENDERER
+// ✅ FIX 2: cityUrl uses /city?state= (Express route)
+// ══════════════════════════════════════════════════
+function renderCityCard(city, idx, total, stateMeta, isUT, showStateLabel = false) {
+  const isFeatured = idx === 0 && total > 2;
+  const delay      = Math.min(idx * 55, 450);
+  const cityUrl    = `/city?state=${stateMeta.id}&id=${city.id}`;
+  const altPillClass = isUT ? 'card-altitude-pill ut' : 'card-altitude-pill';
+  const cardClass    = isUT ? 'city-card ut-card' : 'city-card';
+  const tags         = (city.tags || []).slice(0, 3);
+
+  return `
+    <a href="${cityUrl}" class="${cardClass} ${isFeatured ? 'featured' : ''}" style="animation-delay:${delay}ms">
+      <div class="card-img-wrap">
+        <img class="card-img"
+             src="${city.hero_image}"
+             alt="${city.name}"
+             loading="${idx < 4 ? 'eager' : 'lazy'}"
+             onerror="this.src='https://images.unsplash.com/photo-1626621331169-5f34be280ed9?w=800&q=80'" />
+        <div class="card-img-overlay"></div>
+        <div class="card-shimmer"></div>
+        <div class="card-badges-top">
+          <span class="card-type-pill">${city.type}</span>
+          <span class="${altPillClass}">${city.altitude_display || ''}</span>
+        </div>
+      </div>
+      <div class="card-body-over">
+        ${showStateLabel ? `<div class="card-state-label">${stateMeta.emoji} ${stateMeta.name}</div>` : ''}
+        <div class="card-region">${city.region || ''}${city.district ? ' · ' + city.district : ''}</div>
+        <h2 class="card-name">${city.name}</h2>
+        <p class="card-tagline">${city.tagline || ''}</p>
+        ${tags.length ? `<div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>` : ''}
+        <div class="card-footer">
+          <div class="card-meta-row">
+            ${city.best_time ? `<span class="card-meta-item">🗓 ${city.best_time.split(',')[0]}</span>` : ''}
+            ${city.distance_delhi_km ? `<span class="card-meta-item">📍 ${city.distance_delhi_km}km</span>` : ''}
+            ${city.places ? `<span class="card-meta-item">🏛 ${city.places.length} places</span>` : ''}
+          </div>
+          <span class="card-explore-btn">Explore →</span>
+        </div>
+      </div>
+    </a>`;
+}
+
+// ══════════════════════════════════════════════════
+// SEARCH & FILTER
+// ══════════════════════════════════════════════════
+function matchesQuery(city, q) {
+  const lower = q.toLowerCase();
+  return (
+    city.name.toLowerCase().includes(lower) ||
+    (city.tagline || '').toLowerCase().includes(lower) ||
+    (city.type || '').toLowerCase().includes(lower) ||
+    (city.region || '').toLowerCase().includes(lower) ||
+    (city.district || '').toLowerCase().includes(lower) ||
+    (city.tags || []).some(t => t.toLowerCase().includes(lower)) ||
+    (city.overview || '').toLowerCase().includes(lower) ||
+    (city.cuisine || []).some(c => c.toLowerCase().includes(lower)) ||
+    (city.places || []).some(p =>
+      (p.name || '').toLowerCase().includes(lower) ||
+      (p.category || '').toLowerCase().includes(lower) ||
+      (p.subcategory || '').toLowerCase().includes(lower) ||
+      (p.description || '').toLowerCase().includes(lower)
+    )
+  );
+}
+
+function matchesCityFilter(city, filter) {
+  const f = filter.toLowerCase();
+  if ((city.type || '').toLowerCase() === f) return true;
+  if ((city.tags || []).some(t => t.toLowerCase().includes(f))) return true;
+  if ((city.type || '').toLowerCase().includes(f)) return true;
+  return false;
+}
+
+function handleSearch() {
+  searchQuery = document.getElementById('searchInput').value.trim();
+  const clearBtn = document.getElementById('cbClearBtn');
+
+  if (!searchQuery) { clearSearch(); return; }
+
+  clearBtn.classList.add('visible');
+  activeFilter   = 'All';
+  isGlobalSearch = true;
+  document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
+  const allBtn = document.querySelector('.filt[data-filter="All"]');
+  if (allBtn) allBtn.classList.add('active');
+
+  performGlobalSearch(searchQuery);
+}
+
+function setFilter(type, btn) {
+  if (isGlobalSearch) { clearSearch(); }
+  activeFilter = type;
+  document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSingleState();
+}
+
+function setSort(mode) { sortMode = mode; if (!isGlobalSearch) renderSingleState(); }
+
+function applySortMode(cities) {
+  if (sortMode === 'altitude')  return [...cities].sort((a, b) => b.altitude_m - a.altitude_m);
+  if (sortMode === 'distance')  return [...cities].sort((a, b) => a.distance_delhi_km - b.distance_delhi_km);
+  if (sortMode === 'places')    return [...cities].sort((a, b) => b.places.length - a.places.length);
+  return cities;
+}
+
+function focusSearch() {
+  document.getElementById('searchInput').focus();
+  window.scrollTo({ top: document.getElementById('destinations').offsetTop, behavior: 'smooth' });
+}
+
+// ══════════════════════════════════════════════════
+// UI BUILDERS
+// ══════════════════════════════════════════════════
+function buildFilters(cities) {
+  const types = ['All', ...new Set(cities.map(c => c.type).filter(Boolean))];
+  const strip = document.getElementById('filterStrip');
+  strip.innerHTML = types.map((t, i) =>
+    `<button class="filt ${i === 0 ? 'active' : ''}" data-filter="${t}" onclick="setFilter('${t}', this)">${t}</button>`
+  ).join('') +
+  `<div class="filter-sep"></div>
+   <div class="sort-wrap">
+     <span class="sort-label">Sort:</span>
+     <select class="sort-select" onchange="setSort(this.value)">
+       <option value="default">Featured</option>
+       <option value="altitude">By Altitude</option>
+       <option value="distance">Nearest to Delhi</option>
+       <option value="places">Most Places</option>
+     </select>
+   </div>`;
+}
+
+function updateStateHeader(stateMeta) {
+  document.getElementById('shcEyebrow').textContent = stateMeta.region + (UT_IDS.has(stateMeta.id) ? ' · Union Territory' : ' · State');
+  document.getElementById('shcTitle').innerHTML = `Explore <em>${stateMeta.name}</em>`;
+  document.getElementById('shcDesc').textContent = stateMeta.tagline;
+  document.getElementById('shcStats').innerHTML = `
+    <div class="shc-stat"><strong>${allCities.length}</strong><span>Destinations</span></div>
+    <div class="shc-stat"><strong>${allCities.reduce((s, c) => s + (c.places ? c.places.length : 0), 0)}</strong><span>Places to Visit</span></div>`;
+}
+
+function buildStateDropdown(activeId) {
+  const sel      = document.getElementById('stateSelect');
+  const statesOpts = STATES.map(s => `<option value="${s.id}" ${s.id === activeId ? 'selected' : ''}>${s.emoji} ${s.name}</option>`).join('');
+  const utOpts     = UNION_TERRITORIES.map(s => `<option value="${s.id}" ${s.id === activeId ? 'selected' : ''}>${s.emoji} ${s.name}</option>`).join('');
+  sel.innerHTML = `<optgroup label="States">${statesOpts}</optgroup><optgroup label="Union Territories">${utOpts}</optgroup>`;
+}
+
+function buildStatesBrowser(activeId) {
+  document.getElementById('statesGrid').innerHTML = STATES.map(s => `
+    <div class="state-card ${s.id === activeId ? 'active-state' : ''}" data-state-id="${s.id}"
+         onclick="loadState('${s.id}'); window.scrollTo({top:0,behavior:'smooth'})">
+      <span class="sc-emoji">${s.emoji}</span>
+      <div class="sc-name">${s.name}</div>
+      <div class="sc-region">${s.region}</div>
+    </div>`).join('');
+
+  document.getElementById('utsGrid').innerHTML = UNION_TERRITORIES.map(s => `
+    <div class="state-card ut-type ${s.id === activeId ? 'active-state' : ''}" data-state-id="${s.id}"
+         onclick="loadState('${s.id}'); window.scrollTo({top:0,behavior:'smooth'})">
+      <span class="sc-emoji">${s.emoji}</span>
+      <div class="sc-name">${s.name}</div>
+      <div class="sc-region">${s.region}</div>
+      <span class="sc-badge ut">UT</span>
+    </div>`).join('');
+}
+
+function buildFooterLinks() {
+  document.getElementById('footerStateLinks').innerHTML = STATES.slice(0, 8)
+    .map(s => `<li><a href="?state=${s.id}" onclick="loadState('${s.id}'); return false">${s.name}</a></li>`)
+    .join('');
+}
+
+// ══════════════════════════════════════════════════
+// HERO SLIDESHOW
+// ══════════════════════════════════════════════════
+let heroSlideInterval = null;
+let heroCurrentSlide  = 0;
+
+const INDIA_SLIDES = [
+  'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=80',
+  'https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=1600&q=80',
+  'https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=1600&q=80',
+  'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600&q=80',
+];
+
+function updateHeroForState(stateMeta) {
+  document.getElementById('heroStateName').textContent = stateMeta.name;
+  document.getElementById('heroDesc').textContent = stateMeta.tagline;
+  const slides = (stateMeta.heroSlides && stateMeta.heroSlides[0] !== 'url1')
+    ? stateMeta.heroSlides : INDIA_SLIDES;
+  buildHeroSlides(slides);
+  const total = allCities.reduce((s, c) => s + (c.places ? c.places.length : 0), 0);
+  const el = document.getElementById('heroTotalPlaces');
+  if (el) el.textContent = total + '+';
+}
+
+function buildHeroSlides(slides) {
+  const slidesEl     = document.getElementById('heroSlides');
+  const indicatorsEl = document.getElementById('slideIndicators');
+  slidesEl.innerHTML = indicatorsEl.innerHTML = '';
+  if (heroSlideInterval) clearInterval(heroSlideInterval);
+
+  slides.forEach((src, i) => {
+    const s = document.createElement('div');
+    s.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    s.style.backgroundImage = `url('${src}')`;
+    slidesEl.appendChild(s);
+    const d = document.createElement('div');
+    d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    d.onclick   = () => goToSlide(i);
+    indicatorsEl.appendChild(d);
+  });
+
+  heroCurrentSlide  = 0;
+  heroSlideInterval = setInterval(() => goToSlide((heroCurrentSlide + 1) % slides.length), 6000);
+}
+
+function goToSlide(n) {
+  document.querySelectorAll('.hero-slide').forEach((s, i) => s.classList.toggle('active', i === n));
+  document.querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('active', i === n));
+  heroCurrentSlide = n;
+}
+
+function initHero() { if (currentState) updateHeroForState(currentState); }
+
+// ══════════════════════════════════════════════════
+// NAV
+// ══════════════════════════════════════════════════
+function initNav() {
+  const nav = document.getElementById('mainNav');
+  const cb  = document.querySelector('.control-bar');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 60;
+    nav.classList.toggle('scrolled', scrolled);
+    cb.classList.toggle('nav-visible', scrolled);
+  }, { passive: true });
+}
+
+// ══════════════════════════════════════════════════
+// SCROLL FADE-IN
+// ══════════════════════════════════════════════════
+function initScrollFadeIn() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: .12 });
+  document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+}
+
+main();
+</script>
+</body>
+</html>

@@ -1,0 +1,814 @@
+{
+    "meta": {
+        "project": "India Explore - Meghalaya",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "shillong",
+            "name": "Shillong",
+            "tagline": "The Scotland of the East",
+            "region": "Khasi Hills",
+            "district": "East Khasi Hills",
+            "type": "Capital City & Hill Station",
+            "altitude_m": 1525,
+            "altitude_display": "1,525m",
+            "lat": 25.5788,
+            "lon": 91.8933,
+            "distance_guwahati_km": 100,
+            "distance_cherrapunji_km": 54,
+            "best_time": "September–May",
+            "avoid_time": "June–August (heavy monsoon, landslides)",
+            "temp_summer_c": "15–24°C",
+            "temp_winter_c": "2–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1629806497793-1e967aeb50e5?w=1200&q=80",
+            "overview": "Shillong, the capital of Meghalaya, is a stunningly beautiful hill station characterized by rolling pine-covered hills, a vibrant rock music culture, and a distinct colonial hangover. Often dubbed the 'Scotland of the East' by the British, it seamlessly blends traditional Khasi culture with modern cafes, bustling markets, and breathtaking natural viewpoints.",
+            "history": "Before the arrival of the British, the region was governed by local Khasi Syiems (chiefs). Following the Anglo-Khasi War, the British established their civil station here in 1864, drawn by the cool climate which reminded them of Scotland. In 1874, it became the capital of the composite state of Assam. When Meghalaya was carved out of Assam in 1972, Shillong became the capital of the new state.",
+            "nearest_airport": {
+                "name": "Shillong Airport (Umroi)",
+                "code": "SHL",
+                "distance_km": 30,
+                "note": "Limited connectivity. Lokpriya Gopinath Bordoloi Airport (Guwahati) is the primary hub."
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 98,
+                "note": "Meghalaya currently lacks an active passenger railway network in the hills."
+            },
+            "language": [
+                "Khasi",
+                "English",
+                "Hindi",
+                "Pnar"
+            ],
+            "cuisine": [
+                "Jadoh (Rice and pork/chicken)",
+                "Tungrymbai (Fermented soybean)",
+                "Dohneiiong (Pork with black sesame)",
+                "Momos & Café Culture"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 4000,
+                "luxury": 9000
+            },
+            "tags": [
+                "hill station",
+                "music",
+                "culture",
+                "waterfalls",
+                "colonial architecture"
+            ],
+            "places": [
+                {
+                    "id": "shl-umiam-lake",
+                    "name": "Umiam Lake (Barapani)",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.7,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Umiam lake Meghalaya hills reflection",
+                    "description": "A massive, mesmerizing man-made reservoir created by damming the Umiam River. Sprawling over 220 square kilometers, its pristine blue waters are surrounded by lush green East Khasi hills. It is the first major scenic spot you encounter when driving up from Guwahati to Shillong.",
+                    "tips": "Boating and water sports are available. The viewpoint from the highway offers the best panoramic shots, but descending to the lakeside park is perfect for a quiet afternoon picnic.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-don-bosco",
+                    "name": "Don Bosco Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.8,
+                    "entry_fee_inr": 100,
+                    "open_hours": "9:00 AM – 4:30 PM (Closed Sundays)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "museum artifacts tribal northeast India",
+                    "description": "Widely regarded as the finest museum in Northeast India. Spread across seven floors, this hexagonal architectural marvel brilliantly curates the diverse cultures, tribal lifestyles, weapons, music, and tools of all the indigenous tribes of the entire Northeastern region.",
+                    "tips": "Take the elevator to the top floor and walk your way down. Do not miss the Skywalk on the roof, which offers a brilliant 360-degree panoramic view of the entire city of Shillong.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-elephant-falls",
+                    "name": "Elephant Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "Elephant falls Shillong waterfall cascade",
+                    "description": "A popular, three-tiered waterfall located just outside the city. The Khasi name 'Kshaid Lai Pateng Khohsiew' translates to 'Three Steps Waterfalls'. The British named it Elephant Falls after a massive rock resembling an elephant near the falls, which was later destroyed in the 1897 earthquake.",
+                    "tips": "You have to climb down steep, wet stairs to reach the lowest and most spectacular third tier. Dress in comfortable walking shoes. It gets very crowded on weekends.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-laitlum",
+                    "name": "Laitlum Canyons",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint & Trek",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 24,
+                    "unsplash_query": "Laitlum canyons deep gorge mist green",
+                    "description": "Laitlum literally translates to 'End of Hills', and the view here justifies the name perfectly. It is a stunning, windswept ridge offering breathtaking, dramatic views of deep, plunging gorges, winding rivers, and distant mist-covered valleys. It feels like standing on the edge of the world.",
+                    "tips": "The road to Laitlum is scenic but narrow. Pack your own food and water as there are very few stalls. Be cautious of the sheer drop-offs if trekking down the ancient stairway to the Rasong village below.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-police-bazar",
+                    "name": "Police Bazar (PB)",
+                    "category": "Experience",
+                    "subcategory": "Market & Dining",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 9:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "bustling market street night city",
+                    "description": "The commercial heart and most chaotic, vibrant part of Shillong. A massive pedestrian circle surrounded by hotels, restaurants, cafes, and shops selling winter wear, traditional Khasi handicrafts, bamboo artifacts, and fresh local produce.",
+                    "tips": "Traffic is a nightmare here, so explore on foot. Try the local street food, especially the momos and pork skewers. Bargaining is expected in the street stalls.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-shillong-peak",
+                    "name": "Shillong Peak",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.3,
+                    "entry_fee_inr": 30,
+                    "open_hours": "9:00 AM – 3:30 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "city view from mountain top day",
+                    "description": "The highest point in Shillong at 1,965 meters above sea level. It offers a spectacular bird's-eye view of the entire city, the waterfalls, and the distant Himalayan peaks on a clear day. The peak is situated within an Indian Air Force base.",
+                    "tips": "Because it is in a high-security military zone, you must carry a valid ID (Aadhar/Passport) to enter. Cameras must be surrendered at the gate, though mobile photography is sometimes permitted.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "shl-wards-lake",
+                    "name": "Ward's Lake",
+                    "category": "Nature",
+                    "subcategory": "City Park",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:30 AM – 5:30 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "horseshoe lake bridge flowers park",
+                    "description": "A beautiful, horseshoe-shaped artificial lake located in the middle of the city, surrounded by a lush botanical garden and cobblestone pathways. It features an iconic white wooden bridge and is a serene spot to escape the city traffic.",
+                    "tips": "Paddle boating is available. It is incredibly beautiful during the Cherry Blossom season in November when the surrounding trees bloom in vibrant pink.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "cherrapunji",
+            "name": "Cherrapunji (Sohra)",
+            "tagline": "The Land of Living Root Bridges",
+            "region": "Khasi Hills",
+            "district": "East Khasi Hills",
+            "type": "Nature & Adventure",
+            "altitude_m": 1484,
+            "altitude_display": "1,484m",
+            "lat": 25.2702,
+            "lon": 91.7323,
+            "distance_shillong_km": 54,
+            "distance_dawki_km": 85,
+            "best_time": "October–May",
+            "avoid_time": "June–August (some waterfalls are spectacular, but trekking is dangerous)",
+            "temp_summer_c": "15–23°C",
+            "temp_winter_c": "5–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80",
+            "overview": "Historically renowned as one of the wettest places on earth, Cherrapunji (locally known as Sohra) is an incredibly dramatic landscape of plunging sheer cliffs, massive waterfalls, and deep limestone caves. However, its most magical feature is the bio-engineering marvel created by the indigenous Khasi tribes: the ancient living root bridges spanning fierce mountain rivers.",
+            "history": "Sohra was the original capital of the British in the Khasi hills before they moved it to Shillong in 1864, largely to escape the punishing monsoon rains. The Khasi people here have a deep, animistic connection to nature, which is most visibly demonstrated in their centuries-old practice of guiding the roots of Ficus elastica trees across rivers to create living, growing bridges that strengthen over time.",
+            "nearest_airport": {
+                "name": "Shillong Airport",
+                "code": "SHL",
+                "distance_km": 80
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 150,
+                "note": "Requires a 4-5 hour mountainous drive."
+            },
+            "language": [
+                "Khasi",
+                "English"
+            ],
+            "cuisine": [
+                "Jadoh",
+                "Local Orange Honey",
+                "Pork Salad",
+                "Black Tea"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 7000
+            },
+            "tags": [
+                "waterfalls",
+                "living root bridge",
+                "trekking",
+                "caves",
+                "rain"
+            ],
+            "places": [
+                {
+                    "id": "che-double-decker",
+                    "name": "Double Decker Living Root Bridge (Nongriat)",
+                    "category": "Experience",
+                    "subcategory": "Trekking & Heritage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:00 AM – 5:00 PM",
+                    "duration_hrs": "6–8",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "double decker living root bridge jungle",
+                    "description": "An absolute wonder of the world. Located deep in the jungle village of Nongriat, this is a naturally growing bridge consisting of two tiers of thick, intertwined tree roots spanning a turquoise river. It is over 150 years old and can hold the weight of dozens of people simultaneously.",
+                    "tips": "Reaching it requires a grueling trek involving a descent of over 3,500 steep concrete steps (and the same climb back up). You must be physically fit. Start early morning. Carry plenty of water and energy bars. You can also hike further to the Rainbow Falls.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-nohkalikai",
+                    "name": "Nohkalikai Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.8,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 7,
+                    "unsplash_query": "Nohkalikai falls cliff plunge pool green",
+                    "description": "The tallest plunge waterfall in India, dropping a staggering 340 meters (1,115 feet) from a lush, flat plateau into a spectacularly deep green pool below. The name translates to 'The Leap of Likai', stemming from a tragic local Khasi legend about a woman named Likai who threw herself off the cliff.",
+                    "tips": "The viewpoint is easily accessible by car. During the dry season (winter), the water volume drops significantly. The best views are in September-October when it flows powerfully but the mist has cleared.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-wei-sawdong",
+                    "name": "Wei Sawdong Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls & Trek",
+                    "rating": 4.7,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "three tier waterfall blue pool jungle",
+                    "description": "A magnificent, incredibly pristine three-tiered waterfall known for its crystal-clear, blue-green plunge pools. It is hidden deep within a thick forested gorge and looks like a paradise straight out of a fantasy movie.",
+                    "tips": "The descent to the bottom pool is extremely steep, requiring you to climb down almost vertical, precarious bamboo ladders constructed by locals. It is adventurous but requires caution. Not suitable for elderly travelers.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-mawsmai-cave",
+                    "name": "Mawsmai Cave",
+                    "category": "Nature",
+                    "subcategory": "Limestone Cave",
+                    "rating": 4.3,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 6,
+                    "unsplash_query": "limestone cave stalactites lit up",
+                    "description": "A fully lit, easily accessible limestone cave system that gives tourists a brief introduction to Meghalaya's extensive subterranean network. The cave features fascinating stalactite and stalagmite formations, though you have to squeeze through a few narrow passages.",
+                    "tips": "The cave is quite short (about 150 meters open to the public) and gets very claustrophobic and crowded during peak tourist hours. Wear shoes that can get wet, as water drips constantly.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-arwah-cave",
+                    "name": "Arwah Cave",
+                    "category": "Nature",
+                    "subcategory": "Cave & Fossil Site",
+                    "rating": 4.6,
+                    "entry_fee_inr": 30,
+                    "open_hours": "9:30 AM – 5:30 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "forest trail dark cave opening",
+                    "description": "Larger and far less crowded than Mawsmai, the Arwah cave is famous for its intricate limestone formations and visible fossils of crustacean shells and fish bones embedded right into the cave walls. The walk to the cave is stunning, passing along the edge of a deep gorge with dense vegetation.",
+                    "tips": "Bring a strong flashlight to spot the fossils on the walls. The wooden boardwalk leading to the cave offers fantastic views and is a great spot for photography.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-seven-sisters",
+                    "name": "Seven Sisters Falls (Nohsngithiang Falls)",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "multiple waterfalls cliff green valley",
+                    "description": "A spectacular seven-segmented waterfall that plunges 315 meters down the limestone cliffs of the Khasi Hills. It represents the seven sister states of Northeast India. It is a seasonal waterfall and is only truly visible during or immediately after the monsoons.",
+                    "tips": "It is viewed from a massive viewpoint across the valley. Do not visit in winter or late spring, as the falls are completely dry and you will only see a bare rock face.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "che-dainthlen",
+                    "name": "Dainthlen Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "rocky river bed waterfall drop",
+                    "description": "A powerful waterfall with a dark legend. According to Khasi folklore, an evil, massive serpent (Thlen) terrorized the locals until they captured and slaughtered it on the rocks here. The rocks around the waterfall still bear natural gouges resembling the scars of the battle.",
+                    "tips": "Unlike plunge falls, you can walk on the flat, pot-holed rocky riverbed right up to the edge where the water dramatically drops off. Exercise extreme caution near the edge.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "dawki",
+            "name": "Dawki & Shnongpdeng",
+            "tagline": "The Village of the Crystal River",
+            "region": "Jaintia Hills",
+            "district": "West Jaintia Hills",
+            "type": "Riverine & Adventure",
+            "altitude_m": 20,
+            "altitude_display": "20m",
+            "lat": 25.1833,
+            "lon": 92.0167,
+            "distance_shillong_km": 82,
+            "distance_cherrapunji_km": 85,
+            "best_time": "November–April (Water is clearest in winter)",
+            "avoid_time": "June–September (river gets muddy and dangerous due to rains)",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1596700813955-f2ebce311a22?w=1200&q=80",
+            "overview": "Dawki is a small, bustling border town nestled at the bottom of the Jaintia Hills where the Umngot River flows gracefully into the plains of Bangladesh. The region is globally famous for the hyper-transparent waters of the river, where boats appear to be floating on thin air. A few kilometers upstream, the village of Shnongpdeng has emerged as the premier adventure and camping hub of Meghalaya.",
+            "history": "Historically an important trade route between the Khasi-Jaintia hills and the Sylhet plains of Bengal. The iconic steel suspension bridge over the Umngot River was built by the British in 1932 to connect Shillong to the remote areas of the Jaintia hills. Today, the Tamabil check post serves as an active international trading border with Bangladesh.",
+            "nearest_airport": {
+                "name": "Shillong Airport",
+                "code": "SHL",
+                "distance_km": 105
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 175,
+                "note": "Most tourists drive from Shillong or Cherrapunji."
+            },
+            "language": [
+                "Khasi",
+                "Pnar",
+                "English",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Fresh River Fish Curry",
+                "Bamboo Shoot Chicken",
+                "Simple Khasi Thali"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "clear river",
+                "boating",
+                "camping",
+                "border town",
+                "adventure"
+            ],
+            "places": [
+                {
+                    "id": "dwk-umngot-river",
+                    "name": "Dawki River (Umngot River)",
+                    "category": "Nature",
+                    "subcategory": "River Boating",
+                    "rating": 4.8,
+                    "entry_fee_inr": 500,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "clear water river boat floating Dawki",
+                    "description": "The Umngot River is famed as one of the cleanest rivers in India. During the winter months, the water is so impeccably clear that the riverbed is visible from the surface, creating an optical illusion that the traditional wooden boats are floating on air.",
+                    "tips": "You must visit between November and March to see the crystal-clear water; during the monsoon, the water turns brown. Hire a boatman to row you up the gorge. Expect massive traffic jams entering Dawki town on weekends.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dwk-shnongpdeng",
+                    "name": "Shnongpdeng Village",
+                    "category": "Experience",
+                    "subcategory": "Adventure & Camping",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "6–24",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "river camping tents cliff jumping",
+                    "description": "Located slightly upstream from Dawki, Shnongpdeng is a highly organized, community-run eco-tourism village. It offers riverside tent camping along the white pebble banks of the Umngot river, along with thrilling adventure activities like cliff jumping, zip-lining, kayaking, and scuba diving.",
+                    "tips": "Skip staying in Dawki town and book a riverside tent in Shnongpdeng instead for a magical night under the stars. The suspension bridge here offers spectacular top-down views of the river.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dwk-tamabil",
+                    "name": "Tamabil Border Crossing",
+                    "category": "Landmark",
+                    "subcategory": "International Border",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "border gate India Bangladesh guard",
+                    "description": "The official border crossing separating India and Bangladesh (Sylhet region). The landscape dramatically shifts from the steep hills of Meghalaya to the massive, flat plains of Bangladesh right at this check post. Hundreds of trucks laden with limestone cross here daily.",
+                    "tips": "You can walk right up to the zero-point pillar marking the border and take photographs with friendly border guards from both countries. No visa is required just to visit the zero-line barrier.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dwk-dawki-bridge",
+                    "name": "Dawki Suspension Bridge",
+                    "category": "Heritage",
+                    "subcategory": "Architecture",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 0.5,
+                    "unsplash_query": "steel suspension bridge gorge river",
+                    "description": "Built by the British in 1932 to facilitate trade, this narrow, single-lane steel suspension bridge spans the deep gorge over the Umngot River. It is a vital, highly photogenic historical landmark of the region.",
+                    "tips": "It serves as the main vehicular bridge, so you cannot walk extensively on it due to traffic. Take photos of it from the river below during your boat ride.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "mawlynnong",
+            "name": "Mawlynnong",
+            "tagline": "God's Own Garden",
+            "region": "East Khasi Hills",
+            "district": "East Khasi Hills",
+            "type": "Rural Tourism & Heritage",
+            "altitude_m": 490,
+            "altitude_display": "490m",
+            "lat": 25.2017,
+            "lon": 91.9158,
+            "distance_shillong_km": 78,
+            "distance_dawki_km": 35,
+            "best_time": "Year-round (Post-monsoon is greenest)",
+            "avoid_time": "None, though monsoons restrict walking",
+            "temp_summer_c": "22–32°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1620603723326-0e10cc933e4f?w=1200&q=80",
+            "overview": "Mawlynnong gained global fame after being dubbed 'Asia’s Cleanest Village' by Discover India magazine in 2003. It is a stunning, pristine hamlet that feels like an impeccably manicured botanical garden. The village is a masterclass in community-driven eco-tourism, characterized by bamboo dustbins, spotless paved pathways, and an abundance of blooming orchids.",
+            "history": "The deep-rooted tradition of cleanliness in Mawlynnong dates back over a century. An outbreak of cholera in the late 19th century led Christian missionaries to encourage the villagers to maintain rigorous hygiene. This habit was deeply internalized by the indigenous Khasi community here and passed down through generations, eventually turning the village into a global tourism model.",
+            "nearest_airport": {
+                "name": "Shillong Airport",
+                "code": "SHL",
+                "distance_km": 100
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 170,
+                "note": "Most tourists visit as a day trip from Shillong or Dawki."
+            },
+            "language": [
+                "Khasi",
+                "English"
+            ],
+            "cuisine": [
+                "Locally grown organic vegetables",
+                "Jadoh",
+                "Pusaw (Khasi rice cake)"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4000
+            },
+            "tags": [
+                "clean village",
+                "eco-tourism",
+                "living root bridge",
+                "culture"
+            ],
+            "places": [
+                {
+                    "id": "mln-village-walk",
+                    "name": "Mawlynnong Village Walk",
+                    "category": "Culture",
+                    "subcategory": "Rural Tourism",
+                    "rating": 4.6,
+                    "entry_fee_inr": 50,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "clean village bamboo houses flowers",
+                    "description": "Walking through the village itself is the primary attraction. Every house is adorned with vibrant flower gardens, and the winding paths are spotless. You will notice conical bamboo dustbins everywhere, and villagers (including children) actively sweeping the streets. It offers a profound look into Khasi village life and their matrilineal society.",
+                    "tips": "Respect the privacy of the villagers; do not enter private gardens without permission. Try the simple, organic, home-cooked Khasi meals offered in the small village eateries.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "mln-riwai-bridge",
+                    "name": "Jingmaham Living Root Bridge (Riwai)",
+                    "category": "Heritage",
+                    "subcategory": "Bio-engineering",
+                    "rating": 4.7,
+                    "entry_fee_inr": 40,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "single decker living root bridge Meghalaya",
+                    "description": "Located in the neighboring village of Riwai, just a 10-minute drive from Mawlynnong. This is a massive, incredibly robust single-decker living root bridge spanning a rocky river. It is much wider and significantly easier to access than the Double Decker bridge in Cherrapunji.",
+                    "tips": "Requires only a short, 15-minute downhill walk from the parking area. The stream below is very refreshing, but do not stand or jump on the roots of the bridge itself.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "mln-sky-view",
+                    "name": "Sky View (Bamboo Watchtower)",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.3,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 0.5,
+                    "unsplash_query": "bamboo watchtower forest view",
+                    "description": "A high, precarious-looking but sturdy watchtower constructed entirely out of bamboo and tied with cane ropes by the local villagers. Climbing to the top (over 80 feet high) offers a sweeping, panoramic view of the dense forest canopy ending in the vast plains of neighboring Bangladesh.",
+                    "tips": "Not recommended for those with a fear of heights. Only a limited number of people are allowed up at one time to ensure the bamboo structure remains stable.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "mln-balancing-rock",
+                    "name": "Balancing Rock",
+                    "category": "Nature",
+                    "subcategory": "Geological",
+                    "rating": 4.1,
+                    "entry_fee_inr": 10,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "balancing rock boulder forest",
+                    "description": "A fascinating natural geological phenomenon right at the entrance of the village. It features a massive, giant boulder resting precariously on a tiny, disproportionately small rock base. It has survived centuries of rain, wind, and severe earthquakes in the region without tumbling.",
+                    "tips": "A quick photo stop before entering the main village. The site is enclosed by a wire mesh to prevent people from trying to push the rock.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "jowai",
+            "name": "Jowai & West Jaintia Hills",
+            "tagline": "The Crown of the Jaintia Hills",
+            "region": "Jaintia Hills",
+            "district": "West Jaintia Hills",
+            "type": "Nature & Heritage",
+            "altitude_m": 1380,
+            "altitude_display": "1,380m",
+            "lat": 25.4485,
+            "lon": 92.2000,
+            "distance_shillong_km": 65,
+            "distance_dawki_km": 55,
+            "best_time": "September–May",
+            "avoid_time": "June–August",
+            "temp_summer_c": "18–26°C",
+            "temp_winter_c": "4–16°C",
+            "hero_image": "https://images.unsplash.com/photo-1627962137946-b60517596a24?w=1200&q=80",
+            "overview": "Jowai is the administrative and commercial heart of the Jaintia Hills. Considerably less commercialized than the Khasi Hills, it offers an off-the-beaten-path experience featuring some of the most spectacularly blue waterfalls in the state, ancient monoliths pointing to a royal past, and the vibrant indigenous culture of the Pnar people.",
+            "history": "The Jaintia Kingdom was one of the oldest and most powerful kingdoms in the region, with its summer capital historically located in nearby Nartiang. The Jaintia kings practiced a unique syncretic blend of indigenous animism and Hinduism. The region fell to the British in 1835 after the Anglo-Jaintia War, famously led by the local freedom fighter U Kiang Nangbah.",
+            "nearest_airport": {
+                "name": "Shillong Airport",
+                "code": "SHL",
+                "distance_km": 70
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 160,
+                "note": "Connected by a smooth national highway via Shillong."
+            },
+            "language": [
+                "Pnar (Jaintia)",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Jadoh",
+                "Doh Khlieh (Pork salad)",
+                "Local River Fish"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "waterfalls",
+                "monoliths",
+                "history",
+                "nature",
+                "caves"
+            ],
+            "places": [
+                {
+                    "id": "jow-krang-suri",
+                    "name": "Krang Suri Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.9,
+                    "entry_fee_inr": 50,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "blue water waterfall clear pool Krang Suri",
+                    "description": "Arguably the most magical waterfall in Meghalaya. Tucked away in the mountains, the river drops over a smooth, curved ledge into an impossibly brilliant, deep cobalt-blue plunge pool. A paved pathway of chiseled laterite stones leads down to this hidden paradise.",
+                    "tips": "It is an incredibly photogenic spot. You can swim in the plunge pool, but renting a life jacket from the local operators is mandatory. You can also walk on the path behind the curtain of the falling water.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jow-nartiang-monoliths",
+                    "name": "Nartiang Monoliths",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "monoliths standing stones ancient ruins",
+                    "description": "The largest collection of megalithic stones in one single area in Meghalaya. Erected by the Jaintia Kings between the 16th and 19th centuries to commemorate victories and kings. The site features a staggering array of vertical stones (Moo Shynrang - representing men) and horizontal slabs (Moo Kynthai - representing women). The tallest stone stands at an imposing 8 meters high.",
+                    "tips": "A fantastic historical detour. The site is open, quiet, and feels like stepping into ancient history. Pair this with a visit to the nearby Durga Temple.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jow-tyrshi-falls",
+                    "name": "Tyrshi Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "waterfall green valley stairs",
+                    "description": "Often compared to Shillong's Elephant Falls, but much taller and less crowded. A beautifully constructed arch bridge connects you to the top of the falls, and a long flight of stairs takes you down to the bottom, offering a sweeping view of the magnificent Pynthor Nein paddy fields below.",
+                    "tips": "It requires a slight detour from the main highway and a bit of a hike, making it a peaceful, uncrowded alternative for nature lovers.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jow-nartiang-durga",
+                    "name": "Nartiang Durga Temple",
+                    "category": "Temple",
+                    "subcategory": "Shakti Peetha",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 26,
+                    "unsplash_query": "ancient Hindu temple architecture red",
+                    "description": "A 500-year-old temple and one of the 51 Shakti Peethas in Hindu mythology (believed to be the spot where Sati's left thigh fell). The temple reflects a unique architectural blend of local Khasi-Jaintia styles and Hindu traditions. Historically, it was a site of human sacrifice by the Jaintia kings, though now only animal sacrifice (goat) occurs during Durga Puja.",
+                    "tips": "The priests here are uniquely descendants of the Jaintia royalty, not typical Brahmins. The temple is located right next to the Nartiang Monoliths.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jow-syntu-ksiar",
+                    "name": "Syntu Ksiar",
+                    "category": "Nature",
+                    "subcategory": "River Valley",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "river flowing meadow valley",
+                    "description": "Translating to 'Golden Flower', this is a vast, beautiful meadow situated on the banks of the gently flowing Myntdu River. It holds historical significance as the site where the freedom fighter U Kiang Nangbah initiated his rebellion against the British.",
+                    "tips": "A highly popular local picnic spot. A memorial to U Kiang Nangbah stands in the meadow. It is perfect for a relaxing evening walk by the river.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "tura",
+            "name": "Tura & Garo Hills",
+            "tagline": "The Untamed West",
+            "region": "Garo Hills",
+            "district": "West Garo Hills",
+            "type": "Nature & Wildlife",
+            "altitude_m": 349,
+            "altitude_display": "349m",
+            "lat": 25.5147,
+            "lon": 90.2030,
+            "distance_guwahati_km": 220,
+            "distance_shillong_km": 315,
+            "best_time": "October–March",
+            "avoid_time": "June–September (heavy monsoons severely impact roads)",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1544834243-7a96a308ea7c?w=1200&q=80",
+            "overview": "Tura is the cultural and administrative heart of the Garo Hills in western Meghalaya. Vastly different from the Khasi hills in both landscape and culture, this region is rugged, heavily forested, and incredibly bio-diverse. It is a haven for serious adventurers, featuring massive cave systems, rich wildlife, and the unique Garo tribal heritage.",
+            "history": "According to Garo tradition, they migrated from Tibet centuries ago, eventually settling in the Garo Hills. The region was largely independent until the British annexed it in 1872 to stop Garo raids on the plains of Assam. Tura grew as the British administrative center. The Garo people trace descent through the mother, maintaining a deeply fascinating matrilineal society.",
+            "nearest_airport": {
+                "name": "Lokpriya Gopinath Bordoloi Airport, Guwahati",
+                "code": "GAU",
+                "distance_km": 200
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 215,
+                "note": "Most travel is by road from Guwahati via Assam."
+            },
+            "language": [
+                "Garo",
+                "English",
+                "Assamese"
+            ],
+            "cuisine": [
+                "Nakham Bitchi (Dry fish soup)",
+                "Do'o Kappa (Chicken cooked with baking soda)",
+                "Pura (Rice beer)"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "wildlife",
+                "caves",
+                "biosphere reserve",
+                "trekking",
+                "offbeat"
+            ],
+            "places": [
+                {
+                    "id": "tur-nokrek",
+                    "name": "Nokrek National Park",
+                    "category": "Nature",
+                    "subcategory": "Biosphere Reserve",
+                    "rating": 4.6,
+                    "entry_fee_inr": 40,
+                    "open_hours": "7:00 AM – 4:00 PM",
+                    "duration_hrs": "4–6",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "dense tropical forest wildlife jungle",
+                    "description": "A UNESCO designated Biosphere Reserve and a highly pristine, thick tropical forest. Nokrek is famously the original home of the rare Citrus indica (Memang Narang), considered the mother of all citrus fruits. The park is highly bio-diverse, harboring Hoolock Gibbons, red pandas, elephants, and occasionally tigers.",
+                    "tips": "It requires significant trekking to explore properly. Hire a local guide from the forest department. The trek to the Nokrek peak (the highest point in Garo hills) is rugged but immensely rewarding.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tur-tura-peak",
+                    "name": "Tura Peak",
+                    "category": "Nature",
+                    "subcategory": "Trekking & Viewpoint",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "mountain peak view forest plains",
+                    "description": "Towering over the town at 872 meters, Tura Peak is a reserve forest offering a fantastic half-day trek. A well-maintained trail (originally laid by the British) winds up through the thick jungle. The summit provides a spectacular, unhindered view of the lower Brahmaputra valley and the golden plains of Bangladesh.",
+                    "tips": "The trek takes about 1.5 to 2 hours one way. Carry water as there are no facilities on the trail. A small observatory is located at the top.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tur-pelga-falls",
+                    "name": "Pelga Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 7,
+                    "unsplash_query": "forest waterfall bamboo bridge stream",
+                    "description": "A popular local picnic spot located close to Tura town. The waterfall cascades widely over a rocky bed rather than a sheer drop. The area is highly serene and features a traditional Garo bamboo bridge constructed over the Ganol River.",
+                    "tips": "A great spot to relax without heavy trekking. The bamboo bridge offers a nice photo opportunity and a chance to experience local Garo rural engineering.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tur-siju-cave",
+                    "name": "Siju Cave (Bat Cave)",
+                    "category": "Nature",
+                    "subcategory": "Limestone Cave",
+                    "rating": 4.7,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 4:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 115,
+                    "unsplash_query": "dark limestone cave bats river",
+                    "description": "Though located a fair distance from Tura (in South Garo Hills), it is the most famous attraction in the region. Locally known as 'Dobakkol' (Cave of Bats), it is one of the longest cave systems in the Indian subcontinent. A river flows directly out of the massive, imposing cave entrance, which houses thousands of bats.",
+                    "tips": "It requires a full-day trip from Tura. Navigating deep into the cave requires wading through waist-deep water. You must hire a local guide. Only the bravest go past the first few hundred meters.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

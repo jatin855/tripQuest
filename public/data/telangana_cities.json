@@ -1,0 +1,768 @@
+{
+    "meta": {
+        "project": "India Explore - Telangana",
+        "version": "1.0",
+        "total_cities": 8,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "hyderabad",
+            "name": "Hyderabad",
+            "tagline": "City of Pearls",
+            "region": "Deccan Plateau",
+            "district": "Hyderabad",
+            "type": "Metropolitan & Heritage",
+            "altitude_m": 542,
+            "altitude_display": "542m",
+            "lat": 17.3850,
+            "lon": 78.4867,
+            "distance_bangalore_km": 570,
+            "distance_chennai_km": 626,
+            "best_time": "October–March",
+            "avoid_time": "April–June (extreme heat)",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "15–28°C",
+            "hero_image": "https://images.unsplash.com/photo-1587474260580-58955f1f9e61?w=1200&q=80",
+            "overview": "Hyderabad is the capital and largest city of Telangana. It is a seamless blend of historic charm and cutting-edge technology (Cyberabad). Known globally for its iconic Charminar, massive Golconda Fort, and its world-famous biryani, the city offers a rich tapestry of Qutb Shahi and Asaf Jahi (Nizam) heritage alongside a bustling modern IT ecosystem.",
+            "history": "Founded in 1591 by Muhammad Quli Qutb Shah, Hyderabad was established to expand the capital beyond the Golconda Fort. It later became the capital of the Asaf Jahi dynasty (the Nizams), who ruled until India's independence. It was historically renowned as a global center for the diamond and pearl trade.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 24
+            },
+            "nearest_railhead": {
+                "name": "Secunderabad Junction / Hyderabad Deccan (Nampally)",
+                "distance_km": 0,
+                "note": "Major railway hubs connecting all of India"
+            },
+            "language": [
+                "Telugu",
+                "Urdu",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Hyderabadi Biryani",
+                "Haleem (during Ramadan)",
+                "Double ka Meetha",
+                "Irani Chai",
+                "Osmania Biscuits",
+                "Pathar-ka-Gosht"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 4000,
+                "luxury": 12000
+            },
+            "tags": [
+                "heritage",
+                "food",
+                "technology",
+                "forts",
+                "shopping",
+                "pearls"
+            ],
+            "places": [
+                {
+                    "id": "hyd-charminar",
+                    "name": "Charminar",
+                    "category": "Landmark",
+                    "subcategory": "Monument",
+                    "rating": 4.6,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:30 AM – 5:30 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "Charminar Hyderabad architecture historic",
+                    "description": "The global icon of Hyderabad, built in 1591 to commemorate the end of a deadly plague. The monument features four grand arches and four 56-meter-tall minarets. It sits in the heart of the bustling Laad Bazaar.",
+                    "tips": "Climb up to the first floor for a great view of the Mecca Masjid and old city. Best visited early morning or late evening. Bargain hard in the surrounding markets.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hyd-golconda",
+                    "name": "Golconda Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.7,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:30 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 11,
+                    "unsplash_query": "Golconda Fort ruins stone arches",
+                    "description": "A massive 16th-century fortress known for its impregnable structure, acoustic marvels, and complex water systems. The region was once the only known source of diamonds in the world (producing the Hope Diamond and Koh-i-Noor).",
+                    "tips": "Clap your hands at the Bala Hissar pavilion (entrance) and hear it echo at the hilltop citadel. Wear very comfortable walking shoes. The evening Sound and Light show is highly recommended.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hyd-salar-jung",
+                    "name": "Salar Jung Museum",
+                    "category": "Heritage",
+                    "subcategory": "Museum",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Friday)",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "museum artifacts antique gallery",
+                    "description": "One of the three National Museums of India, it houses the world's largest one-man collection of antiques, compiled by Salar Jung III. Features include the Veiled Rebecca statue and the famous musical clock.",
+                    "tips": "The museum is massive; plan for at least 3 hours. The musical clock strikes at noon and is a major crowd-puller.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hyd-ramoji",
+                    "name": "Ramoji Film City",
+                    "category": "Experience",
+                    "subcategory": "Theme Park / Studio",
+                    "rating": 4.4,
+                    "entry_fee_inr": 1350,
+                    "open_hours": "9:00 AM – 5:30 PM",
+                    "duration_hrs": "6–8",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "film studio sets theme park",
+                    "description": "Certified by Guinness World Records as the largest studio complex in the world (2,000 acres). Features massive film sets (including the Bahubali sets), amusement rides, and live stunt shows.",
+                    "tips": "Requires a full day. Book tickets online in advance to skip lines. Guided vintage bus tours take you through the massive sets.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "hyd-chowmahalla",
+                    "name": "Chowmahalla Palace",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.6,
+                    "entry_fee_inr": 100,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Friday)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "palace chandeliers grand hall Hyderabad",
+                    "description": "The opulent seat of the Asaf Jahi dynasty, where the Nizams entertained official guests. Known for its stunning Durbar Hall (Khilwat Clock) adorned with massive Belgian crystal chandeliers and a vintage car collection.",
+                    "tips": "Located very close to Charminar, making it easy to combine both. Excellent for photography and architecture lovers.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "warangal",
+            "name": "Warangal",
+            "tagline": "Heart of the Kakatiya Dynasty",
+            "region": "Northern Telangana",
+            "district": "Warangal",
+            "type": "Heritage & Historical",
+            "altitude_m": 302,
+            "altitude_display": "302m",
+            "lat": 17.9689,
+            "lon": 79.5941,
+            "distance_hyderabad_km": 145,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "28–42°C",
+            "temp_winter_c": "15–28°C",
+            "hero_image": "https://images.unsplash.com/photo-1623059080447-380d3e91124c?w=1200&q=80",
+            "overview": "Warangal, once the capital of the Kakatiya kingdom, is a city steeped in antiquity. It boasts brilliant examples of Kakatiyan architecture, massive stone gateways, intricately carved temples, and serene lakes. It serves as Telangana's cultural heartland.",
+            "history": "Known historically as Orugallu (one stone), the city was the capital of the Kakatiya dynasty from the 12th to 14th centuries. The Kakatiyas were great builders, leaving behind a legacy of remarkable stone temples, massive forts, and irrigation tanks (lakes).",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 160
+            },
+            "nearest_railhead": {
+                "name": "Warangal Railway Station / Kazipet Junction",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Hindi",
+                "Urdu"
+            ],
+            "cuisine": [
+                "Sarva Pindi",
+                "Sakinalu",
+                "Gudalu",
+                "Spicy Telugu Meals"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "heritage",
+                "temples",
+                "ruins",
+                "architecture"
+            ],
+            "places": [
+                {
+                    "id": "warangal-thousand-pillar",
+                    "name": "Thousand Pillar Temple",
+                    "category": "Temple",
+                    "subcategory": "Architecture",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 6,
+                    "unsplash_query": "stone pillars temple carving ancient",
+                    "description": "Built in 1163 AD by King Rudra Deva, this star-shaped temple is dedicated to Shiva, Vishnu, and Surya. It is celebrated for its highly polished, intricately carved pillars, perforated screens, and a massive monolithic Nandi.",
+                    "tips": "Located in Hanamkonda. The black basalt Nandi statue is a masterpiece of Kakatiya sculpture.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "warangal-fort",
+                    "name": "Warangal Fort",
+                    "category": "Heritage",
+                    "subcategory": "Ruins",
+                    "rating": 4.5,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 8:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "stone gateway arches fort ruins",
+                    "description": "Though mostly in ruins today due to historical invasions, the fort area contains the famous Kakatiya Kala Thoranam—four massive, elaborately carved stone gateways that serve as the official emblem of Telangana.",
+                    "tips": "The site is essentially an open-air museum of fallen architectural fragments. Evening light and sound show is available.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "warangal-ramappa",
+                    "name": "Ramappa Temple (Palampet)",
+                    "category": "Temple",
+                    "subcategory": "UNESCO Heritage",
+                    "rating": 4.9,
+                    "entry_fee_inr": 25,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 65,
+                    "unsplash_query": "Ramappa Temple Kakatiya architecture",
+                    "description": "A UNESCO World Heritage site, this 13th-century Shiva temple is the only temple in India named after its sculptor, Ramappa. It is famous for its 'floating bricks' used in the roof and incredibly detailed bracket figures.",
+                    "tips": "About a 1.5-hour drive from Warangal city, but absolutely unmissable. Hire a local guide to understand the intricate carvings.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "nalgonda",
+            "name": "Nalgonda (Nagarjuna Sagar)",
+            "tagline": "Land of Dams and Ancient Hill Forts",
+            "region": "Southern Telangana",
+            "district": "Nalgonda",
+            "type": "Nature & Heritage",
+            "altitude_m": 421,
+            "altitude_display": "421m",
+            "lat": 17.0500,
+            "lon": 79.2700,
+            "distance_hyderabad_km": 100,
+            "best_time": "August–February",
+            "avoid_time": "April–June",
+            "temp_summer_c": "30–43°C",
+            "temp_winter_c": "16–29°C",
+            "hero_image": "https://images.unsplash.com/photo-1623910271131-7e8c07c4b726?w=1200&q=80",
+            "overview": "Nalgonda is deeply intertwined with the Krishna River. It is most famous as the gateway to the colossal Nagarjuna Sagar Dam and the ancient Buddhist excavations at Nagarjunakonda. The region is also dotted with imposing hill forts.",
+            "history": "The region was a prominent center of Buddhism under the Ikshvaku dynasty. Later, it was heavily fortified during the Kakatiya and Qutb Shahi periods, leaving behind massive stone forts on monolithic hills.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 110
+            },
+            "nearest_railhead": {
+                "name": "Nalgonda Railway Station",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Spicy Telugu Cuisine",
+                "River Fish Fry"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "dams",
+                "buddhism",
+                "forts",
+                "river"
+            ],
+            "places": [
+                {
+                    "id": "nalgonda-nagarjuna-sagar",
+                    "name": "Nagarjuna Sagar Dam",
+                    "category": "Nature",
+                    "subcategory": "Dam",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day (Gates open during monsoons)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 60,
+                    "unsplash_query": "massive dam water release gates",
+                    "description": "One of the largest and tallest masonry dams in the world, built across the Krishna River. When the crest gates are open during the monsoon season, the rushing water is a spectacular sight.",
+                    "tips": "Best time to visit is during the monsoon (August-October) when the water is released. Boat rides are available in the reservoir.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nalgonda-nagarjunakonda",
+                    "name": "Nagarjunakonda Museum (Island)",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.5,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 4:00 PM (Closed Friday)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 65,
+                    "unsplash_query": "buddhist stupa ruins island",
+                    "description": "An island museum situated in the middle of the Nagarjuna Sagar reservoir. It houses priceless 3rd-century Buddhist artifacts and reconstructed stupas that were salvaged before the dam flooded the valley.",
+                    "tips": "Accessible only by a 45-minute ferry ride from the mainland. The ferry timings are fixed, so arrive early.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nalgonda-bhongir",
+                    "name": "Bhongir Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.3,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 70,
+                    "unsplash_query": "monolithic rock fort stairs climbing",
+                    "description": "Built in the 10th century on a massive, singular egg-shaped monolithic rock. The fort offers a steep, adventurous trek up stone-carved steps, rewarding visitors with panoramic views of the surrounding plains.",
+                    "tips": "The climb is steep and exposed to the sun; early morning is the best time to visit. Carry plenty of water.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "adilabad",
+            "name": "Adilabad",
+            "tagline": "Gateway to Nature",
+            "region": "Northern Border",
+            "district": "Adilabad",
+            "type": "Nature & Wildlife",
+            "altitude_m": 264,
+            "altitude_display": "264m",
+            "lat": 19.6738,
+            "lon": 78.5332,
+            "distance_hyderabad_km": 305,
+            "best_time": "July–February",
+            "avoid_time": "April–June",
+            "temp_summer_c": "30–45°C",
+            "temp_winter_c": "12–28°C",
+            "hero_image": "https://images.unsplash.com/photo-1605833668383-09411f3d35a3?w=1200&q=80",
+            "overview": "Adilabad is the northernmost district of Telangana, renowned for its pristine forests, highest waterfalls in the state, and rich tribal culture. It acts as a green escape for nature lovers and wildlife enthusiasts.",
+            "history": "Historically ruled by the Gond kings and later by the Nizams, the region has maintained a distinct tribal identity. It was historically important for cotton cultivation, earning it the nickname 'White Gold City'.",
+            "nearest_airport": {
+                "name": "Dr. Babasaheb Ambedkar International Airport (Nagpur)",
+                "code": "NAG",
+                "distance_km": 190
+            },
+            "nearest_railhead": {
+                "name": "Adilabad Railway Station",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Marathi",
+                "Gondi",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Jowar Roti",
+                "Tribal Bamboo Chicken",
+                "Spicy Curries"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "waterfalls",
+                "wildlife",
+                "forests",
+                "tribal"
+            ],
+            "places": [
+                {
+                    "id": "adilabad-kuntala",
+                    "name": "Kuntala Waterfalls",
+                    "category": "Nature",
+                    "subcategory": "Waterfall",
+                    "rating": 4.6,
+                    "entry_fee_inr": 10,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 58,
+                    "unsplash_query": "high waterfall forest rocks India",
+                    "description": "The highest waterfall in Telangana, cascading down 150 feet in two tiers through the dense Sahyadri mountain ranges. A scenic flight of over 400 steps leads down to the pool.",
+                    "tips": "Best visited during or immediately after the monsoons (August to November). Swimming is highly dangerous due to hidden rocks and strong undercurrents.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "adilabad-kawal",
+                    "name": "Kawal Tiger Reserve",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.1,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "4",
+                    "distance_from_center_km": 85,
+                    "unsplash_query": "tiger reserve teak forest India",
+                    "description": "A dense teak and bamboo forest serving as a central India tiger corridor. Though tiger sightings are rare, it is excellent for spotting deer, bison, wild boars, and a variety of birds.",
+                    "tips": "Forest department conducts jeep safaris. Winter mornings are the best time to visit for bird watching and comfortable weather.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "adilabad-pochera",
+                    "name": "Pochera Waterfalls",
+                    "category": "Nature",
+                    "subcategory": "Waterfall",
+                    "rating": 4.4,
+                    "entry_fee_inr": 10,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 50,
+                    "unsplash_query": "wide waterfall plunge pool forest",
+                    "description": "A wide, deep plunge waterfall surrounded by lush green forests. Unlike Kuntala, Pochera has a broader cascade and a very deep central pool, offering a more serene and raw atmosphere.",
+                    "tips": "It is located close to Kuntala, making it easy to visit both on the same day. Swimming is strictly prohibited due to the pool's depth.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "karimnagar",
+            "name": "Karimnagar",
+            "tagline": "City of Granites",
+            "region": "Northern Telangana",
+            "district": "Karimnagar",
+            "type": "Historical & Craft",
+            "altitude_m": 265,
+            "altitude_display": "265m",
+            "lat": 18.4386,
+            "lon": 79.1288,
+            "distance_hyderabad_km": 165,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "30–44°C",
+            "temp_winter_c": "15–28°C",
+            "hero_image": "https://images.unsplash.com/photo-1620072049079-8809d311394a?w=1200&q=80",
+            "overview": "Karimnagar is known for its historic forts, ancient temples, and the scenic Lower Manair Dam. The city is also globally famous for its Silver Filigree (Tarkashi) craft, a delicate art form practiced here for centuries.",
+            "history": "It was a major center during the Satavahana dynasty and later under the Kakatiyas and Nizams. The city takes its name from Syed Karimuddin, a prominent Nizam official.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 200
+            },
+            "nearest_railhead": {
+                "name": "Karimnagar Railway Station",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Hindi",
+                "Urdu"
+            ],
+            "cuisine": [
+                "Mutton Curry",
+                "Silver Filigree shopping (not food, but central to visit)",
+                "Spicy Telugu Meals"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "filigree",
+                "forts",
+                "reservoirs",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "karimnagar-elgandal",
+                    "name": "Elgandal Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.4,
+                    "entry_fee_inr": 10,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "hill fort palm trees river India",
+                    "description": "Situated on a hillock on the banks of the Manair River, this fort was controlled by five important dynasties over centuries. It features mosques, tombs, and a unique minaret that oscillates when pushed.",
+                    "tips": "The view of the river and palm groves from the top is beautiful. Carry your own water as amenities at the top are limited.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "karimnagar-lmd",
+                    "name": "Lower Manair Dam (LMD)",
+                    "category": "Nature",
+                    "subcategory": "Reservoir",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7 (Boating 10AM-5PM)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "reservoir boating sunset dam",
+                    "description": "A massive irrigation dam built across the Manair River. It is a popular local hangout spot, especially in the evenings, offering boating facilities and beautiful sunsets over the water.",
+                    "tips": "Visit during the golden hour for the best experience. Speed boating is available near the main gates.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "nizamabad",
+            "name": "Nizamabad",
+            "tagline": "The City of Nizams",
+            "region": "North-Western Telangana",
+            "district": "Nizamabad",
+            "type": "Historical",
+            "altitude_m": 395,
+            "altitude_display": "395m",
+            "lat": 18.6725,
+            "lon": 78.0941,
+            "distance_hyderabad_km": 175,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "30–43°C",
+            "temp_winter_c": "14–27°C",
+            "hero_image": "https://images.unsplash.com/photo-1596403063529-0820061e8787?w=1200&q=80",
+            "overview": "Nizamabad translates to 'City of the Nizam'. It is a major agricultural hub, surrounded by rivers and reservoirs, and features ancient forts, finely carved temples, and lush public gardens.",
+            "history": "Originally called Indur after the Rashtrakuta king Indradatta, it was renamed Nizamabad in 1905 by the Nizam of Hyderabad. The region has seen the influence of Rashtrakutas, Chalukyas, and Kakatiyas.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 200
+            },
+            "nearest_railhead": {
+                "name": "Nizamabad Junction",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Urdu",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Tahari",
+                "Jowar Roti",
+                "Hyderabadi style Biryani"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "forts",
+                "temples",
+                "history",
+                "reservoirs"
+            ],
+            "places": [
+                {
+                    "id": "nizamabad-fort",
+                    "name": "Nizamabad Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "ancient stone fort ruins hilltop",
+                    "description": "Originally built by the Rashtrakutas in the 10th century and later reinforced by the Nizams. The fort offers a glimpse into medieval architecture and houses a prominent Ram Temple at its summit.",
+                    "tips": "The fort is quite integrated into the modern city. The temple at the top is very active and peaceful.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "nizamabad-dichpally",
+                    "name": "Dichpally Ramalayam",
+                    "category": "Temple",
+                    "subcategory": "Architecture",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 12:00 PM, 4:00 PM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "intricate stone temple carving India",
+                    "description": "Often called the 'Khajuraho of Nizamabad', this 14th-century temple built of black basalt stone is known for its exceptionally fine carvings of gods, goddesses, and mythical creatures.",
+                    "tips": "The temple is located on a small hillock off the highway. It sees fewer tourists, making it a peaceful stop for history buffs.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "khammam",
+            "name": "Khammam",
+            "tagline": "Fort City by the River",
+            "region": "Eastern Telangana",
+            "district": "Khammam",
+            "type": "Heritage",
+            "altitude_m": 107,
+            "altitude_display": "107m",
+            "lat": 17.2473,
+            "lon": 80.1514,
+            "distance_hyderabad_km": 195,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "32–45°C",
+            "temp_winter_c": "18–30°C",
+            "hero_image": "https://images.unsplash.com/photo-1544551763-47a0159f9234?w=1200&q=80",
+            "overview": "Located near the Munneru River, Khammam is anchored by its imposing hilltop fort. The city serves as a gateway to the dense forests and tribal areas of eastern Telangana, such as Bhadrachalam.",
+            "history": "The city's name is said to be derived from 'Stambhadri', a reference to the rock on which the fort stands. Khammam Fort was built by the Kakatiyas in the 10th century and later expanded by the Qutb Shahis.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 210
+            },
+            "nearest_railhead": {
+                "name": "Khammam Railway Station",
+                "distance_km": 0
+            },
+            "language": [
+                "Telugu",
+                "Urdu"
+            ],
+            "cuisine": [
+                "Spicy Natu Kodi (Country Chicken)",
+                "Pachi Pulusu"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "fort",
+                "heritage",
+                "lake"
+            ],
+            "places": [
+                {
+                    "id": "khammam-fort",
+                    "name": "Khammam Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "stone fort hill steps architecture",
+                    "description": "An imposing 10th-century fort built with granite, blending Hindu and Islamic architectural styles. The fort sits on a massive rocky hill right in the middle of the city, offering great views.",
+                    "tips": "It requires climbing a good number of steps. The fort is best visited in the early morning to catch a beautiful sunrise over the city.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "khammam-lakaram",
+                    "name": "Lakaram Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7 (Park: 4PM - 8PM)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "city lake park evening lighting",
+                    "description": "A well-maintained urban lake surrounded by a park and a walking track. It has been recently developed into a major recreational spot featuring boating and a suspension bridge.",
+                    "tips": "Very lively in the evenings. Great place for a relaxed walk and street food after visiting the fort.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "medak",
+            "name": "Medak",
+            "tagline": "The Church City",
+            "region": "Central Telangana",
+            "district": "Medak",
+            "type": "Heritage & Spiritual",
+            "altitude_m": 442,
+            "altitude_display": "442m",
+            "lat": 18.0468,
+            "lon": 78.2635,
+            "distance_hyderabad_km": 95,
+            "best_time": "October–February",
+            "avoid_time": "April–June",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "15–28°C",
+            "hero_image": "https://images.unsplash.com/photo-1590732104895-0210f9713c72?w=1200&q=80",
+            "overview": "A short drive from Hyderabad, Medak is an excellent weekend getaway known primarily for possessing the single largest diocese in Asia (Medak Cathedral) and an impressive 12th-century Kakatiya Fort.",
+            "history": "Originally known as Methuku Durgam, Medak was a citadel of the Kakatiyas. During the early 20th century, a massive famine led British Methodists to build the cathedral as part of a 'Food for Work' program.",
+            "nearest_airport": {
+                "name": "Rajiv Gandhi International Airport (RGIA)",
+                "code": "HYD",
+                "distance_km": 130
+            },
+            "nearest_railhead": {
+                "name": "Kamareddy Railway Station",
+                "distance_km": 60
+            },
+            "language": [
+                "Telugu",
+                "Urdu",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Local Telangana Thali"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "church",
+                "fort",
+                "heritage",
+                "weekend getaway"
+            ],
+            "places": [
+                {
+                    "id": "medak-cathedral",
+                    "name": "Medak Cathedral",
+                    "category": "Heritage",
+                    "subcategory": "Church",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 6:00 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Gothic cathedral stained glass India",
+                    "description": "One of the largest churches in Asia, built in a spectacular Gothic Revival style in 1924. It is globally famous for its three massive stained glass windows depicting scenes from the life of Christ.",
+                    "tips": "The stained glass is best viewed during the daytime when sunlight illuminates the artwork from outside.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "medak-fort",
+                    "name": "Medak Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "stone fort hill stairs gateway",
+                    "description": "A 12th-century Kakatiya fort built on a hill. It is known for its three massive main entrances adorned with the double-headed Gandabherunda, and a 17th-century brass gun located at the top.",
+                    "tips": "It involves climbing roughly 500 steps to reach the top. Great views of the town and the cathedral below.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

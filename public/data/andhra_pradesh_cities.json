@@ -1,0 +1,760 @@
+{
+    "meta": {
+        "project": "India Explore - Andhra Pradesh",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "visakhapatnam",
+            "name": "Visakhapatnam",
+            "tagline": "The City of Destiny",
+            "region": "Coastal Andhra",
+            "district": "Visakhapatnam",
+            "type": "Metropolitan & Coastal",
+            "altitude_m": 45,
+            "altitude_display": "45m",
+            "lat": 17.6868,
+            "lon": 83.2185,
+            "distance_hyderabad_km": 618,
+            "distance_bhubaneswar_km": 440,
+            "best_time": "October–March",
+            "avoid_time": "May–June (extreme humidity and heat)",
+            "temp_summer_c": "28–38°C",
+            "temp_winter_c": "18–27°C",
+            "hero_image": "https://images.unsplash.com/photo-1622278647429-71bc97e904e8?w=1200&q=80",
+            "overview": "Visakhapatnam, affectionately known as Vizag, is the largest and most populous city in Andhra Pradesh. Nestled between the rugged Eastern Ghats and the azure waters of the Bay of Bengal, it is a rare Indian coastal city featuring hills that plunge directly into the sea. Beyond its scenic beauty, Vizag is a bustling industrial hub, home to the oldest shipyard in India, a massive natural harbor, and the headquarters of the Eastern Naval Command. It offers a pristine blend of immaculate beaches, lush green valleys, ancient Buddhist excavations, and a deeply cosmopolitan vibe.",
+            "history": "Vizag's history stretches back to the 6th century BCE, originally functioning as a minor part of the Kalinga Empire, later passing to the Vengi Chalukyas, Pallavas, and the Cholas. The city's modern name is believed to be derived from an 11th-century temple dedicated to the Hindu deity Visakha. During the colonial era, it evolved into a crucial port for the Dutch, French, and eventually the British East India Company. It played a pivotal strategic role during World War II and the 1971 Indo-Pak war, specifically in the naval blockade of East Pakistan.",
+            "nearest_airport": {
+                "name": "Visakhapatnam International Airport",
+                "code": "VTZ",
+                "distance_km": 12
+            },
+            "nearest_railhead": {
+                "name": "Visakhapatnam Junction",
+                "distance_km": 0,
+                "note": "A major hub on the Chennai-Howrah route"
+            },
+            "language": [
+                "Telugu",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Bongu Chicken (Bamboo Chicken)",
+                "Chepala Pulusu (Fish Curry)",
+                "Putharekulu",
+                "Madugula Halwa",
+                "Royyala Vepudu (Prawn Fry)",
+                "Muri Mixture"
+            ],
+            "stay_recommended_days": 4,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 4000,
+                "luxury": 12000
+            },
+            "tags": [
+                "beaches",
+                "hills",
+                "naval history",
+                "buddhist sites",
+                "industrial",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "vizag-rk-beach",
+                    "name": "Ramakrishna Beach (RK Beach)",
+                    "category": "Nature",
+                    "subcategory": "Beach",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "RK Beach Visakhapatnam waves sunset",
+                    "description": "The most famous urban beach in Vizag, forming the city's eastern boundary. The long, bustling promenade is lined with statues, parks, and museums. It is the epicenter of the city's evening social life, featuring street food vendors selling roasted corn and the local favorite 'Muri Mixture'.",
+                    "tips": "Swimming is strictly prohibited due to dangerous rip currents. Visit at dawn for a tranquil sunrise or in the evening to experience the vibrant local culture. Great for long, breezy walks.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-submarine-museum",
+                    "name": "INS Kurusura Submarine Museum",
+                    "category": "Heritage",
+                    "subcategory": "Museum",
+                    "rating": 4.8,
+                    "entry_fee_inr": 50,
+                    "open_hours": "2:00 PM – 8:30 PM (Closed Monday)",
+                    "duration_hrs": "1–1.5",
+                    "distance_from_center_km": 4.5,
+                    "unsplash_query": "submarine museum beach vizag",
+                    "description": "Located directly on RK Beach, this is Asia's first submarine museum. The INS Kurusura, a Soviet-built Kalvari-class diesel-electric submarine, was decommissioned after 31 years of glorious service and dragged onto the sands. Inside, visitors can explore the claustrophobic yet fascinating living quarters, control rooms, and torpedo tubes used by the Indian Navy.",
+                    "tips": "Guided tours are usually conducted by retired naval personnel, adding immense authenticity. It can get very hot and stuffy inside during summer afternoons, so evening visits are highly recommended.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-kailasagiri",
+                    "name": "Kailasagiri Hill Park",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 8:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "Kailasagiri Visakhapatnam aerial view beach",
+                    "description": "A magnificent hilltop park perched at 360 feet, offering spectacular, uninterrupted panoramic views of the curving Vizag coastline and the city below. The park's centerpiece is a massive 40-foot white marble statue of Lord Shiva and Goddess Parvati.",
+                    "tips": "Take the ropeway (cable car) up the hill for breathtaking coastal views. There is also a scenic toy train that circles the summit, making it an excellent spot for families with young children.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-yarada-beach",
+                    "name": "Yarada Beach",
+                    "category": "Nature",
+                    "subcategory": "Beach",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Yarada beach green hills golden sand",
+                    "description": "A pristine, secluded beach tucked behind the Dolphin's Nose hill, surrounded on three sides by lush green, towering hills, and facing the Bay of Bengal. Far less commercialized and much cleaner than the city beaches, it features soft golden sands and dramatic crashing waves.",
+                    "tips": "The drive to Yarada involves navigating steep, winding hill roads with hairpin bends, offering great views but requiring a skilled driver. Bring your own food and water, as amenities are sparse.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-borra-caves",
+                    "name": "Borra Caves",
+                    "category": "Nature",
+                    "subcategory": "Geological",
+                    "rating": 4.6,
+                    "entry_fee_inr": 80,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 90,
+                    "unsplash_query": "Borra Caves stalactites stalagmites illumination",
+                    "description": "Located in the Ananthagiri hills of the Araku Valley, these are among the largest and deepest caves in India, discovered by William King in 1807. Formed by the Gosthani River over millions of years, they feature stunning, massive speleothems (stalactites and stalagmites) brilliantly illuminated by colorful mercury, sodium, and halogen lamps.",
+                    "tips": "Best experienced as part of a day trip to Araku Valley. Take the Vistadome train from Vizag to Araku for an incredibly scenic journey through tunnels and valleys. The cave involves significant walking and climbing steep stairs.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-rushikonda",
+                    "name": "Rushikonda Beach",
+                    "category": "Nature",
+                    "subcategory": "Beach",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 14,
+                    "unsplash_query": "Rushikonda beach surfing water sports",
+                    "description": "A stunning, crescent-shaped 'Blue Flag' certified beach known for its golden sands, clean waters, and backdrop of emerald hills. It is the premier destination for water sports in Andhra Pradesh, offering speed boating, jet skiing, surfing, and scuba diving.",
+                    "tips": "The water here is relatively safer for swimming compared to RK Beach, but stay within designated zones. Book water sports in advance during peak tourist season (December-January).",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vizag-thotlakonda",
+                    "name": "Thotlakonda Buddhist Complex",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.3,
+                    "entry_fee_inr": 15,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "Buddhist stupa ancient ruins sea view",
+                    "description": "An ancient Theravada Buddhist monastery complex situated on a hill overlooking the sea, dating back to 200 BCE. Excavations have revealed stupas, chaityas, viharas, and Roman silver coins, indicating robust maritime trade and a thriving monastic life that supported over 100 monks.",
+                    "tips": "Visit during the early morning or late afternoon as there is virtually no shade on the hill. The juxtaposition of ancient stone ruins against the vast blue ocean is a photographer's dream.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "vijayawada",
+            "name": "Vijayawada",
+            "tagline": "The Business Capital of Andhra",
+            "region": "Coastal Andhra",
+            "district": "NTR",
+            "type": "Commercial & Spiritual",
+            "altitude_m": 11,
+            "altitude_display": "11m",
+            "lat": 16.5062,
+            "lon": 80.6480,
+            "distance_hyderabad_km": 275,
+            "distance_chennai_km": 450,
+            "best_time": "October–February",
+            "avoid_time": "April–June (extremely hot and humid)",
+            "temp_summer_c": "32–45°C",
+            "temp_winter_c": "20–30°C",
+            "hero_image": "https://images.unsplash.com/photo-1627806141381-80a9a83eb9ab?w=1200&q=80",
+            "overview": "Situated on the banks of the mighty Krishna River and bounded by the Indrakeeladri Hills, Vijayawada is the commercial, political, and media capital of Andhra Pradesh. Translating to 'The Place of Victory,' it beautifully balances its rapid urbanization and bustling wholesale markets with deep-rooted spirituality, epitomized by the revered Kanaka Durga Temple. It acts as the gateway to the state's new capital region, Amaravati.",
+            "history": "Mythology suggests Arjuna (from the Mahabharata) prayed on the Indrakeeladri hills and received the Pasupathastra weapon from Lord Shiva here, hence 'Place of Victory'. Historically, the city has been the center of the Vishnukundina dynasty and later the Chalukyas and Kakatiyas. The British recognized its strategic river crossing, building the original barrage in 1855, turning it into a crucial agricultural and railway hub connecting North and South India.",
+            "nearest_airport": {
+                "name": "Vijayawada International Airport",
+                "code": "VGA",
+                "distance_km": 18
+            },
+            "nearest_railhead": {
+                "name": "Vijayawada Junction",
+                "distance_km": 0,
+                "note": "One of the busiest railway junctions in India"
+            },
+            "language": [
+                "Telugu",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Gongura Pachadi",
+                "Andhra Spicy Biryani",
+                "Punugulu",
+                "Mirchi Bajji",
+                "Ulava Charu",
+                "Pootharekulu"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 8000
+            },
+            "tags": [
+                "spiritual",
+                "riverfront",
+                "heritage",
+                "food",
+                "commercial"
+            ],
+            "places": [
+                {
+                    "id": "vij-kanaka-durga",
+                    "name": "Sri Durga Malleswara Swamy Varla Devasthanam",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "4:00 AM – 10:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Kanaka Durga temple Vijayawada hill",
+                    "description": "Perched imposingly on the Indrakeeladri Hill overlooking the Krishna River, this is the second largest temple in Andhra Pradesh. Dedicated to Goddess Kanaka Durga, the presiding deity of the city. The sanctum features a stunning self-manifested (Swayambhu) idol of the goddess adorned with glittering gold.",
+                    "tips": "During the Dasara festival (Navaratri), the temple witnesses millions of devotees and is decorated spectacularly. Expect long queues; VIP Darshan tickets can be purchased for a faster entry. Dress codes strictly apply.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vij-prakasam-barrage",
+                    "name": "Prakasam Barrage",
+                    "category": "Landmark",
+                    "subcategory": "Engineering",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2.5,
+                    "unsplash_query": "Prakasam barrage Krishna river night lights",
+                    "description": "A magnificent 1.2-kilometer-long barrage stretching across the Krishna River. Built in 1957 (replacing an older British structure) and named after Tanguturi Prakasam, the first Chief Minister of Andhra. It creates a massive lake and irrigates over 1.2 million acres of agricultural land.",
+                    "tips": "The structure is beautifully illuminated at night, making it perfect for evening photography. Walking along the barrage offers cooling river breezes and stunning sunset views over the water.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vij-undavalli-caves",
+                    "name": "Undavalli Caves",
+                    "category": "Heritage",
+                    "subcategory": "Rock-cut Architecture",
+                    "rating": 4.6,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5–2",
+                    "distance_from_center_km": 6,
+                    "unsplash_query": "Undavalli caves rock cut Vishnu statue",
+                    "description": "Dating back to the 4th-5th century CE, these monolithic rock-cut caves carved out of solid sandstone showcase exceptional architectural mastery. The centerpiece is a colossal, four-story-high structure featuring a magnificent 5-meter-long reclining statue of Lord Vishnu sculpted from a single block of granite.",
+                    "tips": "Located across the river in Guntur district, just a short drive from the barrage. Hire a local guide to understand the fascinating transition from Buddhist to Hindu architectural styles visible in the carvings.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vij-bhavani-island",
+                    "name": "Bhavani Island",
+                    "category": "Nature",
+                    "subcategory": "River Island",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "river island resorts boats Krishna river",
+                    "description": "One of the largest river islands in India, sprawling over 133 acres amidst the Krishna River upstream from the Prakasam Barrage. Accessible only by boat, it has been developed into an eco-tourism park offering lush gardens, mangroves, water sports, and a relaxed resort atmosphere.",
+                    "tips": "Ferry rides start from the Bhavani Island boating point. It’s an ideal picnic spot for families. Try the local food stalls on the island or book a stay at the APTDC resort for a tranquil night on the river.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "vij-kondapalli-fort",
+                    "name": "Kondapalli Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.1,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:30 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 24,
+                    "unsplash_query": "Kondapalli fort ruins hills",
+                    "description": "A historic 14th-century hill fort built by the Musunuri Nayaks and later expanded by the Qutb Shahis. The ruins include a majestic entrance gate (Dargah Darwaza) carved from single granite boulders, an armory, and a prison. The surrounding village is world-famous for crafting 'Kondapalli Toys'.",
+                    "tips": "The climb involves steep steps; wear good shoes. Carry plenty of water as facilities at the top are limited. Don't leave without visiting the nearby artisan village to purchase authentic, handcrafted lightweight wooden Kondapalli toys.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "tirupati",
+            "name": "Tirupati",
+            "tagline": "The Spiritual Capital of Andhra",
+            "region": "Rayalaseema",
+            "district": "Tirupati",
+            "type": "Pilgrimage",
+            "altitude_m": 162,
+            "altitude_display": "162m",
+            "lat": 13.6288,
+            "lon": 79.4192,
+            "distance_chennai_km": 133,
+            "distance_bangalore_km": 250,
+            "best_time": "September–February",
+            "avoid_time": "May–June (hot), Public Holidays (extreme crowding)",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "18–30°C",
+            "hero_image": "https://images.unsplash.com/photo-1598436573950-84f934246830?w=1200&q=80",
+            "overview": "Tirupati is synonymous with spirituality and devotion. Nestled at the foothills of the Seshachalam range, the city is the gateway to Tirumala, home to the globally revered Sri Venkateswara Swamy Temple. It is one of the wealthiest and most visited religious sites on the planet, drawing millions of pilgrims annually. Beyond the main temple, the region is dotted with ancient shrines, waterfalls, and profound Dravidian architectural heritage.",
+            "history": "The history of the Tirumala temple dates back to the 5th century CE. It received massive patronage from various dynasties, most notably the Pallavas of Kanchipuram, the Cholas of Thanjavur, and the Vijayanagara Empire—whose emperor, Krishnadevaraya, was a prominent devotee and endowed the temple with immense wealth and gold. The city developed rapidly around the pilgrimage economy and continues to be administered largely by the Tirumala Tirupati Devasthanams (TTD).",
+            "nearest_airport": {
+                "name": "Tirupati International Airport",
+                "code": "TIR",
+                "distance_km": 15
+            },
+            "nearest_railhead": {
+                "name": "Tirupati Main",
+                "distance_km": 0,
+                "note": "Extremely well connected to all of India"
+            },
+            "language": [
+                "Telugu",
+                "Tamil",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Tirupati Laddu (GI Tagged)",
+                "Pulihora (Tamarind Rice)",
+                "Daddojanam (Curd Rice)",
+                "Vada",
+                "Traditional South Indian Thali"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 3000,
+                "luxury": 7500
+            },
+            "tags": [
+                "pilgrimage",
+                "temples",
+                "hills",
+                "devotion",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "tpt-venkateswara-temple",
+                    "name": "Sri Venkateswara Swamy Temple (Tirumala)",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Varies (Almost 24 hours with scheduled breaks)",
+                    "duration_hrs": "4–10 (Depending on queues)",
+                    "distance_from_center_km": 22,
+                    "unsplash_query": "Tirumala temple gold vimana architecture",
+                    "description": "Situated on the seventh peak of the Tirumala Hills (Venkatadri), this majestic temple is dedicated to Lord Venkateswara (an incarnation of Vishnu). Known for its exquisite Dravidian architecture, the gold-plated 'Ananda Nilayam' vimana covering the inner sanctum, and its immense spiritual aura. It receives up to 100,000 pilgrims daily.",
+                    "tips": "Pre-booking Special Entry Darshan (₹300) online via the official TTD website 2-3 months in advance is absolutely crucial. Dress codes are strictly enforced (Dhoti/Kurta for men, Saree/Chudidar with dupatta for women). Electronic gadgets, phones, and shoes are banned inside.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tpt-srikalahasti",
+                    "name": "Srikalahasti Temple",
+                    "category": "Temple",
+                    "subcategory": "Pancha Bhoota",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 9:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 36,
+                    "unsplash_query": "Srikalahasti temple ancient pillars gopuram",
+                    "description": "An ancient, immensely powerful Shiva temple located on the banks of the Swarnamukhi River. It is one of the Pancha Bhoota Stalas, representing the Vayu (Air) element. The inner sanctum features a lingam where a flickering oil lamp famously demonstrates the presence of air despite no ventilation. Highly renowned for 'Rahu-Ketu' pooja to ward off astrological doshas.",
+                    "tips": "It is customary to visit Srikalahasti after completing the Tirumala darshan, not before. The temple complex is massive with intricate 11th-century Chola architecture. Purchase pooja tickets inside the temple premises.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tpt-silathoranam",
+                    "name": "Silathoranam",
+                    "category": "Nature",
+                    "subcategory": "Geological",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 23,
+                    "unsplash_query": "natural rock arch geological formation",
+                    "description": "Located in the Tirumala hills, this is a rare, natural rock arch formation measuring 8 meters wide and 3 meters high. Geologists estimate it to be over 2.5 million years old. Local legend claims the arch resembles the hood of a serpent, a conch, and a discus, tying it deeply to Lord Venkateswara.",
+                    "tips": "Located near the Chakra Teertham, it's a short detour while descending from the main temple. Great for a quick photo stop, but touching or climbing the fragile rocks is prohibited.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tpt-padmavathi-temple",
+                    "name": "Sri Padmavathi Ammavari Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:00 AM – 9:00 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "Hindu goddess temple architecture Tirupati",
+                    "description": "Located in Tiruchanoor, this magnificent temple is dedicated to Goddess Padmavathi, the consort of Lord Venkateswara. According to tradition, a pilgrimage to Tirupati is considered incomplete without seeking the blessings of Goddess Padmavathi first.",
+                    "tips": "Considerably less crowded than the main Tirumala temple, but peak seasons still see long lines. The Pushkarini (temple tank) is massive and beautifully maintained.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tpt-chandragiri-fort",
+                    "name": "Chandragiri Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.3,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 8:30 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Chandragiri fort palace Indo-Saracenic",
+                    "description": "Built in the 11th century by the Yadava rulers and later becoming the 4th capital of the Vijayanagara Empire. The fort encloses eight ruined temples, a Raja Mahal (King's Palace), and a Rani Mahal (Queen's Palace) built flawlessly without the use of timber, utilizing brick, stone, and lime mortar.",
+                    "tips": "The sound and light show held in the evenings (starts around 6:30 PM) is highly recommended to understand the history of the fall of the Vijayanagara empire. A museum inside houses excellent regional artifacts.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "amaravati",
+            "name": "Amaravati",
+            "tagline": "The People's Capital",
+            "region": "Coastal Andhra",
+            "district": "Guntur",
+            "type": "Capital City & Heritage",
+            "altitude_m": 16,
+            "altitude_display": "16m",
+            "lat": 16.5745,
+            "lon": 80.3606,
+            "distance_vijayawada_km": 15,
+            "distance_hyderabad_km": 280,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "32–44°C",
+            "temp_winter_c": "20–31°C",
+            "hero_image": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=1200&q=80",
+            "overview": "Amaravati is a fascinating blend of ancient heritage and modern ambition. Situated on the southern banks of the Krishna River, it is the designated modern capital of Andhra Pradesh. Long before skyscrapers were planned, this region was a glorious center of Buddhism and the capital of the ancient Satavahana dynasty, leaving behind a rich legacy of stupas, sculptures, and spiritual calm.",
+            "history": "Amaravati was the majestic capital of the Satavahana dynasty spanning the 2nd century BCE to the 3rd century CE. It emerged as one of the most important Buddhist centers in India, with the massive Amaravati Stupa becoming a marvel of architecture and art (much of which is now in the British Museum and Chennai Museum). In 2014, following the bifurcation of Andhra Pradesh, it was selected to be built from the ground up as the state's new, sustainable, world-class capital city.",
+            "nearest_airport": {
+                "name": "Vijayawada International Airport",
+                "code": "VGA",
+                "distance_km": 35
+            },
+            "nearest_railhead": {
+                "name": "Vijayawada Junction",
+                "distance_km": 15,
+                "note": "Major transit hub nearby"
+            },
+            "language": [
+                "Telugu",
+                "English"
+            ],
+            "cuisine": [
+                "Gongura Mamsam (Mutton)",
+                "Mirapakaya Bajji",
+                "Pesarattu"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "buddhist",
+                "heritage",
+                "river",
+                "architecture"
+            ],
+            "places": [
+                {
+                    "id": "ama-stupa",
+                    "name": "Amaravati Mahachaitya (Stupa Ruins)",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Buddhist stupa ruins ancient stone Amaravati",
+                    "description": "Once a towering, magnificent monument to Buddhism decorated with intricately carved limestone slabs depicting the life of Buddha. Today, only the foundational ruins remain, but the site exudes a profound sense of peace. The adjacent ASI Archaeological Museum houses a superb collection of the remaining relics, sculptures, and a scale model of the original stupa.",
+                    "tips": "Spend most of your time in the museum to truly appreciate the exquisite 'Amaravati School of Art', characterized by dynamic, narrative relief sculptures. The ruins themselves are best visited in the early morning.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ama-dhyana-buddha",
+                    "name": "Dhyana Buddha Statue",
+                    "category": "Landmark",
+                    "subcategory": "Monument",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1.5,
+                    "unsplash_query": "Giant Buddha statue sitting meditation",
+                    "description": "A magnificent 125-foot tall statue of Lord Buddha sitting in a meditative posture, towering over the landscape. Set within an 8-acre park, the massive lotus pedestal beneath the statue contains a three-story museum featuring sculptures depicting various Buddhist eras.",
+                    "tips": "The sheer scale of the statue makes for incredible photographs. The museum underneath is highly informative. Dress modestly as it is a place of deep respect.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ama-amareswara",
+                    "name": "Amareswara Swamy Temple",
+                    "category": "Temple",
+                    "subcategory": "Pancharama",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 1:00 PM, 4:00 PM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 0.5,
+                    "unsplash_query": "Amareswara temple Shiva river ghat",
+                    "description": "One of the five Pancharama Kshetras dedicated to Lord Shiva, located right on the banks of the Krishna River. The temple boasts a unique 15-foot high white marble Shiva Lingam. It seamlessly blends Dravidian architecture with deep mythological significance.",
+                    "tips": "Take a holy dip or simply a peaceful walk along the river ghat adjacent to the temple. The temple is especially vibrant during the Maha Shivaratri festival.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "rajahmundry",
+            "name": "Rajahmundry (Rajamahendravaram)",
+            "tagline": "Cultural Capital of Andhra Pradesh",
+            "region": "Coastal Andhra",
+            "district": "East Godavari",
+            "type": "Riverine & Cultural",
+            "altitude_m": 14,
+            "altitude_display": "14m",
+            "lat": 17.0005,
+            "lon": 81.8040,
+            "distance_hyderabad_km": 430,
+            "distance_vijayawada_km": 160,
+            "best_time": "October–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "20–30°C",
+            "hero_image": "https://images.unsplash.com/photo-1594892429621-c48f8a15fc4b?w=1200&q=80",
+            "overview": "Set grandly on the left bank of the mighty Godavari River, Rajahmundry is the crucible of Telugu language, arts, and literature. Officially renamed Rajamahendravaram, it is celebrated for its sprawling river vistas, iconic bridges, and vast surrounding agricultural wealth, particularly extensive flower nurseries.",
+            "history": "Founded in the 11th century by the Chalukya king Rajaraja Narendra. It is widely considered the birthplace of the Telugu language, as the poet Nannayya began his translation of the Mahabharata into Telugu here. The city was a major stronghold for the Vijayanagara Empire and later the British, who constructed its famous railway bridges.",
+            "nearest_airport": {
+                "name": "Rajahmundry Airport",
+                "code": "RJA",
+                "distance_km": 18
+            },
+            "nearest_railhead": {
+                "name": "Rajahmundry Railway Station",
+                "distance_km": 0,
+                "note": "Connected by the iconic Godavari bridge"
+            },
+            "language": [
+                "Telugu",
+                "English"
+            ],
+            "cuisine": [
+                "Pootarekulu (Paper Sweets from Atreyapuram)",
+                "Godavari Pulasa Fish Curry",
+                "Rose Milk",
+                "Kaju Barfi"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "culture",
+                "river",
+                "literature",
+                "bridges",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "raj-godavari-bridge",
+                    "name": "Godavari Arch Bridge & Havelock Bridge",
+                    "category": "Landmark",
+                    "subcategory": "Engineering",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Open 24/7",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Godavari bridge river arch bridge train",
+                    "description": "The Godavari River here is spanned by three iconic bridges. The Havelock Bridge (built in 1897, now decommissioned), the massive Road-cum-Rail Bridge (Asia's second-longest), and the sleek new Godavari Arch Bridge. They stand as magnificent monuments to engineering across a river that spans nearly 3 kilometers wide at this point.",
+                    "tips": "Take a walk along the Pushkar Ghat at sunset to see the bridges beautifully illuminated. Taking a train ride across the river at sunrise is a profoundly scenic experience.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-papikondalu",
+                    "name": "Papikondalu (Papi Hills)",
+                    "category": "Nature",
+                    "subcategory": "Gorge / Cruise",
+                    "rating": 4.5,
+                    "entry_fee_inr": 1500,
+                    "open_hours": "7:00 AM – 6:00 PM",
+                    "duration_hrs": "10",
+                    "distance_from_center_km": 60,
+                    "unsplash_query": "Papikondalu Godavari river gorge hills",
+                    "description": "A breathtaking gorge where the Godavari River narrows and cuts through the majestic Papi Hills. Accessible only by river cruise starting near Rajahmundry, the journey takes you through dense, pristine forests, tribal villages, and dramatic, towering green cliffs mirroring in the water.",
+                    "tips": "This is a full-day excursion. Book tickets via AP Tourism in advance. The boat ride takes several hours, offering food and entertainment onboard. Best visited immediately post-monsoon (October-November).",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "raj-kadiyam",
+                    "name": "Kadiyam Nurseries",
+                    "category": "Nature",
+                    "subcategory": "Agriculture",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "flower nursery vast colorful blooms",
+                    "description": "Spread over 3,500 acres across several villages, Kadiyam is one of the largest flower and plant nursery hubs in India. The sheer scale and variety of ornamental plants, fruit trees, and blooming flowers create a sea of vibrant colors.",
+                    "tips": "A paradise for botany enthusiasts and photographers. Hire a local auto-rickshaw to navigate through the labyrinth of nurseries. You can purchase rare saplings at incredibly cheap prices.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kurnool",
+            "name": "Kurnool",
+            "tagline": "The Gateway of Rayalaseema",
+            "region": "Rayalaseema",
+            "district": "Kurnool",
+            "type": "Historical & Natural",
+            "altitude_m": 274,
+            "altitude_display": "274m",
+            "lat": 15.8281,
+            "lon": 78.0373,
+            "distance_hyderabad_km": 212,
+            "distance_bangalore_km": 360,
+            "best_time": "October–March",
+            "avoid_time": "April–June",
+            "temp_summer_c": "32–42°C",
+            "temp_winter_c": "18–30°C",
+            "hero_image": "https://images.unsplash.com/photo-1600100397608-f010f41cb8e1?w=1200&q=80",
+            "overview": "Situated at the confluence of the Tungabhadra and Handri rivers, Kurnool serves as the northern gateway to the arid but historically rich Rayalaseema region. It famously served as the first capital of Andhra State between 1953 and 1956. The region acts as a base camp to explore some of the most spectacular caves, rock formations, and ancient temples in South India.",
+            "history": "Kurnool has paleolithic roots, with rock art in nearby caves dating back tens of thousands of years. In the medieval era, it was an important fortress town for the Vijayanagara Empire (built by Achyuta Raya), later falling to the Bijapur Sultans, Mughals, and eventually ruled by the Nawabs of Kurnool before the British took over in 1839.",
+            "nearest_airport": {
+                "name": "Kurnool Airport",
+                "code": "KJB",
+                "distance_km": 25
+            },
+            "nearest_railhead": {
+                "name": "Kurnool City",
+                "distance_km": 0,
+                "note": "Well connected to Hyderabad and Bangalore"
+            },
+            "language": [
+                "Telugu",
+                "Urdu",
+                "English"
+            ],
+            "cuisine": [
+                "Jonna Rotte (Sorghum Bread)",
+                "Rayalaseema Natu Kodi Pulusu (Spicy Country Chicken)",
+                "Uggani Bajji",
+                "Alasanda Vada"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "caves",
+                "fort",
+                "historical",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "kur-kondareddy",
+                    "name": "Konda Reddy Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort",
+                    "rating": 4.1,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "ancient stone fort tower India",
+                    "description": "Standing squarely in the center of the city, this 16th-century fort was built by the rulers of the Vijayanagara Empire. It is named after Konda Reddy, a local ruler who fiercely rebelled against the Nawabs and was imprisoned here. The massive watchtower (Erra Buruju) remains intact and offers views of the city and river.",
+                    "tips": "Best visited in the early morning or late afternoon. The underground tunnels (rumored to cross under the river) are permanently closed, but the bastion itself is an impressive piece of military architecture.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-belum",
+                    "name": "Belum Caves",
+                    "category": "Nature",
+                    "subcategory": "Geological",
+                    "rating": 4.7,
+                    "entry_fee_inr": 65,
+                    "open_hours": "10:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 110,
+                    "unsplash_query": "Belum Caves underground stalactites stalagmites",
+                    "description": "The second longest and largest cave system in the Indian subcontinent, stretching over 3 kilometers underground. Formed in black limestone over millions of years by the Chitravathi River, the caves feature long, smooth passages, spacious chambers, freshwater galleries, and stunning stalactite and stalagmite formations. Buddhist monks meditated here centuries ago.",
+                    "tips": "It's a two-hour drive from Kurnool. The caves are deeply subterranean and get extremely humid and suffocating; wearing light cotton clothes and carrying plenty of water is essential. Air shafts are present but limited.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-oravakallu",
+                    "name": "Oravakallu Rock Garden",
+                    "category": "Nature",
+                    "subcategory": "Geological Park",
+                    "rating": 4.3,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "natural rock formations igneous rocks landscape",
+                    "description": "A surreal, 1,000-acre park featuring gigantic, bulbous igneous rock formations set amidst a semi-arid landscape and water bodies. The dramatic, natural balancing rocks and rugged terrain have served as the backdrop for numerous South Indian films.",
+                    "tips": "An excellent spot for photography, picnicking, and light trekking. Try to visit during the golden hours of sunrise or sunset to see the rocks glow. APTDC runs a restaurant and boating facility on-site.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kur-yaganti",
+                    "name": "Yaganti Temple",
+                    "category": "Temple",
+                    "subcategory": "Heritage",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 1:00 PM, 3:00 PM – 8:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 85,
+                    "unsplash_query": "Yaganti temple hills caves India",
+                    "description": "A famous 15th-century Shiva temple nestled in a gorge of the Yerramala hills. It is famously known for the 'Growing Nandi' idol, which ASI officials confirm grows by an inch every 20 years due to the mineral composition of the rock. The surrounding hills contain natural caves (Agastya, Venkateswara, Veera Brahmam) where sages meditated.",
+                    "tips": "Combine this with a trip to Belum Caves. A small natural spring called Pushkarini provides sweet, cool water inside the temple compound year-round. Climbing into the adjacent caves requires physical stamina.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

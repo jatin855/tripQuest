@@ -1,0 +1,713 @@
+{
+    "meta": {
+        "project": "India Explore - Assam",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "guwahati",
+            "name": "Guwahati",
+            "tagline": "Gateway to North East India",
+            "region": "Brahmaputra Valley",
+            "district": "Kamrup Metropolitan",
+            "type": "Metropolitan & Spiritual",
+            "altitude_m": 55,
+            "altitude_display": "55m",
+            "lat": 26.1445,
+            "lon": 91.7362,
+            "distance_kolkata_km": 990,
+            "distance_shillong_km": 98,
+            "best_time": "October–March",
+            "avoid_time": "June–August (heavy monsoon and flooding)",
+            "temp_summer_c": "25–38°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1594917446549-063f6fb3eece?w=1200&q=80",
+            "overview": "Guwahati, sprawling along the banks of the mighty Brahmaputra River, is the largest city in Northeast India. It is a bustling metropolis that seamlessly weaves ancient spiritual traditions with rapid modernization. Known for the deeply revered Kamakhya Temple and the beautiful Umananda River Island, it serves as the perfect launching pad for exploring the 'Seven Sisters' of the Northeast.",
+            "history": "Historically known as Pragjyotishpura ('City of Eastern Light') and Durjaya, the city has ancient roots dating back to the epic period of the Mahabharata. It was the capital of the ancient Kamarupa kingdom under the Varman and Pala dynasties. The region saw fierce battles between the Ahoms and the Mughals, with the Ahoms famously defeating the Mughal navy in the Battle of Saraighat on the Brahmaputra River in 1671.",
+            "nearest_airport": {
+                "name": "Lokpriya Gopinath Bordoloi International Airport",
+                "code": "GAU",
+                "distance_km": 20
+            },
+            "nearest_railhead": {
+                "name": "Guwahati Railway Station",
+                "distance_km": 0,
+                "note": "Major hub connecting the Northeast to the rest of India"
+            },
+            "language": [
+                "Assamese",
+                "Hindi",
+                "English",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Masor Tenga (Sour Fish Curry)",
+                "Khar",
+                "Pitha",
+                "Duck Curry with Ash Gourd",
+                "Aloo Pitika"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 9000
+            },
+            "tags": [
+                "spiritual",
+                "river",
+                "gateway",
+                "museums",
+                "shopping"
+            ],
+            "places": [
+                {
+                    "id": "guw-kamakhya",
+                    "name": "Kamakhya Temple",
+                    "category": "Temple",
+                    "subcategory": "Shakti Peetha",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:30 AM – 1:00 PM, 2:30 PM – 5:30 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "Kamakhya temple Guwahati architecture",
+                    "description": "Perched on the Nilachal Hill, this is one of the oldest and most revered of the 51 Shakti Peethas in India. The temple is dedicated to the mother goddess Kamakhya and is the center of Tantric Hinduism. It famously lacks an idol; instead, a naturally formed yoni-shaped rock cleft fed by an underground spring is worshipped.",
+                    "tips": "Expect very long queues; VIP darshan tickets (₹500) save hours. The annual Ambubachi Mela (June) draws millions of ascetics, but the temple is closed for three days during this time. Photography inside the sanctum is strictly prohibited.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "guw-umananda",
+                    "name": "Umananda Island & Temple",
+                    "category": "Nature",
+                    "subcategory": "River Island",
+                    "rating": 4.5,
+                    "entry_fee_inr": 20,
+                    "open_hours": "5:30 AM – 4:00 PM (Ferry timings)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Umananda island Brahmaputra river",
+                    "description": "Known as the smallest inhabited river island in the world, nestled in the middle of the Brahmaputra River. It houses a 17th-century Shiva temple built by Ahom King Gadadhar Singha. The island was historically home to the endangered Golden Langur.",
+                    "tips": "Accessible via public ferries or private motorboats from Uzanbazar or Fancy Bazaar ghats. The boat ride itself offers spectacular views of the sprawling river. Beware of monkeys snatching food.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "guw-brahmaputra-cruise",
+                    "name": "Brahmaputra River Cruise",
+                    "category": "Experience",
+                    "subcategory": "Cruise",
+                    "rating": 4.6,
+                    "entry_fee_inr": 500,
+                    "open_hours": "4:00 PM – 8:00 PM (Varies by operator)",
+                    "duration_hrs": "1.5–2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "river cruise sunset Brahmaputra",
+                    "description": "A quintessential Guwahati experience. Luxury vessels like the Alfresco Grand offer sunset and dinner cruises along the Brahmaputra, complete with live folk music, cultural dances (Bihu), and dining against the backdrop of a stunning river sunset.",
+                    "tips": "Book the sunset cruise (usually around 4:30 PM) for the best views and photography lighting. Evening dinner cruises are great for couples and families.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "guw-assam-museum",
+                    "name": "Assam State Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Mondays)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "ancient artifacts museum India",
+                    "description": "One of the richest museums in the Northeast, established in 1940. It features extensive collections of Ahom dynasty artifacts, ancient epigraphy (copper plates and stone inscriptions), tribal arts, village life dioramas, and exquisite bronze and stone sculptures dating back to the 5th century.",
+                    "tips": "An absolute must for history buffs. The reconstructed traditional Assamese village huts inside the museum grounds are highly informative. Photography requires a separate fee.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "guw-pobitora",
+                    "name": "Pobitora Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.6,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:30 AM – 12:00 PM, 1:00 PM – 3:30 PM",
+                    "duration_hrs": "4–5 (including travel)",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "one horned rhino Assam grassland",
+                    "description": "Often called 'Mini Kaziranga,' this sanctuary boasts the highest density of the Indian One-Horned Rhinoceros in the world. It consists primarily of grassy floodplains and offers an almost guaranteed sighting of rhinos without having to travel all the way to Kaziranga.",
+                    "tips": "Jeep and elephant safaris are available. It is a fantastic half-day trip from Guwahati. Winters are best for migratory bird watching here as well.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kaziranga",
+            "name": "Kaziranga National Park",
+            "tagline": "Home of the One-Horned Rhino",
+            "region": "Central Assam",
+            "district": "Golaghat & Nagaon",
+            "type": "Wildlife & Nature",
+            "altitude_m": 40,
+            "altitude_display": "40m",
+            "lat": 26.5775,
+            "lon": 93.1711,
+            "distance_guwahati_km": 190,
+            "distance_jorhat_km": 110,
+            "best_time": "November–April",
+            "avoid_time": "May–October (Park is completely closed due to floods)",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "7–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1542618825-9d3e8584dc7d?w=1200&q=80",
+            "overview": "A UNESCO World Heritage Site, Kaziranga National Park is the undisputed crown jewel of Assam's tourism. Characterized by vast expanses of tall elephant grass, marshland, and dense tropical moist broadleaf forests, it harbors two-thirds of the world's Great One-horned Rhinoceros population. It is also a tiger reserve with a high density of Bengal tigers.",
+            "history": "Kaziranga's conservation story began in 1904 when Mary Curzon, wife of the Viceroy of India, visited the area and failed to see a single rhino. Persuading her husband to take action, the area was declared a Reserved Forest in 1905. It achieved National Park status in 1974 and was inscribed as a World Heritage Site in 1985.",
+            "nearest_airport": {
+                "name": "Jorhat Airport (Rowriah Airport)",
+                "code": "JRH",
+                "distance_km": 97
+            },
+            "nearest_railhead": {
+                "name": "Furkating Junction",
+                "distance_km": 75,
+                "note": "Nearest major railway station"
+            },
+            "language": [
+                "Assamese",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Local Assamese Thali",
+                "Bamboo Shoot Chicken",
+                "Black Tea",
+                "Pitha"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 2000,
+                "mid": 5000,
+                "luxury": 15000
+            },
+            "tags": [
+                "UNESCO",
+                "wildlife",
+                "safari",
+                "rhino",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "kaz-central-range",
+                    "name": "Kohora (Central Range)",
+                    "category": "Experience",
+                    "subcategory": "Safari",
+                    "rating": 4.8,
+                    "entry_fee_inr": 100,
+                    "open_hours": "7:00 AM – 10:00 AM, 1:30 PM – 3:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "jeep safari grassland wildlife rhino",
+                    "description": "The most accessible and popular zone of the national park. Characterized by mixed wetlands and grasslands, it offers excellent opportunities to spot rhinos, wild water buffaloes, swamp deer, and diverse birdlife. Both jeep and elephant safaris start here.",
+                    "tips": "Book safaris well in advance online or through your resort. Morning safaris offer better lighting and active animal sightings. Wear earthy, muted colors.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kaz-western-range",
+                    "name": "Bagori (Western Range)",
+                    "category": "Experience",
+                    "subcategory": "Safari",
+                    "rating": 4.9,
+                    "entry_fee_inr": 100,
+                    "open_hours": "7:00 AM – 10:00 AM, 1:30 PM – 3:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "elephant safari rhino close up grassland",
+                    "description": "Widely considered the best range for spotting rhinos at extremely close quarters due to its vast, open grassy landscapes and numerous water bodies (beels). Elephant safaris here are particularly famous for getting incredibly close to the wildlife without disturbing them.",
+                    "tips": "Elephant safaris must be booked through the forest department and sell out fast. Bagori is almost a guaranteed spot for rhino photography.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kaz-orchid-park",
+                    "name": "Kaziranga National Orchid and Biodiversity Park",
+                    "category": "Nature",
+                    "subcategory": "Botanical",
+                    "rating": 4.5,
+                    "entry_fee_inr": 150,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "orchid greenhouse tropical flowers India",
+                    "description": "Spanning 6 acres, this park is a treasure trove of Northeast Indian flora. It houses over 600 species of wild orchids, an extensive bamboo park, a medicinal plant garden, and a cultural stage where traditional Assamese dances are performed daily.",
+                    "tips": "An excellent activity between your morning and afternoon safaris. The cultural show is highly recommended. Try the massive authentic Assamese Thali at the restaurant inside the park.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kaz-agaratoli",
+                    "name": "Agaratoli (Eastern Range)",
+                    "category": "Experience",
+                    "subcategory": "Safari",
+                    "rating": 4.6,
+                    "entry_fee_inr": 100,
+                    "open_hours": "7:00 AM – 10:00 AM, 1:30 PM – 3:00 PM",
+                    "duration_hrs": "2.5",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "wetland birds pelicans forest safari",
+                    "description": "Comprising lush woodlands and the Brahmaputra riverbanks, this range is a paradise for birdwatchers. During winter, the massive wetlands here are flocked by pelicans, greater adjutant storks, and migratory waterfowl. It also offers a higher chance of spotting wild elephants and tigers.",
+                    "tips": "Only jeep safaris are allowed here. Bring a good pair of binoculars or a telephoto lens for bird photography. It is less crowded than Kohora and Bagori.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "majuli",
+            "name": "Majuli",
+            "tagline": "World's Largest River Island",
+            "region": "Upper Assam",
+            "district": "Majuli",
+            "type": "Cultural & Riverine",
+            "altitude_m": 85,
+            "altitude_display": "85m",
+            "lat": 26.9535,
+            "lon": 94.2483,
+            "distance_jorhat_km": 20,
+            "distance_guwahati_km": 340,
+            "best_time": "October–March",
+            "avoid_time": "July–September (severe flooding and ferry cancellations)",
+            "temp_summer_c": "25–34°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1616854181822-6b92f7e02517?w=1200&q=80",
+            "overview": "Majuli is the world's largest river island, floating in the braided channels of the Brahmaputra River. It is the spiritual epicenter of Neo-Vaishnavite culture in Assam, characterized by its ancient 'Satras' (monasteries). With its lush green paddy fields, vibrant tribal culture (Mishing tribe), and serene, slow-paced village life, Majuli is a deeply tranquil escape.",
+            "history": "The island was formed in the 18th century due to a massive earthquake and massive floods that forced the Brahmaputra River to change its course. In the 15th century, the great Assamese saint and social reformer Srimanta Sankardeva established the first Satra here, initiating a cultural renaissance. Due to extreme river erosion, Majuli is continuously shrinking and risks disappearing in the coming decades.",
+            "nearest_airport": {
+                "name": "Jorhat Airport",
+                "code": "JRH",
+                "distance_km": 25
+            },
+            "nearest_railhead": {
+                "name": "Jorhat Town Railway Station",
+                "distance_km": 20,
+                "note": "Requires ferry crossing from Nimati Ghat"
+            },
+            "language": [
+                "Assamese",
+                "Mishing",
+                "English"
+            ],
+            "cuisine": [
+                "Apong (Rice Beer)",
+                "Purang Apin (Sticky Rice in leaves)",
+                "Pork with Bamboo Shoot",
+                "Fresh River Fish"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "culture",
+                "island",
+                "monasteries",
+                "rural",
+                "handicrafts"
+            ],
+            "places": [
+                {
+                    "id": "maj-samaguri",
+                    "name": "Samaguri Satra",
+                    "category": "Culture",
+                    "subcategory": "Art & Craft",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 12,
+                    "unsplash_query": "traditional mask making artisan culture",
+                    "description": "This Satra is world-renowned for its centuries-old tradition of mask-making (Mukha Shilpa). These intricate, lightweight masks are made from bamboo, clay, and cow dung, depicting mythological characters from the Ramayana and Mahabharata. They are actively used in traditional 'Bhaona' theatrical performances.",
+                    "tips": "Interact with the resident master craftsmen (the Goswami family) who are happy to demonstrate the process. You can buy miniature masks as unique, authentic souvenirs.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "maj-kamalabari",
+                    "name": "Kamalabari Satra",
+                    "category": "Culture",
+                    "subcategory": "Monastery",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "monastery courtyard monks India architecture",
+                    "description": "One of the most important centers of art, culture, literature, and classical studies in Majuli. Founded in the 16th century, it has produced numerous renowned classical figures. The resident monks (Bhokots) are masters of traditional Assamese classical dance (Sattriya) and music.",
+                    "tips": "Visit during prayer times to hear the hypnotic sound of traditional drums (Khol) and cymbals (Taal). Modest dress is strictly required. Shoes must be removed before entering the main prayer hall.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "maj-mishing-village",
+                    "name": "Mishing Tribal Villages",
+                    "category": "Experience",
+                    "subcategory": "Rural Tourism",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "stilt houses tribal village rural India",
+                    "description": "The Mishing tribe constitutes the majority of Majuli's population. Their picturesque villages are characterized by traditional bamboo stilt houses (Chang Ghar) designed to withstand floods. The women are exceptional weavers, producing vibrant textiles like the 'Mekhela Chador' on handlooms under their houses.",
+                    "tips": "Rent a bicycle to explore these villages at your own pace. The locals are incredibly hospitable; if offered, try the local rice beer (Apong) and sticky rice. Buy handloom textiles directly from the weavers.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "maj-dakhinpat",
+                    "name": "Dakhinpat Satra",
+                    "category": "Culture",
+                    "subcategory": "Monastery",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 18,
+                    "unsplash_query": "ancient gateway temple river bank",
+                    "description": "Patronized heavily by the Ahom Kings, this Satra features a grand entrance gate adorned with religious motifs. It is famously known for organizing the 'Raasleela' festival, a vibrant theatrical depiction of Lord Krishna's life, which attracts thousands of devotees during the full moon night of November.",
+                    "tips": "The Rasotsava festival here is a visual spectacle and the best time to visit if you are traveling in late autumn. The architecture here is slightly more imposing than other Satras.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "sivasagar",
+            "name": "Sivasagar (Sibsagar)",
+            "tagline": "The Ahom Capital",
+            "region": "Upper Assam",
+            "district": "Sivasagar",
+            "type": "Heritage & History",
+            "altitude_m": 95,
+            "altitude_display": "95m",
+            "lat": 26.9826,
+            "lon": 94.6425,
+            "distance_guwahati_km": 360,
+            "distance_jorhat_km": 60,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "10–24°C",
+            "hero_image": "https://images.unsplash.com/photo-1621213032549-0d32155d376f?w=1200&q=80",
+            "overview": "Sivasagar is a time capsule of Assam's glorious past. Serving as the capital of the mighty Ahom Kingdom for over 600 years, the city is dotted with remarkable architectural marvels, massive man-made tanks (lakes), and ancient temples built entirely of baked bricks and indigenous mortar.",
+            "history": "The Ahom dynasty, originating from the Tai-Shan region of Southeast Asia, ruled Assam continuously from 1228 to 1826—successfully repelling multiple Mughal invasions. Sivasagar (meaning 'Ocean of Lord Shiva') became their capital in 1699. The remarkable monuments here were constructed using a unique sticky mortar made of black gram, duck eggs, sticky rice, and fish.",
+            "nearest_airport": {
+                "name": "Jorhat Airport",
+                "code": "JRH",
+                "distance_km": 60
+            },
+            "nearest_railhead": {
+                "name": "Simaluguri Junction",
+                "distance_km": 16,
+                "note": "Connects to major Assam rail lines"
+            },
+            "language": [
+                "Assamese",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Ahom traditional food",
+                "Duck meat curries",
+                "Assamese Thali"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "history",
+                "architecture",
+                "ahom dynasty",
+                "temples",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "siv-rang-ghar",
+                    "name": "Rang Ghar",
+                    "category": "Heritage",
+                    "subcategory": "Monument",
+                    "rating": 4.7,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Rang Ghar ancient brick amphitheater architecture",
+                    "description": "Often referred to as the 'Colosseum of the East', this two-storied, oval-shaped pavilion is one of the oldest surviving amphitheaters in Asia. Built by Ahom King Pramatta Singha in 1746, it was used by the royals to watch traditional sports like buffalo fights, elephant fights, and Bihu dances.",
+                    "tips": "The roof is shaped like an inverted traditional Assamese boat. Great for photography, especially in the late afternoon. Hire a guide to learn about the unique mortar used in its construction.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "siv-shiva-dol",
+                    "name": "Shiva Dol",
+                    "category": "Temple",
+                    "subcategory": "Ahom Architecture",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "Shiva Dol temple tall spire lake",
+                    "description": "Standing proudly on the banks of the massive Sivasagar Tank, Shiva Dol is believed to be the tallest Shiva temple in India (104 feet high). Built in 1734 by Queen Ambika, its towering dome is topped with an 8-foot high golden kalash (pitcher).",
+                    "tips": "Located in the heart of the city alongside two other temples (Vishnu Dol and Devi Dol). The massive Sivasagar Tank adjacent to it is perfect for an evening walk. Maha Shivaratri is celebrated here with immense grandeur.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "siv-talatal-ghar",
+                    "name": "Talatal Ghar",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.6,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "ancient palace ruins brick labyrinth",
+                    "description": "The largest of all Ahom monuments, this was the sprawling military base and palace of the Ahom Kings. Originally seven stories high (three underground and four above ground), it features complex, labyrinthine brick architecture and historically housed two secret underground escape tunnels.",
+                    "tips": "The underground levels are now sealed off to the public to prevent tourists from getting lost in the maze. Walk through the vast upper corridors to appreciate the military architecture.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "siv-kareng-ghar",
+                    "name": "Kareng Ghar (Garhgaon Palace)",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.5,
+                    "entry_fee_inr": 25,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Kareng Ghar pyramid palace architecture",
+                    "description": "Located in Garhgaon, this was the primary royal palace of the Ahom kings. The current four-story brick structure features a distinct, almost pyramidal shape with terraced levels and octagonal rooms, showcasing an evolution in Ahom architectural design.",
+                    "tips": "Located a short drive outside Sivasagar town. Climb to the top floor for a panoramic view of the surrounding countryside.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "tezpur",
+            "name": "Tezpur",
+            "tagline": "City of Eternal Romance",
+            "region": "Northern Bank, Brahmaputra Valley",
+            "district": "Sonitpur",
+            "type": "Heritage & Nature",
+            "altitude_m": 48,
+            "altitude_display": "48m",
+            "lat": 26.6528,
+            "lon": 92.7926,
+            "distance_guwahati_km": 175,
+            "distance_kaziranga_km": 50,
+            "best_time": "October–April",
+            "avoid_time": "Monsoon (June-August)",
+            "temp_summer_c": "25–36°C",
+            "temp_winter_c": "12–24°C",
+            "hero_image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80",
+            "overview": "Considered the cultural capital of Assam, Tezpur is a beautifully planned, clean city situated on the northern bank of the Brahmaputra. Framed by snow-capped Himalayan peaks on clear days, it is steeped in mythological romance, ancient ruins, and rolling tea gardens.",
+            "history": "In Hindu mythology, Tezpur was known as Sonitpur (City of Blood). Legend states it was the site of a massive battle between Lord Krishna and King Banasura over the secret romance between Banasura's daughter Usha and Krishna's grandson Aniruddha. Historically, it is rich in 8th-9th century ruins and was a major British tea-planter hub.",
+            "nearest_airport": {
+                "name": "Tezpur Airport (Salonibari)",
+                "code": "TEZ",
+                "distance_km": 10
+            },
+            "nearest_railhead": {
+                "name": "Dekargaon Railway Station",
+                "distance_km": 10,
+                "note": "Regional connectivity"
+            },
+            "language": [
+                "Assamese",
+                "Hindi",
+                "English",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Assamese Thali",
+                "Street Food (Chowmein, Momos)",
+                "Fresh River Fish"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "mythology",
+                "parks",
+                "ruins",
+                "riverbank"
+            ],
+            "places": [
+                {
+                    "id": "tez-agnigarh",
+                    "name": "Agnigarh Hill",
+                    "category": "Heritage",
+                    "subcategory": "Park & Viewpoint",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "hill park sculptures river view",
+                    "description": "According to legend, King Banasura built this fortress surrounded by a ring of fire (Agni-garh) to keep his beautiful daughter, Usha, in isolation. Today, it is a beautifully landscaped hillock park featuring sculptures depicting this mythological love story, offering stunning views of the Brahmaputra River and the massive Kolia Bhomora Setu bridge.",
+                    "tips": "The circular path to the top is an easy walk. Best visited in the late afternoon to catch the sunset over the Brahmaputra river. Great for families and couples.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tez-mahabhairab",
+                    "name": "Mahabhairab Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Mahabhairab temple Assam Shiva",
+                    "description": "An ancient temple dedicated to Lord Shiva, believed to have been originally established by the mythological King Banasura. The temple houses one of the largest Shiva lingams made of living rock in the world. The current structure was rebuilt after the massive 1897 earthquake.",
+                    "tips": "Maha Shivaratri is the biggest festival here, drawing thousands of devotees. The temple complex is peaceful and well-maintained.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tez-bamuni-hills",
+                    "name": "Bamuni Hills",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "ancient stone ruins carvings Assam",
+                    "description": "A striking archaeological site scattered with the ruins of a 9th-10th century Hindu temple complex. The exquisitely carved stone pillars, lintels, and walls showcase the Gupta style of architecture and hint at the immense scale of the original temples.",
+                    "tips": "The site is relatively quiet and unregulated. It's a paradise for history buffs and photographers who appreciate ancient stone carvings and ruins.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tez-cole-park",
+                    "name": "Chitralekha Udyan (Cole Park)",
+                    "category": "Nature",
+                    "subcategory": "Park",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 7:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "lake park paddle boats trees",
+                    "description": "A picturesque park established by a British Deputy Commissioner in 1906. It features a central horseshoe-shaped lake with paddle boats, open-air stages, and ancient stone pillars brought from the Bamuni hills. A MiG-21 fighter jet is also displayed here as a monument.",
+                    "tips": "A very relaxing spot for an evening stroll. Paddle boating is popular. The park is very well-maintained and clean.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "haflong",
+            "name": "Haflong",
+            "tagline": "The Only Hill Station in Assam",
+            "region": "Dima Hasao",
+            "district": "Dima Hasao",
+            "type": "Hill Station",
+            "altitude_m": 680,
+            "altitude_display": "680m",
+            "lat": 25.1764,
+            "lon": 93.0185,
+            "distance_guwahati_km": 310,
+            "distance_silchar_km": 105,
+            "best_time": "October–April",
+            "avoid_time": "June–August (heavy rain and landslides)",
+            "temp_summer_c": "20–30°C",
+            "temp_winter_c": "10–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=1200&q=80",
+            "overview": "Often dubbed the 'Switzerland of the East', Haflong is Assam's only true hill station. Nestled in the rolling Borail range, it is renowned for its emerald landscapes, misty hills, vibrant orchids, and the unique culture of the indigenous Dimasa, Zeme Naga, and Hmar tribes.",
+            "history": "Haflong serves as the headquarters of the Dima Hasao district. Historically, the region was part of the ancient Dimasa Kachari Kingdom, which had its capital in nearby Maibang. During the British era, it was developed as a serene retreat away from the sweltering plains of Assam.",
+            "nearest_airport": {
+                "name": "Silchar Airport",
+                "code": "IXS",
+                "distance_km": 110
+            },
+            "nearest_railhead": {
+                "name": "New Haflong Railway Station",
+                "distance_km": 5,
+                "note": "A highly scenic mountain railway route"
+            },
+            "language": [
+                "Dimasa",
+                "Haflong Hindi",
+                "English",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Pork with Bamboo Shoot",
+                "Judima (Traditional Rice Wine)",
+                "Local Tribal Cuisines"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "hill station",
+                "nature",
+                "tribal culture",
+                "misty",
+                "offbeat"
+            ],
+            "places": [
+                {
+                    "id": "haf-lake",
+                    "name": "Haflong Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "mountain lake suspension bridge mist",
+                    "description": "Situated right in the heart of the town, this is a highly picturesque lake surrounded by lush green hills. A hanging suspension bridge passes over a section of the lake, offering beautiful vantage points. It is the town's most popular recreational spot.",
+                    "tips": "Boating is available. Walk over the hanging bridge for photography. The area around the lake is perfect for a quiet evening walk.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "haf-jatinga",
+                    "name": "Jatinga",
+                    "category": "Nature",
+                    "subcategory": "Mystery / Birdwatching",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Best visited at night (September-November)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 9,
+                    "unsplash_query": "foggy mountain ridge mist forest",
+                    "description": "A picturesque village on a ridge that has gained global infamy for a bizarre, unexplained phenomenon: during moonless, foggy nights in late monsoon (Sept-Nov), various species of local birds become disoriented, fly towards village lights, and mysteriously plunge to the ground.",
+                    "tips": "A bird-watching tower is maintained by the forest department. To witness the phenomenon, you must visit during very specific weather conditions in autumn nights. Otherwise, it is just a scenic, quiet village.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "haf-maibang",
+                    "name": "Maibang",
+                    "category": "Heritage",
+                    "subcategory": "Ruins",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "stone temple monolith river",
+                    "description": "The ancient capital of the Dimasa Kachari kingdom from the 16th to 18th century. Located on the banks of the Mahur River, the primary attraction here is the 'Ramchandi Temple'—a monolithic, double-roofed structure carved out of a single giant boulder.",
+                    "tips": "It's an hour's drive from Haflong. The scenic train ride to Maibang is highly recommended. The ruins are modest but historically significant to Assam's tribal history.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,732 @@
+{
+    "meta": {
+        "project": "India Explore - Jharkhand",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "ranchi",
+            "name": "Ranchi",
+            "tagline": "The City of Waterfalls",
+            "region": "Chota Nagpur Plateau",
+            "district": "Ranchi",
+            "type": "Capital City & Nature",
+            "altitude_m": 651,
+            "altitude_display": "651m",
+            "lat": 23.3441,
+            "lon": 85.3096,
+            "distance_kolkata_km": 400,
+            "distance_patna_km": 330,
+            "best_time": "September–March",
+            "avoid_time": "May–June (hot days, though evenings are pleasant)",
+            "temp_summer_c": "24–38°C",
+            "temp_winter_c": "8–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1621213032549-0d32155d376f?w=1200&q=80",
+            "overview": "Ranchi, the capital of Jharkhand, sits comfortably atop the Chota Nagpur Plateau. Once the summer capital of the undivided state of Bihar due to its pleasant climate, the city is surrounded by dense forests, undulating hills, and is most famous for its spectacular cascading waterfalls. It serves as the gateway to the tribal heartland of Eastern India.",
+            "history": "Ranchi was a major center for the tribal uprising (Ulgulan) against the British Raj in the late 19th century, led by the legendary freedom fighter Birsa Munda. Historically part of the Magadha and Mauryan empires, the region has always had a dominant tribal culture, heavily featuring the Oraon, Munda, and Santhal tribes. It became the capital of the newly formed state of Jharkhand in 2000.",
+            "nearest_airport": {
+                "name": "Birsa Munda Airport",
+                "code": "IXR",
+                "distance_km": 5
+            },
+            "nearest_railhead": {
+                "name": "Ranchi Junction",
+                "distance_km": 0,
+                "note": "Major railway hub of the state"
+            },
+            "language": [
+                "Hindi",
+                "Sadri",
+                "Nagpuri",
+                "English"
+            ],
+            "cuisine": [
+                "Dhuska with Chana",
+                "Litti Chokha",
+                "Handia (Rice Beer)",
+                "Chilka Roti",
+                "Bamboo Shoot Curry"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 7000
+            },
+            "tags": [
+                "waterfalls",
+                "nature",
+                "tribal culture",
+                "hills",
+                "lakes"
+            ],
+            "places": [
+                {
+                    "id": "ran-hundru-falls",
+                    "name": "Hundru Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.6,
+                    "entry_fee_inr": 10,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "cascading waterfall rocky gorge forest",
+                    "description": "One of the most spectacular waterfalls in the state. The Subarnarekha River plunges from a height of 98 meters (322 ft) over a rugged cliff, creating a massive pool at the bottom. The varying rock formations created by the continuous erosion of the water add to the dramatic beauty of the site.",
+                    "tips": "Be prepared to descend (and subsequently climb) around 700 steps to reach the base of the falls. Avoid swimming in the monsoon season due to dangerous undercurrents.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ran-dassam-falls",
+                    "name": "Dassam Falls (Dassam Ghagh)",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.5,
+                    "entry_fee_inr": 10,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 40,
+                    "unsplash_query": "waterfall natural pool green forest",
+                    "description": "A stunning natural cascade across the Kanchi River, falling from a height of 44 meters (144 ft). The name 'Dassam' historically refers to the ten different streams that the water supposedly breaks into as it falls down the steep, tiered rock face.",
+                    "tips": "The sound of the water echoing in the gorge is mesmerizing. Swimming here is strictly prohibited and highly dangerous due to hidden rocks and sudden drop-offs.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ran-tagore-hill",
+                    "name": "Tagore Hill",
+                    "category": "Heritage",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "hill top view city sunset",
+                    "description": "A 300-foot-high hill located in Morabadi, intimately associated with Jyotirindranath Tagore (the elder brother of Rabindranath Tagore). He was so captivated by the beauty of this hill that he settled here in 1908. At the summit sits the 'Shantidham' house and a beautiful pavilion offering panoramic views of Ranchi.",
+                    "tips": "It requires a climb of about 200 steps to reach the top. It is a fantastic spot to catch a quiet sunrise or sunset overlooking the sprawling city.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ran-rock-garden",
+                    "name": "Rock Garden & Kanke Dam",
+                    "category": "Nature",
+                    "subcategory": "Park & Lake",
+                    "rating": 4.3,
+                    "entry_fee_inr": 30,
+                    "open_hours": "9:00 AM – 7:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "rock garden lake view sunset",
+                    "description": "Carved out of the rocks of the Gonda Hill, this beautifully landscaped garden is modeled after the famous Rock Garden in Chandigarh. It features waterfalls, sculptures, and winding paths. It sits right on the edge of the sprawling Kanke Dam lake.",
+                    "tips": "An excellent picnic spot for families. The sunset view from the garden overlooking the Kanke Dam is highly recommended. Boating facilities are available at the dam.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ran-jagannath-temple",
+                    "name": "Jagannath Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:00 AM – 12:00 PM, 3:00 PM – 7:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "Jagannath temple hilltop architecture",
+                    "description": "Built in 1691 by King Ani Nath Shahdeo, this 17th-century temple is an architectural replica of the famous Jagannath Temple in Puri, Odisha. Set atop a small hill, it offers both spiritual solace and a sweeping view of the surrounding plateau.",
+                    "tips": "The annual Rath Yatra (Chariot Festival) held here in June/July is a massive, vibrant event drawing thousands of devotees and tribal populations from surrounding villages.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "jamshedpur",
+            "name": "Jamshedpur",
+            "tagline": "The Steel City of India",
+            "region": "Chota Nagpur Plateau",
+            "district": "East Singhbhum",
+            "type": "Planned Industrial City",
+            "altitude_m": 135,
+            "altitude_display": "135m",
+            "lat": 22.8046,
+            "lon": 86.2029,
+            "distance_ranchi_km": 130,
+            "distance_kolkata_km": 280,
+            "best_time": "October–March",
+            "avoid_time": "April–June (extremely hot)",
+            "temp_summer_c": "30–42°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1596700813955-f2ebce311a22?w=1200&q=80",
+            "overview": "Jamshedpur, affectionately known as Tatanagar, is India's first planned industrial city. Nestled between the Subarnarekha and Kharkai rivers and framed by the Dalma Hills, it brilliantly defies the stereotype of a polluted industrial town. It is exceptionally clean, filled with sprawling parks, wide tree-lined avenues, and lush wildlife sanctuaries.",
+            "history": "The city was founded in 1919 by Jamshetji Nusserwanji Tata, the visionary founder of the Tata Group. Tata Steel established its massive plant here in 1907. It is one of the few cities in India without a municipal corporation; the infrastructure is primarily maintained by Tata Steel, resulting in a highly organized and pristine urban environment.",
+            "nearest_airport": {
+                "name": "Sonari Airport",
+                "code": "IXW",
+                "distance_km": 3,
+                "note": "Limited commercial flights; Ranchi or Kolkata are the main access points."
+            },
+            "nearest_railhead": {
+                "name": "Tatanagar Junction",
+                "distance_km": 0,
+                "note": "A major and highly connected railway hub"
+            },
+            "language": [
+                "Hindi",
+                "Bengali",
+                "Santhali",
+                "English"
+            ],
+            "cuisine": [
+                "Street Food (Gol Gappe, Chaat)",
+                "Litti Chokha",
+                "South Indian (due to diverse workforce)",
+                "Pitha"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 4000,
+                "luxury": 8000
+            },
+            "tags": [
+                "planned city",
+                "industrial",
+                "parks",
+                "wildlife",
+                "lakes"
+            ],
+            "places": [
+                {
+                    "id": "jam-jubilee-park",
+                    "name": "Jubilee Park",
+                    "category": "Nature",
+                    "subcategory": "City Park",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "city park fountains gardens",
+                    "description": "A massive 225-acre park gifted by Tata Steel to the citizens of Jamshedpur on the company's Golden Jubilee. Modeled after the Vrindavan Gardens of Mysore, it features dazzling musical fountains, meticulously manicured flower beds, Jayanti Sarovar (a lake), and an amusement park.",
+                    "tips": "The park is spectacularly illuminated on Founder's Day (March 3rd). Evening strolls near the fountains are a local favorite. It is an incredibly clean and safe environment.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jam-dalma-sanctuary",
+                    "name": "Dalma Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "4–5",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "elephants dense forest hills India",
+                    "description": "Perched on the Dalma Hills at an altitude of 3,000 feet, this 195 sq. km sanctuary is the premier habitat for the Indian Elephant in Jharkhand. The dense canopy forests also house barking deer, sloth bears, and leopards. A highly revered Lord Shiva temple sits at the very top of the hill.",
+                    "tips": "The drive up the hill is steep and rugged, requiring a good vehicle. February to March is the best time to spot elephants near the waterholes. Trekking to the Shiva temple is a popular local activity.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jam-dimna-lake",
+                    "name": "Dimna Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 13,
+                    "unsplash_query": "lake surrounded by hills peaceful",
+                    "description": "An artificial reservoir constructed by Tata Steel at the foothills of the Dalma ranges. It serves as the primary drinking water source for the city. The lake is surrounded by lush green hills, offering a highly picturesque, tranquil escape from the urban center.",
+                    "tips": "A fantastic spot for morning walks or weekend picnics. Boating is sometimes available depending on water levels. Best visited during the monsoon or winter when the hills are vibrant green.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jam-bhuvaneshwari",
+                    "name": "Bhuvaneshwari Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual/Viewpoint",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 12:00 PM, 4:00 PM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 8,
+                    "unsplash_query": "Hindu temple atop a hill architecture",
+                    "description": "Located on the Telco hills, this South Indian style temple is dedicated to Maa Bhuvaneshwari. Apart from its spiritual significance and traditional Dravidian architecture, the temple complex offers a breathtaking bird's-eye view of the entire city of Jamshedpur and the massive Tata Motors plant.",
+                    "tips": "Visit during the late afternoon to offer prayers and stay to watch the sunset over the industrial cityscape. The temple premises are impeccably maintained.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "deoghar",
+            "name": "Deoghar",
+            "tagline": "The Abode of the Gods",
+            "region": "Santhal Pargana",
+            "district": "Deoghar",
+            "type": "Spiritual & Pilgrimage",
+            "altitude_m": 255,
+            "altitude_display": "255m",
+            "lat": 24.4823,
+            "lon": 86.6990,
+            "distance_ranchi_km": 250,
+            "distance_patna_km": 255,
+            "best_time": "October–March (Or July-August for Shravani Mela)",
+            "avoid_time": "May–June (extreme heat)",
+            "temp_summer_c": "28–42°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1620603723326-0e10cc933e4f?w=1200&q=80",
+            "overview": "Deoghar, translating to 'Abode of the Gods', is the cultural and spiritual capital of Jharkhand. It is globally famous for the Baidyanath Jyotirlinga temple, one of the 12 most sacred Shiva shrines in Hinduism. Set amidst scenic hillocks and forests, the city hums with devotion, drawing millions of pilgrims annually.",
+            "history": "Steeped in Hindu mythology, Deoghar is believed to be the place where the demon king Ravana brought the sacred Shiva Lingam (Baidyanath) from Mount Kailash. The historic Shravani Mela held here is one of the largest religious congregations in the world, where millions of 'Kanwariyas' walk 108 km from Sultanganj carrying holy Ganges water to offer to the deity.",
+            "nearest_airport": {
+                "name": "Deoghar Airport",
+                "code": "DGH",
+                "distance_km": 8
+            },
+            "nearest_railhead": {
+                "name": "Jasidih Junction",
+                "distance_km": 8,
+                "note": "The primary rail access point for Deoghar"
+            },
+            "language": [
+                "Hindi",
+                "Khorta",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Peda (Famous Deoghar Sweet)",
+                "Malpua",
+                "Puri Sabzi",
+                "Litti Chokha"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "pilgrimage",
+                "jyotirlinga",
+                "shiva",
+                "temples",
+                "hills"
+            ],
+            "places": [
+                {
+                    "id": "deo-baidyanath",
+                    "name": "Baidyanath Jyotirlinga Temple",
+                    "category": "Temple",
+                    "subcategory": "Jyotirlinga",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "4:00 AM – 3:30 PM, 6:00 PM – 9:00 PM",
+                    "duration_hrs": "2–4 (depending on queues)",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Baidyanath temple architecture crowd devotion",
+                    "description": "The epicenter of Deoghar. It is one of the 12 sacred Jyotirlingas of Lord Shiva in India. The temple complex comprises the main temple of Baba Baidyanath and 21 other smaller temples. The apex of the main temple is adorned with a golden vase donated by Maharaja Ranjit Singh.",
+                    "tips": "It is extremely crowded year-round, but impossibly packed during the month of Shravan (July/August). Purchase VIP Darshan tickets from the temple board office if you wish to bypass the longest queues. Beware of aggressive pandas (priests).",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "deo-trikut",
+                    "name": "Trikut Pahar (Trikut Hill)",
+                    "category": "Nature",
+                    "subcategory": "Hill & Ropeway",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "ropeway cable car rocky mountain",
+                    "description": "A picturesque, 2470-foot high rocky hill featuring three distinct peaks (representing Brahma, Vishnu, and Shiva). It is a popular picnic and pilgrimage spot. The hill is home to the Trikutachal Mahadeva Temple and the ashram of Sage Dayananda.",
+                    "tips": "Trekking up the rocky path is rewarding, but the aerial ropeway provides thrilling, panoramic views of the dense forest below. Keep all food items secured as there are aggressive monkeys on the hill.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "deo-naulakha",
+                    "name": "Naulakha Mandir",
+                    "category": "Temple",
+                    "subcategory": "Spiritual Architecture",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "7:00 AM – 12:00 PM, 2:00 PM – 7:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "white marble Hindu temple architecture",
+                    "description": "A magnificent, 146-foot-high temple dedicated to Radha and Krishna. It is called 'Naulakha' because it was built at an exact cost of nine lakh rupees (900,000 INR) in 1948. Its pristine white marble architecture bears a striking resemblance to the Ramakrishna Temple in Belur Math.",
+                    "tips": "A highly peaceful contrast to the bustling Baidyanath Temple. The temple grounds are expansive and beautifully maintained, perfect for quiet meditation.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "deo-tapovan",
+                    "name": "Tapovan Caves and Hills",
+                    "category": "Heritage",
+                    "subcategory": "Spiritual Nature",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "natural caves rocky hills ascetic",
+                    "description": "A deeply serene, rugged hillock known for its natural caves where ascetics and sages have meditated for centuries. Legend holds that Sage Valmiki (author of the Ramayana) visited here for penance. It features an ancient Shiva temple and a cracked rock face containing a naturally occurring portrait of Lord Hanuman.",
+                    "tips": "Be prepared for a bit of light rock climbing to explore the caves fully. It's an excellent place for quiet reflection, though you should avoid visiting after dark.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "hazaribagh",
+            "name": "Hazaribagh",
+            "tagline": "The Land of a Thousand Gardens",
+            "region": "North Chota Nagpur",
+            "district": "Hazaribagh",
+            "type": "Wildlife & Nature",
+            "altitude_m": 615,
+            "altitude_display": "615m",
+            "lat": 23.9935,
+            "lon": 85.3582,
+            "distance_ranchi_km": 95,
+            "distance_bodhgaya_km": 120,
+            "best_time": "October–March",
+            "avoid_time": "May–June",
+            "temp_summer_c": "25–38°C",
+            "temp_winter_c": "8–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1544834243-7a96a308ea7c?w=1200&q=80",
+            "overview": "Translating to 'City of a Thousand Gardens', Hazaribagh is a picturesque health resort town situated on a high plateau. Surrounded by dense, unspoiled forests, lakes, and rolling hills, it is the perfect destination for nature lovers seeking a tranquil escape from urban chaos.",
+            "history": "Hazaribagh has ancient roots; nearby Isko village features prehistoric rock art. During the British Raj, due to its cool climate, it was developed as a cantonment and a health resort for recovering soldiers. It is also famous for its rich reserves of coal.",
+            "nearest_airport": {
+                "name": "Birsa Munda Airport, Ranchi",
+                "code": "IXR",
+                "distance_km": 110
+            },
+            "nearest_railhead": {
+                "name": "Hazaribagh Town",
+                "distance_km": 0,
+                "note": "Connected via the Koderma-Hazaribagh-Barkakana line"
+            },
+            "language": [
+                "Hindi",
+                "Khorta",
+                "English"
+            ],
+            "cuisine": [
+                "Desi Chicken Curry",
+                "Sattu Paratha",
+                "Malpua",
+                "Dhuska"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "wildlife",
+                "hills",
+                "lakes",
+                "nature",
+                "trekking"
+            ],
+            "places": [
+                {
+                    "id": "haz-national-park",
+                    "name": "Hazaribagh Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.5,
+                    "entry_fee_inr": 50,
+                    "open_hours": "7:00 AM – 5:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "forest watchtower deer wildlife India",
+                    "description": "Spread over 186 sq. km of undulating hills and thick tropical forests, this sanctuary is known for its scenic beauty. It is home to sambar, nilgai, wild boar, and spotted deer. The sanctuary features a 111-km long motorable road network making it highly accessible.",
+                    "tips": "The forest department has built several watchtowers overlooking water holes. Spend time quietly at a watchtower in the late afternoon for the best chance to spot wildlife. Book a safari through the DFO office.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "haz-canary-hill",
+                    "name": "Canary Hill",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint & Trek",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "hill top tower panoramic view forest",
+                    "description": "Jutting out amidst the dense forest, Canary Hill is an iconic landmark of Hazaribagh. It has a well-laid pathway and stairs leading to the top, where an observation tower offers a stunning, panoramic view of the forested hills on one side and the town on the other.",
+                    "tips": "You can drive partway up the hill or trek the whole way. A highly recommended spot for early morning hikes and sunset views. A small rest house is located at the peak.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "haz-lake",
+                    "name": "Hazaribagh Lake",
+                    "category": "Nature",
+                    "subcategory": "City Lake",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "calm lake sunset walking path",
+                    "description": "Situated right in the heart of the town, this is actually a series of interconnected lakes built by British inmates in the 1830s. It is surrounded by colonial-era bungalows, large trees, and walking paths.",
+                    "tips": "The 'third partition' of the lake offers the most scenic views of the horizon. Boating facilities are available, and the sunset over the water is beautifully serene.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "haz-konar-dam",
+                    "name": "Konar Dam",
+                    "category": "Nature",
+                    "subcategory": "Dam & Reservoir",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 40,
+                    "unsplash_query": "massive dam water reservoir scenic",
+                    "description": "The second of the four multi-purpose dams built by the Damodar Valley Corporation. The massive 160-foot high dam on the Konar river creates a vast, deep blue reservoir set against a postcard-perfect backdrop of forested hills.",
+                    "tips": "An excellent day-trip and picnic spot from Hazaribagh. The massive expanse of water and the surrounding tranquility make it a photographer's delight.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "netarhat",
+            "name": "Netarhat",
+            "tagline": "Queen of Chotanagpur",
+            "region": "Palamu",
+            "district": "Latehar",
+            "type": "Hill Station",
+            "altitude_m": 1071,
+            "altitude_display": "1,071m",
+            "lat": 23.4795,
+            "lon": 84.2690,
+            "distance_ranchi_km": 150,
+            "distance_daltonganj_km": 110,
+            "best_time": "September–March",
+            "avoid_time": "July–August (heavy monsoons)",
+            "temp_summer_c": "15–30°C",
+            "temp_winter_c": "1–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1544834243-7a96a308ea7c?w=1200&q=80",
+            "overview": "Netarhat is the highest point on the Chotanagpur Plateau and Jharkhand's most famous hill station. Characterized by dense pine and sal forests, winding ghat roads, and deep valleys, it is a place of profound natural beauty, universally renowned for its glorious, majestic sunrises and sunsets.",
+            "history": "Due to its cool climate, Netarhat was developed as a hill station during the British Raj. It is also home to the prestigious Netarhat Residential School, established in 1954, which has produced numerous eminent personalities and civil servants. The local culture is heavily influenced by the indigenous tribal populations of the region.",
+            "nearest_airport": {
+                "name": "Birsa Munda Airport, Ranchi",
+                "code": "IXR",
+                "distance_km": 155
+            },
+            "nearest_railhead": {
+                "name": "Lohardaga",
+                "distance_km": 80,
+                "note": "Most tourists drive directly from Ranchi."
+            },
+            "language": [
+                "Hindi",
+                "Sadri",
+                "English"
+            ],
+            "cuisine": [
+                "Local Tribal Cuisines",
+                "Dhuska",
+                "North Indian Veg/Non-Veg"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 5000
+            },
+            "tags": [
+                "hill station",
+                "sunsets",
+                "pine forests",
+                "waterfalls",
+                "scenic drives"
+            ],
+            "places": [
+                {
+                    "id": "net-magnolia-point",
+                    "name": "Magnolia Sunset Point",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Best visited at sunset",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "hilltop sunset dramatic sky valley",
+                    "description": "The absolute highlight of Netarhat. It offers an unobstructed, breathtaking view of the sun setting behind the Vindhya hills. The point is named after Magnolia, a British girl who fell in love with a local shepherd and tragically rode her horse off the cliff here when their love was opposed.",
+                    "tips": "Arrive at least 30 minutes before sunset to secure a good viewing spot. The changing colors of the sky and the mist rolling into the deep valley are unforgettable.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "net-lodh-falls",
+                    "name": "Lodh Falls (Burhaghagh Falls)",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 60,
+                    "unsplash_query": "tallest waterfall dense forest India",
+                    "description": "Located a bit of a drive away in the Palamu Tiger Reserve area, this is the highest waterfall in Jharkhand, dropping from a majestic height of 143 meters (468 ft). Hidden deep inside lush green forests, the roaring sound of the water can be heard from afar.",
+                    "tips": "It requires a full half-day trip from Netarhat. The access road is rough and heavily forested. Do not venture close to the massive plunge pool.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "net-upper-ghaghri",
+                    "name": "Upper Ghaghri Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 4,
+                    "unsplash_query": "small waterfall rocks forest",
+                    "description": "A picturesque, relatively small waterfall formed by the overflow of the Netarhat Dam. It cascades down rocky steps and is surrounded by dense, beautiful forest cover. It is a fantastic spot to experience the raw, quiet nature of the plateau.",
+                    "tips": "An excellent and easily accessible spot for a quiet picnic. The surrounding areas are famous for beautiful pear and apple orchards.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "net-koel-view",
+                    "name": "Koel View Point",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "mountain viewpoint river valley",
+                    "description": "A stunning vantage point that offers a panoramic view of the winding Koel River as it cuts its way through the deep gorge of the Chotanagpur plateau, completely surrounded by virgin pine and sal forests.",
+                    "tips": "It is particularly beautiful in the early morning when the valley is often filled with a sea of white mist, with only the river gleaming through.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "dhanbad",
+            "name": "Dhanbad",
+            "tagline": "The Coal Capital of India",
+            "region": "North Chota Nagpur",
+            "district": "Dhanbad",
+            "type": "Industrial & Nature",
+            "altitude_m": 227,
+            "altitude_display": "227m",
+            "lat": 23.7915,
+            "lon": 86.4304,
+            "distance_ranchi_km": 145,
+            "distance_kolkata_km": 270,
+            "best_time": "October–March",
+            "avoid_time": "April–June (extremely hot)",
+            "temp_summer_c": "28–44°C",
+            "temp_winter_c": "10–22°C",
+            "hero_image": "https://images.unsplash.com/photo-1596700813955-f2ebce311a22?w=1200&q=80",
+            "overview": "Dhanbad is globally famous for its vast, deep coal mines, which power a significant portion of India's industry. However, beyond the collieries and the prestigious IIT (Indian School of Mines), the district boasts surprising natural beauty, featuring massive dams, serene lakes, and forested hills.",
+            "history": "Dhanbad's history is inextricably linked to the discovery of high-grade coal in the Jharia region during the British era. It fueled the industrial revolution in India and the growth of the railways. It is also home to IIT (ISM) Dhanbad, established in 1926 by the British modeled on the Royal School of Mines in London.",
+            "nearest_airport": {
+                "name": "Kazi Nazrul Islam Airport, Durgapur",
+                "code": "RDP",
+                "distance_km": 85
+            },
+            "nearest_railhead": {
+                "name": "Dhanbad Junction",
+                "distance_km": 0,
+                "note": "One of the largest and busiest railway divisions in India"
+            },
+            "language": [
+                "Hindi",
+                "Bengali",
+                "Khorta",
+                "English"
+            ],
+            "cuisine": [
+                "Litti Chokha",
+                "Street Chaat",
+                "Bengali Sweets",
+                "Sattu"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "coal mines",
+                "dams",
+                "lakes",
+                "industrial",
+                "waterfalls"
+            ],
+            "places": [
+                {
+                    "id": "dhn-maithon-dam",
+                    "name": "Maithon Dam",
+                    "category": "Nature",
+                    "subcategory": "Dam & Reservoir",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 45,
+                    "unsplash_query": "massive dam water reservoir boating",
+                    "description": "Constructed on the Barakar River, Maithon Dam is a massive project of the Damodar Valley Corporation. The name translates to 'Mother's Abode' (Mai-ka-than). It features a unique underground power station, the first of its kind in Southeast Asia. The sprawling blue reservoir is exceptionally beautiful.",
+                    "tips": "Boating to the small islands in the reservoir is highly recommended. While there, visit the ancient and highly revered Kalyaneshwari Temple located just near the dam.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dhn-topchanchi",
+                    "name": "Topchanchi Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake & Wildlife",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 37,
+                    "unsplash_query": "tranquil lake green hills reflection",
+                    "description": "An artificial lake excavated in 1915 to supply water to the Jharia coalfields. Today, it sits beautifully amidst the green Parasnath hills and is bordered by a wildlife sanctuary. The calm green waters and absolute silence offer a stark contrast to the noisy coal city.",
+                    "tips": "It's an incredibly peaceful picnic spot located right off National Highway 2. A walk along the perimeter of the lake provides great views of the surrounding hills.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dhn-bhatinda-falls",
+                    "name": "Bhatinda Falls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 14,
+                    "unsplash_query": "rocky waterfall gorge scenic",
+                    "description": "Nestled amidst lush greenery and massive, rugged rock boulders, the Bhatinda falls is formed by the Katri River cascading down the rocky terrain. The jagged rocks and the rushing water make it a dramatic and highly photogenic location.",
+                    "tips": "The jagged rocks can be extremely slippery; swimming or climbing the rocks near the waterfall is dangerous. Best visited during or immediately after the monsoon season.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dhn-panchet-dam",
+                    "name": "Panchet Dam",
+                    "category": "Nature",
+                    "subcategory": "Dam & Reservoir",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 55,
+                    "unsplash_query": "dam river landscape peaceful",
+                    "description": "Another massive dam built across the Damodar River, inaugurated in 1959. Set against the backdrop of the Panchet Hill, the dam and its massive reservoir serve as the border between Jharkhand and West Bengal.",
+                    "tips": "Often visited along with Maithon Dam. The drive to the dam is quite scenic. It is less crowded than Maithon, offering a quieter experience by the water.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

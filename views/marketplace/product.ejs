@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= product.title %> – Marketplace | TripQuest</title>
+  <meta name="description" content="<%= product.description ? product.description.substring(0, 160) : product.title + ' — available on TripQuest Marketplace' %>"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Nunito', sans-serif; background: #f7f8fa; color: #1a1a1a; overflow-x: hidden; }
+
+    .dot-bg {
+      position: fixed; inset: 0; z-index: -1;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07); box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .green-text {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .nav-link { color: #4a4a4a; cursor: pointer; transition: color 0.2s; position: relative; }
+    .nav-link:hover { color: #00AA6C; }
+    .nav-link.active { color: #00AA6C; }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #00AA6C, #34E0A1); border-radius: 2px;
+    }
+
+    .avatar {
+      width: 38px; height: 38px; background: linear-gradient(135deg, #34E0A1, #00AA6C);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.95rem; color: white; cursor: pointer; text-decoration: none;
+      transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,170,108,0.35); flex-shrink: 0;
+    }
+    .avatar:hover { transform: scale(1.08); }
+
+    .greeting-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(52,224,161,0.1); border: 1.5px solid rgba(0,170,108,0.2);
+      border-radius: 100px; padding: 5px 14px; font-size: 0.83rem; font-weight: 700; color: #00AA6C;
+    }
+
+    .btn-green {
+      background: #34E0A1; color: #1a1a1a; font-weight: 800; font-family: 'Nunito', sans-serif;
+      border-radius: 10px; transition: all 0.22s; box-shadow: 0 4px 14px rgba(52,224,161,0.38);
+      border: none; cursor: pointer;
+    }
+    .btn-green:hover { background: #28d494; transform: translateY(-1px); }
+
+    .btn-logout {
+      font-size: 0.82rem; font-weight: 700; color: #8a8a8a; text-decoration: none;
+      padding: 6px 14px; border: 1.5px solid #d4d4d4; border-radius: 8px;
+      transition: all 0.2s; font-family: 'Nunito', sans-serif; background: transparent; cursor: pointer;
+    }
+    .btn-logout:hover { border-color: #e05252; color: #e05252; }
+
+    /* ── PRODUCT DETAIL ── */
+    .detail-card {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow: hidden;
+    }
+
+    .image-gallery {
+      display: grid; gap: 8px; border-radius: 16px; overflow: hidden;
+    }
+    .image-gallery.single { grid-template-columns: 1fr; }
+    .image-gallery.multi { grid-template-columns: 1fr 1fr; }
+    .image-gallery img {
+      width: 100%; height: 320px; object-fit: cover; transition: transform 0.3s;
+      border-radius: 12px;
+    }
+    .image-gallery img:hover { transform: scale(1.03); }
+    .image-gallery img:first-child { grid-row: span 2; height: 100%; min-height: 320px; }
+
+    .info-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(52,224,161,0.08); border: 1.5px solid rgba(0,170,108,0.15);
+      border-radius: 100px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; color: #00AA6C;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #f0fdf8, #e6fdf5);
+      border: 1.5px solid rgba(0,170,108,0.2); border-radius: 14px; padding: 20px;
+    }
+
+    .seller-badge {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      border-radius: 14px; padding: 20px; color: white; position: relative; overflow: hidden;
+    }
+    .seller-badge::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(52,224,161,0.12), transparent 60%);
+    }
+
+    /* ── REVIEWS ── */
+    .review-item {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 14px;
+      padding: 20px; transition: all 0.25s;
+    }
+    .review-item:hover { box-shadow: 0 8px 24px rgba(0,170,108,0.08); border-color: rgba(0,170,108,0.15); }
+
+    .review-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; color: white; font-size: 0.95rem; flex-shrink: 0;
+    }
+
+    .star-input { display: flex; gap: 4px; direction: rtl; justify-content: flex-end; }
+    .star-input input { display: none; }
+    .star-input label {
+      font-size: 1.8rem; cursor: pointer; color: #d4d4d4; transition: color 0.15s;
+    }
+    .star-input label:hover,
+    .star-input label:hover ~ label,
+    .star-input input:checked ~ label { color: #f5a623; }
+
+    .review-form {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 16px;
+      padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .review-textarea {
+      width: 100%; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 14px;
+      font-family: 'Nunito', sans-serif; font-size: 0.88rem; font-weight: 600;
+      resize: vertical; min-height: 100px; outline: none; transition: border-color 0.2s;
+    }
+    .review-textarea:focus { border-color: #00AA6C; }
+
+    .breadcrumb a {
+      color: #8a8a8a; text-decoration: none; font-weight: 600; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #00AA6C; }
+
+    footer { background: #1a1a1a; color: #9a9a9a; }
+  </style>
+</head>
+<body>
+
+<div class="dot-bg"></div>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/home" class="flex items-center gap-2 no-underline">
+      <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">🦉</div>
+      <span style="font-size:1.2rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span style="color:#00AA6C">Advisor</span></span>
+    </a>
+    <ul class="hidden md:flex gap-7 text-sm list-none" style="font-weight:700">
+      <li class="nav-link" onclick="window.location.href='/home'">Home</li>
+      <li class="nav-link" onclick="window.location.href='/explore'">Explore</li>
+      <li class="nav-link" onclick="window.location.href='/experiences'">Experiences</li>
+      <li class="nav-link active" onclick="window.location.href='/marketplace'">Marketplace</li>
+      <li class="nav-link" onclick="window.location.href='/reviews'">Reviews</li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <span class="greeting-pill hidden md:inline-flex">👋 Hey, <%= user.name.split(' ')[0] %>!</span>
+        <a href="/profile" class="avatar" title="Go to Profile"><%= user.name.charAt(0).toUpperCase() %></a>
+        <a href="/logout" class="btn-logout">Logout</a>
+      <% } else { %>
+        <a href="/login" style="font-size:0.85rem;font-weight:800;color:#00AA6C;text-decoration:none">Sign In</a>
+        <a href="/register"><button class="btn-green px-5 py-2 text-sm">Get Started</button></a>
+      <% } %>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ══════════ BREADCRUMB ══════════ -->
+<section class="py-4 px-6">
+  <div class="max-w-6xl mx-auto breadcrumb" style="font-size:0.82rem">
+    <a href="/marketplace">← Marketplace</a>
+    <span style="color:#d4d4d4;margin:0 8px">/</span>
+    <span style="color:#1a1a1a;font-weight:800"><%= product.title %></span>
+  </div>
+</section>
+
+
+<!-- ══════════ PRODUCT DETAIL ══════════ -->
+<section class="py-4 px-6 pb-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- LEFT: Images + Description -->
+      <div class="lg:col-span-2">
+        <!-- Image Gallery -->
+        <div class="image-gallery <%= product.images && product.images.length > 1 ? 'multi' : 'single' %>" style="margin-bottom:28px">
+          <% if (product.images && product.images.length > 0) { %>
+            <% product.images.forEach(function(img, i) { %>
+              <img src="<%= img %>" alt="<%= product.title %> - Image <%= i+1 %>" id="product-image-<%= i %>"/>
+            <% }); %>
+          <% } else { %>
+            <div style="height:360px;background:linear-gradient(135deg,#e0f7ef,#b2ead8);display:flex;align-items:center;justify-content:center;font-size:5rem;border-radius:16px">🛍️</div>
+          <% } %>
+        </div>
+
+        <!-- Product Info -->
+        <div class="detail-card p-8">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+            <span class="info-pill">📍 <%= product.city %><%= product.state ? ', ' + product.state : '' %></span>
+            <% if (product.reviewCount > 0) { %>
+              <span class="info-pill">⭐ <%= product.avgRating.toFixed(1) %> (<%= product.reviewCount %> reviews)</span>
+            <% } %>
+          </div>
+
+          <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:8px" id="product-title">
+            <%= product.title %>
+          </h1>
+
+          <div style="font-size:2rem;font-weight:900;margin-bottom:24px" class="green-text">
+            ₹<%= product.price.toLocaleString('en-IN') %>
+          </div>
+
+          <% if (product.description) { %>
+            <div style="margin-bottom:24px">
+              <h3 style="font-size:0.88rem;font-weight:800;color:#1a1a1a;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em">Description</h3>
+              <p style="color:#4a4a4a;font-size:0.9rem;line-height:1.8;font-weight:500"><%= product.description %></p>
+            </div>
+          <% } %>
+
+          <% if (product.exactLocation) { %>
+            <div style="margin-bottom:16px">
+              <h3 style="font-size:0.88rem;font-weight:800;color:#1a1a1a;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Exact Location</h3>
+              <p style="color:#4a4a4a;font-size:0.88rem;font-weight:500">📍 <%= product.exactLocation %></p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- RIGHT: Seller + Contact + Actions -->
+      <div class="lg:col-span-1">
+        <!-- Seller Badge -->
+        <div class="seller-badge" style="margin-bottom:16px">
+          <div style="position:relative;z-index:1">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+              <div style="width:48px;height:48px;background:linear-gradient(135deg,#34E0A1,#00AA6C);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:1.1rem;flex-shrink:0">
+                <%= product.sellerName.charAt(0).toUpperCase() %>
+              </div>
+              <div>
+                <div style="font-weight:800;font-size:1rem"><%= product.sellerName %></div>
+                <% if (product.shopName) { %>
+                  <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);font-weight:600">🏪 <%= product.shopName %></div>
+                <% } %>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);font-weight:600">✅ Verified Seller</div>
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <% if (product.contactNumber) { %>
+          <div class="contact-card" style="margin-bottom:16px">
+            <h3 style="font-size:0.82rem;font-weight:800;color:#1a1a1a;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em">Contact Seller</h3>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:40px;height:40px;background:rgba(0,170,108,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem">📞</div>
+              <div>
+                <div style="font-size:0.95rem;font-weight:800;color:#1a1a1a"><%= product.contactNumber %></div>
+                <div style="font-size:0.72rem;color:#8a8a8a;font-weight:500">Call or WhatsApp</div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- Price Card -->
+        <div style="background:white;border:1.5px solid rgba(0,0,0,0.07);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
+          <div style="font-size:0.75rem;font-weight:800;color:#8a8a8a;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px">Price</div>
+          <div style="font-size:2.2rem;font-weight:900" class="green-text">₹<%= product.price.toLocaleString('en-IN') %></div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="/marketplace" style="text-decoration:none;display:block">
+          <button style="width:100%;background:#f7f8fa;border:1.5px solid #d4d4d4;border-radius:10px;padding:12px;font-family:'Nunito',sans-serif;font-size:0.88rem;font-weight:700;color:#4a4a4a;cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderColor='#00AA6C';this.style.color='#00AA6C'" onmouseout="this.style.borderColor='#d4d4d4';this.style.color='#4a4a4a'">
+            ← Back to Marketplace
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ REVIEWS SECTION ══════════ -->
+<section class="py-8 px-6 pb-20">
+  <div class="max-w-6xl mx-auto">
+    <div class="detail-card p-8">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+        <div>
+          <h2 style="font-size:1.4rem;font-weight:900;color:#1a1a1a">Reviews & Ratings</h2>
+          <p style="font-size:0.82rem;color:#8a8a8a;font-weight:500;margin-top:2px">
+            <%= reviews.length %> review<%= reviews.length !== 1 ? 's' : '' %>
+            <% if (product.avgRating > 0) { %> · Average ⭐ <%= product.avgRating.toFixed(1) %><% } %>
+          </p>
+        </div>
+      </div>
+
+      <!-- Add Review Form -->
+      <% if (typeof user !== 'undefined' && user && !hasReviewed) { %>
+        <div class="review-form" style="margin-bottom:32px" id="add-review-form">
+          <h3 style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:16px">Write a Review</h3>
+          <form action="/marketplace/product/<%= product._id %>/review" method="POST">
+            <!-- Star Rating -->
+            <div style="margin-bottom:16px">
+              <label style="font-size:0.78rem;font-weight:800;color:#8a8a8a;letter-spacing:0.04em;display:block;margin-bottom:8px">YOUR RATING</label>
+              <div class="star-input" id="star-rating-input">
+                <input type="radio" name="rating" value="5" id="star5"/><label for="star5" title="5 stars">★</label>
+                <input type="radio" name="rating" value="4" id="star4"/><label for="star4" title="4 stars">★</label>
+                <input type="radio" name="rating" value="3" id="star3"/><label for="star3" title="3 stars">★</label>
+                <input type="radio" name="rating" value="2" id="star2"/><label for="star2" title="2 stars">★</label>
+                <input type="radio" name="rating" value="1" id="star1"/><label for="star1" title="1 star">★</label>
+              </div>
+            </div>
+
+            <!-- Comment -->
+            <div style="margin-bottom:16px">
+              <label style="font-size:0.78rem;font-weight:800;color:#8a8a8a;letter-spacing:0.04em;display:block;margin-bottom:8px">YOUR REVIEW</label>
+              <textarea name="comment" class="review-textarea" placeholder="Share your experience with this product..." id="review-comment"></textarea>
+            </div>
+
+            <button type="submit" class="btn-green px-8 py-3 text-sm" id="submit-review-btn">Submit Review</button>
+          </form>
+        </div>
+      <% } else if (hasReviewed) { %>
+        <div style="background:rgba(52,224,161,0.08);border:1.5px solid rgba(0,170,108,0.2);border-radius:12px;padding:16px;margin-bottom:24px;text-align:center">
+          <p style="font-size:0.88rem;font-weight:700;color:#00AA6C">✅ You have already reviewed this product</p>
+        </div>
+      <% } %>
+
+      <!-- Reviews List -->
+      <% if (reviews.length > 0) { %>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <% reviews.forEach(function(review) { %>
+            <div class="review-item">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+                <div class="review-avatar" style="background:linear-gradient(135deg,<%= ['#34E0A1,#00AA6C','#6366f1,#818cf8','#f59e0b,#fbbf24','#ec4899,#f472b6','#8b5cf6,#a78bfa'][Math.floor(Math.random()*5)] %>)">
+                  <%= review.username.charAt(0).toUpperCase() %>
+                </div>
+                <div style="flex:1">
+                  <div style="font-weight:800;font-size:0.9rem;color:#1a1a1a"><%= review.username %></div>
+                  <div style="font-size:0.72rem;color:#8a8a8a;font-weight:500">
+                    <%= new Date(review.createdAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+                  </div>
+                </div>
+                <div style="color:#f5a623;font-size:0.82rem">
+                  <% for (let i = 1; i <= 5; i++) { %>
+                    <% if (i <= review.rating) { %>⭐<% } else { %>☆<% } %>
+                  <% } %>
+                </div>
+              </div>
+              <% if (review.comment) { %>
+                <p style="color:#4a4a4a;font-size:0.86rem;line-height:1.7;font-weight:500"><%= review.comment %></p>
+              <% } %>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div style="text-align:center;padding:40px;color:#8a8a8a">
+          <div style="font-size:2.5rem;margin-bottom:12px">💬</div>
+          <p style="font-size:0.9rem;font-weight:600">No reviews yet. Be the first to review this product!</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="background:#1a1a1a;color:#9a9a9a;padding:48px 24px 28px">
+  <div class="max-w-6xl mx-auto text-center">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px">
+      <div style="width:32px;height:32px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">🦉</div>
+      <span style="font-size:1rem;font-weight:900;color:white">Trip<span style="color:#34E0A1">Advisor</span></span>
+    </div>
+    <p style="font-size:0.72rem;color:#666">© 2026 TripQuest. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

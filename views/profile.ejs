@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Profile – TripAdvisor</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title><%= user.name %>'s Profile – TripQuest</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,13 +23,6 @@
       border-bottom: 1px solid rgba(0,0,0,0.07);
       box-shadow: 0 1px 12px rgba(0,0,0,0.06);
       position: sticky; top: 0; z-index: 100;
-    }
-
-    .green-text {
-      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     /* ── PROFILE HEADER CARD ── */
@@ -62,6 +54,25 @@
       border: 3px solid rgba(255,255,255,0.6);
       flex-shrink: 0;
       position: relative; z-index: 1;
+    }
+
+    /* ── STAT PILLS (dynamic) ── */
+    .stat-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .stat-pill {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: white;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 6px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .stat-pill:hover { background: rgba(255,255,255,0.3); transform: translateY(-1px); }
+    .stat-pill-count {
+      font-size: 1.1rem; font-weight: 900;
     }
 
     /* ── INFO CARDS ── */
@@ -105,18 +116,6 @@
       font-size: 0.92rem;
       font-weight: 700;
       color: #1a1a1a;
-    }
-
-    /* ── STAT PILLS ── */
-    .stat-pill {
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: white;
-      position: relative; z-index: 1;
     }
 
     /* ── BUTTONS ── */
@@ -166,7 +165,71 @@
       padding-left: 4px;
     }
 
-    /* ── ACTIVITY EMPTY ── */
+    /* ── ACTIVITY FEED ── */
+    .activity-card {
+      background: white;
+      border: 1.5px solid rgba(0,0,0,0.07);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+    .activity-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 24px;
+      border-bottom: 1px solid #f4f4f4;
+      transition: background 0.15s;
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-item:hover { background: #fafffe; }
+    .activity-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .activity-icon.review  { background: #fff7e6; border: 1.5px solid #ffe0a0; }
+    .activity-icon.save    { background: #e6f7ff; border: 1.5px solid #a0d4ff; }
+    .activity-icon.unsave  { background: #fff0f0; border: 1.5px solid #ffc0c0; }
+    .activity-icon.visit   { background: #e6ffe6; border: 1.5px solid #a0ffa0; }
+    .activity-icon.signup  { background: #f0e6ff; border: 1.5px solid #c0a0ff; }
+    .activity-title { font-size: 0.88rem; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+    .activity-desc  { font-size: 0.78rem; color: #8a8a8a; font-weight: 500; margin-bottom: 2px; }
+    .activity-time  { font-size: 0.7rem; color: #b0b0b0; font-weight: 600; }
+
+    /* ── RECENT REVIEWS ── */
+    .review-mini {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 24px; border-bottom: 1px solid #f4f4f4;
+      transition: background 0.15s;
+    }
+    .review-mini:last-child { border-bottom: none; }
+    .review-mini:hover { background: #fafffe; }
+    .review-mini-rating {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 900; color: white; flex-shrink: 0;
+    }
+    .review-mini-city { font-size: 0.88rem; font-weight: 700; color: #1a1a1a; }
+    .review-mini-text { font-size: 0.78rem; color: #8a8a8a; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .review-mini-meta { font-size: 0.7rem; color: #b0b0b0; font-weight: 600; margin-top: 2px; }
+
+    /* ── SAVED PLACES ── */
+    .saved-place {
+      display: flex; gap: 14px; align-items: center;
+      padding: 14px 24px; border-bottom: 1px solid #f4f4f4;
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .saved-place:last-child { border-bottom: none; }
+    .saved-place:hover { background: #fafffe; }
+    .saved-place-img {
+      width: 44px; height: 44px; border-radius: 10px; object-fit: cover; flex-shrink: 0;
+      background: #e8e8e8;
+    }
+    .saved-place-name { font-size: 0.88rem; font-weight: 700; color: #1a1a1a; }
+    .saved-place-state { font-size: 0.75rem; color: #8a8a8a; font-weight: 500; }
+    .saved-place-date { font-size: 0.7rem; color: #b0b0b0; margin-left: auto; flex-shrink: 0; }
+
+    /* ── EMPTY STATE ── */
     .empty-state {
       background: white;
       border: 1.5px dashed #d4d4d4;
@@ -188,6 +251,26 @@
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
     .toast.success { background: #00AA6C; }
+
+    /* ── REFRESH BADGE ── */
+    .refresh-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(0,170,108,0.08); border: 1px solid rgba(0,170,108,0.2);
+      color: #00AA6C; font-size: 0.75rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .refresh-btn:hover { background: rgba(0,170,108,0.15); transform: translateY(-1px); }
+    .refresh-btn.loading .refresh-icon { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── GRID & RESPONSIVE ── */
+    .grid-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) {
+      .grid-cols { grid-template-columns: 1fr !important; }
+      .profile-header { padding: 28px 20px !important; }
+      .avatar-large { width: 70px !important; height: 70px !important; font-size: 1.7rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -217,7 +300,7 @@
 <main style="max-width:900px;margin:0 auto;padding:36px 24px 60px">
 
   <!-- Profile Header Card -->
-  <div class="profile-header mb-6">
+  <div class="profile-header" style="margin-bottom:24px">
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative;z-index:1">
 
       <!-- Avatar with initials -->
@@ -233,17 +316,23 @@
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);font-weight:500"><%= user.email %></p>
       </div>
 
-      <!-- Stats pills -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <div class="stat-pill">✈️ 0 Trips</div>
-        <div class="stat-pill">⭐ 0 Reviews</div>
-        <div class="stat-pill">🗺️ 0 Saved</div>
+      <!-- Dynamic Stats pills -->
+      <div class="stat-pills">
+        <div class="stat-pill">
+          ✈️ <span class="stat-pill-count" id="tripsCount"><%= tripsCount %></span> Trips
+        </div>
+        <div class="stat-pill">
+          ⭐ <span class="stat-pill-count" id="reviewsCount"><%= reviewsCount %></span> Reviews
+        </div>
+        <div class="stat-pill">
+          🗺️ <span class="stat-pill-count" id="savedCount"><%= savedCount %></span> Saved
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="grid-cols">
+  <div class="grid-cols">
 
     <!-- ── Account Info ── -->
     <div>
@@ -289,6 +378,15 @@
             </div>
           </div>
         </div>
+        <% if (user.role && user.role !== 'traveler') { %>
+        <div class="info-row">
+          <div class="info-icon">🏷️</div>
+          <div>
+            <div class="info-label">Role</div>
+            <div class="info-value" style="text-transform: capitalize"><%= user.role %></div>
+          </div>
+        </div>
+        <% } %>
       </div>
     </div>
 
@@ -305,22 +403,22 @@
           </div>
           <span style="color:#d4d4d4;font-size:1rem">›</span>
         </div>
-        <div class="info-row" style="cursor:pointer" onclick="showToast('Password change coming soon!', false)">
-          <div class="info-icon">🔑</div>
+        <a href="/reviews" class="info-row" style="cursor:pointer;text-decoration:none;color:inherit">
+          <div class="info-icon">⭐</div>
           <div style="flex:1">
-            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Change Password</div>
-            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Update your account password</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Write a Review</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Share your travel experience</div>
           </div>
           <span style="color:#d4d4d4;font-size:1rem">›</span>
-        </div>
-        <div class="info-row" style="cursor:pointer" onclick="showToast('Saved trips coming soon!', false)">
+        </a>
+        <a href="/explore" class="info-row" style="cursor:pointer;text-decoration:none;color:inherit">
           <div class="info-icon">🗺️</div>
           <div style="flex:1">
-            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">My Saved Trips</div>
-            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">View your saved destinations</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#1a1a1a">Explore Destinations</div>
+            <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">Discover new places across India</div>
           </div>
           <span style="color:#d4d4d4;font-size:1rem">›</span>
-        </div>
+        </a>
         <div class="info-row" style="cursor:pointer" onclick="showToast('Notifications coming soon!', false)">
           <div class="info-icon">🔔</div>
           <div style="flex:1">
@@ -345,15 +443,103 @@
 
   <!-- ── Recent Activity ── -->
   <div style="margin-top:24px">
-    <div class="section-title">Recent Activity</div>
-    <div class="empty-state">
-      <div style="font-size:2.5rem;margin-bottom:12px">🌍</div>
-      <div style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No trips yet</div>
-      <div style="font-size:0.85rem;color:#8a8a8a;font-weight:500;margin-bottom:20px">Start exploring destinations to build your travel history</div>
-      <a href="/home" class="btn-green" style="padding:10px 24px;font-size:0.88rem">
-        🔍 Explore Destinations
-      </a>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div class="section-title" style="margin-bottom:0">Recent Activity</div>
+      <button class="refresh-btn" onclick="refreshStats()" id="refreshBtn">
+        <span class="refresh-icon">🔄</span> Refresh
+      </button>
     </div>
+
+    <% if (activities && activities.length > 0) { %>
+      <div class="activity-card" id="activityFeed">
+        <% activities.forEach(function(act) { %>
+          <%
+            let icon = '📝';
+            let iconClass = 'review';
+            if (act.type === 'review')  { icon = '⭐'; iconClass = 'review'; }
+            if (act.type === 'save')    { icon = '🔖'; iconClass = 'save'; }
+            if (act.type === 'unsave')  { icon = '❌'; iconClass = 'unsave'; }
+            if (act.type === 'visit')   { icon = '📍'; iconClass = 'visit'; }
+            if (act.type === 'signup')  { icon = '🎉'; iconClass = 'signup'; }
+          %>
+          <div class="activity-item">
+            <div class="activity-icon <%= iconClass %>"><%= icon %></div>
+            <div style="flex:1;min-width:0">
+              <div class="activity-title"><%= act.title %></div>
+              <div class="activity-desc"><%= act.description %></div>
+              <div class="activity-time"><%= new Date(act.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }) %></div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="empty-state" id="activityFeed">
+        <div style="font-size:2.5rem;margin-bottom:12px">🌍</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No activity yet</div>
+        <div style="font-size:0.85rem;color:#8a8a8a;font-weight:500;margin-bottom:20px">Start exploring — write reviews, save places, and your activity will appear here!</div>
+        <a href="/explore" class="btn-green" style="padding:10px 24px;font-size:0.88rem">
+          🔍 Explore Destinations
+        </a>
+      </div>
+    <% } %>
+  </div>
+
+
+  <!-- ── Recent Reviews ── -->
+  <div style="margin-top:24px">
+    <div class="section-title">My Reviews</div>
+    <% if (recentReviews && recentReviews.length > 0) { %>
+      <div class="info-card">
+        <% recentReviews.forEach(function(rev) { %>
+          <div class="review-mini">
+            <div class="review-mini-rating"><%= rev.rating %>★</div>
+            <div style="flex:1;min-width:0">
+              <div class="review-mini-city"><%= rev.city %>, <%= rev.state %></div>
+              <div class="review-mini-text"><%= rev.reviewText %></div>
+              <div class="review-mini-meta"><%= new Date(rev.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }) %></div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="empty-state">
+        <div style="font-size:2rem;margin-bottom:10px">📝</div>
+        <div style="font-size:0.95rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No reviews yet</div>
+        <div style="font-size:0.82rem;color:#8a8a8a;font-weight:500;margin-bottom:16px">Share your travel experiences to help fellow travellers</div>
+        <a href="/reviews" class="btn-green" style="padding:9px 22px;font-size:0.85rem">⭐ Write a Review</a>
+      </div>
+    <% } %>
+  </div>
+
+
+  <!-- ── Saved Places ── -->
+  <div style="margin-top:24px">
+    <div class="section-title">Saved Places</div>
+    <% if (recentSaved && recentSaved.length > 0) { %>
+      <div class="info-card">
+        <% recentSaved.forEach(function(sp) { %>
+          <a class="saved-place" href="/explore/<%= sp.stateId || '' %>">
+            <% if (sp.image) { %>
+              <img class="saved-place-img" src="<%= sp.image %>" alt="<%= sp.placeName %>" onerror="this.style.display='none'" />
+            <% } else { %>
+              <div class="saved-place-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🔖</div>
+            <% } %>
+            <div style="flex:1;min-width:0">
+              <div class="saved-place-name"><%= sp.placeName %></div>
+              <div class="saved-place-state"><%= sp.state %><%= sp.city ? ' · ' + sp.city : '' %></div>
+            </div>
+            <span class="saved-place-date"><%= new Date(sp.createdAt).toLocaleDateString('en-US', { month:'short', day:'numeric' }) %></span>
+          </a>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="empty-state">
+        <div style="font-size:2rem;margin-bottom:10px">🗺️</div>
+        <div style="font-size:0.95rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No saved places</div>
+        <div style="font-size:0.82rem;color:#8a8a8a;font-weight:500;margin-bottom:16px">Save your favourite destinations for later</div>
+        <a href="/explore" class="btn-green" style="padding:9px 22px;font-size:0.85rem">🌎 Explore India</a>
+      </div>
+    <% } %>
   </div>
 
 
@@ -375,15 +561,6 @@
 <!-- Toast -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- Responsive grid fix -->
-<style>
-  @media (max-width: 640px) {
-    .grid-cols { grid-template-columns: 1fr !important; }
-    .profile-header { padding: 28px 20px !important; }
-    .avatar-large { width: 70px !important; height: 70px !important; font-size: 1.7rem !important; }
-  }
-</style>
-
 <script>
   let tt;
   function showToast(msg, success = true) {
@@ -397,6 +574,51 @@
   function confirmDelete() {
     if (confirm('Are you sure you want to delete your account? This cannot be undone.')) {
       showToast('Account deletion coming soon!', false);
+    }
+  }
+
+  // ── AJAX Refresh: updates counts + activity feed without page reload ──
+  async function refreshStats() {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('loading');
+
+    try {
+      const res = await fetch('/api/profile-stats');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+
+      // Update stat pills
+      document.getElementById('reviewsCount').textContent = data.reviewsCount;
+      document.getElementById('savedCount').textContent   = data.savedCount;
+      document.getElementById('tripsCount').textContent   = data.tripsCount;
+
+      // Update activity feed
+      const feed = document.getElementById('activityFeed');
+      if (data.activities && data.activities.length > 0) {
+        const iconMap = { review: '⭐', save: '🔖', unsave: '❌', visit: '📍', signup: '🎉' };
+        let html = '';
+        data.activities.forEach(act => {
+          const icon = iconMap[act.type] || '📝';
+          const date = new Date(act.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
+          html += `
+            <div class="activity-item">
+              <div class="activity-icon ${act.type}">${icon}</div>
+              <div style="flex:1;min-width:0">
+                <div class="activity-title">${act.title}</div>
+                <div class="activity-desc">${act.description}</div>
+                <div class="activity-time">${date}</div>
+              </div>
+            </div>`;
+        });
+        feed.className = 'activity-card';
+        feed.innerHTML = html;
+      }
+
+      showToast('Profile updated!', true);
+    } catch (e) {
+      showToast('Failed to refresh. Try again.', false);
+    } finally {
+      btn.classList.remove('loading');
     }
   }
 </script>

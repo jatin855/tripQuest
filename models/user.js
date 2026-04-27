@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: {
     type: String,
-    enum: ['traveler', 'host', 'admin'],
+    enum: ['traveler', 'host', 'admin', 'shopowner'],
     default: 'traveler'
   },
   isHostVerified: { type: Boolean, default: false },
@@ -47,7 +47,13 @@ const userSchema = new mongoose.Schema({
     enum: ['pending', 'approved', 'rejected', null],
     default: null
   },
-  profileImage: { type: String, default: '/images/default-host.jpg' }
+  profileImage: { type: String, default: '/images/default-host.jpg' },
+  shopApplicationStatus: {
+    type: String,
+    enum: ['pending', 'approved', 'rejected', null],
+    default: null
+  },
+  shopName: { type: String, default: '' }
 }, { timestamps: true });
 
 // NOTE: Password is hashed manually in app.js before create/update calls.

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin – Marketplace Applications | TripQuest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Nunito', sans-serif; background: #f7f8fa; color: #1a1a1a; overflow-x: hidden; }
+
+    .dot-bg {
+      position: fixed; inset: 0; z-index: -1;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07); box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .green-text {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .nav-link { color: #4a4a4a; cursor: pointer; transition: color 0.2s; position: relative; }
+    .nav-link:hover { color: #00AA6C; }
+
+    .btn-green {
+      background: #34E0A1; color: #1a1a1a; font-weight: 800; font-family: 'Nunito', sans-serif;
+      border-radius: 10px; transition: all 0.22s; box-shadow: 0 4px 14px rgba(52,224,161,0.38);
+      border: none; cursor: pointer;
+    }
+    .btn-green:hover { background: #28d494; transform: translateY(-1px); }
+
+    /* ── ADMIN ── */
+    .stat-card {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 14px;
+      padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .app-card {
+      background: white; border: 1.5px solid rgba(0,0,0,0.07); border-radius: 16px;
+      padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s;
+    }
+    .app-card:hover { box-shadow: 0 8px 24px rgba(0,170,108,0.08); }
+
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 4px; padding: 4px 14px;
+      border-radius: 100px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+    }
+    .status-pending { background: rgba(245,166,35,0.12); color: #d97706; }
+    .status-approved { background: rgba(52,224,161,0.12); color: #00AA6C; }
+    .status-rejected { background: rgba(224,82,82,0.12); color: #dc2626; }
+
+    .action-btn {
+      padding: 8px 20px; border-radius: 8px; font-size: 0.8rem; font-weight: 800;
+      font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s; border: none;
+    }
+    .approve-btn { background: rgba(52,224,161,0.15); color: #00AA6C; }
+    .approve-btn:hover { background: #34E0A1; color: #1a1a1a; }
+    .reject-btn { background: rgba(224,82,82,0.1); color: #dc2626; }
+    .reject-btn:hover { background: #fecaca; }
+
+    .flash-msg {
+      padding: 14px 20px; border-radius: 12px; margin-bottom: 20px;
+      font-size: 0.88rem; font-weight: 700;
+    }
+    .flash-success { background: rgba(52,224,161,0.12); color: #00AA6C; border: 1.5px solid rgba(0,170,108,0.2); }
+    .flash-error { background: rgba(224,82,82,0.12); color: #dc2626; border: 1.5px solid rgba(220,38,38,0.2); }
+
+    footer { background: #1a1a1a; color: #9a9a9a; }
+  </style>
+</head>
+<body>
+
+<div class="dot-bg"></div>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/home" class="flex items-center gap-2 no-underline">
+      <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">🦉</div>
+      <span style="font-size:1.2rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span style="color:#00AA6C">Quest</span></span>
+    </a>
+    <ul class="hidden md:flex gap-7 text-sm list-none" style="font-weight:700">
+      <li class="nav-link" onclick="window.location.href='/home'">Home</li>
+      <li class="nav-link" onclick="window.location.href='/admin/experiences'">Experiences Admin</li>
+      <li class="nav-link" style="color:#00AA6C" onclick="window.location.href='/admin/marketplace'">Marketplace Admin</li>
+      <li class="nav-link" onclick="window.location.href='/marketplace'">View Marketplace</li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <span style="font-size:0.78rem;font-weight:800;color:#00AA6C;background:rgba(52,224,161,0.1);border:1.5px solid rgba(0,170,108,0.2);padding:4px 14px;border-radius:100px">🛡️ Admin</span>
+      <a href="/logout" style="font-size:0.82rem;font-weight:700;color:#8a8a8a;text-decoration:none;padding:6px 14px;border:1.5px solid #d4d4d4;border-radius:8px;transition:all 0.2s" onmouseover="this.style.borderColor='#e05252';this.style.color='#e05252'" onmouseout="this.style.borderColor='#d4d4d4';this.style.color='#8a8a8a'">Logout</a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ══════════ HEADER ══════════ -->
+<section class="py-10 px-6" style="background:linear-gradient(160deg,#f0fdf8,#ffffff)">
+  <div class="max-w-6xl mx-auto">
+    <h1 style="font-size:1.8rem;font-weight:900;color:#1a1a1a;margin-bottom:6px">
+      🏪 Marketplace <span class="green-text">Applications</span>
+    </h1>
+    <p style="font-size:0.88rem;color:#8a8a8a;font-weight:500">Review and manage shop owner applications</p>
+  </div>
+</section>
+
+
+<!-- ══════════ STATS ══════════ -->
+<section class="py-4 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat-card">
+        <div style="font-size:1.8rem;font-weight:900" class="green-text"><%= stats.total %></div>
+        <div style="font-size:0.78rem;color:#8a8a8a;font-weight:600;margin-top:4px">Total</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size:1.8rem;font-weight:900;color:#d97706"><%= stats.pending %></div>
+        <div style="font-size:0.78rem;color:#8a8a8a;font-weight:600;margin-top:4px">Pending</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size:1.8rem;font-weight:900;color:#00AA6C"><%= stats.approved %></div>
+        <div style="font-size:0.78rem;color:#8a8a8a;font-weight:600;margin-top:4px">Approved</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size:1.8rem;font-weight:900;color:#dc2626"><%= stats.rejected %></div>
+        <div style="font-size:0.78rem;color:#8a8a8a;font-weight:600;margin-top:4px">Rejected</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ APPLICATIONS LIST ══════════ -->
+<section class="py-6 px-6 pb-20">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Flash Messages -->
+    <% if (typeof success !== 'undefined' && success && success.length > 0) { %>
+      <div class="flash-msg flash-success"><%= success %></div>
+    <% } %>
+    <% if (typeof error !== 'undefined' && error && error.length > 0) { %>
+      <div class="flash-msg flash-error"><%= error %></div>
+    <% } %>
+
+    <% if (applications.length > 0) { %>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <% applications.forEach(function(app) { %>
+          <div class="app-card">
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:16px">
+
+              <!-- Left: Details -->
+              <div style="flex:1;min-width:240px">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+                  <div style="width:44px;height:44px;background:linear-gradient(135deg,#34E0A1,#00AA6C);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:1rem;flex-shrink:0">
+                    <%= app.fullName.charAt(0).toUpperCase() %>
+                  </div>
+                  <div>
+                    <div style="font-weight:800;font-size:1rem;color:#1a1a1a"><%= app.fullName %></div>
+                    <div style="font-size:0.78rem;color:#8a8a8a;font-weight:500">
+                      <% if (app.userId && app.userId.email) { %><%= app.userId.email %><% } %>
+                    </div>
+                  </div>
+                  <span class="status-badge status-<%= app.status %>"><%= app.status.toUpperCase() %></span>
+                </div>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;font-size:0.82rem;margin-bottom:12px">
+                  <div><span style="color:#8a8a8a;font-weight:600">🏪 Shop:</span> <span style="font-weight:800;color:#1a1a1a"><%= app.shopName %></span></div>
+                  <div><span style="color:#8a8a8a;font-weight:600">📱 Mobile:</span> <span style="font-weight:800;color:#1a1a1a"><%= app.mobile %></span></div>
+                  <div><span style="color:#8a8a8a;font-weight:600">📍 Location:</span> <span style="font-weight:800;color:#1a1a1a"><%= app.city %>, <%= app.state %></span></div>
+                  <div><span style="color:#8a8a8a;font-weight:600">📅 Applied:</span> <span style="font-weight:800;color:#1a1a1a"><%= new Date(app.createdAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) %></span></div>
+                </div>
+
+                <% if (app.description) { %>
+                  <p style="font-size:0.82rem;color:#4a4a4a;line-height:1.6;font-weight:500;background:#f7f8fa;padding:12px;border-radius:10px"><%= app.description %></p>
+                <% } %>
+              </div>
+
+              <!-- Right: Actions -->
+              <% if (app.status === 'pending') { %>
+                <div style="display:flex;gap:8px;flex-shrink:0">
+                  <form action="/admin/marketplace/approve/<%= app._id %>" method="POST" style="display:inline">
+                    <button type="submit" class="action-btn approve-btn" id="approve-<%= app._id %>">✅ Approve</button>
+                  </form>
+                  <form action="/admin/marketplace/reject/<%= app._id %>" method="POST" style="display:inline">
+                    <button type="submit" class="action-btn reject-btn" id="reject-<%= app._id %>">❌ Reject</button>
+                  </form>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div style="text-align:center;padding:60px;background:white;border-radius:16px;border:1.5px dashed #d4d4d4">
+        <div style="font-size:3rem;margin-bottom:12px">📋</div>
+        <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:6px">No applications yet</h3>
+        <p style="font-size:0.85rem;color:#8a8a8a;font-weight:500">When shop owners apply, they will appear here for review.</p>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="background:#1a1a1a;color:#9a9a9a;padding:48px 24px 28px">
+  <div class="max-w-6xl mx-auto text-center">
+    <p style="font-size:0.72rem;color:#666">© 2026 TripQuest Admin Panel. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

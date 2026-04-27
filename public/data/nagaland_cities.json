@@ -1,0 +1,881 @@
+{
+    "meta": {
+        "project": "Nagaland Explore",
+        "version": "1.0",
+        "total_cities": 10,
+        "last_updated": "2026-04-05",
+        "author": "Nagaland Explore Team"
+    },
+    "cities": [
+        {
+            "id": "kohima",
+            "name": "Kohima",
+            "tagline": "Land of the Hornbill Festival",
+            "region": "Southern Nagaland",
+            "district": "Kohima",
+            "type": "State Capital & Cultural Hub",
+            "altitude_m": 1444,
+            "altitude_display": "1,444m",
+            "lat": 25.6701,
+            "lon": 94.1077,
+            "distance_guwahati_km": 350,
+            "distance_dimapur_km": 74,
+            "best_time": "October–May (December 1-10 for Hornbill Festival)",
+            "avoid_time": "July–August (Heavy monsoon, landslides)",
+            "temp_summer_c": "16–31°C",
+            "temp_winter_c": "5–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1596710475691-a89e76cef5ea?w=1200&q=80",
+            "overview": "Kohima, the capital of Nagaland, is a hilly city that blends deeply rooted Naga traditions with the poignant history of World War II. It serves as the staging ground for the spectacular Hornbill Festival and is the gateway to the enchanting Dzukou Valley.",
+            "history": "Originally known as 'Kewhira' (the land where the Kewhi flower grows), Kohima was established as the headquarters of the Naga Hills District by the British in 1878. In 1944, it was the site of the Battle of Kohima, the turning point of the Japanese U-Go offensive in WWII, often called the 'Stalingrad of the East'.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 74
+            },
+            "nearest_railhead": {
+                "name": "Dimapur (Zubza station upcoming)",
+                "distance_km": 74,
+                "note": "Shared taxis run frequently from Dimapur station to Kohima"
+            },
+            "language": [
+                "Nagamese",
+                "English",
+                "Angami",
+                "Tenyidie"
+            ],
+            "cuisine": [
+                "Smoked Pork with Axone (Fermented Soybean)",
+                "Galho",
+                "Zutho (Rice Beer)",
+                "Bamboo Shoot Pork"
+            ],
+            "stay_recommended_days": 4,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 3500,
+                "luxury": 8000
+            },
+            "tags": [
+                "culture",
+                "festival",
+                "history",
+                "trekking",
+                "ww2"
+            ],
+            "places": [
+                {
+                    "id": "kohima-war-cemetery",
+                    "name": "Kohima War Cemetery",
+                    "category": "Heritage",
+                    "subcategory": "WWII Memorial",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 4:00 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 0,
+                    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
+                    "description": "A beautifully maintained cemetery built on the terraced slopes of Garrison Hill. It holds the graves of over 1,400 Allied soldiers who died defending India against the Japanese invasion in 1944. Home to the famous Kohima Epitaph.",
+                    "tips": "Very peaceful. Walk to the top terrace for the tennis court boundary line, where some of the fiercest hand-to-hand combat took place.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kohima-kisama",
+                    "name": "Kisama Heritage Village",
+                    "category": "Culture",
+                    "subcategory": "Festival Ground",
+                    "rating": 4.7,
+                    "entry_fee_inr": 30,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 12,
+                    "image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=600&q=80",
+                    "description": "An open-air museum designed as an authentic Naga village, featuring traditional morungs (youth dormitories) from all 16 major tribes. It comes alive every December 1-10 during the world-famous Hornbill Festival.",
+                    "tips": "If visiting outside December, it's still worth going to see the distinct architectural styles of the different tribes' morungs.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kohima-dzukou-valley",
+                    "name": "Dzukou Valley",
+                    "category": "Nature",
+                    "subcategory": "Trekking",
+                    "rating": 4.9,
+                    "entry_fee_inr": 100,
+                    "open_hours": "Best to start trek by 7:00 AM",
+                    "duration_hrs": "Full day / Overnight",
+                    "distance_from_center_km": 25,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "Known as the 'Valley of Flowers of the North East'. A stunning, undulating valley of rolling green mounds, bamboo brush, and seasonal wildflowers (like the rare Dzukou Lily). Reached via a steep trek from Viswema or Jakhama.",
+                    "tips": "Overnight camping at the Dzukou rest house is highly recommended. The Viswema route is longer but has a gentler incline after the initial climb.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "dimapur",
+            "name": "Dimapur",
+            "tagline": "Gateway to Nagaland",
+            "region": "Western Nagaland",
+            "district": "Dimapur",
+            "type": "Commercial Hub",
+            "altitude_m": 260,
+            "altitude_display": "260m",
+            "lat": 25.8943,
+            "lon": 93.7297,
+            "distance_guwahati_km": 280,
+            "distance_kohima_km": 74,
+            "best_time": "October–March",
+            "avoid_time": "May–August (hot, humid, and rainy)",
+            "temp_summer_c": "24–36°C",
+            "temp_winter_c": "10–24°C",
+            "hero_image": "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?w=1200&q=80",
+            "overview": "The only plains district in the state and the commercial heart of Nagaland. Dimapur is the main entry point via air and rail. Unlike the rest of the state, it is a bustling, diverse city with ancient ruins and vibrant markets.",
+            "history": "Dimapur was the ancient capital of the Kachari Kingdom before they were pushed further into Assam by the Ahoms in the 16th century. The name translates to 'City by the Great River' in the Kachari dialect.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 5
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station",
+                "distance_km": 2,
+                "note": "Major railhead connecting to Guwahati and beyond"
+            },
+            "language": [
+                "Nagamese",
+                "English",
+                "Hindi",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Naga Thali",
+                "Pork Trotters",
+                "Awoshi Kipiki",
+                "Street food at Hong Kong Market"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "transit hub",
+                "shopping",
+                "history",
+                "urban"
+            ],
+            "places": [
+                {
+                    "id": "dimapur-kachari-ruins",
+                    "name": "Kachari Ruins (Rajbari)",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+                    "description": "A series of mysterious mushroom-domed pillars and stone structures from the 10th-14th century Kachari civilization. A rare glimpse into the pre-Naga history of the region.",
+                    "tips": "Located right in the city center. Best visited in the morning before the day gets too hot.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dimapur-hongkong-market",
+                    "name": "Hong Kong Market",
+                    "category": "Shopping",
+                    "subcategory": "Market",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "10:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 1,
+                    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                    "description": "A bustling street market famous for imported goods, clothing, electronics, and local Naga ingredients. It reflects Dimapur's status as a major regional trading hub.",
+                    "tips": "Bargaining is expected. Beware of counterfeit goods. Great place to buy local dried fish and spices.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "mokokchung",
+            "name": "Mokokchung",
+            "tagline": "The Cultural Capital of Ao Nagas",
+            "region": "Northern Nagaland",
+            "district": "Mokokchung",
+            "type": "Cultural Town",
+            "altitude_m": 1325,
+            "altitude_display": "1,325m",
+            "lat": 26.3305,
+            "lon": 94.5298,
+            "distance_guwahati_km": 390,
+            "distance_kohima_km": 145,
+            "best_time": "September–April",
+            "avoid_time": "July–August",
+            "temp_summer_c": "18–28°C",
+            "temp_winter_c": "8–18°C",
+            "hero_image": "https://images.unsplash.com/photo-1525873020571-08690001b29b?w=1200&q=80",
+            "overview": "Mokokchung is the spiritual and cultural heartland of the Ao Naga tribe. Known for its picturesque villages, vibrant Moatsü festival (celebrated in May), and advanced literacy rates, it is one of the most progressive and aesthetically pleasing districts in Nagaland.",
+            "history": "The Ao Nagas are believed to have migrated here from Chungliyimti. Mokokchung was one of the first areas in Nagaland to embrace Christianity in the late 19th century through American Baptist missionaries, vastly changing its social fabric.",
+            "nearest_airport": {
+                "name": "Jorhat Airport (Assam)",
+                "code": "JRH",
+                "distance_km": 105
+            },
+            "nearest_railhead": {
+                "name": "Mariani (Assam)",
+                "distance_km": 85,
+                "note": "Taxis available from Mariani/Jorhat to Mokokchung"
+            },
+            "language": [
+                "Ao",
+                "Nagamese",
+                "English"
+            ],
+            "cuisine": [
+                "Anishi (Fermented yam leaves with pork)",
+                "Naga King Chilli Chutney",
+                "Bamboo Shoot Stew"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 6500
+            },
+            "tags": [
+                "culture",
+                "ao-tribe",
+                "villages",
+                "scenic"
+            ],
+            "places": [
+                {
+                    "id": "mokokchung-longkhum",
+                    "name": "Longkhum Village",
+                    "category": "Culture",
+                    "subcategory": "Village",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 17,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "Known as the vanguard of the Ao villages during headhunting days. It sits at a high altitude offering sweeping views of the surrounding hills. According to Ao legend, souls of the dead rest here before moving to the afterlife.",
+                    "tips": "Try to arrange a local guide to explain the animist legends and point out the ancient 'footprints' etched in rocks.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "mokokchung-ungma",
+                    "name": "Ungma Village",
+                    "category": "Culture",
+                    "subcategory": "Heritage",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?w=600&q=80",
+                    "description": "The oldest and largest Ao village in Nagaland. A beautiful blend of modernity and tradition, where you can see ancient log drums next to modern concrete homes.",
+                    "tips": "Visit the village Baptist church and the old Log Drum (tzendong). The locals are very welcoming to respectful visitors.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "mon",
+            "name": "Mon",
+            "tagline": "Land of the Konyak Headhunters",
+            "region": "Eastern Nagaland",
+            "district": "Mon",
+            "type": "Remote Tribal Hub",
+            "altitude_m": 897,
+            "altitude_display": "897m",
+            "lat": 26.7381,
+            "lon": 95.0984,
+            "distance_guwahati_km": 420,
+            "distance_kohima_km": 280,
+            "best_time": "October–April (Aoleang Festival in early April)",
+            "avoid_time": "June–September (road conditions deteriorate severely)",
+            "temp_summer_c": "18–32°C",
+            "temp_winter_c": "8–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1200&q=80",
+            "overview": "Mon is the rugged, mystical stronghold of the Konyak Nagas, famous for their facial tattoos and historic headhunting traditions. It shares a highly porous border with Myanmar, offering one of the most raw and authentic tribal experiences in Asia.",
+            "history": "The Konyaks were the last Naga tribe to give up headhunting, a practice that continued into the late 1960s. They are ruled by hereditary chiefs known as 'Anghs', whose authority extends across villages and even over the border into Myanmar.",
+            "nearest_airport": {
+                "name": "Dibrugarh Airport (Assam)",
+                "code": "DIB",
+                "distance_km": 150
+            },
+            "nearest_railhead": {
+                "name": "Bhojo (Assam)",
+                "distance_km": 70,
+                "note": "Drive from Assam is much easier than driving from Kohima"
+            },
+            "language": [
+                "Konyak",
+                "Nagamese",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Smoked Meat",
+                "Taro Root",
+                "Strong Black Tea",
+                "Local Rice Wine"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 6000
+            },
+            "tags": [
+                "offbeat",
+                "tribal",
+                "culture",
+                "border",
+                "headhunters"
+            ],
+            "places": [
+                {
+                    "id": "mon-longwa",
+                    "name": "Longwa Village",
+                    "category": "Culture",
+                    "subcategory": "Border Village",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 42,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "A fascinating village where the international border between India and Myanmar passes straight through the Angh's (Chief's) house. Residents hold dual citizenship and move freely across the border.",
+                    "tips": "You can meet the Angh (a token gift or donation is customary). You may also meet the last surviving tattooed headhunters, though they are quite elderly now.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "mon-shangnyu",
+                    "name": "Shangnyu Village",
+                    "category": "Culture",
+                    "subcategory": "Heritage",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 25,
+                    "image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=600&q=80",
+                    "description": "Ruled by a powerful Angh, this village is famous for a massive 8-foot wooden monument carved from a single log, believed to have been constructed by heavenly angels. It depicts traditional Konyak life.",
+                    "tips": "The wooden carving is highly revered; do not touch it without permission from local elders.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "wokha",
+            "name": "Wokha",
+            "tagline": "Land of Plenty and the Amur Falcon",
+            "region": "Central Nagaland",
+            "district": "Wokha",
+            "type": "Nature & Wildlife",
+            "altitude_m": 1313,
+            "altitude_display": "1,313m",
+            "lat": 26.0963,
+            "lon": 94.2570,
+            "distance_guwahati_km": 340,
+            "distance_kohima_km": 75,
+            "best_time": "October–November (Amur Falcon migration)",
+            "avoid_time": "July–August (rain and leeches)",
+            "temp_summer_c": "18–28°C",
+            "temp_winter_c": "8–18°C",
+            "hero_image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+            "overview": "Wokha is the heartland of the Lotha Nagas, an agriculturally rich region dotted with fruit orchards. In recent years, it has gained global fame as the 'Falcon Capital of the World' due to the massive flock of migrating Amur Falcons that roost here.",
+            "history": "The Lothas have a rich tradition of folk songs and harvest festivals (Tokhu Emong in November). The Doyang reservoir, built in the late 20th century, unintentionally created the perfect roosting ground for millions of migrating falcons.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 130
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 130,
+                "note": "Take a shared taxi from Dimapur to Wokha town"
+            },
+            "language": [
+                "Lotha",
+                "Nagamese",
+                "English"
+            ],
+            "cuisine": [
+                "Pork with Bamboo Shoot",
+                "Naga Dal",
+                "Fresh River Fish from Doyang"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2800,
+                "luxury": 5000
+            },
+            "tags": [
+                "wildlife",
+                "birdwatching",
+                "nature",
+                "eco-tourism"
+            ],
+            "places": [
+                {
+                    "id": "wokha-doyang-reservoir",
+                    "name": "Doyang Hydro Project & Reservoir",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 25,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "A massive, scenic reservoir surrounded by hills. Every October and November, millions of Amur Falcons stop here to roost during their migration from Siberia to South Africa, creating one of the greatest ornithological spectacles on earth.",
+                    "tips": "Visit specifically in late October to early November for the falcons. Eco-camps are set up by locals during this time.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "wokha-mount-tiyi",
+                    "name": "Mount Tiyi",
+                    "category": "Nature",
+                    "subcategory": "Trekking",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "According to Lotha folklore, Mount Tiyi is the resting place for departed souls. A trek to the summit offers vibrant rhododendrons (in spring) and panoramic views of the villages below.",
+                    "tips": "Start early to avoid afternoon clouds. The trail can be steep; wear good grip shoes.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "phek",
+            "name": "Phek",
+            "tagline": "The Highest Altitudes and Deepest Traditions",
+            "region": "Southeastern Nagaland",
+            "district": "Phek",
+            "type": "Nature & Adventure",
+            "altitude_m": 1524,
+            "altitude_display": "1,524m",
+            "lat": 25.6667,
+            "lon": 94.4667,
+            "distance_guwahati_km": 420,
+            "distance_kohima_km": 145,
+            "best_time": "October–April",
+            "avoid_time": "June–August",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "2–12°C",
+            "hero_image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=80",
+            "overview": "Phek is the territory of the Chakhesang Nagas, known for their elaborate terrace farming, weaving skills, and wrestling. The district contains Pfutsero, the highest and coldest town in Nagaland, and the heart-shaped Shilloi Lake.",
+            "history": "The Chakhesang tribe is actually a combination of three tribes: Chokri, Khezha, and Sangtam (the name is an acronym). They separated from the Angami tribe to form their own distinct identity.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 215
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 215,
+                "note": "Travel via Kohima on NH-29"
+            },
+            "language": [
+                "Chokri",
+                "Khezha",
+                "Nagamese",
+                "English"
+            ],
+            "cuisine": [
+                "Snail meat",
+                "Fermented bamboo shoot",
+                "Pork boiled with mustard leaves"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "high-altitude",
+                "lakes",
+                "offbeat",
+                "terraced-fields"
+            ],
+            "places": [
+                {
+                    "id": "phek-pfutsero",
+                    "name": "Pfutsero Town & Glory Peak",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "Half day",
+                    "distance_from_center_km": 60,
+                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+                    "description": "At 2,136m, Pfutsero is the highest town in Nagaland. Glory Peak offers sweeping views of the Saramati peak and even Mount Everest on exceptionally clear days. Temperatures drop below freezing in winter.",
+                    "tips": "Dress warmly. The local apples and cherries grown here are excellent.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "phek-shilloi-lake",
+                    "name": "Shilloi Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 90,
+                    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                    "description": "A natural, footprint-shaped lake located in the Patkai Range near the Myanmar border. Surrounded by pine forests, it is considered sacred by the locals, and fishing or drinking its water is traditionally taboo.",
+                    "tips": "There is a tourist rest house nearby. Do not swim in the lake, out of respect for local beliefs.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kiphire",
+            "name": "Kiphire",
+            "tagline": "Shadow of Mount Saramati",
+            "region": "Eastern Nagaland",
+            "district": "Kiphire",
+            "type": "Adventure Frontier",
+            "altitude_m": 896,
+            "altitude_display": "896m",
+            "lat": 25.8924,
+            "lon": 94.7801,
+            "distance_guwahati_km": 500,
+            "distance_kohima_km": 254,
+            "best_time": "October–March",
+            "avoid_time": "Monsoon (roads are highly prone to blockages)",
+            "temp_summer_c": "15–30°C",
+            "temp_winter_c": "2–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200&q=80",
+            "overview": "Kiphire is an isolated and beautifully rugged district bordering Myanmar. It is best known as the base camp for climbing Mount Saramati, Nagaland's highest peak, and exploring the biodiverse Fakim Wildlife Sanctuary.",
+            "history": "Home to the Sangtam, Yimkhiung, and Sumi tribes. Historically a remote frontier, it remains one of the least commercialized districts in India, retaining pristine wilderness.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 320
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 320
+            },
+            "language": [
+                "Sangtam",
+                "Yimkhiung",
+                "Nagamese"
+            ],
+            "cuisine": [
+                "Smoked meats",
+                "Wild forest herbs",
+                "Millet preparations"
+            ],
+            "stay_recommended_days": 4,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4500
+            },
+            "tags": [
+                "trekking",
+                "highest-peak",
+                "wildlife",
+                "remote"
+            ],
+            "places": [
+                {
+                    "id": "kiphire-mount-saramati",
+                    "name": "Mount Saramati",
+                    "category": "Adventure",
+                    "subcategory": "Trekking",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Multi-day trek",
+                    "duration_hrs": "2–3 Days",
+                    "distance_from_center_km": 40,
+                    "image": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=600&q=80",
+                    "description": "At 3,826m (12,552 ft), Saramati is the highest peak in Nagaland. The summit remains snow-capped in winter and sits exactly on the international border with Myanmar. Treks usually start from Thanamir village.",
+                    "tips": "Thanamir is famous for its apples. Hire local guides from the village. The trek is strenuous and requires proper gear.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "kiphire-fakim",
+                    "name": "Fakim Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.2,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:00 AM – 4:00 PM",
+                    "duration_hrs": "Full day",
+                    "distance_from_center_km": 60,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "Located close to the Myanmar border, this highly biodiverse sanctuary receives heavy rainfall and is home to rare flora, tragopans, hoolock gibbons, and leopards.",
+                    "tips": "Requires a permit from the Wildlife Warden in Kiphire. Expect rugged, undeveloped trails.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "zunheboto",
+            "name": "Zunheboto",
+            "tagline": "Land of the Fierce Sumis",
+            "region": "Central Nagaland",
+            "district": "Zunheboto",
+            "type": "Cultural Hub",
+            "altitude_m": 1852,
+            "altitude_display": "1,852m",
+            "lat": 25.9678,
+            "lon": 94.5204,
+            "distance_guwahati_km": 400,
+            "distance_kohima_km": 150,
+            "best_time": "October–March",
+            "avoid_time": "July–August",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "5–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=1200&q=80",
+            "overview": "Zunheboto is the homeland of the Sumi Nagas, historically recognized as the most martial of the Naga tribes. Today, it is home to Asia's largest Baptist church and is surrounded by dense forests and bird sanctuaries.",
+            "history": "The Sumis were feared headhunters but also played a massive role in WW2, forming the core of the Naga labor corps. The district's name comes from 'Zunhebo' (a white flowering shrub) and 'To' (hilltop).",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 200
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 200
+            },
+            "language": [
+                "Sumi",
+                "Nagamese",
+                "English"
+            ],
+            "cuisine": [
+                "Axone (originated largely with Sumis)",
+                "Smoked Pork",
+                "Bastenga (Bamboo shoot)"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "culture",
+                "birdwatching",
+                "religion"
+            ],
+            "places": [
+                {
+                    "id": "zunheboto-sumi-church",
+                    "name": "Sumi Baptist Church Zunheboto (SBCZ)",
+                    "category": "Heritage",
+                    "subcategory": "Architecture",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 0.5,
+                    "image": "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?w=600&q=80",
+                    "description": "Considered one of the largest church buildings in Asia, with a seating capacity of 8,500. A massive egg-shaped architectural marvel standing proudly on the hilltop, dominating the town's skyline.",
+                    "tips": "Visitors are welcome. The view of the surrounding hills from the church compound is spectacular.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "zunheboto-ghosu",
+                    "name": "Ghosu Bird Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 8,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "A community-conserved forest maintained entirely by the local village. It serves as a strict no-hunting zone, making it a haven for over 20 species of endangered birds, including the State Bird, the Blyth's Tragopan.",
+                    "tips": "Bring binoculars. Early mornings between June and September are best for bird spotting.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "peren",
+            "name": "Peren",
+            "tagline": "The Green District",
+            "region": "Southwestern Nagaland",
+            "district": "Peren",
+            "type": "Eco-Tourism",
+            "altitude_m": 1445,
+            "altitude_display": "1,445m",
+            "lat": 25.5140,
+            "lon": 93.7383,
+            "distance_guwahati_km": 300,
+            "distance_dimapur_km": 75,
+            "best_time": "October–April",
+            "avoid_time": "July–August",
+            "temp_summer_c": "18–30°C",
+            "temp_winter_c": "8–18°C",
+            "hero_image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+            "overview": "Peren is the traditional land of the Zeliangrong Nagas. It is deeply forested and features Ntangki National Park, making it Nagaland's primary destination for eco-tourism and untouched mountain biodiversity.",
+            "history": "The Zeliangrong people are known for their spectacular dances and animist heritage, which persisted much longer here than in other parts of Nagaland. Mount Pauna is their highest peak and steeped in local folklore.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 80
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 75
+            },
+            "language": [
+                "Zeme",
+                "Liangmai",
+                "Rongmei",
+                "Nagamese"
+            ],
+            "cuisine": [
+                "Boiled wild vegetables",
+                "Pork with mustard",
+                "Local honey"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "eco-tourism",
+                "wildlife",
+                "culture",
+                "villages"
+            ],
+            "places": [
+                {
+                    "id": "peren-benreu",
+                    "name": "Benreu Village",
+                    "category": "Culture",
+                    "subcategory": "Eco-Village",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "Half day",
+                    "distance_from_center_km": 35,
+                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+                    "description": "An eco-tourism village perched at 2,000m on the slopes of Mount Pauna. It has retained much of its traditional animist charm, with traditional morungs and houses adorned with animal skulls.",
+                    "tips": "Try the local wild honey and Ginseng. Homestays here offer a highly authentic experience.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "peren-ntangki",
+                    "name": "Ntangki National Park",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.3,
+                    "entry_fee_inr": 50,
+                    "open_hours": "6:00 AM – 4:00 PM",
+                    "duration_hrs": "Full day",
+                    "distance_from_center_km": 40,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "Nagaland's premier national park, spanning over 200 sq km. It is home to the rare Hoolock Gibbon (the only ape species in India), elephants, tigers, monitor lizards, and hornbills.",
+                    "tips": "Wildlife spotting is difficult due to thick jungle. Go for the incredible flora and birdlife. Book a forest guard guide from Jalukie.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "tuensang",
+            "name": "Tuensang",
+            "tagline": "The Cultural Melting Pot",
+            "region": "Eastern Nagaland",
+            "district": "Tuensang",
+            "type": "Remote Township",
+            "altitude_m": 1371,
+            "altitude_display": "1,371m",
+            "lat": 26.2778,
+            "lon": 94.8317,
+            "distance_guwahati_km": 460,
+            "distance_kohima_km": 240,
+            "best_time": "October–April",
+            "avoid_time": "Monsoon",
+            "temp_summer_c": "16–28°C",
+            "temp_winter_c": "5–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=80",
+            "overview": "Tuensang is one of the largest and easternmost districts. Co-inhabited by the Chang, Sangtam, Yimkhiung, and Khiamniungan tribes, it is a vibrant center for traditional handlooms and indigenous heritage.",
+            "history": "Tuensang was part of the North-East Frontier Agency (NEFA) before becoming part of Nagaland. Because of its remote location, it escaped British administration for a long time, preserving its ancient customs.",
+            "nearest_airport": {
+                "name": "Dimapur Airport",
+                "code": "DMU",
+                "distance_km": 300
+            },
+            "nearest_railhead": {
+                "name": "Dimapur",
+                "distance_km": 300
+            },
+            "language": [
+                "Chang",
+                "Sangtam",
+                "Nagamese",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Fermented soybean preparations",
+                "Millet",
+                "Pork boiled with local herbs"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "offbeat",
+                "tribal",
+                "handicrafts",
+                "border"
+            ],
+            "places": [
+                {
+                    "id": "tuensang-changsangmongko",
+                    "name": "Changsangmongko Village",
+                    "category": "Culture",
+                    "subcategory": "Heritage",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=600&q=80",
+                    "description": "According to legend, this is the settlement where the Chang tribe emerged from a hole in the earth (Mullang). It features ancient stone monoliths and traditional layout.",
+                    "tips": "A great place to learn about the 'Eastern' Naga tribes' origin myths. Respect local boundaries.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tuensang-chillise",
+                    "name": "Chilise",
+                    "category": "Nature",
+                    "subcategory": "Landscape",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 20,
+                    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                    "description": "A ruggedly beautiful area noted for its historical headhunting tales and dense, unexplored forests. It sits deep in the Tuensang hinterland.",
+                    "tips": "Roads are rough. Renting a sturdy 4x4 vehicle (Sumo/Bolero) is highly recommended for travel here.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

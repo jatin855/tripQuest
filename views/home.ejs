@@ -1,404 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TripAdvisor – Discover the World</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<style>
-  body { font-family: 'Nunito', sans-serif; background: #f7f8fa; color: #1a1a1a; overflow-x: hidden; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripQuest – Discover the World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f7f8fa;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
 
-  .dot-bg {
-    position: fixed; inset: 0; z-index: -1;
-    background-color: #f0f2f5;
-    background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
+    .dot-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #f0f2f5;
+      background-image: radial-gradient(circle, #c8cdd6 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
 
-  .navbar {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    box-shadow: 0 1px 12px rgba(0,0,0,0.06);
-    transition: all 0.3s;
-  }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+    }
 
-  .green-text {
-    background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    .green-text {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  .hero-section {
-    background: linear-gradient(160deg, #ffffff 0%, #f0fdf8 50%, #e6fdf5 100%);
-    border-bottom: 1px solid rgba(52,224,161,0.15);
-  }
+    .hero-section {
+      background: linear-gradient(160deg, #ffffff 0%, #f0fdf8 50%, #e6fdf5 100%);
+      border-bottom: 1px solid rgba(52, 224, 161, 0.15);
+    }
 
-  .search-wrap {
-    background: white;
-    border: 1.5px solid #d4d4d4;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    transition: all 0.2s;
-  }
-  .search-wrap:focus-within {
-    border-color: #00AA6C;
-    box-shadow: 0 4px 24px rgba(0,170,108,0.15);
-  }
-  .search-input { outline: none; background: transparent; }
+    .search-wrap {
+      background: white;
+      border: 1.5px solid #d4d4d4;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s;
+    }
 
-  .feature-card {
-    background: white;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(0,170,108,0.12);
-    border-color: rgba(0,170,108,0.25);
-  }
+    .search-wrap:focus-within {
+      border-color: #00AA6C;
+      box-shadow: 0 4px 24px rgba(0, 170, 108, 0.15);
+    }
 
-  .dest-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    position: relative;
-  }
-  .dest-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 48px rgba(0,170,108,0.15);
-    border-color: rgba(0,170,108,0.3);
-  }
-  .dest-card img { height: 220px; width: 100%; object-fit: cover; transition: 0.4s; }
-  .dest-card:hover img { transform: scale(1.07); }
-  .dest-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-    padding: 1.5rem;
-    opacity: 0; transform: translateY(12px); transition: 0.35s;
-  }
-  .dest-card:hover .dest-overlay { opacity: 1; transform: translateY(0); }
+    .search-input {
+      outline: none;
+      background: transparent;
+    }
 
-  /* ── EXPERIENCE CARD ── */
-  .exp-card {
-    background: white;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    cursor: pointer;
-  }
-  .exp-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgba(0,170,108,0.14);
-    border-color: rgba(0,170,108,0.28);
-  }
-  .exp-card img { height: 190px; width: 100%; object-fit: cover; transition: 0.4s; }
-  .exp-card:hover img { transform: scale(1.06); }
-  .exp-tag {
-    display: inline-block;
-    background: rgba(52,224,161,0.13);
-    color: #00AA6C;
-    border: 1px solid rgba(0,170,108,0.2);
-    border-radius: 100px;
-    padding: 3px 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-  }
+    .feature-card {
+      background: white;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
 
-  .stat-card {
-    background: white;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    border-radius: 14px;
-    padding: 1.75rem 1.5rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: all 0.25s;
-  }
-  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,170,108,0.12); }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 170, 108, 0.12);
+      border-color: rgba(0, 170, 108, 0.25);
+    }
 
-  .badge {
-    position: absolute; top: 1rem; right: 1rem;
-    background: linear-gradient(135deg, #00AA6C, #34E0A1);
-    color: white; padding: 5px 14px;
-    border-radius: 100px; font-size: 0.72rem; font-weight: 700;
-    box-shadow: 0 4px 12px rgba(0,170,108,0.35); z-index: 10;
-  }
+    .dest-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
 
-  .btn-green {
-    background: #34E0A1;
-    color: #1a1a1a;
-    font-weight: 800;
-    font-family: 'Nunito', sans-serif;
-    border-radius: 10px;
-    transition: all 0.22s;
-    box-shadow: 0 4px 14px rgba(52,224,161,0.38);
-    border: none; cursor: pointer;
-  }
-  .btn-green:hover {
-    background: #28d494;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(52,224,161,0.48);
-  }
+    .dest-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(0, 170, 108, 0.15);
+      border-color: rgba(0, 170, 108, 0.3);
+    }
 
-  /* ── NAV LINK ACTIVE ── */
-  .nav-link { color: #4a4a4a; cursor: pointer; transition: color 0.2s; position: relative; }
-  .nav-link:hover { color: #00AA6C; }
-  .nav-link.active { color: #00AA6C; }
-  .nav-link.active::after {
-    content: '';
-    position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #00AA6C, #34E0A1);
-    border-radius: 2px;
-  }
+    .dest-card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
 
-  /* ── PROFILE AVATAR ── */
-  .avatar {
-    width: 38px; height: 38px;
-    background: linear-gradient(135deg, #34E0A1, #00AA6C);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 0.95rem; color: white;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 2px 8px rgba(0,170,108,0.35);
-    flex-shrink: 0;
-  }
-  .avatar:hover { transform: scale(1.08); box-shadow: 0 4px 14px rgba(0,170,108,0.45); }
+    .dest-card:hover img {
+      transform: scale(1.07);
+    }
 
-  /* ── GREETING PILL ── */
-  .greeting-pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(52,224,161,0.1);
-    border: 1.5px solid rgba(0,170,108,0.2);
-    border-radius: 100px;
-    padding: 5px 14px;
-    font-size: 0.83rem; font-weight: 700; color: #00AA6C;
-  }
+    .dest-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: 0.35s;
+    }
 
-  /* ── PROFILE BUTTON ── */
-  .btn-profile {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: white;
-    border: 1.5px solid rgba(0,170,108,0.35);
-    color: #00AA6C;
-    font-weight: 800;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.83rem;
-    border-radius: 10px;
-    padding: 7px 16px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.22s;
-    box-shadow: 0 2px 8px rgba(0,170,108,0.1);
-  }
-  .btn-profile:hover {
-    background: rgba(0,170,108,0.07);
-    border-color: #00AA6C;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(0,170,108,0.18);
-  }
+    .dest-card:hover .dest-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  /* ── LOGOUT LINK ── */
-  .btn-logout {
-    font-size: 0.82rem; font-weight: 700; color: #8a8a8a;
-    text-decoration: none; padding: 6px 14px;
-    border: 1.5px solid #d4d4d4; border-radius: 8px;
-    transition: all 0.2s; font-family: 'Nunito', sans-serif;
-    background: transparent; cursor: pointer;
-  }
-  .btn-logout:hover { border-color: #e05252; color: #e05252; }
+    /* ── EXPERIENCE CARD ── */
+    .exp-card {
+      background: white;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
 
-  .pop-tag {
-    padding: 6px 16px;
-    border: 1.5px solid #d4d4d4;
-    border-radius: 100px;
-    font-size: 0.82rem; font-weight: 600;
-    color: #4a4a4a; background: white;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .pop-tag:hover { border-color: #00AA6C; color: #00AA6C; background: rgba(0,170,108,0.05); }
+    .exp-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0, 170, 108, 0.14);
+      border-color: rgba(0, 170, 108, 0.28);
+    }
 
-  .test-card {
-    background: white;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    border-radius: 16px; padding: 1.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: all 0.25s;
-  }
-  .test-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,170,108,0.1); border-color: rgba(0,170,108,0.2); }
+    .exp-card img {
+      height: 190px;
+      width: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
 
-  .icon-box {
-    width: 54px; height: 54px;
-    background: linear-gradient(135deg, rgba(52,224,161,0.15), rgba(0,170,108,0.1));
-    border: 1.5px solid rgba(0,170,108,0.2);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
-    transition: 0.25s;
-    margin-bottom: 1rem;
-  }
-  .feature-card:hover .icon-box { transform: scale(1.1) rotate(4deg); border-color: rgba(0,170,108,0.4); }
+    .exp-card:hover img {
+      transform: scale(1.06);
+    }
 
-  .cta-section { background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%); }
+    .exp-tag {
+      display: inline-block;
+      background: rgba(52, 224, 161, 0.13);
+      color: #00AA6C;
+      border: 1px solid rgba(0, 170, 108, 0.2);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
 
-  /* ── HOST BANNER ── */
-  .host-banner {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-  }
-  .host-banner::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(52,224,161,0.15), transparent 60%);
-  }
+    .stat-card {
+      background: white;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s;
+    }
 
-  footer { background: #1a1a1a; color: #9a9a9a; }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 170, 108, 0.12);
+    }
 
-  #loader {
-    position: fixed; inset: 0;
-    background: white;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999; transition: opacity 0.5s;
-  }
-  .loader-bar { width: 220px; height: 4px; background: #e8e8e8; border-radius: 10px; overflow: hidden; margin-top: 20px; }
-  .loader-bar::after {
-    content: ''; display: block; width: 50%; height: 100%;
-    background: linear-gradient(90deg, #34E0A1, #00AA6C, #34E0A1);
-    animation: load 1.4s infinite;
-  }
-  @keyframes load { from{transform:translateX(-100%)} to{transform:translateX(200%)} }
+    .badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, #00AA6C, #34E0A1);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 170, 108, 0.35);
+      z-index: 10;
+    }
 
-  .floating-chat {
-    position: fixed; bottom: 2rem; right: 2rem;
-    width: 56px; height: 56px;
-    background: linear-gradient(135deg, #00AA6C, #34E0A1);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; z-index: 100;
-    box-shadow: 0 8px 24px rgba(0,170,108,0.45);
-    animation: floatBtn 3s ease infinite;
-    transition: 0.25s;
-  }
-  .floating-chat:hover { transform: scale(1.1); }
-  @keyframes floatBtn { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-/* DEFAULT = SMALL PANEL */
-#chatbox {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 350px;
-  height: 500px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  overflow: hidden;
-  transform: translateY(120%);
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
+    .btn-green {
+      background: #34E0A1;
+      color: #1a1a1a;
+      font-weight: 800;
+      font-family: 'Nunito', sans-serif;
+      border-radius: 10px;
+      transition: all 0.22s;
+      box-shadow: 0 4px 14px rgba(52, 224, 161, 0.38);
+      border: none;
+      cursor: pointer;
+    }
 
-/* SHOW */
-#chatbox.show {
-  transform: translateY(0);
-}
+    .btn-green:hover {
+      background: #28d494;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(52, 224, 161, 0.48);
+    }
 
-/* FULLSCREEN MODE */
-#chatbox.full {
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
+    /* ── NAV LINK ACTIVE ── */
+    .nav-link {
+      color: #4a4a4a;
+      cursor: pointer;
+      transition: color 0.2s;
+      position: relative;
+    }
 
-/* HEADER */
-.chat-header {
-  background: #00AA6C;
-  color: white;
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-}
+    .nav-link:hover {
+      color: #00AA6C;
+    }
 
-.chat-header button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
-  margin-left: 8px;
-  cursor: pointer;
-}
+    .nav-link.active {
+      color: #00AA6C;
+    }
 
-/* IFRAME */
-.chat-frame {
-  width: 100%;
-  height: calc(100% - 50px);
-  border: none;
-}
-#chatbox.full .chat-header {
-  padding: 15px 20px;
-  font-size: 18px;
-}
-</style>
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00AA6C, #34E0A1);
+      border-radius: 2px;
+    }
+
+    /* ── PROFILE AVATAR ── */
+    .avatar {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #34E0A1, #00AA6C);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 170, 108, 0.35);
+      flex-shrink: 0;
+    }
+
+    .avatar:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 14px rgba(0, 170, 108, 0.45);
+    }
+
+    /* ── GREETING PILL ── */
+    .greeting-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(52, 224, 161, 0.1);
+      border: 1.5px solid rgba(0, 170, 108, 0.2);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: #00AA6C;
+    }
+
+    /* ── PROFILE BUTTON ── */
+    .btn-profile {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 1.5px solid rgba(0, 170, 108, 0.35);
+      color: #00AA6C;
+      font-weight: 800;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.83rem;
+      border-radius: 10px;
+      padding: 7px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.22s;
+      box-shadow: 0 2px 8px rgba(0, 170, 108, 0.1);
+    }
+
+    .btn-profile:hover {
+      background: rgba(0, 170, 108, 0.07);
+      border-color: #00AA6C;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 170, 108, 0.18);
+    }
+
+    /* ── LOGOUT LINK ── */
+    .btn-logout {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #8a8a8a;
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1.5px solid #d4d4d4;
+      border-radius: 8px;
+      transition: all 0.2s;
+      font-family: 'Nunito', sans-serif;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn-logout:hover {
+      border-color: #e05252;
+      color: #e05252;
+    }
+
+    .pop-tag {
+      padding: 6px 16px;
+      border: 1.5px solid #d4d4d4;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #4a4a4a;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pop-tag:hover {
+      border-color: #00AA6C;
+      color: #00AA6C;
+      background: rgba(0, 170, 108, 0.05);
+    }
+
+    .test-card {
+      background: white;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s;
+    }
+
+    .test-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 170, 108, 0.1);
+      border-color: rgba(0, 170, 108, 0.2);
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, rgba(52, 224, 161, 0.15), rgba(0, 170, 108, 0.1));
+      border: 1.5px solid rgba(0, 170, 108, 0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      transition: 0.25s;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card:hover .icon-box {
+      transform: scale(1.1) rotate(4deg);
+      border-color: rgba(0, 170, 108, 0.4);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+    }
+
+    /* ── HOST BANNER ── */
+    .host-banner {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .host-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(52, 224, 161, 0.15), transparent 60%);
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #9a9a9a;
+    }
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+
+    .loader-bar {
+      width: 220px;
+      height: 4px;
+      background: #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .loader-bar::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, #34E0A1, #00AA6C, #34E0A1);
+      animation: load 1.4s infinite;
+    }
+
+    @keyframes load {
+      from {
+        transform: translateX(-100%)
+      }
+
+      to {
+        transform: translateX(200%)
+      }
+    }
+
+    .floating-chat {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #00AA6C, #34E0A1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0, 170, 108, 0.45);
+      animation: floatBtn 3s ease infinite;
+      transition: 0.25s;
+    }
+
+    .floating-chat:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes floatBtn {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    /* ── LIVE SEARCH DROPDOWN ── */
+    .search-form-wrap {
+      position: relative;
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+    }
+
+    .live-search-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1.5px solid rgba(0, 170, 108, 0.2);
+      border-radius: 0 0 16px 16px;
+      max-height: 360px;
+      overflow-y: auto;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      z-index: 50;
+      display: none;
+    }
+
+    .live-search-dropdown.show {
+      display: block;
+    }
+
+    .lsd-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+      color: #1a1a1a;
+    }
+
+    .lsd-item:hover {
+      background: rgba(0, 170, 108, 0.06);
+    }
+
+    .lsd-item-emoji {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 32px;
+      text-align: center;
+    }
+
+    .lsd-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lsd-item-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .lsd-item-meta {
+      font-size: 0.73rem;
+      color: #8a8a8a;
+      font-weight: 500;
+    }
+
+    .lsd-item-type {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .lsd-item-type.state {
+      background: rgba(196, 154, 60, 0.12);
+      color: #c49a3c;
+    }
+
+    .lsd-item-type.city {
+      background: rgba(45, 138, 86, 0.12);
+      color: #2d8a56;
+    }
+
+    .lsd-item-type.place {
+      background: rgba(74, 93, 156, 0.12);
+      color: #4a5d9c;
+    }
+
+    .lsd-empty {
+      padding: 24px;
+      text-align: center;
+      color: #8a8a8a;
+      font-size: 0.85rem;
+    }
+
+    .lsd-loading {
+      padding: 20px;
+      text-align: center;
+      color: #00AA6C;
+      font-size: 0.85rem;
+    }
+
+    /* ── DYNAMIC REVIEW CARDS ── */
+    .review-scroll-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .review-scroll-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .review-card {
+      flex: 0 0 340px;
+      background: white;
+      border: 1.5px solid rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 170, 108, 0.12);
+      border-color: rgba(0, 170, 108, 0.25);
+    }
+
+    .review-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .review-username {
+      font-weight: 800;
+      color: #1a1a1a;
+      font-size: 0.9rem;
+    }
+
+    .review-location {
+      font-size: 0.75rem;
+      color: #8a8a8a;
+      font-weight: 500;
+    }
+
+    .review-stars {
+      color: #f5a623;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .review-text {
+      color: #4a4a4a;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      font-weight: 500;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .review-time {
+      font-size: 0.7rem;
+      color: #b0b0b0;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    .review-quote {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 2.5rem;
+      color: rgba(0, 170, 108, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .scroll-btn-wrap {
+      display: flex;
+      gap: 10px;
+    }
+
+    .scroll-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #d4d4d4;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1rem;
+      color: #4a4a4a;
+    }
+
+    .scroll-btn:hover {
+      border-color: #00AA6C;
+      color: #00AA6C;
+      background: rgba(0, 170, 108, 0.05);
+    }
+
+    .review-stats-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(52, 224, 161, 0.08);
+      border: 1.5px solid rgba(0, 170, 108, 0.18);
+      border-radius: 100px;
+      padding: 8px 22px;
+      margin-bottom: 14px;
+    }
+
+    .review-stats-pill .rsp-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #00AA6C;
+    }
+
+    .review-stats-pill .rsp-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(0, 170, 108, 0.2);
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div style="text-align:center">
-    <div style="font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#00AA6C,#34E0A1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
-      🦉 TripAdvisor
+  <!-- LOADER -->
+  <div id="loader">
+    <div style="text-align:center">
+      <div
+        style="font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#00AA6C,#34E0A1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+        🦉 TripQuest
+      </div>
+      <div class="loader-bar"></div>
     </div>
-    <div class="loader-bar"></div>
   </div>
-</div>
 
-<!-- DOT BACKGROUND -->
-<div class="dot-bg"></div>
+  <!-- DOT BACKGROUND -->
+  <div class="dot-bg"></div>
 
-<!-- ══════════ NAVBAR ══════════ -->
-<header class="navbar">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+  <!-- ══════════ NAVBAR ══════════ -->
+  <header class="navbar">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-    <!-- Logo -->
-    <a href="/home" class="flex items-center gap-2 no-underline">
-      <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">🦉</div>
-      <span style="font-size:1.2rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span style="color:#00AA6C">Advisor</span></span>
-    </a>
+      <!-- Logo -->
+      <a href="/home" class="flex items-center gap-2 no-underline">
+        <div
+          style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(52,224,161,.35)">
+          🦉</div>
+        <span style="font-size:1.2rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.02em">Trip<span
+            style="color:#00AA6C">Advisor</span></span>
+      </a>
 
-    <!-- Nav links -->
-    <ul class="hidden md:flex gap-7 text-sm list-none" style="font-weight:700">
-      <li class="nav-link active" onclick="window.location.href='/home'">Home</li>
-      <li class="nav-link" onclick="window.location.href='/explore'">Explore</li>
-      <!-- ✅ NEW: Experiences nav link -->
-      <li class="nav-link" onclick="window.location.href='/experiences'">Experiences</li>
-      <li class="nav-link">Reviews</li>
-      <li class="nav-link">About</li>
-    </ul>
+      <!-- Nav links -->
+      <ul class="hidden md:flex gap-7 text-sm list-none" style="font-weight:700">
+        <li class="nav-link active" onclick="window.location.href='/home'">Home</li>
+        <li class="nav-link" onclick="window.location.href='/explore'">Explore</li>
+        <!-- ✅ NEW: Experiences nav link -->
+        <li class="nav-link" onclick="window.location.href='/experiences'">Experiences</li>
+        <!-- ✅ NEW: Marketplace nav link -->
+        <li class="nav-link" onclick="window.location.href='/marketplace'">Marketplace</li>
+        <li class="nav-link" onclick="window.location.href='/reviews'">Reviews</li>
+        <li class="nav-link" onclick="window.location.href='/about'">About</li>
+        <% if (typeof user !== 'undefined' && user && user.role === 'admin') { %>
+          <li class="nav-link" onclick="window.location.href='/admin/marketplace'" style="color:#f59e0b">🛡️ Admin</li>
+        <% } %>
+      </ul>
 
-    <!-- ══ RIGHT SIDE: Logged-in vs Logged-out ══ -->
-    <div class="flex items-center gap-3">
+      <!-- ══ RIGHT SIDE: Logged-in vs Logged-out ══ -->
+      <div class="flex items-center gap-3">
 
-      <% if (typeof user !== 'undefined' && user) { %>
+        <% if (typeof user !=='undefined' && user) { %>
 
-        <!-- ✅ LOGGED IN -->
-        <span class="greeting-pill hidden md:inline-flex">
-          👋 Hey, <%= user.name.split(' ')[0] %>!
+          <!-- ✅ LOGGED IN -->
+          <span class="greeting-pill hidden md:inline-flex">
+            👋 Hey, <%= user.name.split(' ')[0] %>!
         </span>
 
         <a href="/profile" class="avatar" title="Go to Profile">
@@ -410,36 +789,41 @@
         </a>
 
         <!-- Show host dashboard link if user is a host -->
-        <% if (typeof userRole !== 'undefined' && userRole === 'host') { %>
-          <a href="/host/dashboard" class="btn-profile hidden md:inline-flex" style="border-color:rgba(52,224,161,0.5);color:#00AA6C">
-            🏡 My Experiences
-          </a>
-        <% } %>
+        <% if (typeof userRole !== ' undefined' && userRole==='host' ) { %>
+              <a href="/host/dashboard" class="btn-profile hidden md:inline-flex"
+                style="border-color:rgba(52,224,161,0.5);color:#00AA6C">
+                🏡 My Experiences
+              </a>
+              <% } %>
 
-        <a href="/logout" class="btn-logout">Logout</a>
+                <a href="/logout" class="btn-logout">Logout</a>
 
-      <% } else { %>
+                <% } else { %>
 
-        <!-- ❌ NOT LOGGED IN -->
-        <a href="/login" style="font-size:0.85rem;font-weight:800;color:#00AA6C;text-decoration:none">Sign In</a>
-        <a href="/register">
-          <button class="btn-green px-5 py-2 text-sm">Get Started</button>
-        </a>
+                  <!-- ❌ NOT LOGGED IN -->
+                  <a href="/login" style="font-size:0.85rem;font-weight:800;color:#00AA6C;text-decoration:none">Sign
+                    In</a>
+                  <a href="/register">
+                    <button class="btn-green px-5 py-2 text-sm">Get Started</button>
+                  </a>
 
-      <% } %>
+                  <% } %>
 
-    </div>
-  </nav>
-</header>
+      </div>
+    </nav>
+  </header>
 
 
-<!-- ══════════ HERO ══════════ -->
-<section class="hero-section py-24 px-6 text-center">
-  <div class="max-w-4xl mx-auto">
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero-section py-24 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
 
-    <% if (typeof user !== 'undefined' && user) { %>
-    <div style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(52,224,161,0.15),rgba(0,170,108,0.08));border:1.5px solid rgba(0,170,108,0.25);border-radius:100px;padding:8px 22px;font-size:0.88rem;font-weight:800;color:#00AA6C;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,170,108,0.12)">
-      🌍 Welcome back, <span style="color:#1a1a1a;margin-left:3px"><%= user.name.split(' ')[0] %></span>! Ready to explore?
+      <% if (typeof user !=='undefined' && user) { %>
+        <div
+          style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(52,224,161,0.15),rgba(0,170,108,0.08));border:1.5px solid rgba(0,170,108,0.25);border-radius:100px;padding:8px 22px;font-size:0.88rem;font-weight:800;color:#00AA6C;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,170,108,0.12)">
+          🌍 Welcome back, <span style="color:#1a1a1a;margin-left:3px">
+            <%=
+              user.name.split(' ')[0] %></span>! Ready to explore?
     </div>
     <% } %>
 
@@ -450,475 +834,1506 @@
       Explore hidden gems, connect with local traditions, and plan unforgettable journeys with personalized travel recommendations.
     </p>
 
-    <!-- Search bar -->
-    <div class="search-wrap max-w-2xl mx-auto flex gap-3 p-3 mb-8">
-      <input class="search-input flex-1 px-5 py-3 text-sm font-semibold" style="font-family:'Nunito',sans-serif;font-weight:600;color:#1a1a1a;font-size:0.92rem" placeholder="Where do you want to explore?" />
-      <button class="btn-green px-8 py-3 text-sm">Search</button>
-    </div>
-
-    <!-- Popular tags -->
-    <div class="flex flex-wrap justify-center gap-2 text-sm">
-      <span style="font-size:0.8rem;font-weight:700;color:#8a8a8a">Popular:</span>
-      <span class="pop-tag">Kyoto 🇯🇵</span>
-      <span class="pop-tag">Marrakech 🇲🇦</span>
-      <span class="pop-tag">Florence 🇮🇹</span>
-      <span class="pop-tag">Cusco 🇵🇪</span>
-      <span class="pop-tag">Bali 🇮🇩</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ STATS ══════════ -->
-<section class="py-12 px-6">
-  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
-    <div class="stat-card">
-      <div class="text-3xl font-black green-text">150+</div>
-      <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Cultural Destinations</div>
-    </div>
-    <div class="stat-card">
-      <div class="text-3xl font-black green-text">2,847</div>
-      <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Travelers This Week</div>
-    </div>
-    <div class="stat-card">
-      <div class="text-3xl font-black green-text">4.9★</div>
-      <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Average Rating</div>
-    </div>
-    <div class="stat-card">
-      <div class="text-3xl font-black green-text">50K+</div>
-      <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Experiences Created</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ WHY CHOOSE ══════════ -->
-<section class="py-20 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
-        Why Choose <span class="green-text">TripAdvisor</span>
-      </h2>
-      <p style="color:#8a8a8a;max-width:520px;margin:0 auto;font-size:0.95rem;line-height:1.7;font-weight:500">
-        We combine deep cultural research with smart tools to create meaningful travel experiences.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="feature-card p-8">
-        <div class="icon-box">📅</div>
-        <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Smart Itinerary Planning</h3>
-        <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Personalized travel plans tailored to your interests, schedule, and cultural preferences.</p>
-      </div>
-      <div class="feature-card p-8">
-        <div class="icon-box">🏺</div>
-        <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Cultural Discovery</h3>
-        <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Festivals, heritage sites, and traditions beyond the typical tourist routes.</p>
-      </div>
-      <div class="feature-card p-8">
-        <div class="icon-box">🤝</div>
-        <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Local Experiences</h3>
-        <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Authentic interactions with artisans, guides, and local communities worldwide.</p>
-      </div>
-      <div class="feature-card p-8">
-        <div class="icon-box">🤖</div>
-        <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">AI Travel Assistant</h3>
-        <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Instant cultural insights, smart recommendations, and 24/7 travel support.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ HOW IT WORKS ══════════ -->
-<section style="background:linear-gradient(160deg,#f0fdf8,#ffffff,#f0fdf8);padding:80px 24px">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:48px">
-      How It <span class="green-text">Works</span>
-    </h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="feature-card p-8 text-center">
-        <div class="icon-box mx-auto" style="margin:0 auto 1rem">🔍</div>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Search</h3>
-        <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Choose a destination or cultural interest that excites you.</p>
-        <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 1</div>
-      </div>
-      <div class="feature-card p-8 text-center">
-        <div class="icon-box mx-auto" style="margin:0 auto 1rem">🗺️</div>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Plan</h3>
-        <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Get a personalized cultural itinerary crafted just for you.</p>
-        <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 2</div>
-      </div>
-      <div class="feature-card p-8 text-center">
-        <div class="icon-box mx-auto" style="margin:0 auto 1rem">🌍</div>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Experience</h3>
-        <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Travel with deeper cultural understanding and authentic connections.</p>
-        <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 3</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ FEATURED EXPERIENCES ══════════ -->
-<!-- ✅ NEW SECTION: Showcases local experiences from /experiences route -->
-<section class="py-20 px-6" style="background:#ffffff">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(52,224,161,0.1);border:1.5px solid rgba(0,170,108,0.2);border-radius:100px;padding:5px 16px;font-size:0.78rem;font-weight:800;color:#00AA6C;margin-bottom:14px;letter-spacing:0.04em">
-        ✨ HOSTED BY LOCALS
-      </div>
-      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
-        Trending <span class="green-text">Local Experiences</span>
-      </h2>
-      <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500;max-width:500px;margin:0 auto">
-        Handcrafted by local hosts — from silk weaving workshops to desert safaris.
-      </p>
-    </div>
-
-    <!-- ✅ Dynamic cards from DB. Falls back to a message if none approved yet -->
-    <% if (typeof featuredExperiences !== 'undefined' && featuredExperiences.length > 0) { %>
-    <div class="grid md:grid-cols-3 gap-7">
-      <% featuredExperiences.forEach(function(exp) { %>
-      <div class="exp-card" onclick="window.location.href='/experiences/<%= exp.slug %>'">
-        <div style="position:relative;overflow:hidden">
-          <% if (exp.images && exp.images.length > 0) { %>
-            <img src="<%= exp.images[0] %>" alt="<%= exp.title %>"/>
-          <% } else { %>
-            <div style="height:190px;background:linear-gradient(135deg,#e0f7ef,#b2ead8);display:flex;align-items:center;justify-content:center;font-size:3rem">🌿</div>
-          <% } %>
-          <div style="position:absolute;top:12px;left:12px">
-            <span class="exp-tag"><%= exp.category %></span>
-          </div>
-          <% if (exp.rating > 0) { %>
-          <div style="position:absolute;top:12px;right:12px;background:white;border-radius:100px;padding:4px 10px;font-size:0.72rem;font-weight:800;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,0.12)">
-            ⭐ <%= exp.rating.toFixed(1) %>
-          </div>
-          <% } %>
+    <!-- Search bar (working form + live search) -->
+    <div class="search-form-wrap">
+      <form action="/search" method="get" class="search-wrap flex gap-3 p-3" id="heroSearchForm" autocomplete="off">
+        <input name="q" id="heroSearchInput" class="search-input flex-1 px-5 py-3 text-sm font-semibold" style="font-family:'Nunito',sans-serif;font-weight:600;color:#1a1a1a;font-size:0.92rem"
+              placeholder="Search cities, states, places across India..." />
+            <button type="submit" class="btn-green px-8 py-3 text-sm">Search</button>
+            </form>
+            <!-- Live search dropdown -->
+            <div class="live-search-dropdown" id="liveSearchDropdown"></div>
         </div>
-        <div class="p-5">
-          <h3 style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:4px"><%= exp.title %></h3>
-          <p style="font-size:0.8rem;color:#8a8a8a;font-weight:500;margin-bottom:12px">📍 <%= exp.city %>, <%= exp.country %></p>
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div>
-              <% if (exp.isFree) { %>
-                <span style="font-size:1rem;font-weight:900;color:#00AA6C">Free</span>
-              <% } else { %>
-                <span style="font-size:1rem;font-weight:900;color:#00AA6C">₹<%= exp.price %></span>
-                <span style="font-size:0.75rem;color:#8a8a8a;font-weight:500"> / person</span>
-              <% } %>
+
+        <!-- Popular tags (clickable) -->
+        <div class="flex flex-wrap justify-center gap-2 text-sm">
+          <span style="font-size:0.8rem;font-weight:700;color:#8a8a8a">Popular:</span>
+          <a href="/search?q=Jaipur" class="pop-tag" style="text-decoration:none">Jaipur 🏰</a>
+          <a href="/search?q=Goa" class="pop-tag" style="text-decoration:none">Goa 🌊</a>
+          <a href="/search?q=Manali" class="pop-tag" style="text-decoration:none">Manali 🏔️</a>
+          <a href="/search?q=Varanasi" class="pop-tag" style="text-decoration:none">Varanasi 🕌</a>
+          <a href="/search?q=Kerala" class="pop-tag" style="text-decoration:none">Kerala 🌴</a>
+        </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ STATS (DYNAMIC) ══════════ -->
+  <section class="py-12 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="stat-card">
+        <div class="text-3xl font-black green-text"><%= (typeof totalDestinations !== 'undefined') ? totalDestinations + '+' : '32+' %></div>
+        <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">States & Territories</div>
+      </div>
+      <div class="stat-card">
+        <div class="text-3xl font-black green-text"><%= (typeof reviewStats !== 'undefined' && reviewStats.totalUsers) ? reviewStats.totalUsers : 0 %>+</div>
+        <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Registered Travelers</div>
+      </div>
+      <div class="stat-card">
+        <div class="text-3xl font-black green-text"><%= (typeof reviewStats !== 'undefined' && reviewStats.avgRating && reviewStats.avgRating !== '0.0') ? reviewStats.avgRating : '4.8' %>★</div>
+        <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Average Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="text-3xl font-black green-text"><%= (typeof reviewStats !== 'undefined' && reviewStats.totalReviews) ? reviewStats.totalReviews : 0 %>+</div>
+        <div style="font-size:0.82rem;color:#8a8a8a;margin-top:6px;font-weight:600">Reviews Written</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ WHY CHOOSE ══════════ -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2
+          style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
+          Why Choose <span class="green-text">TripQuest</span>
+        </h2>
+        <p style="color:#8a8a8a;max-width:520px;margin:0 auto;font-size:0.95rem;line-height:1.7;font-weight:500">
+          We combine deep cultural research with smart tools to create meaningful travel experiences.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="feature-card p-8">
+          <div class="icon-box">📅</div>
+          <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Smart Itinerary Planning</h3>
+          <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Personalized travel plans tailored
+            to your interests, schedule, and cultural preferences.</p>
+        </div>
+        <div class="feature-card p-8">
+          <div class="icon-box">🏺</div>
+          <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Cultural Discovery</h3>
+          <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Festivals, heritage sites, and
+            traditions beyond the typical tourist routes.</p>
+        </div>
+        <div class="feature-card p-8">
+          <div class="icon-box">🤝</div>
+          <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Local Experiences</h3>
+          <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Authentic interactions with
+            artisans, guides, and local communities worldwide.</p>
+        </div>
+        <div class="feature-card p-8">
+          <div class="icon-box">🤖</div>
+          <h3 style="font-size:1.15rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">AI Travel Assistant</h3>
+          <p style="color:#8a8a8a;font-size:0.88rem;line-height:1.7;font-weight:500">Instant cultural insights, smart
+            recommendations, and 24/7 travel support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ HOW IT WORKS ══════════ -->
+  <section style="background:linear-gradient(160deg,#f0fdf8,#ffffff,#f0fdf8);padding:80px 24px">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2
+        style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:48px">
+        How It <span class="green-text">Works</span>
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="feature-card p-8 text-center">
+          <div class="icon-box mx-auto" style="margin:0 auto 1rem">🔍</div>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Search</h3>
+          <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Choose a destination or cultural
+            interest that excites you.</p>
+          <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 1
+          </div>
+        </div>
+        <div class="feature-card p-8 text-center">
+          <div class="icon-box mx-auto" style="margin:0 auto 1rem">🗺️</div>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Plan</h3>
+          <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Get a personalized cultural
+            itinerary crafted just for you.</p>
+          <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 2
+          </div>
+        </div>
+        <div class="feature-card p-8 text-center">
+          <div class="icon-box mx-auto" style="margin:0 auto 1rem">🌍</div>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a;margin-bottom:8px">Experience</h3>
+          <p style="color:#8a8a8a;font-size:0.87rem;line-height:1.7;font-weight:500">Travel with deeper cultural
+            understanding and authentic connections.</p>
+          <div style="margin-top:16px;font-size:0.75rem;font-weight:800;color:#00AA6C;letter-spacing:0.05em">STEP 3
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ FEATURED EXPERIENCES ══════════ -->
+  <!-- ✅ NEW SECTION: Showcases local experiences from /experiences route -->
+  <section class="py-20 px-6" style="background:#ffffff">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <div
+          style="display:inline-flex;align-items:center;gap:8px;background:rgba(52,224,161,0.1);border:1.5px solid rgba(0,170,108,0.2);border-radius:100px;padding:5px 16px;font-size:0.78rem;font-weight:800;color:#00AA6C;margin-bottom:14px;letter-spacing:0.04em">
+          ✨ HOSTED BY LOCALS
+        </div>
+        <h2
+          style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
+          Trending <span class="green-text">Local Experiences</span>
+        </h2>
+        <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500;max-width:500px;margin:0 auto">
+          Handcrafted by local hosts — from silk weaving workshops to desert safaris.
+        </p>
+      </div>
+
+      <!-- ✅ Dynamic cards from DB. Falls back to a message if none approved yet -->
+      <% if (typeof featuredExperiences !=='undefined' && featuredExperiences.length> 0) { %>
+        <div class="grid md:grid-cols-3 gap-7">
+          <% featuredExperiences.forEach(function(exp) { %>
+            <div class="exp-card" onclick="window.location.href='/experiences/<%= exp.slug %>'">
+              <div style="position:relative;overflow:hidden">
+                <% if (exp.images && exp.images.length> 0) { %>
+                  <img src="<%= exp.images[0] %>" alt="<%= exp.title %>" />
+                  <% } else { %>
+                    <div
+                      style="height:190px;background:linear-gradient(135deg,#e0f7ef,#b2ead8);display:flex;align-items:center;justify-content:center;font-size:3rem">
+                      🌿</div>
+                    <% } %>
+                      <div style="position:absolute;top:12px;left:12px">
+                        <span class="exp-tag">
+                          <%= exp.category %>
+                        </span>
+                      </div>
+                      <% if (exp.rating> 0) { %>
+                        <div
+                          style="position:absolute;top:12px;right:12px;background:white;border-radius:100px;padding:4px 10px;font-size:0.72rem;font-weight:800;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,0.12)">
+                          ⭐ <%= exp.rating.toFixed(1) %>
+                        </div>
+                        <% } %>
+              </div>
+              <div class="p-5">
+                <h3 style="font-size:1rem;font-weight:800;color:#1a1a1a;margin-bottom:4px">
+                  <%= exp.title %>
+                </h3>
+                <p style="font-size:0.8rem;color:#8a8a8a;font-weight:500;margin-bottom:12px">📍 <%= exp.city %>, <%=
+                      exp.country %>
+                </p>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <div>
+                    <% if (exp.isFree) { %>
+                      <span style="font-size:1rem;font-weight:900;color:#00AA6C">Free</span>
+                      <% } else { %>
+                        <span style="font-size:1rem;font-weight:900;color:#00AA6C">₹<%= exp.price %></span>
+                        <span style="font-size:0.75rem;color:#8a8a8a;font-weight:500"> / person</span>
+                        <% } %>
+                  </div>
+                  <% if (exp.duration) { %><span style="font-size:0.75rem;color:#8a8a8a;font-weight:600">⏱ <%=
+                        exp.duration %></span>
+                    <% } %>
+                </div>
+              </div>
             </div>
-            <% if (exp.duration) { %><span style="font-size:0.75rem;color:#8a8a8a;font-weight:600">⏱ <%= exp.duration %></span><% } %>
-          </div>
+            <% }) %>
         </div>
-      </div>
-      <% }) %>
-    </div>
-    <% } else { %>
-    <!-- No approved experiences yet — show placeholder message -->
-    <div style="text-align:center;padding:48px 24px;background:white;border-radius:16px;border:1.5px dashed #d4d4d4">
-      <div style="font-size:3rem;margin-bottom:12px">🌱</div>
-      <p style="font-size:1rem;font-weight:700;color:#4a4a4a;margin-bottom:6px">No experiences live yet</p>
-      <p style="font-size:0.85rem;color:#8a8a8a;font-weight:500">Be the first to host a local experience!</p>
-      <a href="/host/register" style="display:inline-block;margin-top:16px;text-decoration:none">
-        <button class="btn-green px-6 py-2 text-sm">Become a Host →</button>
-      </a>
-    </div>
-    <% } %>
-
-    <!-- View All Button -->
-    <div style="text-align:center;margin-top:40px">
-      <a href="/experiences" style="text-decoration:none">
-        <button class="btn-green px-10 py-3" style="font-size:0.92rem">
-          Browse All Experiences →
-        </button>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ DESTINATIONS ══════════ -->
-<section class="py-20 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
-        Featured <span class="green-text">Destinations</span>
-      </h2>
-      <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500">Curated cultural experiences from around the world</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-7">
-
-      <div class="dest-card">
-        <div class="badge">⭐ Featured</div>
-        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800" alt="Kyoto"/>
-        <div class="p-5">
-          <h3 style="font-size:1.1rem;font-weight:800;color:#1a1a1a" class="green-text">Kyoto, Japan</h3>
-          <p style="color:#8a8a8a;font-size:0.82rem;margin-top:4px;font-weight:500">Ancient temples &amp; tea ceremonies</p>
-          <div style="display:flex;align-items:center;gap:12px;margin-top:10px;font-size:0.8rem">
-            <span style="color:#00AA6C;font-weight:700">⭐ 4.9</span>
-            <span style="color:#d4d4d4">•</span>
-            <span style="color:#8a8a8a;font-weight:500">18 experiences</span>
-          </div>
-        </div>
-        <div class="dest-overlay">
-          <button class="btn-green w-full py-2 text-sm" style="font-weight:700;width:100%">Explore Kyoto →</button>
-        </div>
-      </div>
-
-      <div class="dest-card">
-        <div class="badge">🔥 Trending</div>
-        <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=800" alt="Marrakech"/>
-        <div class="p-5">
-          <h3 style="font-size:1.1rem;font-weight:800" class="green-text">Marrakech, Morocco</h3>
-          <p style="color:#8a8a8a;font-size:0.82rem;margin-top:4px;font-weight:500">Souks, gardens &amp; Moroccan culture</p>
-          <div style="display:flex;align-items:center;gap:12px;margin-top:10px;font-size:0.8rem">
-            <span style="color:#00AA6C;font-weight:700">⭐ 4.8</span>
-            <span style="color:#d4d4d4">•</span>
-            <span style="color:#8a8a8a;font-weight:500">15 experiences</span>
-          </div>
-        </div>
-        <div class="dest-overlay">
-          <button class="btn-green w-full py-2 text-sm" style="font-weight:700;width:100%">Explore Marrakech →</button>
-        </div>
-      </div>
-
-      <div class="dest-card">
-        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800" alt="Florence"/>
-        <div class="p-5">
-          <h3 style="font-size:1.1rem;font-weight:800" class="green-text">Florence, Italy</h3>
-          <p style="color:#8a8a8a;font-size:0.82rem;margin-top:4px;font-weight:500">Renaissance art &amp; Italian heritage</p>
-          <div style="display:flex;align-items:center;gap:12px;margin-top:10px;font-size:0.8rem">
-            <span style="color:#00AA6C;font-weight:700">⭐ 4.9</span>
-            <span style="color:#d4d4d4">•</span>
-            <span style="color:#8a8a8a;font-weight:500">22 experiences</span>
-          </div>
-        </div>
-        <div class="dest-overlay">
-          <button class="btn-green w-full py-2 text-sm" style="font-weight:700;width:100%">Explore Florence →</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ BECOME A HOST BANNER ══════════ -->
-<!-- ✅ NEW SECTION: Encourages users to register as experience hosts -->
-<section class="py-16 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="host-banner p-10 md:p-14">
-      <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
-        <div style="max-width:540px">
-          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(52,224,161,0.15);border:1px solid rgba(52,224,161,0.3);border-radius:100px;padding:5px 16px;font-size:0.78rem;font-weight:800;color:#34E0A1;margin-bottom:16px;letter-spacing:0.04em">
-            🏡 FOR LOCAL EXPERTS
-          </div>
-          <h2 style="font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:900;color:white;letter-spacing:-0.02em;margin-bottom:12px">
-            Share Your Culture.<br/>Earn Doing What You Love.
-          </h2>
-          <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;font-weight:500">
-            Are you a local artisan, guide, or cultural expert? Host your own experience and connect with curious travellers from around the world.
-          </p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0">
-          <% if (typeof user !== 'undefined' && user) { %>
-            <a href="/host/register" style="text-decoration:none">
-              <button class="btn-green px-8 py-3" style="font-size:0.9rem;white-space:nowrap">
-                Become a Host →
-              </button>
+        <% } else { %>
+          <!-- No approved experiences yet — show placeholder message -->
+          <div
+            style="text-align:center;padding:48px 24px;background:white;border-radius:16px;border:1.5px dashed #d4d4d4">
+            <div style="font-size:3rem;margin-bottom:12px">🌱</div>
+            <p style="font-size:1rem;font-weight:700;color:#4a4a4a;margin-bottom:6px">No experiences live yet</p>
+            <p style="font-size:0.85rem;color:#8a8a8a;font-weight:500">Be the first to host a local experience!</p>
+            <a href="/host/register" style="display:inline-block;margin-top:16px;text-decoration:none">
+              <button class="btn-green px-6 py-2 text-sm">Become a Host →</button>
             </a>
-          <% } else { %>
-            <a href="/register" style="text-decoration:none">
-              <button class="btn-green px-8 py-3" style="font-size:0.9rem;white-space:nowrap">
-                Sign Up to Host →
-              </button>
-            </a>
+          </div>
           <% } %>
-          <a href="/experiences" style="text-decoration:none;text-align:center;font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.5)">
-            Browse experiences first
+
+            <!-- View All Button -->
+            <div style="text-align:center;margin-top:40px">
+              <a href="/experiences" style="text-decoration:none">
+                <button class="btn-green px-10 py-3" style="font-size:0.92rem">
+                  Browse All Experiences →
+                </button>
+              </a>
+            </div>
+    </div>
+  </section>
+
+
+
+  <!-- ══════════ FEATURED DESTINATIONS ══════════ -->
+  <% if (typeof featuredDestinations !== 'undefined' && featuredDestinations.length > 0) { %>
+  <section class="py-20 px-6" style="background:#f7f8fa">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
+          Featured <span class="green-text">Destinations</span>
+        </h2>
+        <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500;max-width:520px;margin:0 auto">
+          Curated cultural gems from across India — handpicked from our dataset of <%= typeof totalDestinations !== 'undefined' ? totalDestinations : '' %> states & territories.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-7">
+        <% featuredDestinations.slice(0, 6).forEach(function(dest) { %>
+          <div class="exp-card" onclick="window.location.href='/city?state=<%= dest.stateId %>&id=<%= dest.cityId %>'" style="cursor:pointer">
+            <div style="position:relative;overflow:hidden">
+              <img src="<%= dest.image %>" alt="<%= dest.name %>, <%= dest.state %>"
+                style="width:100%;height:200px;object-fit:cover;transition:transform 0.4s ease"
+                onmouseover="this.style.transform='scale(1.08)'"
+                onmouseout="this.style.transform='scale(1)'" />
+              <div style="position:absolute;top:12px;right:12px;background:<%= dest.badgeColor %>;color:white;border-radius:100px;padding:4px 12px;font-size:0.72rem;font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,0.2)">
+                <%= dest.badge %>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 style="font-size:1.05rem;font-weight:800;color:#1a1a1a;margin-bottom:4px"><%= dest.name %>, <span style="color:#00AA6C"><%= dest.state %></span></h3>
+              <p style="font-size:0.82rem;color:#8a8a8a;font-weight:500;margin-bottom:12px;line-height:1.5"><%= dest.tagline %></p>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <span style="font-size:0.85rem;font-weight:800;color:#00AA6C">⭐ <%= dest.rating %></span>
+                  <span style="font-size:0.75rem;color:#b0b0b0;font-weight:500">•</span>
+                  <span style="font-size:0.78rem;color:#8a8a8a;font-weight:600"><%= dest.placesCount %> places</span>
+                </div>
+                <span style="font-size:0.75rem;font-weight:700;color:#00AA6C;display:flex;align-items:center;gap:4px">
+                  Explore →
+                </span>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="text-align:center;margin-top:40px">
+        <a href="/explore" style="text-decoration:none">
+          <button class="btn-green px-10 py-3" style="font-size:0.92rem">
+            Explore All States →
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ══════════ BECOME A HOST BANNER ══════════ -->
+  <!-- ✅ NEW SECTION: Encourages users to register as experience hosts -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="host-banner p-10 md:p-14">
+        <div
+          style="position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+          <div style="max-width:540px">
+            <div
+              style="display:inline-flex;align-items:center;gap:8px;background:rgba(52,224,161,0.15);border:1px solid rgba(52,224,161,0.3);border-radius:100px;padding:5px 16px;font-size:0.78rem;font-weight:800;color:#34E0A1;margin-bottom:16px;letter-spacing:0.04em">
+              🏡 FOR LOCAL EXPERTS
+            </div>
+            <h2
+              style="font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:900;color:white;letter-spacing:-0.02em;margin-bottom:12px">
+              Share Your Culture.<br />Earn Doing What You Love.
+            </h2>
+            <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;font-weight:500">
+              Are you a local artisan, guide, or cultural expert? Host your own experience and connect with curious
+              travellers from around the world.
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0">
+            <% if (typeof user !=='undefined' && user) { %>
+              <a href="/host/register" style="text-decoration:none">
+                <button class="btn-green px-8 py-3" style="font-size:0.9rem;white-space:nowrap">
+                  Become a Host →
+                </button>
+              </a>
+              <% } else { %>
+                <a href="/register" style="text-decoration:none">
+                  <button class="btn-green px-8 py-3" style="font-size:0.9rem;white-space:nowrap">
+                    Sign Up to Host →
+                  </button>
+                </a>
+                <% } %>
+                  <a href="/experiences"
+                    style="text-decoration:none;text-align:center;font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.5)">
+                    Browse experiences first
+                  </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ DYNAMIC REVIEWS ══════════ -->
+  <section style="background:#f7f8fa;padding:80px 24px">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2
+          style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
+          What <span class="green-text">Travelers Say</span>
+        </h2>
+        <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500;max-width:480px;margin:0 auto 18px">Real reviews from
+          our community — powered by your experiences</p>
+
+        <% if (typeof reviewStats !=='undefined' && reviewStats.totalReviews> 0) { %>
+          <div class="review-stats-pill">
+            <div class="rsp-item">⭐ <%= reviewStats.avgRating %> avg</div>
+            <div class="rsp-divider"></div>
+            <div class="rsp-item">📝 <%= reviewStats.totalReviews %> reviews</div>
+          </div>
+          <% } %>
+      </div>
+
+      <% if (typeof latestReviews !=='undefined' && latestReviews.length> 0) { %>
+        <!-- Scroll controls -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-size:0.82rem;font-weight:700;color:#8a8a8a">Showing latest <%= latestReviews.length %>
+              reviews</div>
+          <div class="scroll-btn-wrap">
+            <button class="scroll-btn"
+              onclick="document.getElementById('reviewTrack').scrollBy({left:-370,behavior:'smooth'})">←</button>
+            <button class="scroll-btn"
+              onclick="document.getElementById('reviewTrack').scrollBy({left:370,behavior:'smooth'})">→</button>
+          </div>
+        </div>
+
+        <!-- Scrollable review cards -->
+        <div class="review-scroll-track" id="reviewTrack">
+          <% const avatarGradients=[ 'linear-gradient(135deg,#34E0A1,#00AA6C)'
+            , 'linear-gradient(135deg,#667eea,#764ba2)' , 'linear-gradient(135deg,#f093fb,#f5576c)'
+            , 'linear-gradient(135deg,#4facfe,#00f2fe)' , 'linear-gradient(135deg,#fa709a,#fee140)'
+            , 'linear-gradient(135deg,#a18cd1,#fbc2eb)' , 'linear-gradient(135deg,#ffecd2,#fcb69f)'
+            , 'linear-gradient(135deg,#89f7fe,#66a6ff)' , 'linear-gradient(135deg,#fddb92,#d1fdff)' ]; function
+            timeAgo(dateStr) { var now=new Date(); var date=new Date(dateStr); var diff=Math.floor((now - date) / 1000);
+            if (diff < 60) return 'just now' ; if (diff < 3600) return Math.floor(diff / 60) + 'm ago' ; if (diff <
+            86400) return Math.floor(diff / 3600) + 'h ago' ; if (diff < 2592000) return Math.floor(diff / 86400)
+            + 'd ago' ; if (diff < 31536000) return Math.floor(diff / 2592000) + 'mo ago' ; return Math.floor(diff /
+            31536000) + 'y ago' ; } %>
+            <% latestReviews.forEach(function(rev, idx) { %>
+              <div class="review-card">
+                <div class="review-quote">&ldquo;</div>
+                <div class="review-card-header">
+                  <div class="review-avatar" style="background:<%= avatarGradients[idx % avatarGradients.length] %>">
+                    <%= rev.username ? rev.username.charAt(0).toUpperCase() : 'A' %>
+                  </div>
+                  <div>
+                    <div class="review-username">
+                      <%= rev.username || 'Anonymous' %>
+                    </div>
+                    <div class="review-location">📍 <%= rev.city %>, <%= rev.state %>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-stars">
+                  <% for(var i=0; i < rev.rating; i++) { %>⭐<% } %>
+                      <% for(var i=rev.rating; i < 5; i++) { %>☆<% } %>
+                </div>
+                <p class="review-text">"<%= rev.reviewText %>"</p>
+                <div class="review-time">
+                  <%= timeAgo(rev.createdAt) %>
+                </div>
+              </div>
+              <% }) %>
+        </div>
+
+        <!-- View all CTA -->
+        <div style="text-align:center;margin-top:32px">
+          <a href="/reviews" style="text-decoration:none">
+            <button class="btn-green px-8 py-3" style="font-size:0.9rem">View All Reviews →</button>
           </a>
         </div>
-      </div>
+
+        <% } else { %>
+          <!-- No reviews fallback -->
+          <div
+            style="text-align:center;padding:48px 24px;background:white;border-radius:16px;border:1.5px dashed #d4d4d4">
+            <div style="font-size:3rem;margin-bottom:12px">💬</div>
+            <p style="font-size:1rem;font-weight:700;color:#4a4a4a;margin-bottom:6px">No reviews yet</p>
+            <p style="font-size:0.85rem;color:#8a8a8a;font-weight:500">Be the first to share your travel experience!</p>
+            <a href="/reviews" style="display:inline-block;margin-top:16px;text-decoration:none">
+              <button class="btn-green px-6 py-2 text-sm">Write a Review →</button>
+            </a>
+          </div>
+          <% } %>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════ TESTIMONIALS ══════════ -->
-<section style="background:#f7f8fa;padding:80px 24px">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.02em;margin-bottom:10px">
-        What <span class="green-text">Travelers Say</span>
+  <!-- ══════════ CTA ══════════ -->
+  <section class="cta-section py-28 px-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2
+        style="font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;color:white;letter-spacing:-0.02em;margin-bottom:16px">
+        Start Your Cultural Journey Today
       </h2>
-      <p style="color:#8a8a8a;font-size:0.95rem;font-weight:500">Real experiences from our global community</p>
+      <p
+        style="color:rgba(255,255,255,0.8);font-size:1rem;max-width:520px;margin:0 auto 36px;line-height:1.7;font-weight:500">
+        Join thousands of travellers discovering authentic cultural experiences worldwide.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
+        <button onclick="window.location.href='/experiences'"
+          style="background:white;color:#00AA6C;font-weight:800;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;font-size:0.95rem;font-family:'Nunito',sans-serif;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.2s"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
+          Browse Experiences
+        </button>
+        <button onclick="window.location.href='/explore'"
+          style="background:transparent;color:white;font-weight:800;padding:14px 32px;border-radius:10px;border:2px solid rgba(255,255,255,0.6);cursor:pointer;font-size:0.95rem;font-family:'Nunito',sans-serif;transition:all 0.2s"
+          onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">
+          Explore Destinations
+        </button>
+      </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-7">
-      <div class="test-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#34E0A1,#00AA6C);display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:1rem;flex-shrink:0">S</div>
-          <div>
-            <div style="font-weight:800;color:#1a1a1a;font-size:0.9rem">Sarah Chen</div>
-            <div style="font-size:0.75rem;color:#8a8a8a;font-weight:500">San Francisco, CA</div>
-          </div>
+  </section>
+
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer style="background:#1a1a1a;color:#9a9a9a;padding:64px 24px 32px">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
+
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div
+            style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px">
+            🦉</div>
+          <span style="font-size:1.1rem;font-weight:900;color:white">Trip<span
+              style="color:#34E0A1">Advisor</span></span>
         </div>
-        <div style="color:#f5a623;margin-bottom:10px;font-size:0.85rem">⭐⭐⭐⭐⭐</div>
-        <p style="color:#4a4a4a;font-size:0.84rem;line-height:1.7;font-weight:500">"TripAdvisor helped me discover hidden temples in Kyoto I never would have found. The recommendations were spot-on!"</p>
-      </div>
-      <div class="test-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#34E0A1,#00AA6C);display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:1rem;flex-shrink:0">M</div>
-          <div>
-            <div style="font-weight:800;color:#1a1a1a;font-size:0.9rem">Marcus Johnson</div>
-            <div style="font-size:0.75rem;color:#8a8a8a;font-weight:500">London, UK</div>
-          </div>
+        <p style="font-size:0.82rem;line-height:1.7;max-width:220px">Discover authentic cultural experiences through
+          smart exploration and connect with the world's rich heritage.</p>
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <div
+            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s"
+            onmouseover="this.style.background='rgba(52,224,161,0.15)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">📘</div>
+          <div
+            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s"
+            onmouseover="this.style.background='rgba(52,224,161,0.15)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">🐦</div>
+          <div
+            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s"
+            onmouseover="this.style.background='rgba(52,224,161,0.15)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">📷</div>
         </div>
-        <div style="color:#f5a623;margin-bottom:10px;font-size:0.85rem">⭐⭐⭐⭐⭐</div>
-        <p style="color:#4a4a4a;font-size:0.84rem;line-height:1.7;font-weight:500">"Best travel platform I've used. The cultural insights made my Morocco trip incredibly meaningful and authentic."</p>
       </div>
-      <div class="test-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#34E0A1,#00AA6C);display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:1rem;flex-shrink:0">P</div>
-          <div>
-            <div style="font-weight:800;color:#1a1a1a;font-size:0.9rem">Priya Patel</div>
-            <div style="font-size:0.75rem;color:#8a8a8a;font-weight:500">Mumbai, India</div>
+
+      <div>
+        <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Explore</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onclick="window.location.href='/explore'" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Destinations</li>
+          <!-- ✅ Experiences link in footer -->
+          <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onclick="window.location.href='/experiences'" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Local Experiences</li>
+          <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Local Guides</li>
+          <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Travel Itineraries</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Resources</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Travel Blog</li>
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Cultural Insights</li>
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Travel Tips</li>
+          <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Community Forum</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Company</h4>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">About Us</li>
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Contact</li>
+          <!-- ✅ Host registration link -->
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onclick="window.location.href='/host/register'" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Become a Host</li>
+          <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s"
+            onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Privacy Policy</li>
+          <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'"
+            onmouseout="this.style.color='#9a9a9a'">Terms of Service</li>
+        </ul>
+      </div>
+
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;text-align:center;font-size:0.78rem">
+      © 2024 TripQuest. All rights reserved. Made with 💚 for cultural explorers worldwide.
+    </div>
+  </footer>
+
+  <!-- FLOATING CHAT -->
+  <%#============================================================PASTE THIS ENTIRE BLOCK at the very bottom of home.ejs
+    Just BEFORE the closing </body> tag.
+    Replace the existing <div class="floating-chat"> with this.
+      ============================================================ %>
+
+      <!-- ══════════ AI CHAT WIDGET ══════════ -->
+      <style>
+        /* ── bubble ── */
+        #chat-bubble {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          width: 58px;
+          height: 58px;
+          background: linear-gradient(135deg, #00AA6C, #34E0A1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 1000;
+          box-shadow: 0 8px 28px rgba(0, 170, 108, 0.45);
+          transition: transform 0.25s, box-shadow 0.25s;
+          animation: floatBtn 3s ease infinite;
+        }
+
+        #chat-bubble:hover {
+          transform: scale(1.1);
+          box-shadow: 0 12px 36px rgba(0, 170, 108, 0.55);
+        }
+
+        @keyframes floatBtn {
+
+          0%,
+          100% {
+            transform: translateY(0)
+          }
+
+          50% {
+            transform: translateY(-7px)
+          }
+        }
+
+        #chat-bubble.open {
+          animation: none;
+          transform: scale(1.05) rotate(90deg);
+        }
+
+        /* notification dot */
+        #chat-bubble .notif-dot {
+          position: absolute;
+          top: 3px;
+          right: 3px;
+          width: 13px;
+          height: 13px;
+          background: #ff4757;
+          border: 2px solid white;
+          border-radius: 50%;
+          animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+          0%,
+          100% {
+            transform: scale(1)
+          }
+
+          50% {
+            transform: scale(1.3)
+          }
+        }
+
+        /* ── panel ── */
+        #chat-panel {
+          position: fixed;
+          bottom: 6.5rem;
+          right: 2rem;
+          width: 370px;
+          height: 520px;
+          background: white;
+          border-radius: 20px;
+          box-shadow: 0 24px 64px rgba(0, 0, 0, 0.16);
+          display: flex;
+          flex-direction: column;
+          z-index: 999;
+          overflow: hidden;
+          transform: scale(0.85) translateY(30px);
+          opacity: 0;
+          pointer-events: none;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          border: 1.5px solid rgba(0, 170, 108, 0.15);
+        }
+
+        #chat-panel.open {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        /* mobile */
+        @media (max-width: 480px) {
+          #chat-panel {
+            width: calc(100vw - 2rem);
+            right: 1rem;
+            bottom: 5.5rem;
+          }
+
+          #chat-bubble {
+            bottom: 1.2rem;
+            right: 1.2rem;
+          }
+        }
+
+        /* ── header ── */
+        #chat-header {
+          background: linear-gradient(135deg, #00AA6C, #34E0A1);
+          padding: 16px 18px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+        }
+
+        .chat-avatar {
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.25);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          flex-shrink: 0;
+          border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .chat-header-info {
+          flex: 1;
+        }
+
+        .chat-header-name {
+          font-weight: 800;
+          color: white;
+          font-size: 0.95rem;
+          line-height: 1.2;
+          font-family: 'Nunito', sans-serif;
+        }
+
+        .chat-header-status {
+          font-size: 0.72rem;
+          color: rgba(255, 255, 255, 0.85);
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .status-dot {
+          width: 6px;
+          height: 6px;
+          background: #fff;
+          border-radius: 50%;
+          animation: pulse-dot 2s infinite;
+        }
+
+        #chat-close-btn {
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          color: white;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s;
+          font-family: 'Nunito', sans-serif;
+        }
+
+        #chat-close-btn:hover {
+          background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* ── messages area ── */
+        #chat-messages {
+          flex: 1;
+          overflow-y: auto;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          background: #f7f8fa;
+          scroll-behavior: smooth;
+        }
+
+        #chat-messages::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        #chat-messages::-webkit-scrollbar-thumb {
+          background: #d4d4d4;
+          border-radius: 10px;
+        }
+
+        /* message bubbles */
+        .msg {
+          display: flex;
+          gap: 8px;
+          align-items: flex-end;
+          max-width: 100%;
+        }
+
+        .msg.user {
+          flex-direction: row-reverse;
+        }
+
+        .msg-avatar {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #34E0A1, #00AA6C);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.7rem;
+          color: white;
+          font-weight: 800;
+          flex-shrink: 0;
+        }
+
+        .msg.user .msg-avatar {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .msg-bubble {
+          max-width: 80%;
+          padding: 10px 14px;
+          border-radius: 16px 16px 16px 4px;
+          font-size: 0.84rem;
+          line-height: 1.55;
+          font-family: 'Nunito', sans-serif;
+          font-weight: 500;
+          background: white;
+          color: #1a1a1a;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+          border: 1.5px solid rgba(0, 0, 0, 0.06);
+          white-space: pre-wrap;
+          word-break: break-word;
+        }
+
+        .msg.user .msg-bubble {
+          background: linear-gradient(135deg, #00AA6C, #34E0A1);
+          color: white;
+          border-radius: 16px 16px 4px 16px;
+          border: none;
+          box-shadow: 0 4px 14px rgba(0, 170, 108, 0.3);
+        }
+
+        .msg-time {
+          font-size: 0.65rem;
+          color: #b0b0b0;
+          margin-top: 3px;
+          text-align: right;
+        }
+
+        /* typing indicator */
+        .typing-indicator {
+          display: flex;
+          gap: 4px;
+          padding: 12px 14px;
+        }
+
+        .typing-indicator span {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #00AA6C;
+          opacity: 0.5;
+          animation: typing 1.2s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+          0%,
+          60%,
+          100% {
+            transform: translateY(0)
+          }
+
+          30% {
+            transform: translateY(-6px)
+          }
+        }
+
+        /* quick suggestions */
+        #chat-suggestions {
+          padding: 8px 12px;
+          background: #f7f8fa;
+          display: flex;
+          gap: 6px;
+          flex-wrap: wrap;
+          border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sugg-chip {
+          padding: 5px 12px;
+          border-radius: 100px;
+          border: 1.5px solid rgba(0, 170, 108, 0.3);
+          background: white;
+          color: #00AA6C;
+          font-size: 0.72rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.18s;
+          font-family: 'Nunito', sans-serif;
+          white-space: nowrap;
+        }
+
+        .sugg-chip:hover {
+          background: #00AA6C;
+          color: white;
+          border-color: #00AA6C;
+          transform: translateY(-1px);
+        }
+
+        /* ── input area ── */
+        #chat-input-area {
+          padding: 12px 14px;
+          background: white;
+          border-top: 1.5px solid rgba(0, 0, 0, 0.07);
+          display: flex;
+          gap: 8px;
+          align-items: flex-end;
+          flex-shrink: 0;
+        }
+
+        #chat-input {
+          flex: 1;
+          border: 1.5px solid #d4d4d4;
+          border-radius: 12px;
+          padding: 10px 14px;
+          font-size: 0.84rem;
+          font-family: 'Nunito', sans-serif;
+          font-weight: 500;
+          resize: none;
+          outline: none;
+          transition: border-color 0.2s;
+          max-height: 100px;
+          overflow-y: auto;
+          line-height: 1.4;
+          color: #1a1a1a;
+          background: #f7f8fa;
+        }
+
+        #chat-input:focus {
+          border-color: #00AA6C;
+          background: white;
+          box-shadow: 0 0 0 3px rgba(0, 170, 108, 0.1);
+        }
+
+        #chat-input::placeholder {
+          color: #b0b0b0;
+        }
+
+        #chat-send-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, #00AA6C, #34E0A1);
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1rem;
+          flex-shrink: 0;
+          transition: all 0.2s;
+          box-shadow: 0 4px 12px rgba(0, 170, 108, 0.35);
+        }
+
+        #chat-send-btn:hover {
+          transform: scale(1.08);
+          box-shadow: 0 6px 18px rgba(0, 170, 108, 0.45);
+        }
+
+        #chat-send-btn:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        /* char counter */
+        #chat-char-count {
+          font-size: 0.65rem;
+          color: #c0c0c0;
+          text-align: right;
+          padding: 0 14px 6px;
+          font-family: 'Nunito', sans-serif;
+          background: white;
+        }
+      </style>
+
+      <!-- Bubble -->
+      <div id="chat-bubble" onclick="toggleChat()" title="Chat with TripBot 🌍">
+        <span style="font-size:22px">🌍</span>
+        <div class="notif-dot"></div>
+      </div>
+
+      <!-- Panel -->
+      <div id="chat-panel">
+
+        <!-- Header -->
+        <div id="chat-header">
+          <div class="chat-avatar">🦉</div>
+          <div class="chat-header-info">
+            <div class="chat-header-name">TripBot AI</div>
+            <div class="chat-header-status">
+              <div class="status-dot"></div>
+              Online · Powered by Groq
+            </div>
           </div>
+          <button id="chat-close-btn" onclick="toggleChat()">✕</button>
         </div>
-        <div style="color:#f5a623;margin-bottom:10px;font-size:0.85rem">⭐⭐⭐⭐⭐</div>
-        <p style="color:#4a4a4a;font-size:0.84rem;line-height:1.7;font-weight:500">"Planning my Italy trip was effortless and exciting! The travel tools answered every question I had instantly."</p>
+
+        <!-- Messages -->
+        <div id="chat-messages">
+          <!-- Welcome message injected by JS -->
+        </div>
+
+        <!-- Quick suggestions -->
+        <div id="chat-suggestions">
+          <span class="sugg-chip" onclick="sendSuggestion(this)">🗺️ Plan a trip</span>
+          <span class="sugg-chip" onclick="sendSuggestion(this)">📍 Top destinations</span>
+          <span class="sugg-chip" onclick="sendSuggestion(this)">💰 Budget tips</span>
+          <span class="sugg-chip" onclick="sendSuggestion(this)">🏨 Best stays</span>
+        </div>
+
+        <!-- Char count -->
+        <div id="chat-char-count">0 / 300</div>
+
+        <!-- Input -->
+        <div id="chat-input-area">
+          <textarea id="chat-input" rows="1" placeholder="Ask me anything about travel..." maxlength="300"
+            onkeydown="handleKey(event)" oninput="handleInputResize(this)"></textarea>
+          <button id="chat-send-btn" onclick="sendMessage()" title="Send">➤</button>
+        </div>
+
       </div>
-    </div>
-  </div>
-</section>
 
+      <script>
+        // ══════════════════════════════════════════
+        //  TripQuest × CultureQuest Chat Widget
+        //  Connects Node.js website → /api/chat
+        //  which proxies to Flask on :5000
+        // ══════════════════════════════════════════
 
-<!-- ══════════ CTA ══════════ -->
-<section class="cta-section py-28 px-6 text-center">
-  <div class="max-w-3xl mx-auto">
-    <h2 style="font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;color:white;letter-spacing:-0.02em;margin-bottom:16px">
-      Start Your Cultural Journey Today
-    </h2>
-    <p style="color:rgba(255,255,255,0.8);font-size:1rem;max-width:520px;margin:0 auto 36px;line-height:1.7;font-weight:500">
-      Join thousands of travellers discovering authentic cultural experiences worldwide.
-    </p>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
-      <button onclick="window.location.href='/experiences'"
-        style="background:white;color:#00AA6C;font-weight:800;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;font-size:0.95rem;font-family:'Nunito',sans-serif;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.2s"
-        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'"
-        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
-        Browse Experiences
-      </button>
-      <button onclick="window.location.href='/explore'"
-        style="background:transparent;color:white;font-weight:800;padding:14px 32px;border-radius:10px;border:2px solid rgba(255,255,255,0.6);cursor:pointer;font-size:0.95rem;font-family:'Nunito',sans-serif;transition:all 0.2s"
-        onmouseover="this.style.background='rgba(255,255,255,0.12)'"
-        onmouseout="this.style.background='transparent'">
-        Explore Destinations
-      </button>
-    </div>
-  </div>
-</section>
+        const CHAT_ENDPOINT = "/api/chat";   // Node proxy route (no CORS issues)
+        let chatHistory = [];            // [{role, content}] keeps context
+        let isOpen = false;
+        let isWaiting = false;
 
+        // ── DOM refs ──
+        const panel = document.getElementById("chat-panel");
+        const bubble = document.getElementById("chat-bubble");
+        const msgBox = document.getElementById("chat-messages");
+        const input = document.getElementById("chat-input");
+        const sendBtn = document.getElementById("chat-send-btn");
+        const charCount = document.getElementById("chat-char-count");
 
-<!-- ══════════ FOOTER ══════════ -->
-<footer style="background:#1a1a1a;color:#9a9a9a;padding:64px 24px 32px">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
+        // ── Auto-open if redirected from Plan Trip ──
+        setTimeout(() => {
+          if (localStorage.getItem('openChatbot') === '1') {
+            localStorage.removeItem('openChatbot');
+            if (!isOpen) toggleChat();
+          }
+        }, 800);
 
+        // ── Toggle panel ──
+        function toggleChat() {
+          isOpen = !isOpen;
+          panel.classList.toggle("open", isOpen);
+          bubble.classList.toggle("open", isOpen);
+
+          // Remove notif dot once opened
+          const dot = bubble.querySelector(".notif-dot");
+          if (isOpen && dot) dot.remove();
+
+          if (isOpen) {
+            // Show welcome only once
+            if (msgBox.children.length === 0) showWelcome();
+            setTimeout(() => input.focus(), 320);
+          }
+        }
+
+        // ── Welcome message ──
+        function showWelcome() {
+          const userName = "<%= typeof user !== 'undefined' && user ? user.name.split(' ')[0] : 'Explorer' %>";
+          appendBotMsg(`Hey ${userName}! 👋 I'm **TripBot**, your personal travel buddy.\n\nAsk me to plan a trip, find hidden gems, suggest itineraries, or anything travel-related! 🌍✈️`);
+        }
+
+        // ── Append bot message ──
+        function appendBotMsg(text) {
+          const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+          const div = document.createElement("div");
+          div.className = "msg bot";
+          div.innerHTML = `
+    <div class="msg-avatar">🦉</div>
     <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-        <div style="width:36px;height:36px;background:#34E0A1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px">🦉</div>
-        <span style="font-size:1.1rem;font-weight:900;color:white">Trip<span style="color:#34E0A1">Advisor</span></span>
+      <div class="msg-bubble">${formatText(text)}</div>
+      <div class="msg-time">${now}</div>
+    </div>`;
+          msgBox.appendChild(div);
+          scrollToBottom();
+        }
+
+        // ── Append user message ──
+        function appendUserMsg(text) {
+          const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+          const initial = "<%= typeof user !== 'undefined' && user ? user.name.charAt(0).toUpperCase() : 'U' %>";
+          const div = document.createElement("div");
+          div.className = "msg user";
+          div.innerHTML = `
+    <div class="msg-avatar">${initial}</div>
+    <div>
+      <div class="msg-bubble">${escapeHtml(text)}</div>
+      <div class="msg-time">${now}</div>
+    </div>`;
+          msgBox.appendChild(div);
+          scrollToBottom();
+        }
+
+        // ── Typing indicator ──
+        function showTyping() {
+          const div = document.createElement("div");
+          div.className = "msg bot";
+          div.id = "typing-indicator";
+          div.innerHTML = `
+    <div class="msg-avatar">🦉</div>
+    <div class="msg-bubble" style="padding:10px 16px">
+      <div class="typing-indicator">
+        <span></span><span></span><span></span>
       </div>
-      <p style="font-size:0.82rem;line-height:1.7;max-width:220px">Discover authentic cultural experiences through smart exploration and connect with the world's rich heritage.</p>
-      <div style="display:flex;gap:10px;margin-top:16px">
-        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s" onmouseover="this.style.background='rgba(52,224,161,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">📘</div>
-        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s" onmouseover="this.style.background='rgba(52,224,161,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">🐦</div>
-        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:0.2s" onmouseover="this.style.background='rgba(52,224,161,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">📷</div>
-      </div>
-    </div>
+    </div>`;
+          msgBox.appendChild(div);
+          scrollToBottom();
+        }
+        function removeTyping() {
+          const t = document.getElementById("typing-indicator");
+          if (t) t.remove();
+        }
 
-    <div>
-      <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Explore</h4>
-      <ul style="list-style:none;padding:0;margin:0">
-        <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s" onclick="window.location.href='/explore'" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Destinations</li>
-        <!-- ✅ Experiences link in footer -->
-        <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s" onclick="window.location.href='/experiences'" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Local Experiences</li>
-        <li style="margin-bottom:8px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Local Guides</li>
-        <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Travel Itineraries</li>
-      </ul>
-    </div>
+        // ── Send message ──
+        async function sendMessage() {
+          const text = input.value.trim();
+          if (!text || isWaiting) return;
 
-    <div>
-      <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Resources</h4>
-      <ul style="list-style:none;padding:0;margin:0">
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Travel Blog</li>
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Cultural Insights</li>
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Travel Tips</li>
-        <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Community Forum</li>
-      </ul>
-    </div>
+          // Clear input
+          input.value = "";
+          charCount.textContent = "0 / 300";
+          input.style.height = "auto";
 
-    <div>
-      <h4 style="color:white;font-weight:800;margin-bottom:16px;font-size:0.9rem">Company</h4>
-      <ul style="list-style:none;padding:0;margin:0">
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">About Us</li>
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Contact</li>
-        <!-- ✅ Host registration link -->
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onclick="window.location.href='/host/register'" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Become a Host</li>
-        <li style="margin-bottom:10px;font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Privacy Policy</li>
-        <li style="font-size:0.82rem;cursor:pointer;transition:0.2s" onmouseover="this.style.color='#34E0A1'" onmouseout="this.style.color='#9a9a9a'">Terms of Service</li>
-      </ul>
-    </div>
+          // Show user bubble
+          appendUserMsg(text);
 
+          // Add to history
+          chatHistory.push({ role: "user", content: text });
+
+          // Disable input
+          isWaiting = true;
+          sendBtn.disabled = true;
+          showTyping();
+
+          try {
+            const res = await fetch(CHAT_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                message: text,
+                history: chatHistory.slice(-8)   // last 8 turns for context
+              })
+            });
+
+            if (!res.ok) throw new Error(`Server error: ${res.status}`);
+            const data = await res.json();
+            const reply = data.reply || data.response || data.message || "Sorry, I didn't get that.";
+
+            removeTyping();
+            appendBotMsg(reply);
+
+            // Add bot reply to history
+            chatHistory.push({ role: "assistant", content: reply });
+
+            // Trim history to last 16 messages (8 turns)
+            if (chatHistory.length > 16) chatHistory = chatHistory.slice(-16);
+
+          } catch (err) {
+            removeTyping();
+            appendBotMsg(`Oops! Something went wrong 😅\n\nMake sure the AI server is running on port 5000.\n\n_Error: ${err.message}_`);
+            console.error("[TripBot]", err);
+          }
+
+          isWaiting = false;
+          sendBtn.disabled = false;
+          input.focus();
+        }
+
+        // ── Quick suggestion chips ──
+        function sendSuggestion(el) {
+          const text = el.textContent.replace(/^[^\s]+\s/, "").trim(); // strip emoji
+          input.value = text;
+          sendMessage();
+        }
+
+        // ── Enter key to send (Shift+Enter for newline) ──
+        function handleKey(e) {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+          }
+        }
+
+        // ── Auto-resize textarea ──
+        function handleInputResize(el) {
+          el.style.height = "auto";
+          el.style.height = Math.min(el.scrollHeight, 100) + "px";
+          charCount.textContent = `${el.value.length} / 300`;
+        }
+
+        // ── Helpers ──
+        function scrollToBottom() {
+          msgBox.scrollTop = msgBox.scrollHeight;
+        }
+
+        function escapeHtml(t) {
+          return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        function formatText(t) {
+          // bold **text**, italic _text_, line breaks
+          return escapeHtml(t)
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            .replace(/_(.*?)_/g, "<em>$1</em>")
+            .replace(/\n/g, "<br>");
+        }
+      </script>
+
+
+      <script>
+        window.addEventListener('load', () => {
+          const l = document.getElementById('loader');
+          setTimeout(() => {
+            l.style.opacity = '0';
+            setTimeout(() => l.remove(), 500);
+          }, 1400);
+        });
+
+        // ══════════ LIVE SEARCH ══════════
+        (function () {
+          const input = document.getElementById('heroSearchInput');
+          const dropdown = document.getElementById('liveSearchDropdown');
+          if (!input || !dropdown) return;
+
+          let debounceTimer = null;
+
+          input.addEventListener('input', function () {
+            clearTimeout(debounceTimer);
+            const q = this.value.trim();
+            if (q.length < 2) { dropdown.classList.remove('show'); dropdown.innerHTML = ''; return; }
+
+            dropdown.innerHTML = '<div class="lsd-loading">Searching...</div>';
+            dropdown.classList.add('show');
+
+            debounceTimer = setTimeout(async () => {
+              try {
+                const res = await fetch('/api/search?q=' + encodeURIComponent(q));
+                const data = await res.json();
+                renderDropdown(data.results || []);
+              } catch (e) {
+                dropdown.innerHTML = '<div class="lsd-empty">Search failed. Try again.</div>';
+              }
+            }, 300);
+          });
+
+          function renderDropdown(results) {
+            if (!results.length) {
+              dropdown.innerHTML = '<div class="lsd-empty">No results found. Try a different search.</div>';
+              return;
+            }
+
+            let html = '';
+            results.slice(0, 10).forEach(r => {
+              let href = '#', typeClass = r.type || 'place', meta = '';
+              if (r.type === 'state') {
+                href = '/explore/' + r.stateId;
+                meta = r.region || '';
+              } else if (r.type === 'city') {
+                href = '/city?state=' + r.stateId + '&id=' + r.cityId;
+                meta = (r.stateName || '') + (r.tagline ? ' · ' + r.tagline : '');
+              } else {
+                href = '/city?state=' + r.stateId + '&id=' + r.cityId;
+                meta = (r.category || '') + ' · ' + (r.cityName || '') + ', ' + (r.stateName || '');
+              }
+
+              html += '<a class="lsd-item" href="' + href + '">' +
+                '<span class="lsd-item-emoji">' + (r.emoji || '📍') + '</span>' +
+                '<div class="lsd-item-info">' +
+                '<div class="lsd-item-name">' + escHtml(r.name) + '</div>' +
+                '<div class="lsd-item-meta">' + escHtml(meta) + '</div>' +
+                '</div>' +
+                '<span class="lsd-item-type ' + typeClass + '">' + r.type + '</span>' +
+                '</a>';
+            });
+
+            if (results.length > 10) {
+              html += '<a class="lsd-item" href="/search?q=' + encodeURIComponent(input.value.trim()) + '" style="justify-content:center;color:#00AA6C;font-weight:700;font-size:0.85rem">' +
+                'View all ' + results.length + ' results →</a>';
+            }
+            dropdown.innerHTML = html;
+          }
+
+          function escHtml(t) {
+            const d = document.createElement('div'); d.textContent = t; return d.innerHTML;
+          }
+
+          // Close dropdown on outside click
+          document.addEventListener('click', function (e) {
+            if (!e.target.closest('.search-form-wrap')) { dropdown.classList.remove('show'); }
+          });
+
+          // Re-open on focus if value exists
+          input.addEventListener('focus', function () {
+            if (this.value.trim().length >= 2 && dropdown.innerHTML) dropdown.classList.add('show');
+          });
+        })();
+
+        // ══════════ REVIEW AUTO-SCROLL ══════════
+        (function () {
+          const track = document.getElementById('reviewTrack');
+          if (!track || !track.children.length) return;
+          let scrollDir = 1;
+          setInterval(() => {
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll - 5) scrollDir = -1;
+            if (track.scrollLeft <= 5) scrollDir = 1;
+            track.scrollBy({ left: scrollDir * 1, behavior: 'auto' });
+          }, 30);
+        })();
+      </script>
+
+  <!-- ══════════ CHATBOT INTEGRATION ══════════ -->
+  <!-- Floating Action Button + Fullscreen Overlay -->
+  <style>
+    /* ── Chatbot FAB ── */
+    .cq-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00AA6C 0%, #34E0A1 100%);
+      border: none;
+      cursor: pointer;
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: white;
+      box-shadow: 0 6px 28px rgba(0, 170, 108, 0.45), 0 0 0 0 rgba(52, 224, 161, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: cq-fab-pulse 2.5s infinite;
+    }
+    .cq-fab:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 10px 36px rgba(0, 170, 108, 0.55);
+      animation: none;
+    }
+    .cq-fab:active { transform: scale(0.95); }
+    @keyframes cq-fab-pulse {
+      0%, 100% { box-shadow: 0 6px 28px rgba(0, 170, 108, 0.45), 0 0 0 0 rgba(52, 224, 161, 0.4); }
+      50% { box-shadow: 0 6px 28px rgba(0, 170, 108, 0.45), 0 0 0 14px rgba(52, 224, 161, 0); }
+    }
+
+    /* Tooltip */
+    .cq-fab-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s;
+      font-family: 'Nunito', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .cq-fab-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: #1a1a1a;
+    }
+    .cq-fab:hover .cq-fab-tooltip { opacity: 1; }
+
+    /* ── Fullscreen Overlay ── */
+    .cq-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .cq-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .cq-overlay iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #f5f0e8;
+    }
+
+    /* Close button */
+    .cq-close-btn {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 10001;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(26, 26, 26, 0.85);
+      border: 2px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+      backdrop-filter: blur(8px);
+      font-family: 'Nunito', sans-serif;
+    }
+    .cq-close-btn:hover {
+      background: #ff4757;
+      border-color: #ff4757;
+      transform: rotate(90deg) scale(1.1);
+    }
+    .cq-overlay.open ~ .cq-close-btn { display: flex; }
+    .cq-overlay.open ~ .cq-fab { display: none; }
+
+    /* ── Loading state for iframe ── */
+    .cq-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 10000;
+      background: rgba(245, 240, 232, 0.95);
+      transition: opacity 0.4s;
+    }
+    .cq-loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(0, 170, 108, 0.15);
+      border-top: 4px solid #00AA6C;
+      border-radius: 50%;
+      animation: cq-spin 0.9s linear infinite;
+    }
+    @keyframes cq-spin { to { transform: rotate(360deg); } }
+    .cq-loading-text {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1a2e1a;
+      font-family: 'Nunito', sans-serif;
+    }
+    .cq-loading-sub {
+      font-size: 0.78rem;
+      color: #8a8a8a;
+      font-family: 'Nunito', sans-serif;
+    }
+  </style>
+
+  <!-- Floating Action Button -->
+  <button class="cq-fab" id="cqFab" onclick="openChatbot()" aria-label="Open AI Travel Assistant">
+    🌍
+    <span class="cq-fab-tooltip">AI Travel Assistant</span>
+  </button>
+
+  <!-- Fullscreen Overlay -->
+  <div class="cq-overlay" id="cqOverlay">
+    <div class="cq-loading" id="cqLoading">
+      <div class="cq-loading-spinner"></div>
+      <div class="cq-loading-text">Loading CultureQuest AI...</div>
+      <div class="cq-loading-sub">Your AI-powered travel companion</div>
+    </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;text-align:center;font-size:0.78rem">
-    © 2024 TripAdvisor. All rights reserved. Made with 💚 for cultural explorers worldwide.
-  </div>
-</footer>
+  <button class="cq-close-btn" id="cqClose" onclick="closeChatbot()" aria-label="Close chatbot">✕</button>
 
-<!-- FLOATING CHAT -->
-<div class="floating-chat" title="Chat with us" onclick="toggleChat()">
-  <span style="font-size:22px">💬</span>
-</div>
+  <script>
+    // ── Chatbot overlay logic ──
+    let cqIframeLoaded = false;
 
-<script>
-window.addEventListener('load', () => {
-  const l = document.getElementById('loader');
-  setTimeout(() => {
-    l.style.opacity = '0';
-    setTimeout(() => l.remove(), 500);
-  }, 1400);
-});
-</script>
-<div id="chatbox">
+    function openChatbot() {
+      const overlay = document.getElementById('cqOverlay');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
 
-  <!-- HEADER -->
-  <div class="chat-header">
-    <span>🤖 CultureBot</span>
-    <div>
-      <button onclick="expandChat()">⛶</button>
-      <button onclick="toggleChat()">✕</button>
-    </div>
-  </div>
+      // Lazy-load iframe on first open
+      if (!cqIframeLoaded) {
+        const iframe = document.createElement('iframe');
+        iframe.src = 'http://localhost:5000';
+        iframe.title = 'CultureQuest AI Travel Assistant';
+        iframe.allow = 'microphone; clipboard-write';
+        iframe.onload = function() {
+          // Hide loading spinner once iframe is ready
+          const loader = document.getElementById('cqLoading');
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 400);
+          }
+        };
+        overlay.appendChild(iframe);
+        cqIframeLoaded = true;
+      }
+    }
 
-  <!-- CHAT CONTENT -->
-  <iframe 
-    src="http://localhost:5000" 
-    class="chat-frame">
-  </iframe>
+    function closeChatbot() {
+      const overlay = document.getElementById('cqOverlay');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-</div>
-<script>
-function toggleChat(){
-  const box = document.getElementById("chatbox");
-  box.classList.toggle("show");
-}
-
-function expandChat(){
-  const box = document.getElementById("chatbox");
-  box.classList.toggle("full");
-}
-</script>
-
-
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('cqOverlay').classList.contains('open')) {
+        closeChatbot();
+      }
+    });
+  </script>
 </body>
+
 </html>

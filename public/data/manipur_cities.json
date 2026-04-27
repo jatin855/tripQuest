@@ -1,0 +1,729 @@
+{
+    "meta": {
+        "project": "India Explore - Manipur",
+        "version": "1.0",
+        "total_cities": 6,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "imphal",
+            "name": "Imphal",
+            "tagline": "The Jewel of the East",
+            "region": "Imphal Valley",
+            "district": "Imphal West & Imphal East",
+            "type": "Capital City & Heritage",
+            "altitude_m": 786,
+            "altitude_display": "786m",
+            "lat": 24.8170,
+            "lon": 93.9368,
+            "distance_guwahati_km": 490,
+            "distance_dimapur_km": 210,
+            "best_time": "October–March",
+            "avoid_time": "June–August (heavy monsoons)",
+            "temp_summer_c": "17–30°C",
+            "temp_winter_c": "4–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1599839619722-39751411ea63?w=1200&q=80",
+            "overview": "Imphal, the bustling capital of Manipur, lies in a heart-shaped valley surrounded by the lush green hills of the Patkai range. It is a city that vibrates with history, martial arts traditions, and an incredibly unique matriarchal commercial culture. From the ancient Kangla Fort to poignant World War II cemeteries, Imphal offers a deep dive into the resilient spirit of the Meitei people.",
+            "history": "Imphal was the seat of the ancient Kingdom of Manipur, with the Kangla Fort serving as the royal center from 33 AD until the British conquest in 1891 after the Anglo-Manipur War. During World War II, Imphal witnessed one of the fiercest battles in history (The Battle of Imphal, 1944), where the British Indian Army successfully halted the Japanese invasion of India. This profound history is etched into every corner of the city.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport",
+                "code": "IMF",
+                "distance_km": 8
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station (Nagaland)",
+                "distance_km": 210,
+                "note": "Nearest major railhead; Jiribam in Manipur is also operational."
+            },
+            "language": [
+                "Manipuri (Meiteilon)",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Eromba (Fermented fish and vegetables)",
+                "Singju (Spicy local salad)",
+                "Chak-hao Kheer (Black rice pudding)",
+                "Kangshoi (Vegetable stew)"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 6500
+            },
+            "tags": [
+                "history",
+                "world war II",
+                "markets",
+                "culture",
+                "forts"
+            ],
+            "places": [
+                {
+                    "id": "imp-kangla-fort",
+                    "name": "Kangla Fort",
+                    "category": "Heritage",
+                    "subcategory": "Fort & Archaeological Site",
+                    "rating": 4.7,
+                    "entry_fee_inr": 20,
+                    "open_hours": "7:00 AM – 5:00 PM (Closed Wednesdays)",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "Kangla fort Imphal ancient gate",
+                    "description": "The quintessential symbol of Manipur's culture and heritage. Situated in the heart of the city, Kangla was the traditional seat of the past Meitei rulers. The sprawling complex contains the inner and outer moats, the ruins of the royal palace, sacred shrines, and the reconstructed Shaheed Minar honoring the martyrs of the 1891 Anglo-Manipur War.",
+                    "tips": "The complex is vast. Rent a bicycle near the entrance to explore the grounds comfortably. Do not miss the towering white statues of the Kangla Sha (mythical dragons) guarding the old coronation hall.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "imp-ima-keithel",
+                    "name": "Ima Keithel (Mother's Market)",
+                    "category": "Culture",
+                    "subcategory": "Market",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Ima Keithel women market Imphal",
+                    "description": "A truly unique socio-economic marvel, Ima Keithel is believed to be the largest all-women market in the world. Dating back over 500 years, this massive, multi-complex market hosts over 3,000 'Imas' (mothers) selling everything from fresh produce, fermented fish (Ngari), and spices to exquisite handloom textiles, jewelry, and bamboo crafts. Male vendors are strictly prohibited.",
+                    "tips": "It is an incredibly vibrant, chaotic, and colorful place—a photographer's dream. Engage respectfully with the women; many are happy to explain their wares. Great place to buy authentic Phaneks (traditional skirts).",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "imp-war-cemetery",
+                    "name": "Imphal War Cemetery",
+                    "category": "Heritage",
+                    "subcategory": "Memorial",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 4:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "war cemetery graves green lawns",
+                    "description": "Managed by the Commonwealth War Graves Commission, this impeccably maintained cemetery honors the 1,600 British and Indian soldiers who lost their lives defending Imphal against the Japanese invasion in 1944. The bronze plaques and uniform stone markers set against perfectly manicured green lawns offer a poignant, somber experience.",
+                    "tips": "A deeply quiet and reflective place. Combine this with a visit to the nearby Battle of Imphal museum to fully grasp the scale of the WWII theater in Northeast India.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "imp-govindajee",
+                    "name": "Shree Govindajee Temple",
+                    "category": "Temple",
+                    "subcategory": "Spiritual",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "5:00 AM – 12:00 PM, 4:00 PM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1.5,
+                    "unsplash_query": "Govindajee temple twin domes architecture",
+                    "description": "A historic Vaishnavite temple built by the former royals of Manipur. It features a stunning, simple architecture with elegant twin gold domes, a paved courtyard, and a large raised congregation hall. It is the spiritual epicenter for the Meitei Hindu community.",
+                    "tips": "The early morning Aarti (prayer ceremony) is highly recommended for its spiritual ecstasy and the hypnotic sound of traditional Manipuri pung (drums) and cymbals.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "imp-state-museum",
+                    "name": "Manipur State Museum",
+                    "category": "Culture",
+                    "subcategory": "Museum",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 4:30 PM (Closed Mondays)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "museum tribal artifacts traditional",
+                    "description": "Located near the Polo Ground, this museum is a treasure trove of Manipuri history. It displays an extensive collection of tribal heritage artifacts, royal portraits, ancient polo gear, ceremonial dresses, and historical weapons used during the Anglo-Manipur war.",
+                    "tips": "The 54-foot-long royal boat (Hiyang Hiren) displayed in the open gallery is particularly fascinating. A must-visit to understand the ethnic diversity of the state.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "bishnupur",
+            "name": "Bishnupur & Loktak Lake",
+            "tagline": "The Land of the Floating Lake",
+            "region": "Manipur Valley",
+            "district": "Bishnupur",
+            "type": "Nature & Wildlife",
+            "altitude_m": 828,
+            "altitude_display": "828m",
+            "lat": 24.6333,
+            "lon": 93.7667,
+            "distance_imphal_km": 30,
+            "distance_guwahati_km": 520,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "20–32°C",
+            "temp_winter_c": "5–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1614088514109-880eaebed892?w=1200&q=80",
+            "overview": "Bishnupur district is the tourism crown jewel of Manipur. It is famous for housing the surreal Loktak Lake—the largest freshwater lake in Northeast India—and its globally unique floating national park. Additionally, the town of Moirang within the district holds immense historical weight as a crucial World War II and Indian National Army (INA) landmark.",
+            "history": "Bishnupur got its name from an ancient 15th-century Vishnu temple built by King Kiyamba. Moirang, a town on the banks of Loktak Lake, is etched in Indian independence history. It was here that the Indian National Army (INA), led by Subhas Chandra Bose, hoisted the Indian tricolor for the first time on liberated Indian soil on April 14, 1944, during World War II.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport, Imphal",
+                "code": "IMF",
+                "distance_km": 35
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station",
+                "distance_km": 240,
+                "note": "Most tourists base themselves in Imphal and take a day trip or stay near the lake."
+            },
+            "language": [
+                "Manipuri",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Fresh River Fish",
+                "Singju",
+                "Paknam (Savory pancake baked in banana leaf)"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 6000
+            },
+            "tags": [
+                "loktak lake",
+                "national park",
+                "wildlife",
+                "world war II",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "bis-loktak-lake",
+                    "name": "Loktak Lake & Sendra Island",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "Loktak lake floating islands Phumdis sunset",
+                    "description": "The largest freshwater lake in Northeast India, famous for its 'Phumdis'—unique, circular floating islands composed of vegetation, soil, and organic matter. Local fishermen build their huts directly on these floating masses. Sendra Island is an elevated tourist resort on the lake offering a breathtaking, panoramic view of the lake's vast, surreal expanse.",
+                    "tips": "Hire a traditional wooden longboat from the local fishermen to paddle through the Phumdis. The sunset over the mirror-like water, with silhouettes of fishermen casting their nets, is mesmerizing.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bis-keibul-lamjao",
+                    "name": "Keibul Lamjao National Park",
+                    "category": "Nature",
+                    "subcategory": "Wildlife Sanctuary",
+                    "rating": 4.8,
+                    "entry_fee_inr": 30,
+                    "open_hours": "6:00 AM – 10:00 AM, 3:30 PM – 6:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "Sangai deer floating national park India",
+                    "description": "An ecological marvel, this is the only floating national park in the world. It encompasses a massive, continuous Phumdi on Loktak Lake. Crucially, it is the last and only natural habitat of the endangered Sangai (the brow-antlered 'Dancing Deer' of Manipur), whose hooves have adapted to walk on the spongy, floating vegetation.",
+                    "tips": "The best way to see the elusive Sangai is from the watchtowers early in the morning before 8:00 AM. Bring a good pair of binoculars as walking on the floating biomass is not permitted.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bis-ina-memorial",
+                    "name": "INA Martyr's Memorial Complex (Moirang)",
+                    "category": "Heritage",
+                    "subcategory": "Museum & Memorial",
+                    "rating": 4.6,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:00 AM – 4:00 PM (Closed Mondays)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 18,
+                    "unsplash_query": "Subhas Chandra Bose INA memorial museum",
+                    "description": "A place of immense national pride. This memorial commemorates the exact spot where Colonel Shaukat Malik of the Indian National Army hoisted the independent Indian tricolor on April 14, 1944. The complex includes a life-size bronze statue of Netaji Subhas Chandra Bose and an excellent museum displaying WWII artifacts, weapons, and INA letters.",
+                    "tips": "An essential visit for history buffs. The museum offers incredible insight into the often-overlooked Northeastern front of World War II and the heroic struggles of the INA.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "bis-vishnu-temple",
+                    "name": "Bishnupur Temple",
+                    "category": "Temple",
+                    "subcategory": "Archaeology",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "ancient brick temple conical roof Asia",
+                    "description": "A 15th-century temple dedicated to Lord Vishnu, built during the reign of King Kiyamba in 1467. It is highly notable for its unusual architecture—a parabolic, conical brick roof displaying distinct Chinese and Burmese architectural influences, unlike any other temple in India.",
+                    "tips": "A quick, fascinating historical stop located right in Bishnupur town. The ASI protects the site, and the brickwork is exceptionally well-preserved.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "ukhrul",
+            "name": "Ukhrul",
+            "tagline": "The Highest Hill Station of Manipur",
+            "region": "Eastern Hills",
+            "district": "Ukhrul",
+            "type": "Hill Station & Nature",
+            "altitude_m": 1662,
+            "altitude_display": "1,662m",
+            "lat": 25.1158,
+            "lon": 94.3592,
+            "distance_imphal_km": 80,
+            "distance_kohima_km": 170,
+            "best_time": "April–June (for Shirui Lily bloom), October–November",
+            "avoid_time": "July–August (heavy rain and landslides)",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "0–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1544834243-7a96a308ea7c?w=1200&q=80",
+            "overview": "Ukhrul is the highest hill station in Manipur, offering a dramatic landscape of misty peaks, pine forests, and vibrant wildflower meadows. Home to the Tangkhul Naga tribe, it boasts a deeply distinct culture and is globally famous for the rare Shirui Lily, which grows nowhere else in the world.",
+            "history": "Ukhrul is the traditional homeland of the Tangkhul Nagas. It has a proud martial history, and the people here were significantly involved in assisting the Allied forces during World War II. The region's unique flora came to global prominence when the English botanist Frank Kingdon-Ward 'discovered' the Shirui Lily here in 1946.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport, Imphal",
+                "code": "IMF",
+                "distance_km": 90
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station",
+                "distance_km": 290,
+                "note": "Most travel from Imphal via buses or private taxis."
+            },
+            "language": [
+                "Tangkhul",
+                "Manipuri",
+                "English"
+            ],
+            "cuisine": [
+                "Pork with Bamboo Shoot",
+                "Hao Pao (Local bread)",
+                "Smoked meat dishes",
+                "Local wild berries"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "hill station",
+                "shirui lily",
+                "caves",
+                "tribal culture",
+                "trekking"
+            ],
+            "places": [
+                {
+                    "id": "ukh-shirui-hills",
+                    "name": "Shirui Kashong Peak (Shirui Hills)",
+                    "category": "Nature",
+                    "subcategory": "Trekking & Flora",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "4–5",
+                    "distance_from_center_km": 18,
+                    "unsplash_query": "wildflowers mountain peak trekking",
+                    "description": "A magnificent mountain peak standing at over 2,800 meters. The main attraction is the trek to the summit to witness the extremely rare, bell-shaped Shirui Lily (Lilium mackliniae), the state flower of Manipur. This flower uniquely refuses to grow anywhere else in the world.",
+                    "tips": "The lilies only bloom for a short window between mid-May and early June. The state government organizes the vibrant 'Shirui Lily Festival' during this time, featuring rock music, food, and cultural displays.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ukh-khangkhui-cave",
+                    "name": "Khangkhui Mangsor Cave",
+                    "category": "Nature",
+                    "subcategory": "Limestone Cave",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "unsplash_query": "natural limestone cave dark stalactites",
+                    "description": "A massive, prehistoric sedimentary limestone cave system. The caves feature incredible stalactite and stalagmite formations and huge dark chambers. Historically, it was used as a shelter by the local villagers during World War II when Japanese forces advanced into the region.",
+                    "tips": "Carry a strong flashlight and wear shoes with good grip, as the cave floor can be damp and slippery. The central chamber, called the 'Durbar Hall,' is incredibly vast.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ukh-nillai-tea",
+                    "name": "Nillai Tea Estate",
+                    "category": "Nature",
+                    "subcategory": "Tea Garden",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "9:00 AM – 4:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "green tea garden rolling hills",
+                    "description": "A beautiful, rolling green tea estate in the misty hills of Ukhrul. It is renowned for producing high-quality organic green tea and black tea. The estate uses traditional methods, and the tea grown here is highly valued for its unique aroma.",
+                    "tips": "The estate offers a tranquil walk through the tea bushes. You can purchase freshly processed organic tea directly from the estate's small outlet.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ukh-kachouphung",
+                    "name": "Kachouphung Lake",
+                    "category": "Nature",
+                    "subcategory": "Lake",
+                    "rating": 4.2,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 7,
+                    "unsplash_query": "mountain lake scenic reflection",
+                    "description": "A serene natural lake situated close to the Khangkhui Cave. Shaped somewhat like the map of India, the lake's water level is interestingly governed by the rainfall, and it is surrounded by lush green hillocks.",
+                    "tips": "A great, peaceful spot for a picnic after exploring the Khangkhui caves. The area is rich in local avifauna.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "senapati",
+            "name": "Senapati",
+            "tagline": "The Gateway to Manipur",
+            "region": "Northern Hills",
+            "district": "Senapati",
+            "type": "Nature & Tribal Heritage",
+            "altitude_m": 1061,
+            "altitude_display": "1,061m",
+            "lat": 25.2699,
+            "lon": 94.0229,
+            "distance_imphal_km": 60,
+            "distance_kohima_km": 80,
+            "best_time": "October–April (July-Sept for Dzukou Valley flowers)",
+            "avoid_time": "Heavy monsoon months",
+            "temp_summer_c": "18–28°C",
+            "temp_winter_c": "3–15°C",
+            "hero_image": "https://images.unsplash.com/photo-1620603723326-0e10cc933e4f?w=1200&q=80",
+            "overview": "Serving as the northern gateway into Manipur along National Highway 39, Senapati is a district of extraordinary, raw natural beauty. With almost 80% of its area covered in lush forests, it offers a fascinating mix of ancient tribal heritage villages, mysterious megaliths, and serves as an alternate trekking base for the legendary Dzukou Valley.",
+            "history": "Senapati is culturally rich, populated largely by the Mao, Maram, Poumai, and Thangal Naga tribes. Places like Makhel in the district are considered the sacred ancestral origin point by several Naga tribes. The district has retained its traditional ways of living, making it an anthropological treasure.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport, Imphal",
+                "code": "IMF",
+                "distance_km": 65
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station",
+                "distance_km": 140,
+                "note": "A scenic drive down NH39 from Dimapur/Kohima."
+            },
+            "language": [
+                "Mao",
+                "Poumai",
+                "Manipuri",
+                "English"
+            ],
+            "cuisine": [
+                "Smoked Pork",
+                "Bamboo Shoot dishes",
+                "Local tribal brews",
+                "Wild herbs"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 4500
+            },
+            "tags": [
+                "trekking",
+                "megaliths",
+                "heritage villages",
+                "valleys",
+                "waterfalls"
+            ],
+            "places": [
+                {
+                    "id": "sen-dzukou-valley",
+                    "name": "Dzukou Valley (Manipur Approach)",
+                    "category": "Nature",
+                    "subcategory": "Valley & Trekking",
+                    "rating": 4.9,
+                    "entry_fee_inr": 50,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "6–8 (Trekking)",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "Dzukou valley green rolling hills stream",
+                    "description": "While heavily associated with Nagaland, the spectacular Dzukou Valley physically lies on the border, with a large portion in Senapati, Manipur. Known for its jaw-dropping rolling green hills, winding streams, and the rare Dzukou Lily. It is one of the most stunning trekking destinations in Northeast India.",
+                    "tips": "The trek from the Manipur side (via Mt. Isii) is less commercialized and more rugged than the Nagaland side. The valley turns into a carpet of flowers from late June to September.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "sen-willong-megaliths",
+                    "name": "Megaliths at Willong Khullen",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 35,
+                    "unsplash_query": "megaliths tall standing stones ancient",
+                    "description": "Often dubbed the 'Stonehenge of Manipur,' this mysterious site features over a hundred tall, unhewn stones erected vertically in the ground. Some of the tallest stones reach up to seven meters. The exact purpose and the methods used by the ancestors of the Maram tribe to erect them remain shrouded in legend.",
+                    "tips": "The village elders believe every stone has a name and a spirit. The drive to Willong offers spectacular views of the hill ranges.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "sen-maram-khullen",
+                    "name": "Maram Khullen Village",
+                    "category": "Culture",
+                    "subcategory": "Tribal Heritage",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "tribal village thatched houses traditional",
+                    "description": "One of the oldest, largest, and most authentic tribal villages in the state. The Maram Naga tribe here has fiercely preserved their ancient customs, architecture (traditional thatched huts), and the institution of the tribal kingship. The village is an immersive step back into pre-modern tribal history.",
+                    "tips": "Always ask permission before photographing people or sacred structures. Hiring a local guide from Senapati town is highly recommended to understand the cultural nuances.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "sen-sadu-chiru",
+                    "name": "Sadu Chiru (Leimaram) Waterfall",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls",
+                    "rating": 4.5,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "waterfall rocks dense forest",
+                    "description": "A highly picturesque, three-tiered waterfall nestled in the foothills of the Sadu Chiru hills. Surrounded by dense, lush vegetation, the first tier is the most accessible and creates a refreshing pool at the bottom. It is a highly popular picnic destination.",
+                    "tips": "Though technically in Senapati district, it is very close to Bishnupur/Imphal. The short walk to the falls includes paved steps. Avoid weekends if you want to escape local picnic crowds.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "sen-makhel",
+                    "name": "Makhel Heritage Village",
+                    "category": "Culture",
+                    "subcategory": "Sacred Site",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "sacred banyan tree ancient village",
+                    "description": "A deeply sacred village for several Naga tribes (including Mao, Maram, Poumai, and Angami) who believe Makhel is their point of origin and dispersal. It contains sacred banyan trees, ancient monoliths, and the 'Farewell Monolith' where the tribes supposedly parted ways.",
+                    "tips": "A must-visit for those interested in anthropology and tribal migration histories. The giant sacred banyan tree is a central spiritual feature.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "tamenglong",
+            "name": "Tamenglong",
+            "tagline": "The Land of the Hornbill and Orchids",
+            "region": "Western Hills",
+            "district": "Tamenglong",
+            "type": "Nature & Adventure",
+            "altitude_m": 1290,
+            "altitude_display": "1,290m",
+            "lat": 24.9859,
+            "lon": 93.4984,
+            "distance_imphal_km": 150,
+            "distance_silchar_km": 110,
+            "best_time": "October–March",
+            "avoid_time": "June–August (heavy rain, leeches, and poor roads)",
+            "temp_summer_c": "20–30°C",
+            "temp_winter_c": "5–18°C",
+            "hero_image": "https://images.unsplash.com/photo-1542618825-9d3e8584dc7d?w=1200&q=80",
+            "overview": "Tamenglong is an untamed, rugged paradise in western Manipur, entirely defined by virgin forests, dramatic gorges, rare orchids, and cascading rivers. Inhabited primarily by the Zeliangrong Naga tribe, it is an off-the-beaten-path destination ideal for hardcore nature lovers and adventurers.",
+            "history": "Tamenglong is deeply connected to the freedom struggle, being the home of the legendary tribal freedom fighters Haipou Jadonang and Rani Gaidinliu, who led the Zeliangrong people in a revolt against British rule in the 1930s. The region's dense forests and difficult terrain have kept it relatively isolated and pristine.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport, Imphal",
+                "code": "IMF",
+                "distance_km": 155
+            },
+            "nearest_railhead": {
+                "name": "Khongsang Railway Station",
+                "distance_km": 40,
+                "note": "A newer station connecting the region; Silchar (Assam) is also used."
+            },
+            "language": [
+                "Rongmei",
+                "Zeme",
+                "Liangmai",
+                "Manipuri",
+                "English"
+            ],
+            "cuisine": [
+                "Pork with Bamboo Shoot",
+                "Boiled organic vegetables",
+                "Local river fish",
+                "Sticky Rice"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2000,
+                "luxury": 3500
+            },
+            "tags": [
+                "caves",
+                "waterfalls",
+                "wildlife",
+                "adventure",
+                "offbeat"
+            ],
+            "places": [
+                {
+                    "id": "tam-tharon-cave",
+                    "name": "Tharon Cave",
+                    "category": "Nature",
+                    "subcategory": "Caves & Archaeology",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 27,
+                    "unsplash_query": "natural dark cave exploration",
+                    "description": "An incredibly long (655 meters) and intricate natural limestone cave system featuring five exits and 34 joints. Archaeological excavations have revealed evidence of the ancient Hobinian culture, showing the cave was used as a shelter for millennia. An engraved map of the cave sits at the entrance to help explorers navigate.",
+                    "tips": "An absolute thrill for spelunkers. You must hire a local guide from Tharon village to navigate the dark, labyrinthine alleys safely. Carry strong flashlights.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tam-barak-waterfalls",
+                    "name": "Barak Waterfalls",
+                    "category": "Nature",
+                    "subcategory": "Waterfalls & River",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 35,
+                    "unsplash_query": "river waterfall gorge rafting",
+                    "description": "A series of breathtaking cascades on the mighty Barak River as it cuts through the dense forests of Tamenglong. The river here is rich in aquatic biodiversity. The force of the water crashing down the rocky gorge creates a spectacular, misty atmosphere.",
+                    "tips": "The area is quite remote. The river downstream offers fantastic opportunities for river rafting and water sports, but requires prior arrangement with local adventure operators.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tam-zeilad-lake",
+                    "name": "Zeilad Lake & Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Lake & Wildlife",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 40,
+                    "unsplash_query": "jungle lake wild birds scenic",
+                    "description": "Situated on a high platform on a hill, Zeilad is the most famous among a cluster of pristine lakes in the region. Recently declared a wildlife sanctuary, the lake is teeming with fish, tortoises, water birds, and is famously home to Indian rock pythons. Migratory birds flock here in winter.",
+                    "tips": "The lake is associated with local tribal myths regarding the cultivation of the first paddy. The trek to the lake through the dense sanctuary is thrilling but requires a local guide.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "tam-buning-meadow",
+                    "name": "Buning Meadow",
+                    "category": "Nature",
+                    "subcategory": "Valley & Flora",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "green meadow wild orchids flowers",
+                    "description": "Located near Tamei town, Buning is a vast, rolling meadow that transforms into a spectacular floral paradise during the summer. Undulating green hillocks stretch as far as the eye can see, bursting with vibrant wild lilies, rare orchids, and ground flora.",
+                    "tips": "June is the absolute best time to visit to see the meadow in full bloom. It's a perfect destination for quiet nature walks, photography, and picnics.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "thoubal",
+            "name": "Thoubal",
+            "tagline": "The Cultural Heart of Manipur",
+            "region": "Manipur Valley",
+            "district": "Thoubal",
+            "type": "Heritage & Scenery",
+            "altitude_m": 765,
+            "altitude_display": "765m",
+            "lat": 24.6297,
+            "lon": 94.0163,
+            "distance_imphal_km": 25,
+            "distance_moreh_km": 85,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "22–32°C",
+            "temp_winter_c": "5–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1596700813955-f2ebce311a22?w=1200&q=80",
+            "overview": "Located just a short drive from Imphal, Thoubal is a pleasant district known for its meandering rivers, vast agricultural fields, and deep historical significance. It is a major commercial hub and plays a vital role in keeping Manipur's traditional arts, crafts, and agricultural practices alive.",
+            "history": "Thoubal is historically synonymous with the Anglo-Manipur War of 1891. The Khongjom region of Thoubal witnessed the last and fiercest battle between the independent Kingdom of Manipur and the British Empire, where Major General Paona Brajabashi famously chose death over surrender, cementing his legacy as a legendary martyr.",
+            "nearest_airport": {
+                "name": "Bir Tikendrajit International Airport, Imphal",
+                "code": "IMF",
+                "distance_km": 30
+            },
+            "nearest_railhead": {
+                "name": "Dimapur Railway Station",
+                "distance_km": 235,
+                "note": "Accessed mostly via Imphal."
+            },
+            "language": [
+                "Manipuri",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Fresh River Fish",
+                "Bamboo Shoot",
+                "Chak-hao (Black rice)",
+                "Local fruits like pineapples"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 900,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "war memorial",
+                "gardens",
+                "river",
+                "history"
+            ],
+            "places": [
+                {
+                    "id": "thb-khongjom",
+                    "name": "Khongjom War Memorial",
+                    "category": "Heritage",
+                    "subcategory": "Memorial",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 10,
+                    "unsplash_query": "war memorial sword monument hilltop",
+                    "description": "A site of supreme reverence. Built atop Kheba Hill, this memorial commemorates the bravery of Major General Paona Brajabashi and the Manipuri warriors who fought against the overwhelmingly superior British Army in 1891. It features a massive gateway and a towering monument comprising three pillars.",
+                    "tips": "Khongjom Day is observed every year on April 23rd, drawing massive crowds including the State's Chief Minister to pay homage. The hilltop offers a serene view of the surrounding plains.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "thb-kakching-garden",
+                    "name": "Kakching Garden",
+                    "category": "Nature",
+                    "subcategory": "Park",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 20,
+                    "unsplash_query": "landscaped garden hills flowers temple",
+                    "description": "Located on Uyok Ching hill in Kakching (now a separate district but culturally tied to Thoubal area), this beautiful, artificially landscaped garden features exotic flora, a rose garden, water bodies, a dedicated temple for Lord Shiva, and statues reflecting local folklore.",
+                    "tips": "It is a highly popular weekend getaway for locals from Imphal and Thoubal. The sunset from the hilltop, overlooking the vast agricultural plains, is magnificent.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "thb-thoubal-river",
+                    "name": "Thoubal River & Bazaar",
+                    "category": "Experience",
+                    "subcategory": "Local Culture",
+                    "rating": 4.1,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "river flowing bridge town",
+                    "description": "The scenic Thoubal river flows right through the town, flanked by agricultural fields. The nearby Thoubal bazaar is a bustling center of local commerce where you can buy traditional Manipuri handicrafts, fresh produce, and local sweets.",
+                    "tips": "Take a quiet evening walk along the river banks or explore the local market to interact with the friendly residents and try authentic street food.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

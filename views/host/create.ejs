@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Create Experience — TripAdvisor</title>
+  <title>Create Experience — TripQuest</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style> body { font-family: 'Inter', sans-serif; } .playfair { font-family: 'Playfair Display', serif; } </style>
@@ -16,7 +16,7 @@
 
   <div class="text-center mb-8">
     <h1 class="playfair text-3xl font-bold text-gray-900 mb-2">Create New Experience</h1>
-    <p class="text-gray-500 text-sm">Fill in the details. Your experience will be reviewed before going live.</p>
+    <p class="text-gray-500 text-sm">Fill in the details. Your experience will go live immediately after submission.</p>
   </div>
 
   <% if (typeof error !== 'undefined' && error && error.length > 0) { %>
@@ -182,8 +182,8 @@
       </div>
     </div>
 
-    <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 text-sm text-amber-800">
-      ⏳ Your experience will be reviewed by our team before going live. This usually takes 24 hours.
+    <div class="bg-teal-50 border border-teal-100 rounded-xl p-4 text-sm text-teal-800">
+      ✅ Your experience will go live on the website as soon as you submit!
     </div>
 
     <div class="flex gap-3">
@@ -193,7 +193,7 @@
       </a>
       <button type="submit"
               class="flex-2 w-full bg-teal-600 text-white font-semibold py-3 rounded-xl hover:bg-teal-700 transition-colors shadow-md text-sm">
-        Submit for Review →
+        Publish Experience →
       </button>
     </div>
 

@@ -92,14 +92,13 @@ const experienceSchema = new mongoose.Schema(
 );
 
 // Auto-generate slug from title if not provided
-experienceSchema.pre("validate", function (next) {
+experienceSchema.pre("validate", function () {
   if (!this.slug && this.title) {
     this.slug = this.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
   }
-  next();
 });
 
 module.exports = mongoose.model("Experience", experienceSchema);

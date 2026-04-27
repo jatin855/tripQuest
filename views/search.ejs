@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search: "<%= query %>" — Explore India</title>
+  <meta name="description" content="Search results for '<%= query %>' across all Indian states and territories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink:#0a0806; --ink-2:#1a1714; --ink-3:#6b6258; --fog:#f7f3ed; --fog-2:#ede8df; --fog-3:#dbd4c8;
+      --gold:#c49a3c; --gold-light:#ddb95a; --gold-pale:#f5ecd6;
+      --white:#fefbf6; --serif:'Playfair Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --ease:cubic-bezier(.4,0,.2,1); --shadow:0 2px 24px rgba(10,8,6,.07); --shadow-lg:0 16px 64px rgba(10,8,6,.18);
+      --nav-h:72px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: var(--nav-h); padding: 0 56px; display: flex; align-items: center; justify-content: space-between; background: var(--white); box-shadow: 0 1px 0 rgba(10,8,6,.06); }
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-brand { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .nav-brand-icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .nav-brand em { font-style: normal; color: var(--gold); }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; padding: 7px 18px; border-radius: 40px; border: 1px solid var(--fog-3); color: var(--ink-3); font-size: 13px; text-decoration: none; transition: all .3s; }
+    .nav-back:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-back svg { width: 14px; height: 14px; }
+    .nav-cta { padding: 9px 24px; border-radius: 40px; background: var(--gold); color: var(--white); font-size: 13px; text-decoration: none; font-family: var(--sans); font-weight: 500; border: none; }
+
+    .search-header { padding: 40px 56px 32px; margin-top: var(--nav-h); }
+    .search-bar-wrap {
+      max-width: 640px; display: flex; gap: 8px; margin-bottom: 20px;
+    }
+    .search-bar-input {
+      flex: 1; padding: 14px 24px; border-radius: 50px;
+      border: 1.5px solid var(--fog-3); background: var(--fog);
+      font-family: var(--sans); font-size: 15px; color: var(--ink); outline: none;
+      transition: border-color .3s;
+    }
+    .search-bar-input:focus { border-color: var(--gold); background: var(--white); }
+    .search-bar-btn {
+      padding: 14px 28px; border-radius: 50px; background: var(--gold);
+      color: var(--white); font-family: var(--sans); font-size: 14px; font-weight: 500;
+      border: none; cursor: pointer; transition: background .3s;
+    }
+    .search-bar-btn:hover { background: var(--gold-light); }
+    .search-meta { font-size: 14px; color: var(--ink-3); }
+    .search-meta strong { color: var(--ink); }
+
+    .results-section { padding: 0 56px 80px; }
+
+    /* Result groups */
+    .result-group { margin-bottom: 48px; }
+    .result-group-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .result-group-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px;
+    }
+    .result-group-label.states { background: var(--gold-pale); color: var(--gold); }
+    .result-group-label.cities { background: #e8f4ec; color: #2d8a56; }
+    .result-group-label.places { background: #e8ecf4; color: #4a5d9c; }
+    .result-group-line { flex: 1; height: 1px; background: var(--fog-3); }
+    .result-group-count { font-size: 12px; color: var(--ink-3); }
+
+    /* State results */
+    .state-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .state-result-card {
+      display: flex; align-items: center; gap: 12px; padding: 16px 18px;
+      border-radius: 16px; border: 1.5px solid var(--fog-2); background: var(--white);
+      text-decoration: none; color: var(--ink); transition: all .3s var(--ease);
+    }
+    .state-result-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(196,154,60,.1); transform: translateY(-3px); }
+    .state-result-emoji { font-size: 28px; }
+    .state-result-name { font-family: var(--serif); font-size: 15px; font-weight: 500; }
+    .state-result-region { font-size: 11px; color: var(--ink-3); }
+
+    /* City results */
+    .city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .city-card { position: relative; border-radius: 20px; overflow: hidden; background: var(--ink); text-decoration: none; display: block; box-shadow: var(--shadow); transition: transform .5s var(--ease), box-shadow .5s; }
+    .city-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .city-card-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(.65); transition: transform .7s var(--ease); }
+    .city-card:hover .city-card-img { transform: scale(1.07); }
+    .city-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,.92) 0%, rgba(10,8,6,.3) 55%, transparent 100%); }
+    .city-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px; }
+    .city-card-state { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 3px; }
+    .city-card-name { font-family: var(--serif); font-size: 18px; color: var(--white); margin-bottom: 3px; }
+    .city-card-tagline { font-size: 11px; color: rgba(255,255,255,.4); }
+
+    /* Place results */
+    .place-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .place-result-card {
+      display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+      border-radius: 16px; border: 1.5px solid var(--fog-2); background: var(--white);
+      text-decoration: none; color: var(--ink); transition: all .3s var(--ease);
+    }
+    .place-result-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(196,154,60,.1); transform: translateY(-3px); }
+    .place-result-img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+    .place-result-name { font-size: 14px; font-weight: 500; }
+    .place-result-meta { font-size: 11px; color: var(--ink-3); }
+    .place-result-rating { font-size: 12px; color: #f59e0b; flex-shrink: 0; }
+
+    .no-results { text-align: center; padding: 80px 24px; }
+    .no-results-icon { font-size: 52px; display: block; margin-bottom: 16px; opacity: .5; }
+    .no-results h3 { font-family: var(--serif); font-size: 28px; color: var(--ink-2); margin-bottom: 8px; }
+    .no-results p { font-size: 14px; color: var(--ink-3); line-height: 1.7; }
+    .no-results a { color: var(--gold); }
+
+    .trending-section { margin-top: 32px; }
+    .trending-label { font-size: 12px; color: var(--ink-3); margin-bottom: 12px; }
+    .trending-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .trending-chip {
+      padding: 6px 16px; border-radius: 30px; border: 1px solid var(--fog-3); background: var(--white);
+      font-size: 12px; color: var(--ink-2); text-decoration: none; transition: all .2s;
+    }
+    .trending-chip:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+
+    footer { background: #060402; padding: 40px 56px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-logo { font-family: var(--serif); font-size: 18px; color: var(--white); } .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,.12); }
+
+    @media (max-width: 1100px) { .city-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { nav, .search-header, .results-section, footer { padding-left: 20px; padding-right: 20px; } .city-grid { grid-template-columns: 1fr; } .search-bar-wrap { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="/explore" class="nav-brand"><div class="nav-brand-icon">☸</div> Explore <em>India</em></a>
+    <a href="/explore" class="nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Back</a>
+  </div>
+  <div><a href="/home" class="nav-cta">Home</a></div>
+</nav>
+
+<div class="search-header">
+  <form class="search-bar-wrap" action="/search" method="get">
+    <input class="search-bar-input" type="text" name="q" value="<%= query %>" placeholder="Search cities, states, places..." autofocus />
+    <button class="search-bar-btn" type="submit">Search</button>
+  </form>
+  <% if (results.length) { %>
+    <p class="search-meta"><strong><%= results.length %></strong> results for "<strong><%= query %></strong>"</p>
+  <% } %>
+</div>
+
+<section class="results-section">
+  <% if (results.length) { %>
+    <%
+      const stateResults = results.filter(r => r.type === 'state');
+      const cityResults = results.filter(r => r.type === 'city');
+      const placeResults = results.filter(r => r.type === 'place');
+    %>
+
+    <% if (stateResults.length) { %>
+      <div class="result-group">
+        <div class="result-group-header">
+          <span class="result-group-label states">🏛 States & Territories</span>
+          <div class="result-group-line"></div>
+          <span class="result-group-count"><%= stateResults.length %> found</span>
+        </div>
+        <div class="state-results">
+          <% stateResults.forEach(function(r) { %>
+            <a href="/explore/<%= r.stateId %>" class="state-result-card">
+              <span class="state-result-emoji"><%= r.emoji %></span>
+              <div>
+                <div class="state-result-name"><%= r.name %></div>
+                <div class="state-result-region"><%= r.region %></div>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (cityResults.length) { %>
+      <div class="result-group">
+        <div class="result-group-header">
+          <span class="result-group-label cities">🏙️ Cities & Destinations</span>
+          <div class="result-group-line"></div>
+          <span class="result-group-count"><%= cityResults.length %> found</span>
+        </div>
+        <div class="city-grid">
+          <% cityResults.forEach(function(r) { %>
+            <a href="/city?state=<%= r.stateId %>&id=<%= r.cityId %>" class="city-card">
+              <img class="city-card-img" src="<%= r.image %>" alt="<%= r.name %>" loading="lazy"
+                   onerror="this.src='https://images.unsplash.com/photo-1626621331169-5f34be280ed9?w=800&q=80'" />
+              <div class="city-card-overlay"></div>
+              <div class="city-card-body">
+                <div class="city-card-state"><%= r.emoji %> <%= r.stateName %></div>
+                <div class="city-card-name"><%= r.name %></div>
+                <div class="city-card-tagline"><%= r.tagline %></div>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (placeResults.length) { %>
+      <div class="result-group">
+        <div class="result-group-header">
+          <span class="result-group-label places">🏛️ Places & Attractions</span>
+          <div class="result-group-line"></div>
+          <span class="result-group-count"><%= placeResults.length %> found</span>
+        </div>
+        <div class="place-results">
+          <% placeResults.forEach(function(r) { %>
+            <a href="/city?state=<%= r.stateId %>&id=<%= r.cityId %>" class="place-result-card">
+              <img class="place-result-img" src="<%= r.image %>" alt="<%= r.name %>"
+                   onerror="this.src='https://images.unsplash.com/photo-1626621331169-5f34be280ed9?w=100&q=80'" />
+              <div>
+                <div class="place-result-name"><%= r.name %></div>
+                <div class="place-result-meta"><%= r.category %> · <%= r.cityName %>, <%= r.stateName %></div>
+              </div>
+              <% if (r.rating) { %><span class="place-result-rating">⭐ <%= r.rating %></span><% } %>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+  <% } else { %>
+    <div class="no-results">
+      <span class="no-results-icon">🔍</span>
+      <h3>No results for "<%= query %>"</h3>
+      <p>Try different keywords or <a href="/explore">browse all states</a>.</p>
+      <% if (typeof trending !== 'undefined' && trending.length) { %>
+        <div class="trending-section">
+          <div class="trending-label">Try trending searches:</div>
+          <div class="trending-chips">
+            <% trending.forEach(function(t) { %>
+              <a class="trending-chip" href="/search?q=<%= encodeURIComponent(t.text) %>"><%= t.text %></a>
+            <% }); %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</section>
+
+<footer>
+  <div class="footer-logo">Explore <span>India</span></div>
+  <span class="footer-copy">© 2026 Explore India</span>
+</footer>
+</body>
+</html>

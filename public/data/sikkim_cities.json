@@ -1,0 +1,773 @@
+{
+    "meta": {
+        "project": "India Explore - Sikkim",
+        "version": "1.0",
+        "total_cities": 8,
+        "last_updated": "2026-04-05",
+        "author": "India Explore Team"
+    },
+    "cities": [
+        {
+            "id": "gangtok",
+            "name": "Gangtok",
+            "tagline": "The Capital on the Ridge",
+            "region": "East Sikkim",
+            "district": "Gangtok",
+            "type": "Capital & Hill Station",
+            "altitude_m": 1650,
+            "altitude_display": "1,650m",
+            "lat": 27.3389,
+            "lon": 88.6065,
+            "distance_siliguri_km": 114,
+            "best_time": "March–May, October–mid-December",
+            "avoid_time": "July–August (heavy monsoons, landslides)",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "4–10°C",
+            "hero_image": "https://images.unsplash.com/photo-1627896157734-4bcbf69f2e71?w=1200&q=80",
+            "overview": "Gangtok, the vibrant capital of Sikkim, is a beautifully clean and well-organized hill city. Nestled on a ridge, it offers stunning views of Mt. Kanchenjunga. It serves as the perfect base for exploring the state, blending modern cafes on MG Marg with ancient Tibetan Buddhist monasteries.",
+            "history": "Gangtok rose to prominence after the construction of Enchey Monastery in 1840, becoming a major pilgrimage center. It became the capital of the Kingdom of Sikkim in the late 19th century and retained its status after Sikkim joined India in 1975.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 125,
+                "note": "Pakyong Airport (PYG) is closer (30km) but flights are highly weather-dependent."
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 118,
+                "note": "Major railway hub in West Bengal"
+            },
+            "language": [
+                "Nepali",
+                "English",
+                "Hindi",
+                "Sikkimese",
+                "Lepcha"
+            ],
+            "cuisine": [
+                "Momos",
+                "Thukpa",
+                "Phagshapa",
+                "Gundruk",
+                "Chhurpi",
+                "Tongba (Millet Beer)"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 4000,
+                "luxury": 10000
+            },
+            "tags": [
+                "hill station",
+                "monasteries",
+                "culture",
+                "mountains",
+                "shopping"
+            ],
+            "places": [
+                {
+                    "id": "gangtok-mg-marg",
+                    "name": "MG Marg (Mahatma Gandhi Marg)",
+                    "category": "Culture",
+                    "subcategory": "Street/Market",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 9:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 0,
+                    "unsplash_query": "MG Marg Gangtok street night",
+                    "description": "The heart of Gangtok. This spit-and-polish, pedestrian-only street is lined with cafes, restaurants, bars, and souvenir shops. It resembles a European boulevard and is the best place to chill in the evening.",
+                    "tips": "Vehicles and spitting are strictly banned. Best visited in the evening for a vibrant atmosphere and local food.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gangtok-rumtek-monastery",
+                    "name": "Rumtek Monastery",
+                    "category": "Temple",
+                    "subcategory": "Buddhist Monastery",
+                    "rating": 4.6,
+                    "entry_fee_inr": 10,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5–2",
+                    "distance_from_center_km": 23,
+                    "unsplash_query": "Rumtek Monastery Sikkim Tibetan architecture",
+                    "description": "One of the largest and most significant monasteries in Sikkim, serving as the seat of the Karmapa in exile. It showcases stunning Tibetan architecture, a golden stupa, and intricate murals.",
+                    "tips": "Carry an original ID proof as security checks are sometimes conducted. The uphill walk from the parking lot is steep.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gangtok-tsomgo-lake",
+                    "name": "Tsomgo (Changu) Lake",
+                    "category": "Nature",
+                    "subcategory": "Glacial Lake",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours (Permit required)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 40,
+                    "unsplash_query": "Tsomgo Lake Sikkim frozen yaks",
+                    "description": "A breathtaking glacial lake at an altitude of 3,753m. The lake remains frozen during winter and reflects different colors with the changing seasons. Revered by the local Sikkimese people.",
+                    "tips": "Protected Area Permit (PAP) is mandatory. Carry heavy woolens. You can take a ride on colorfully decorated yaks along the banks.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gangtok-nathula-pass",
+                    "name": "Nathu La Pass",
+                    "category": "Nature",
+                    "subcategory": "Mountain Pass",
+                    "rating": 4.9,
+                    "entry_fee_inr": 200,
+                    "open_hours": "8:00 AM – 1:30 PM (Closed Mon & Tue)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 56,
+                    "unsplash_query": "Nathula Pass India China border snow",
+                    "description": "A high-altitude mountain pass (4,310m) on the Indo-China border. It was part of the ancient Silk Route. Visitors can see the border gates, Chinese soldiers, and a memorial for Indian soldiers.",
+                    "tips": "Only Indian nationals allowed with a special permit (book a day in advance). Altitude sickness is common; walk slowly. Closed on Mondays and Tuesdays.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "gangtok-namgyal-institute",
+                    "name": "Namgyal Institute of Tibetology",
+                    "category": "Heritage",
+                    "subcategory": "Museum",
+                    "rating": 4.5,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 4:00 PM (Closed Sun)",
+                    "duration_hrs": "1–1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "Tibetology museum Sikkim artifacts",
+                    "description": "A premier institute researching Tibetan language and culture. The museum houses a rare collection of ancient thangkas, coins, amulets, and Tibetan manuscripts.",
+                    "tips": "Photography is not allowed inside the museum. Combine this with a ride on the nearby Gangtok Ropeway.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "pelling",
+            "name": "Pelling",
+            "tagline": "Window to Kanchenjunga",
+            "region": "West Sikkim",
+            "district": "Gyalshing",
+            "type": "Hill Station & Nature",
+            "altitude_m": 2150,
+            "altitude_display": "2,150m",
+            "lat": 27.3039,
+            "lon": 88.2396,
+            "distance_gangtok_km": 113,
+            "distance_siliguri_km": 130,
+            "best_time": "September–May",
+            "avoid_time": "Monsoon (June–August)",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "1–14°C",
+            "hero_image": "https://images.unsplash.com/photo-1620826978583-057089b09a47?w=1200&q=80",
+            "overview": "Pelling is West Sikkim's premier tourist destination, renowned for offering the closest and most spectacular views of Mt. Kanchenjunga. The town is surrounded by alpine forests, cascading waterfalls, and some of the oldest and most significant monasteries in Sikkim.",
+            "history": "Pelling's history is deeply tied to the origins of the Sikkim Kingdom. The nearby Rabdentse ruins were the second capital of the erstwhile Kingdom of Sikkim from 1670 to 1814 before it was destroyed by the invading Gurkha army.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 140
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 135
+            },
+            "language": [
+                "Nepali",
+                "English",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Thukpa",
+                "Momos",
+                "Kinema Curry"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 8500
+            },
+            "tags": [
+                "mountains",
+                "monasteries",
+                "waterfalls",
+                "views"
+            ],
+            "places": [
+                {
+                    "id": "pelling-pemayangtse",
+                    "name": "Pemayangtse Monastery",
+                    "category": "Temple",
+                    "subcategory": "Buddhist Monastery",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Pemayangtse Monastery ancient Sikkim",
+                    "description": "One of the oldest and most important monasteries in Sikkim, built in 1705. It belongs to the Nyingma order of Tibetan Buddhism. The top floor features a stunning seven-tiered painted wooden model of the Guru Rinpoche's heavenly abode.",
+                    "tips": "Don't miss the wooden sculpture on the top floor. Excellent views of the Himalayas from the monastery grounds.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pelling-rabdentse-ruins",
+                    "name": "Rabdentse Ruins",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5–2",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "Rabdentse ruins Sikkim forest",
+                    "description": "The ruins of the second capital of the former Kingdom of Sikkim. A short trek through a chestnut forest leads to the ruins, which offer a commanding view of the Kanchenjunga range and the valley below.",
+                    "tips": "Requires a 15-20 minute uphill walk through the forest from the entrance gate. Bird watching is great here.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pelling-khecheopalri-lake",
+                    "name": "Khecheopalri Lake",
+                    "category": "Nature",
+                    "subcategory": "Sacred Lake",
+                    "rating": 4.5,
+                    "entry_fee_inr": 20,
+                    "open_hours": "6:00 AM – 6:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "Khecheopalri lake sacred forest Sikkim",
+                    "description": "A highly sacred lake for both Buddhists and Hindus, believed to fulfill wishes. It is said that birds do not let even a single leaf float on the lake's surface. Shaped like the footprint of Goddess Tara.",
+                    "tips": "Maintain silence and respect the sanctity of the lake. Feeding the fish is a common practice.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "pelling-skywalk",
+                    "name": "Chenrezig Statue & Glass Skywalk",
+                    "category": "Landmark",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.4,
+                    "entry_fee_inr": 50,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1–1.5",
+                    "distance_from_center_km": 2,
+                    "unsplash_query": "glass skywalk bridge mountains",
+                    "description": "India's first glass skywalk, situated opposite an imposing 137-foot statue of Chenrezig (Avalokitesvara). It provides a thrilling walk over a deep valley with sweeping views of the mountains.",
+                    "tips": "You have to remove your shoes before walking on the glass. Great for photography.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "lachung",
+            "name": "Lachung",
+            "tagline": "Gateway to the Valley of Flowers",
+            "region": "North Sikkim",
+            "district": "Mangan",
+            "type": "Alpine Village",
+            "altitude_m": 2900,
+            "altitude_display": "2,900m",
+            "lat": 27.6891,
+            "lon": 88.7430,
+            "distance_gangtok_km": 118,
+            "best_time": "April–May (flowers), October–December (snow)",
+            "avoid_time": "July–August, January–February (often blocked by extreme snow)",
+            "temp_summer_c": "10–16°C",
+            "temp_winter_c": "-5–5°C",
+            "hero_image": "https://images.unsplash.com/photo-1596706788876-0683050085da?w=1200&q=80",
+            "overview": "A picturesque mountain village in North Sikkim, Lachung lies on the banks of the Lachung Chu river. Known for its apples, apricots, and traditional Tibetan architecture, it acts as the base camp for visiting the spectacular Yumthang Valley.",
+            "history": "Before the annexation of Tibet by China, Lachung was a major trading post between Sikkim and Tibet. The local 'Dzumsa' system of self-governance, unique to North Sikkim, is still practiced here.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 195
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 190
+            },
+            "language": [
+                "Sikkimese",
+                "Nepali",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Momos",
+                "Noodles",
+                "Butter Tea"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 2000,
+                "mid": 4500,
+                "luxury": 8000
+            },
+            "tags": [
+                "snow",
+                "alpine",
+                "valleys",
+                "flowers"
+            ],
+            "places": [
+                {
+                    "id": "lachung-yumthang",
+                    "name": "Yumthang Valley",
+                    "category": "Nature",
+                    "subcategory": "Valley",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "Yumthang valley Sikkim flowers snow river",
+                    "description": "Known as the 'Valley of Flowers' of Sikkim. In spring, it is carpeted with primulas and rhododendrons. The valley floor is crisscrossed by a crystal-clear river and surrounded by snow-capped peaks.",
+                    "tips": "Start early morning (around 6 AM) from Lachung. The valley has a hot spring nearby where you can take a dip.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "lachung-zero-point",
+                    "name": "Zero Point (Yumesamdong)",
+                    "category": "Nature",
+                    "subcategory": "High Altitude",
+                    "rating": 4.7,
+                    "entry_fee_inr": 300,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 50,
+                    "unsplash_query": "Zero Point Sikkim snow mountains",
+                    "description": "Located at an altitude of 4,600m, this is where the civilian road ends. It remains snow-covered for most of the year. The majestic landscapes and high-altitude terrain make it a thrilling visit.",
+                    "tips": "Requires an additional permit fee (usually negotiated with your driver). Prone to low oxygen levels, so don't exert yourself.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "lachen",
+            "name": "Lachen",
+            "tagline": "Base camp to Gurudongmar",
+            "region": "North Sikkim",
+            "district": "Mangan",
+            "type": "Alpine Village",
+            "altitude_m": 2750,
+            "altitude_display": "2,750m",
+            "lat": 27.7167,
+            "lon": 88.5577,
+            "distance_gangtok_km": 120,
+            "best_time": "April–May, October–November",
+            "avoid_time": "Monsoon & Peak Winter (roads block)",
+            "temp_summer_c": "10–15°C",
+            "temp_winter_c": "-5–5°C",
+            "hero_image": "https://images.unsplash.com/photo-1621215160844-325bdfa91073?w=1200&q=80",
+            "overview": "Lachen, meaning 'Big Pass', is a serene and less commercialized mountain village. It is primarily known as the overnight base camp for tourists traveling to the holy Gurudongmar Lake.",
+            "history": "Like Lachung, Lachen also served as a trading post. It was relatively untouched by tourism until the late 1990s when the Indian government opened up the Gurudongmar area for domestic tourists.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 195
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 190
+            },
+            "language": [
+                "Lachenpa",
+                "Nepali",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Rai Saag",
+                "Momos",
+                "Local Broths"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 2000,
+                "mid": 4500,
+                "luxury": 7000
+            },
+            "tags": [
+                "lakes",
+                "high altitude",
+                "remote",
+                "village"
+            ],
+            "places": [
+                {
+                    "id": "lachen-gurudongmar",
+                    "name": "Gurudongmar Lake",
+                    "category": "Nature",
+                    "subcategory": "High Altitude Lake",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Morning only (must return by 1 PM)",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 66,
+                    "unsplash_query": "Gurudongmar Lake Sikkim frozen blue high altitude",
+                    "description": "One of the highest lakes in the world at 5,430m (17,800 ft). Sacred to Buddhists, Sikhs, and Hindus. The lake's waters are breathtakingly blue and a small portion miraculously never freezes, even in peak winter.",
+                    "tips": "Extremely high altitude; AMS (Acute Mountain Sickness) is a real risk. Start from Lachen at 4 AM. Children below 5 and seniors with heart/lung issues are not permitted.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "lachen-thangu",
+                    "name": "Thangu Valley",
+                    "category": "Nature",
+                    "subcategory": "Valley",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 30,
+                    "unsplash_query": "Thangu Valley Sikkim alpine tundra",
+                    "description": "A high alpine valley where the tree line ends and the Tibetan plateau begins. You pass through this valley on the way to Gurudongmar Lake. It is a harsh, yet beautiful terrain of shrubs and streams.",
+                    "tips": "Usually a breakfast stop on the way to the lake. The cold here is biting, so layer up well.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "namchi",
+            "name": "Namchi",
+            "tagline": "The Culture Capital",
+            "region": "South Sikkim",
+            "district": "Namchi",
+            "type": "Cultural & Pilgrimage",
+            "altitude_m": 1675,
+            "altitude_display": "1,675m",
+            "lat": 27.1675,
+            "lon": 88.3640,
+            "distance_gangtok_km": 80,
+            "distance_siliguri_km": 100,
+            "best_time": "March–May, September–November",
+            "avoid_time": "July–August (monsoon)",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "4–12°C",
+            "hero_image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80",
+            "overview": "Namchi, meaning 'Sky High', is the district headquarters of South Sikkim. It has rapidly developed into a major pilgrimage and cultural hub, featuring massive statues, beautifully replicated temples, and sweeping views of the Darjeeling hills.",
+            "history": "Namchi has been a quiet district center that witnessed massive tourism development in the 21st century with the construction of the Samdruptse statue and the Char Dham complex to promote religious tourism.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 105
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 100
+            },
+            "language": [
+                "Nepali",
+                "Hindi",
+                "English"
+            ],
+            "cuisine": [
+                "Momos",
+                "Sel Roti",
+                "Gundruk Soup"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 6000
+            },
+            "tags": [
+                "pilgrimage",
+                "statues",
+                "culture",
+                "south sikkim"
+            ],
+            "places": [
+                {
+                    "id": "namchi-char-dham",
+                    "name": "Siddhesvara Dhaam (Char Dham)",
+                    "category": "Temple",
+                    "subcategory": "Pilgrimage Complex",
+                    "rating": 4.7,
+                    "entry_fee_inr": 50,
+                    "open_hours": "8:00 AM – 7:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 5,
+                    "unsplash_query": "Char Dham Namchi Shiva statue Sikkim",
+                    "description": "A massive pilgrimage complex situated on Solophok hill. It features an imposing 87-foot statue of Lord Shiva, surrounded by replicas of the twelve Jyotirlingas and the four sacred Dhams (Badrinath, Jagannath, Dwarka, Rameswaram).",
+                    "tips": "The complex is very clean and well-maintained. The evening lighting makes the Shiva statue look majestic.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "namchi-samdruptse",
+                    "name": "Samdruptse Hill",
+                    "category": "Landmark",
+                    "subcategory": "Statue",
+                    "rating": 4.5,
+                    "entry_fee_inr": 30,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 7,
+                    "unsplash_query": "Samdruptse Guru Rinpoche statue Sikkim",
+                    "description": "Translating to 'The Wish Fulfilling Hill', it houses a spectacular 118-foot tall statue of Guru Rinpoche (Padmasambhava) coated in gold that glistens in the sun.",
+                    "tips": "It requires climbing some stairs from the parking area. The views of the surrounding hills are excellent.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "namchi-tarey-bhir",
+                    "name": "Tarey Bhir",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 16,
+                    "unsplash_query": "cliff viewpoint walkway edge",
+                    "description": "A breathtaking 3km long stone walkway built along the edge of a steep cliff. It offers panoramic views of the river valleys, the confluence of the Teesta and Rangeet rivers, and the tea gardens of Darjeeling.",
+                    "tips": "Not recommended for those with severe vertigo. The walkway has safety railings, but care is needed.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "ravangla",
+            "name": "Ravangla",
+            "tagline": "The Buddha's Abode",
+            "region": "South Sikkim",
+            "district": "Namchi",
+            "type": "Hill Station",
+            "altitude_m": 2438,
+            "altitude_display": "2,438m",
+            "lat": 27.3090,
+            "lon": 88.3639,
+            "distance_gangtok_km": 65,
+            "best_time": "September–November, March–May",
+            "avoid_time": "July–August",
+            "temp_summer_c": "12–22°C",
+            "temp_winter_c": "2–10°C",
+            "hero_image": "https://images.unsplash.com/photo-1596706788876-0683050085da?w=1200&q=80",
+            "overview": "Located on a ridge between Maenam and Tendong Hill, Ravangla is a quiet, misty town offering superb views of the Greater Himalayas. It is most famous for the spectacular Buddha Park.",
+            "history": "Traditionally a small transit town between Gangtok and West Sikkim. It gained prominence with the inauguration of the Tathagata Tsal (Buddha Park) by the Dalai Lama in 2013.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 125
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 120
+            },
+            "language": [
+                "Nepali",
+                "English"
+            ],
+            "cuisine": [
+                "Thukpa",
+                "Tea",
+                "Momos"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3500,
+                "luxury": 7000
+            },
+            "tags": [
+                "buddha",
+                "peaceful",
+                "views",
+                "misty"
+            ],
+            "places": [
+                {
+                    "id": "ravangla-buddha-park",
+                    "name": "Buddha Park (Tathagata Tsal)",
+                    "category": "Landmark",
+                    "subcategory": "Park & Statue",
+                    "rating": 4.8,
+                    "entry_fee_inr": 50,
+                    "open_hours": "9:00 AM – 6:00 PM",
+                    "duration_hrs": "1.5–2",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "Buddha Park Ravangla huge statue Sikkim",
+                    "description": "A beautifully landscaped park featuring a massive 130-foot high sitting Buddha statue. The complex contains a meditation center and museum underneath the statue, surrounded by peaceful gardens and prayer wheels.",
+                    "tips": "Battery-operated cars are available for the elderly. The interior murals detailing the life of Buddha are a must-see.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "ravangla-ralang-monastery",
+                    "name": "Ralang Monastery",
+                    "category": "Temple",
+                    "subcategory": "Buddhist Monastery",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 13,
+                    "unsplash_query": "Tibetan monastery Sikkim Ralang",
+                    "description": "One of the most sacred monasteries in Sikkim, known for its vast collection of paintings and thangkas. It hosts the Pang Lhabsol festival with the traditional Mahakala dance.",
+                    "tips": "It's a bumpy ride from Ravangla. The monastery complex is huge and very peaceful.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "yuksom",
+            "name": "Yuksom",
+            "tagline": "The First Capital",
+            "region": "West Sikkim",
+            "district": "Gyalshing",
+            "type": "Heritage & Trekking",
+            "altitude_m": 1780,
+            "altitude_display": "1,780m",
+            "lat": 27.3732,
+            "lon": 88.2215,
+            "distance_pelling_km": 40,
+            "best_time": "March–May, September–November",
+            "avoid_time": "July–August",
+            "temp_summer_c": "15–25°C",
+            "temp_winter_c": "3–13°C",
+            "hero_image": "https://images.unsplash.com/photo-1622396481328-9b1b78c7f096?w=1200&q=80",
+            "overview": "Yuksom is a historic village set amidst dense forest and mountains. It is the starting point for the famous Goecha La trek. The village is deeply tied to Sikkim's history and has a rustic, untouched charm.",
+            "history": "Yuksom was the very first capital of the Kingdom of Sikkim. In 1642, three learned Tibetan monks met here and consecrated the first Chogyal (religious king) of Sikkim at the Norbugang throne.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 155
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 150
+            },
+            "language": [
+                "Bhutia",
+                "Nepali",
+                "English"
+            ],
+            "cuisine": [
+                "Local Thali",
+                "Tongba",
+                "Kinema"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "heritage",
+                "trekking",
+                "history",
+                "nature"
+            ],
+            "places": [
+                {
+                    "id": "yuksom-norbugang",
+                    "name": "Coronation Throne of Norbugang",
+                    "category": "Heritage",
+                    "subcategory": "Historical Site",
+                    "rating": 4.4,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 1,
+                    "unsplash_query": "stone throne prayer flags forest Sikkim",
+                    "description": "The exact spot where the first king of Sikkim was consecrated in 1642. The site features a stone throne, a footprint of one of the founding monks, a stupa, and a giant ancient pine tree.",
+                    "tips": "A very quiet and historical spot covered in prayer flags. Respect the sanctity of the place.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "yuksom-dubdi",
+                    "name": "Dubdi Monastery",
+                    "category": "Temple",
+                    "subcategory": "Buddhist Monastery",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 3,
+                    "unsplash_query": "ancient monastery forest trek Sikkim",
+                    "description": "Established in 1701, this is considered the oldest monastery in Sikkim. It sits on a hilltop above Yuksom and requires a short, steep trek through a beautiful forest.",
+                    "tips": "The hike takes about 45 minutes from Yuksom town. The path is scenic but can be slippery if it has rained.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "zuluk",
+            "name": "Zuluk",
+            "tagline": "The Old Silk Route",
+            "region": "East Sikkim",
+            "district": "Pakyong",
+            "type": "Offbeat & Nature",
+            "altitude_m": 2865,
+            "altitude_display": "2,865m",
+            "lat": 27.2518,
+            "lon": 88.7775,
+            "distance_gangtok_km": 90,
+            "best_time": "August–October (flowers/clear weather), Jan-April (snow)",
+            "avoid_time": "July (monsoon blocks)",
+            "temp_summer_c": "10–20°C",
+            "temp_winter_c": "-2–8°C",
+            "hero_image": "https://images.unsplash.com/photo-1622396481328-9b1b78c7f096?w=1200&q=80",
+            "overview": "Zuluk is a small, rugged village nestled in the lower Himalayas in East Sikkim. It is famously part of the historic Old Silk Route. The area is renowned for its looping, zigzag roads that offer spectacular views of the Kanchenjunga.",
+            "history": "Zuluk was a transit point for the historic Silk Route from Tibet to India. Traders traveling through the Jelep La pass would rest here. It has heavily restricted access due to its proximity to the Chinese border.",
+            "nearest_airport": {
+                "name": "Bagdogra International Airport",
+                "code": "IXB",
+                "distance_km": 140
+            },
+            "nearest_railhead": {
+                "name": "New Jalpaiguri (NJP)",
+                "distance_km": 135
+            },
+            "language": [
+                "Nepali",
+                "Hindi"
+            ],
+            "cuisine": [
+                "Basic Mountain Food",
+                "Maggi",
+                "Momos"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1500,
+                "mid": 3000,
+                "luxury": 4500
+            },
+            "tags": [
+                "silk route",
+                "zig zag roads",
+                "offbeat",
+                "snow"
+            ],
+            "places": [
+                {
+                    "id": "zuluk-thambi-viewpoint",
+                    "name": "Thambi View Point",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.8,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 14,
+                    "unsplash_query": "Zuluk zig zag roads hairpin bends mountains",
+                    "description": "Located at 11,200 feet, this viewpoint offers a stunning panoramic view of the entire eastern Himalayan range including Kanchenjunga. It is also the best place to photograph the famous 32 hairpin bends of the Zuluk loops.",
+                    "tips": "Sunrise is the best time to visit for unhindered views of the mountains. Dress warmly as winds are very strong.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "zuluk-kupup-lake",
+                    "name": "Kupup Lake (Elephant Lake)",
+                    "category": "Nature",
+                    "subcategory": "High Altitude Lake",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Daylight hours",
+                    "duration_hrs": "0.5",
+                    "distance_from_center_km": 25,
+                    "unsplash_query": "Kupup lake elephant shape Sikkim",
+                    "description": "A high-altitude lake situated at 13,066 feet, uniquely shaped like an elephant. It lies right on the Old Silk Route and remains frozen for several months of the year.",
+                    "tips": "The Yak Golf Course, one of the highest golf courses in the world, is located right next to the lake.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,799 @@
+{
+    "meta": {
+        "project": "Tripura Explore",
+        "version": "1.0",
+        "total_cities": 10,
+        "last_updated": "2026-04-05",
+        "author": "Tripura Explore Team"
+    },
+    "cities": [
+        {
+            "id": "agartala",
+            "name": "Agartala",
+            "tagline": "The Royal Capital",
+            "region": "West Tripura",
+            "district": "West Tripura",
+            "type": "State Capital & Cultural Hub",
+            "altitude_m": 15,
+            "altitude_display": "15m",
+            "lat": 23.8315,
+            "lon": 91.2868,
+            "distance_guwahati_km": 550,
+            "distance_kolkata_km": 1500,
+            "best_time": "October–March",
+            "avoid_time": "June–August (heavy monsoon and high humidity)",
+            "temp_summer_c": "28–35°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1596710475691-a89e76cef5ea?w=1200&q=80",
+            "overview": "Agartala is the capital of Tripura, situated on the banks of the Haora River near the Bangladesh border. It represents a seamless blend of grand Manikya dynasty palatial architecture and vibrant Bengali-Tripuri culture.",
+            "history": "Agartala became the capital of the princely state of Tripura in 1849 under Maharaja Krishna Kishore Manikya. The city flourished under the Manikya dynasty, whose kings were great patrons of art and literature, sharing a close bond with Nobel Laureate Rabindranath Tagore.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 12
+            },
+            "nearest_railhead": {
+                "name": "Agartala Railway Station",
+                "distance_km": 5,
+                "note": "Well-connected to Guwahati, Kolkata, and Delhi"
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "Mui Borok",
+                "Mosdeng Serma (Tomato/Fish Chutney)",
+                "Awndru",
+                "Chakhwi",
+                "Bangwi (Rice cake in banana leaf)"
+            ],
+            "stay_recommended_days": 3,
+            "budget_per_day_inr": {
+                "budget": 1200,
+                "mid": 3000,
+                "luxury": 6500
+            },
+            "tags": [
+                "culture",
+                "palaces",
+                "border",
+                "history",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "agartala-ujjayanta-palace",
+                    "name": "Ujjayanta Palace & State Museum",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.8,
+                    "entry_fee_inr": 20,
+                    "open_hours": "10:00 AM – 5:00 PM (Closed Mon)",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 0,
+                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+                    "description": "A magnificent gleaming white palace built in 1901 by Maharaja Radha Kishore Manikya, featuring Mughal-style gardens and musical fountains. It now houses the Tripura State Museum, detailing the lifestyle, arts, and history of Northeast India.",
+                    "tips": "Visit in the late afternoon to see the museum, then stay for the beautifully illuminated exterior and musical fountain show in the evening.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "agartala-akhaura-border",
+                    "name": "Agartala-Akhaura Border (ICP)",
+                    "category": "Culture",
+                    "subcategory": "Border Crossing",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "4:30 PM – 5:30 PM (Ceremony time varies by season)",
+                    "duration_hrs": "1.5",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
+                    "description": "The integrated check post on the Indo-Bangladesh border hosts a daily flag-lowering ceremony. Similar to the Wagah border, but with a much friendlier and less aggressive atmosphere between the BSF and BGB guards.",
+                    "tips": "Carry a valid photo ID. Arrive 45 minutes before sunset to get a good seat for the Beating Retreat ceremony.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "agartala-heritage-park",
+                    "name": "Heritage Park",
+                    "category": "Leisure",
+                    "subcategory": "Park",
+                    "rating": 4.3,
+                    "entry_fee_inr": 10,
+                    "open_hours": "10:00 AM – 7:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 3,
+                    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                    "description": "A beautifully landscaped 12-acre park showcasing miniature replicas of Tripura's iconic monuments like Unakoti, Neermahal, and Tripura Sundari Temple.",
+                    "tips": "A great starting point to get a geographic and historical overview of Tripura's main attractions before visiting them.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "udaipur-tripura",
+            "name": "Udaipur",
+            "tagline": "City of Lakes and Goddesses",
+            "region": "Gomati District",
+            "district": "Gomati",
+            "type": "Pilgrimage & Heritage",
+            "altitude_m": 22,
+            "altitude_display": "22m",
+            "lat": 23.5330,
+            "lon": 91.4826,
+            "distance_agartala_km": 50,
+            "distance_guwahati_km": 600,
+            "best_time": "October–April (Diwali is exceptionally vibrant)",
+            "avoid_time": "June–August",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=1200&q=80",
+            "overview": "Udaipur, formerly known as Rangamati, was the ancient capital of the Tripura Maharajas. It is profoundly significant as the home of the Tripura Sundari Temple (Matabari), one of the 51 Shakti Peethas.",
+            "history": "It served as the capital of the Manikya dynasty from the 16th century until it was shifted to Old Agartala in the 18th century. The town is dotted with artificial lakes (Dighis) excavated by various kings.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 55
+            },
+            "nearest_railhead": {
+                "name": "Udaipur Railway Station",
+                "distance_km": 3,
+                "note": "Direct trains connect to Agartala and Sabroom"
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "Peda (offered as Prasad)",
+                "Freshwater Fish Curries",
+                "Tripuri thali"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4500
+            },
+            "tags": [
+                "pilgrimage",
+                "temples",
+                "lakes",
+                "heritage"
+            ],
+            "places": [
+                {
+                    "id": "udaipur-tripura-sundari",
+                    "name": "Tripura Sundari Temple (Matabari)",
+                    "category": "Pilgrimage",
+                    "subcategory": "Temple",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1–2",
+                    "distance_from_center_km": 3,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "Constructed in 1501 by Maharaja Dhanya Manikya, this temple is one of the holiest Hindu shrines in Northeast India (a Shakti Peetha). The idol of Goddess Kali is made of reddish-black Kashti stone.",
+                    "tips": "The temple complex gets extremely crowded during Diwali. Feed the massive soft-shell turtles in the adjacent Kalyan Sagar lake.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "udaipur-bhubaneshwari",
+                    "name": "Bhubaneshwari Temple",
+                    "category": "Heritage",
+                    "subcategory": "Temple Ruins",
+                    "rating": 4.3,
+                    "entry_fee_inr": 0,
+                    "open_hours": "Sunrise to Sunset",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1.5,
+                    "image": "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?w=600&q=80",
+                    "description": "Immortalized in Rabindranath Tagore's plays 'Bisarjan' and 'Rajarshi'. Built by Maharaja Govinda Manikya in the 17th century, it stands on the right bank of the Gomati River.",
+                    "tips": "Offers a quieter, more historical atmosphere compared to Matabari. The sunset views over the Gomati river are serene.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "melaghar",
+            "name": "Melaghar",
+            "tagline": "Home of the Water Palace",
+            "region": "Sipahijala District",
+            "district": "Sipahijala",
+            "type": "Heritage & Nature",
+            "altitude_m": 15,
+            "altitude_display": "15m",
+            "lat": 23.4939,
+            "lon": 91.3323,
+            "distance_agartala_km": 50,
+            "distance_udaipur_km": 25,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–24°C",
+            "hero_image": "https://images.unsplash.com/photo-1525873020571-08690001b29b?w=1200&q=80",
+            "overview": "Melaghar is a vibrant town known internationally for the Neermahal, an architectural marvel standing in the middle of Rudrasagar Lake. It is one of only two water palaces in India (the other being Jal Mahal in Jaipur).",
+            "history": "Neermahal was constructed in 1930 by Maharaja Bir Bikram Kishore Manikya as a royal summer retreat. The architecture intricately blends Hindu and Islamic styles.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 60
+            },
+            "nearest_railhead": {
+                "name": "Bishramganj Railway Station",
+                "distance_km": 15
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "Lake Fish",
+                "Tripuri Thali",
+                "Misti (Sweets)"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "architecture",
+                "lake",
+                "palace",
+                "photography"
+            ],
+            "places": [
+                {
+                    "id": "melaghar-neermahal",
+                    "name": "Neermahal Palace",
+                    "category": "Heritage",
+                    "subcategory": "Palace",
+                    "rating": 4.8,
+                    "entry_fee_inr": 50,
+                    "open_hours": "9:00 AM – 5:00 PM",
+                    "duration_hrs": "2–3",
+                    "distance_from_center_km": 2,
+                    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
+                    "description": "The 'Water Palace' sits like a glowing gem in the center of Rudrasagar Lake. Divided into two parts (Andar Mahal for the royal family and an open-air theatre for guards and servants), it is reached via a short, scenic motorboat ride.",
+                    "tips": "In winter, the lake attracts thousands of migratory birds. The light and sound show in the evening brings the palace's history to life.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "kailashahar",
+            "name": "Kailashahar (Unakoti)",
+            "tagline": "The Angkor Wat of the North-East",
+            "region": "Unakoti District",
+            "district": "Unakoti",
+            "type": "Archaeological Marvel",
+            "altitude_m": 29,
+            "altitude_display": "29m",
+            "lat": 24.3278,
+            "lon": 92.0084,
+            "distance_agartala_km": 178,
+            "distance_dharmanagar_km": 40,
+            "best_time": "October–March (Makar Sankranti in Jan brings a massive fair)",
+            "avoid_time": "July–August (rain makes the rock steps incredibly slippery)",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1200&q=80",
+            "overview": "Kailashahar is the gateway to Unakoti, arguably Tripura's most spectacular and enigmatic site. It features massive rock-cut sculptures and stone images of Lord Shiva and other deities carved into a forested hillside.",
+            "history": "Unakoti translates to 'one less than a crore' (99,99,999). According to Hindu mythology, Lord Shiva rested here for a night with 99,99,999 deities on his way to Kashi. The carvings date back to the 7th–9th centuries AD.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 170
+            },
+            "nearest_railhead": {
+                "name": "Kumarghat Railway Station",
+                "distance_km": 26,
+                "note": "Taxis and buses are readily available from Kumarghat"
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "Sylheti"
+            ],
+            "cuisine": [
+                "Bamboo Shoot Pickles",
+                "Pork curries",
+                "Traditional Bengali sweets"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "archaeology",
+                "trekking",
+                "mythology",
+                "offbeat"
+            ],
+            "places": [
+                {
+                    "id": "unakoti-rock-carvings",
+                    "name": "Unakoti Rock Cut Sculptures",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.9,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 8,
+                    "image": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80",
+                    "description": "A magnificent hillside gallery of giant bas-relief sculptures. The central piece is the Unakotiswara Kal Bhairava, a 30-foot high Shiva head featuring a 10-foot intricate headdress. Waterfalls cascade down the rocks during the post-monsoon.",
+                    "tips": "Be prepared to climb steep, uneven stone stairs. Wear footwear with excellent grip. Carry plenty of water as facilities inside the site are limited.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "jampui-hills",
+            "name": "Jampui Hills (Vanghmun)",
+            "tagline": "The Eternal Spring of Tripura",
+            "region": "North Tripura",
+            "district": "North Tripura",
+            "type": "Hill Station",
+            "altitude_m": 930,
+            "altitude_display": "930m",
+            "lat": 23.9786,
+            "lon": 92.2758,
+            "distance_agartala_km": 200,
+            "distance_dharmanagar_km": 70,
+            "best_time": "September–December (Orange harvest in Nov/Dec)",
+            "avoid_time": "June–July (landslides)",
+            "temp_summer_c": "18–28°C",
+            "temp_winter_c": "8–20°C",
+            "hero_image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200&q=80",
+            "overview": "The highest hill range in Tripura, sharing borders with Mizoram. Jampui Hills offer a distinct shift in landscape and culture, inhabited primarily by the Mizo (Lushai) tribes. It is famous for its crisp climate, breathtaking sunsets, and lush orange orchards.",
+            "history": "Historically a pristine forest area, it was settled by Mizo tribes who brought their distinct culture, architecture, and agricultural practices, transforming it into the premier hill resort of Tripura.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 210
+            },
+            "nearest_railhead": {
+                "name": "Dharmanagar",
+                "distance_km": 70,
+                "note": "Drive from Dharmanagar takes about 2.5 hours via winding hill roads"
+            },
+            "language": [
+                "Mizo",
+                "English",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Fresh Oranges",
+                "Mizo Bai",
+                "Vawksa Rep (Smoked Pork)",
+                "Bamboo shoot"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 2500,
+                "luxury": 5000
+            },
+            "tags": [
+                "hill station",
+                "nature",
+                "trekking",
+                "oranges",
+                "culture"
+            ],
+            "places": [
+                {
+                    "id": "jampui-betlingchhip",
+                    "name": "Betlingchhip Peak",
+                    "category": "Nature",
+                    "subcategory": "Viewpoint",
+                    "rating": 4.6,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 15,
+                    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                    "description": "At 930 meters, this is the highest peak in Tripura. The watchtower provides spectacular panoramic views stretching across the Chittagong Hill Tracts in Bangladesh, parts of Mizoram, and the Kanchanpur valley below.",
+                    "tips": "Wake up early for the spectacular sunrise. The trek is moderate; carry a light jacket as the wind can be chilly.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "jampui-vanghmun-village",
+                    "name": "Vanghmun Village",
+                    "category": "Culture",
+                    "subcategory": "Village",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "All day",
+                    "duration_hrs": "Half day",
+                    "distance_from_center_km": 0,
+                    "image": "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?w=600&q=80",
+                    "description": "The headquarters and most developed village in the Jampui Hills, known as the 'cleanest village in Tripura'. It is the base for the Eden Tourist Lodge and the epicenter of the local Orange Festival.",
+                    "tips": "Interact with the locals and try staying in a homestay to experience authentic Mizo hospitality.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "amarpur",
+            "name": "Amarpur",
+            "tagline": "The Amazon of Tripura",
+            "region": "Gomati District",
+            "district": "Gomati",
+            "type": "Adventure & Nature",
+            "altitude_m": 30,
+            "altitude_display": "30m",
+            "lat": 23.5284,
+            "lon": 91.6425,
+            "distance_agartala_km": 78,
+            "distance_udaipur_km": 30,
+            "best_time": "October–March",
+            "avoid_time": "July–August",
+            "temp_summer_c": "25–34°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80",
+            "overview": "Amarpur is a quiet picnic spot and historical town, but its main draw is Chabimura—a steep gorge on the Gomati River featuring massive, mysterious rock carvings, often referred to as the 'Amazon of Tripura' due to its dense, riverine jungle.",
+            "history": "Named after King Amar Manikya, the town was the ancient capital of Tripura for a brief period. The Chabimura carvings date back to the 15th-16th centuries.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 85
+            },
+            "nearest_railhead": {
+                "name": "Udaipur Railway Station",
+                "distance_km": 28
+            },
+            "language": [
+                "Kokborok",
+                "Bengali"
+            ],
+            "cuisine": [
+                "River fish",
+                "Traditional Tripuri Bamboo Shoot curries"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "rock carvings",
+                "boating",
+                "adventure",
+                "jungle"
+            ],
+            "places": [
+                {
+                    "id": "amarpur-chabimura",
+                    "name": "Chabimura (Devatamura)",
+                    "category": "Adventure",
+                    "subcategory": "Rock Carvings",
+                    "rating": 4.8,
+                    "entry_fee_inr": 150,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "3",
+                    "distance_from_center_km": 8,
+                    "image": "https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&q=80",
+                    "description": "Massive panels of rock carvings of Shiva, Vishnu, Kartika, and Goddess Durga (Maa Chakrakma) on steep, vertical cliffs dropping straight into the Gomati River. Accessible only by taking a boat ride through the dense, narrow jungle gorge.",
+                    "tips": "The boat ride is mandatory to see the carvings. Negotiate boat prices beforehand. Keep your hands inside the boat as the riverbanks are wild and dense.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "belonia",
+            "name": "Belonia",
+            "tagline": "Gateway to Antiquity",
+            "region": "South Tripura",
+            "district": "South Tripura",
+            "type": "Archaeology & Wildlife",
+            "altitude_m": 23,
+            "altitude_display": "23m",
+            "lat": 23.2500,
+            "lon": 91.4500,
+            "distance_agartala_km": 90,
+            "distance_udaipur_km": 40,
+            "best_time": "November–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+            "overview": "Belonia sits in South Tripura and is the gateway to the Pilak archaeological site and the Trishna Wildlife Sanctuary. It also borders Bangladesh and features the newly inaugurated Maitri Setu (Friendship Bridge).",
+            "history": "Belonia gained prominence due to the unearthing of Pilak, an 8th-12th century archaeological site that shows a peaceful coexistence of Hindu and Buddhist cultures. During the 1971 Bangladesh Liberation War, Belonia served as a major strategic base.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 100
+            },
+            "nearest_railhead": {
+                "name": "Belonia Railway Station",
+                "distance_km": 2,
+                "note": "Connected to Agartala via Sabroom line"
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "South Tripuri Thali",
+                "Misti Doi",
+                "Freshwater fish"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4000
+            },
+            "tags": [
+                "archaeology",
+                "buddhism",
+                "wildlife",
+                "history"
+            ],
+            "places": [
+                {
+                    "id": "belonia-pilak",
+                    "name": "Pilak Archaeological Site",
+                    "category": "Heritage",
+                    "subcategory": "Archaeology",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 18,
+                    "image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=600&q=80",
+                    "description": "An ancient site revealing terracotta plaques, stone sculptures, and stupas dating from the 8th to 12th centuries. It highlights the influence of the Pala and Sena dynasties and the blending of Buddhist (Hinayana/Mahayana) and Hindu aesthetics.",
+                    "tips": "Hire a local guide if possible, as the artifacts are spread over a large rural area. The giant statue of Surya is a must-see.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "belonia-trishna",
+                    "name": "Trishna Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.4,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 15,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "Famous for its population of the Indian Gaur (Bison), monkeys, and varied avian life. The sanctuary contains patches of virgin forests and numerous water bodies that attract wildlife.",
+                    "tips": "Take the guided jeep safari for the best chance of spotting the Indian Gaur in the wild.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "gandacherra",
+            "name": "Gandacherra",
+            "tagline": "The Island Retreat",
+            "region": "Dhalai District",
+            "district": "Dhalai",
+            "type": "Nature & Leisure",
+            "altitude_m": 45,
+            "altitude_display": "45m",
+            "lat": 23.4477,
+            "lon": 91.8596,
+            "distance_agartala_km": 115,
+            "distance_ambassa_km": 50,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "26–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80",
+            "overview": "Gandacherra is a remote, incredibly scenic subdivision nestled in the Dhalai district. It is the primary gateway to the massive Dumboor Lake and the exotic Narikel Kunja (Coconut Island).",
+            "history": "Dumboor Lake is a massive water body formed by a hydroelectric dam on the Gomati river. The name 'Dumboor' comes from the shape of the lake, which resembles Lord Shiva's damru (a small drum).",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 120
+            },
+            "nearest_railhead": {
+                "name": "Ambassa Railway Station",
+                "distance_km": 50
+            },
+            "language": [
+                "Kokborok",
+                "Bengali"
+            ],
+            "cuisine": [
+                "Fresh Dumboor Lake Fish",
+                "Tribal BBQ",
+                "Pineapple"
+            ],
+            "stay_recommended_days": 2,
+            "budget_per_day_inr": {
+                "budget": 1000,
+                "mid": 3500,
+                "luxury": 6000
+            },
+            "tags": [
+                "lake",
+                "islands",
+                "eco-tourism",
+                "boating"
+            ],
+            "places": [
+                {
+                    "id": "gandacherra-dumboor-lake",
+                    "name": "Dumboor Lake & Narikel Kunja",
+                    "category": "Nature",
+                    "subcategory": "Lake & Island",
+                    "rating": 4.7,
+                    "entry_fee_inr": 0,
+                    "open_hours": "8:00 AM – 5:00 PM (for boating)",
+                    "duration_hrs": "Half to Full day",
+                    "distance_from_center_km": 15,
+                    "image": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&q=80",
+                    "description": "A massive 41 sq. km lake dotted with 48 small islands. The most famous is Narikel Kunja (Coconut Island), which has been developed into an eco-resort with log huts, water sports, and a pristine, tranquil environment.",
+                    "tips": "Book the log huts at Narikel Kunja in advance via Tripura Tourism. Speedboats are available from the Gandacherra ferry ghat.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "dharmanagar",
+            "name": "Dharmanagar",
+            "tagline": "The Northern Gateway",
+            "region": "North Tripura",
+            "district": "North Tripura",
+            "type": "Transit & Culture Hub",
+            "altitude_m": 21,
+            "altitude_display": "21m",
+            "lat": 24.3683,
+            "lon": 92.1581,
+            "distance_agartala_km": 170,
+            "distance_silchar_km": 115,
+            "best_time": "October–March",
+            "avoid_time": "June–August",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "10–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80",
+            "overview": "Dharmanagar is the second-largest urban center in Tripura and serves as the northern commercial gateway to the state. It is the primary base for exploring the Jampui Hills and the nearby Rowa Wildlife Sanctuary.",
+            "history": "Once an ancient city with a rich history of trade, it was heavily influenced by Bengali culture due to its proximity to the Sylhet region (now in Bangladesh).",
+            "nearest_airport": {
+                "name": "Silchar Airport (Assam)",
+                "code": "IXS",
+                "distance_km": 120
+            },
+            "nearest_railhead": {
+                "name": "Dharmanagar Railway Station",
+                "distance_km": 2,
+                "note": "Major rail hub connecting Tripura to Assam and beyond"
+            },
+            "language": [
+                "Bengali",
+                "Sylheti",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "Sylheti curries",
+                "Street food",
+                "Tea"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 2000,
+                "luxury": 4500
+            },
+            "tags": [
+                "transit",
+                "wildlife",
+                "commercial",
+                "temples"
+            ],
+            "places": [
+                {
+                    "id": "dharmanagar-rowa",
+                    "name": "Rowa Wildlife Sanctuary",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.1,
+                    "entry_fee_inr": 10,
+                    "open_hours": "8:00 AM – 4:00 PM",
+                    "duration_hrs": "2",
+                    "distance_from_center_km": 12,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "A small but rich wildlife sanctuary known for its varied flora, wild primates, and an excellent site for botanists and bird watchers.",
+                    "tips": "The trails can be overgrown; wear full trousers and mosquito repellent.",
+                    "google_place_id": ""
+                },
+                {
+                    "id": "dharmanagar-kalibari",
+                    "name": "Dharmanagar Kalibari",
+                    "category": "Pilgrimage",
+                    "subcategory": "Temple",
+                    "rating": 4.5,
+                    "entry_fee_inr": 0,
+                    "open_hours": "6:00 AM – 8:00 PM",
+                    "duration_hrs": "1",
+                    "distance_from_center_km": 1,
+                    "image": "https://images.unsplash.com/photo-1567591413724-e1c0f22ee0dd?w=600&q=80",
+                    "description": "A highly revered Hindu temple dedicated to Goddess Kali, located in the heart of the town. The temple sees massive celebrations during Diwali.",
+                    "tips": "Visit during the evening Aarti for a peaceful, spiritual experience.",
+                    "google_place_id": ""
+                }
+            ]
+        },
+        {
+            "id": "bishalgarh-sepahijala",
+            "name": "Bishalgarh (Sepahijala)",
+            "tagline": "Realm of the Clouded Leopard",
+            "region": "Sipahijala District",
+            "district": "Sipahijala",
+            "type": "Wildlife Reserve",
+            "altitude_m": 15,
+            "altitude_display": "15m",
+            "lat": 23.6335,
+            "lon": 91.2917,
+            "distance_agartala_km": 25,
+            "distance_udaipur_km": 25,
+            "best_time": "October–March",
+            "avoid_time": "July–August (park trails get muddy)",
+            "temp_summer_c": "25–35°C",
+            "temp_winter_c": "12–25°C",
+            "hero_image": "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1200&q=80",
+            "overview": "Bishalgarh is a rapidly growing town just south of Agartala. Its primary attraction is the renowned Sepahijala Wildlife Sanctuary, famously home to the elusive Clouded Leopard and Phayre's langur.",
+            "history": "The Sepahijala area was historically a dense forest tract bridging the capital and the southern regions. The sanctuary was established in 1987 to protect the rich biodiversity and has since become a major conservation success.",
+            "nearest_airport": {
+                "name": "Maharaja Bir Bikram Airport (Agartala)",
+                "code": "IXA",
+                "distance_km": 35
+            },
+            "nearest_railhead": {
+                "name": "Bishalgarh Railway Station",
+                "distance_km": 3
+            },
+            "language": [
+                "Bengali",
+                "Kokborok",
+                "English"
+            ],
+            "cuisine": [
+                "Tripuri snacks",
+                "Bengali street food"
+            ],
+            "stay_recommended_days": 1,
+            "budget_per_day_inr": {
+                "budget": 800,
+                "mid": 1500,
+                "luxury": 3500
+            },
+            "tags": [
+                "wildlife",
+                "conservation",
+                "nature",
+                "family"
+            ],
+            "places": [
+                {
+                    "id": "sepahijala-wildlife-sanctuary",
+                    "name": "Sepahijala Wildlife Sanctuary & Clouded Leopard National Park",
+                    "category": "Nature",
+                    "subcategory": "Wildlife",
+                    "rating": 4.6,
+                    "entry_fee_inr": 20,
+                    "open_hours": "8:00 AM – 4:00 PM (Closed Friday)",
+                    "duration_hrs": "3–4",
+                    "distance_from_center_km": 5,
+                    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                    "description": "A massive biodiversity hotspot covering over 18 sq. km. It includes a botanical garden, zoo, and a lake. It is renowned for successful captive breeding of the Clouded Leopard (the State Animal) and the spectacled Phayre's langur (the State Primate).",
+                    "tips": "Rent a paddleboat on the lake. The sanctuary is quite large, so taking the battery-operated vehicle (if available) is helpful for families with young children.",
+                    "google_place_id": ""
+                }
+            ]
+        }
+    ]
+}
